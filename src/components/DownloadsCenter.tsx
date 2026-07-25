@@ -1,0 +1,121 @@
+'use client';
+
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+interface DownloadsCenterProps {
+  onOpenDownloadModal: (type: string) => void;
+}
+
+export default function DownloadsCenter({ onOpenDownloadModal }: DownloadsCenterProps) {
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (sectionRef.current) {
+      const cards = sectionRef.current.querySelectorAll('.gsap-download');
+      gsap.fromTo(
+        cards,
+        { opacity: 0, y: 35 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+          },
+        }
+      );
+    }
+  }, []);
+
+  return (
+    <section ref={sectionRef} id="recursos" className="py-20 bg-brand-deepObsidian border-b border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-brand-gold font-bold uppercase tracking-widest text-xs">Documentación para Compras y Licitaciones</span>
+          <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-white mt-1">Centro de Descargas Técnicas B2B</h2>
+          <p className="text-slate-400 text-xs sm:text-sm mt-2">Acceda directamente a nuestras constancias para homologación inmediata.</p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          {/* Card 1 */}
+          <div className="gsap-download glass-panel rounded-2xl p-6 border border-slate-800 hover:border-brand-gold transition duration-300 text-center flex flex-col justify-between custom-ring-hover">
+            <div>
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-brand-petroleum/30 text-brand-gold border border-brand-petroleum/50 flex items-center justify-center text-3xl font-bold mb-4 shadow-md">
+                <i className="fa-solid fa-file-pdf"></i>
+              </div>
+              <h3 className="font-bold text-base text-white">Brochure Corporativo 2026</h3>
+              <p className="text-xs text-slate-400 mt-2">Presentación completa de capacidad instalada, flota y servicios.</p>
+              <div className="mt-3 inline-block bg-slate-800 text-brand-gold font-bold text-[10px] px-2.5 py-1 rounded-full border border-slate-700">PDF (4.2 MB)</div>
+            </div>
+            <button 
+              onClick={() => onOpenDownloadModal('brochure')} 
+              className="mt-6 w-full bg-brand-petroleum hover:bg-brand-darkPetroleum text-white border border-brand-gold/30 font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
+              <i className="fa-solid fa-download"></i> Descargar Brochure
+            </button>
+          </div>
+
+          {/* Card 2 */}
+          <div className="gsap-download glass-panel rounded-2xl p-6 border border-slate-800 hover:border-brand-gold transition duration-300 text-center flex flex-col justify-between custom-ring-hover">
+            <div>
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-brand-petroleum/30 text-brand-gold border border-brand-petroleum/50 flex items-center justify-center text-3xl font-bold mb-4 shadow-md">
+                <i className="fa-solid fa-shield-halved"></i>
+              </div>
+              <h3 className="font-bold text-base text-white">Certificado Bureau Veritas</h3>
+              <p className="text-xs text-slate-400 mt-2">Informe de homologación empresarial HP0017249 (Puntaje 87.81%).</p>
+              <div className="mt-3 inline-block bg-slate-800 text-brand-gold font-bold text-[10px] px-2.5 py-1 rounded-full border border-slate-700">PDF (1.1 MB)</div>
+            </div>
+            <button 
+              onClick={() => onOpenDownloadModal('bv')} 
+              className="mt-6 w-full bg-brand-petroleum hover:bg-brand-darkPetroleum text-white border border-brand-gold/30 font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
+              <i className="fa-solid fa-download"></i> Descargar Certificado
+            </button>
+          </div>
+
+          {/* Card 3 */}
+          <div className="gsap-download glass-panel rounded-2xl p-6 border border-slate-800 hover:border-brand-gold transition duration-300 text-center flex flex-col justify-between custom-ring-hover">
+            <div>
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-brand-petroleum/30 text-brand-gold border border-brand-petroleum/50 flex items-center justify-center text-3xl font-bold mb-4 shadow-md">
+                <i className="fa-solid fa-building-flag"></i>
+              </div>
+              <h3 className="font-bold text-base text-white">Registro MINEM RD 0288-2021</h3>
+              <p className="text-xs text-slate-400 mt-2">Inscripción oficial en el Registro de Empresas Contratistas Mineras.</p>
+              <div className="mt-3 inline-block bg-slate-800 text-brand-gold font-bold text-[10px] px-2.5 py-1 rounded-full border border-slate-700">PDF (850 KB)</div>
+            </div>
+            <button 
+              onClick={() => onOpenDownloadModal('minem')} 
+              className="mt-6 w-full bg-brand-petroleum hover:bg-brand-darkPetroleum text-white border border-brand-gold/30 font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
+              <i className="fa-solid fa-download"></i> Descargar Constancia
+            </button>
+          </div>
+
+          {/* Card 4 */}
+          <div className="gsap-download glass-panel rounded-2xl p-6 border border-slate-800 hover:border-brand-gold transition duration-300 text-center flex flex-col justify-between custom-ring-hover">
+            <div>
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-brand-petroleum/30 text-brand-gold border border-brand-petroleum/50 flex items-center justify-center text-3xl font-bold mb-4 shadow-md">
+                <i className="fa-solid fa-file-invoice"></i>
+              </div>
+              <h3 className="font-bold text-base text-white">Ficha RUC y SUNAT</h3>
+              <p className="text-xs text-slate-400 mt-2">RUC 20608261894 en estado Activo y Habido para procesos contables.</p>
+              <div className="mt-3 inline-block bg-slate-800 text-brand-gold font-bold text-[10px] px-2.5 py-1 rounded-full border border-slate-700">PDF (500 KB)</div>
+            </div>
+            <button 
+              onClick={() => onOpenDownloadModal('ruc')} 
+              className="mt-6 w-full bg-brand-petroleum hover:bg-brand-darkPetroleum text-white border border-brand-gold/30 font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
+              <i className="fa-solid fa-download"></i> Descargar Ficha RUC
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}

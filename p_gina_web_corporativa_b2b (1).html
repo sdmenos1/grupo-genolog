@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRUPO GENOLG | Ingeniería Minera, Paradas de Planta y Montaje Metalmecánico</title>
+    <meta name="description" content="GRUPO GENOLG MINERÍA & CONSTRUCCIÓN S.C.R.L. (RUC 20608261894). Contratista Minero Homologado Bureau Veritas (87.81%) y Registro MINEM. Paradas de planta, molienda, chancado y montaje electromecánico.">
+    <meta name="keywords" content="GRUPO GENOLG, RUC 20608261894, Mantenimiento minero Peru, Paradas de planta, Cambio de chaquetas molino SAG, Montaje metalmecanico Cerro de Pasco">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <!-- GSAP & ScrollTrigger Animation Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            petroleum: '#0F4C5C',
+                            darkPetroleum: '#0A323D',
+                            deepObsidian: '#0A0E14',
+                            titanium: '#121824',
+                            steel: '#1E293B',
+                            gold: '#C59B27',
+                            goldLight: '#E5BF54',
+                            goldHover: '#A67F1A',
+                            copper: '#B85312',
+                            silver: '#94A3B8',
+                            muted: '#64748B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'executive': '0 20px 40px -15px rgba(0, 0, 0, 0.7)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0E14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C59B27;
+        }
+
+        .blueprint-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(197, 155, 39, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(197, 155, 39, 0.03) 1px, transparent 1px);
+        }
+
+        .glass-panel {
+            background: rgba(18, 24, 36, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(197, 155, 39, 0.15);
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #F3E5AB 0%, #C59B27 60%, #8C6B16 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .custom-ring-hover {
+            transition: all 0.3s ease-out;
+        }
+        .custom-ring-hover:hover {
+            box-shadow: 0 10px 30px -10px rgba(197, 155, 39, 0.2);
+            border-color: rgba(197, 155, 39, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .gsap-reveal {
+            opacity: 0;
+            transform: translateY(35px);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: marquee 35s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        .full-hero-slide {
+            opacity: 0;
+            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(1.04);
+            z-index: 0;
+        }
+        .full-hero-slide.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-brand-deepObsidian text-slate-200 font-sans antialiased selection:bg-brand-gold selection:text-brand-deepObsidian overflow-x-hidden">
+
+    <!-- Top Regulatory Bar -->
+    <div class="bg-slate-900/90 border-b border-slate-800 text-xs py-2.5 px-4 sm:px-8 text-slate-300 relative z-50">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+                <span class="flex items-center gap-2 font-semibold text-slate-200">
+                    <i class="fa-solid fa-building text-brand-gold"></i>
+                    <span>RUC: <strong class="text-white">20608261894</strong> (Activo / Habido)</span>
+                </span>
+                <span class="hidden md:inline-flex items-center gap-2 border-l border-slate-800 pl-4">
+                    <i class="fa-solid fa-certificate text-brand-gold"></i>
+                    <span>MINEM R.D. N° 0288-2021-MINEM/DGM</span>
+                </span>
+                <span class="hidden lg:inline-flex items-center gap-2 border-l border-slate-800 pl-4">
+                    <i class="fa-solid fa-shield-halved text-brand-gold"></i>
+                    <span>Bureau Veritas HP0017249 (<strong class="text-brand-gold">87.81% - Nivel B</strong>)</span>
+                </span>
+            </div>
+
+            <div class="flex items-center gap-6 text-xs">
+                <a href="mailto:gerencia@grupogenolg.com" class="hover:text-brand-gold transition-colors flex items-center gap-2">
+                    <i class="fa-regular fa-envelope text-brand-gold"></i>
+                    <span class="hidden sm:inline">gerencia@grupogenolg.com</span>
+                </a>
+                <a href="tel:+51950843157" class="hover:text-brand-gold transition-colors flex items-center gap-2 font-bold text-white">
+                    <i class="fa-solid fa-phone text-brand-gold"></i>
+                    <span>+51 950 843 157</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-40 bg-brand-deepObsidian/90 backdrop-blur-2xl border-b border-slate-800 transition-all duration-300 py-1.5" id="main-header">
+        <div id="scroll-progress" class="h-1 bg-gradient-to-r from-brand-petroleum via-brand-gold to-brand-copper w-0 transition-all duration-150"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 sm:h-22">
+                
+                <a href="#inicio" class="flex items-center gap-3 group flex-shrink-0">
+                    <div class="bg-slate-100/95 hover:bg-white p-2.5 sm:p-3 rounded-2xl border border-brand-gold/40 shadow-soft-gold transition-all duration-300 group-hover:scale-105 flex items-center justify-center">
+                        <img src="assets/images/logo.png" alt="GRUPO GENOLG Logo" class="h-12 sm:h-14 md:h-16 w-auto object-contain max-w-[200px] sm:max-w-[240px]">
+                    </div>
+                </a>
+
+                <nav class="hidden xl:flex items-center space-x-8 text-sm font-bold text-slate-200">
+                    <a href="#inicio" class="hover:text-brand-gold transition-colors py-2 px-1 relative group">
+                        Inicio
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#acreditaciones" class="hover:text-brand-gold transition-colors py-2 px-1 relative group">
+                        Acreditaciones
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#nosotros" class="hover:text-brand-gold transition-colors py-2 px-1 relative group">
+                        Nosotros & Cuadrillas
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#servicios" class="hover:text-brand-gold transition-colors py-2 px-1 relative group">
+                        Servicios Técnicos
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#proyectos" class="hover:text-brand-gold transition-colors py-2 px-1 relative group">
+                        Proyectos
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#recursos" class="hover:text-brand-gold transition-colors py-2 px-1 relative group">
+                        Descargas B2B
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+
+                <div class="hidden sm:flex items-center space-x-3.5 flex-shrink-0">
+                    <a href="https://wa.me/51950843157?text=Estimados%20GRUPO%20GENOLG,%20solicito%20atenci%C3%B3n%20para%20un%20proyecto%20minero" 
+                       target="_blank" 
+                       class="inline-flex items-center gap-2 bg-brand-steel hover:bg-brand-titanium text-brand-gold hover:text-white border border-brand-gold/30 px-4 py-2.5 rounded-xl font-bold text-xs transition-all duration-300 shadow-md">
+                        <i class="fa-brands fa-whatsapp text-base text-brand-gold"></i>
+                        <span class="hidden md:inline">WhatsApp B2B</span>
+                    </a>
+                    <button onclick="openModal('quote-modal')" 
+                            class="inline-flex items-center gap-2 bg-brand-petroleum hover:bg-brand-darkPetroleum text-white font-bold text-xs px-5 py-2.5 rounded-xl transition-all duration-300 border border-brand-gold/30 hover:scale-105 shadow-md">
+                        <i class="fa-solid fa-calculator"></i>
+                        <span>Solicitar Cotización</span>
+                    </button>
+                </div>
+
+                <div class="xl:hidden">
+                    <button id="mobile-toggle" onclick="toggleMobileMenu()" class="text-slate-200 hover:text-brand-gold p-2 text-2xl focus:outline-none">
+                        <i id="mobile-icon" class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden xl:hidden bg-brand-titanium/98 border-b border-slate-800 px-6 py-6 space-y-4 text-sm font-semibold shadow-2xl">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-brand-gold py-1">Inicio</a>
+            <a href="#acreditaciones" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-brand-gold py-1">Acreditaciones Bureau Veritas</a>
+            <a href="#nosotros" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-brand-gold py-1">Nosotros y Cuadrilla Homologada</a>
+            <a href="#servicios" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-brand-gold py-1">Servicios de Ingeniería</a>
+            <a href="#proyectos" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-brand-gold py-1">Proyectos en Unidades Mineras</a>
+            <a href="#recursos" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-brand-gold py-1">Centro de Descargas Técnicas</a>
+            <a href="#contacto" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-brand-gold py-1">Sedes Lima & Pasco</a>
+            <div class="pt-4 space-y-3">
+                <a href="https://wa.me/51950843157" target="_blank" class="w-full bg-brand-steel text-brand-gold border border-brand-gold/30 py-3 rounded-xl font-bold flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Contacto Directo (+51 950 843 157)
+                </a>
+                <button onclick="toggleMobileMenu(); openModal('quote-modal')" class="w-full bg-brand-petroleum text-white border border-brand-gold/40 py-3 rounded-xl font-bold flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-file-signature"></i> Solicitar Cotización B2B
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- FULL HERO SECTION -->
+    <section id="inicio" class="relative min-h-[85vh] sm:min-h-[90vh] w-full flex items-center justify-center overflow-hidden border-b border-slate-800 bg-brand-deepObsidian">
+        
+        <canvas id="hero-canvas" class="absolute inset-0 z-10 pointer-events-none opacity-40"></canvas>
+        
+        <div id="full-slide-0" class="full-hero-slide active absolute inset-0 w-full h-full">
+            <img src="assets/images/hero_sag_mill.jpg" alt="Molino SAG" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-deepObsidian via-brand-deepObsidian/85 to-brand-deepObsidian/40"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-deepObsidian via-transparent to-brand-deepObsidian/70"></div>
+            <div class="absolute inset-0 bg-black/35"></div>
+        </div>
+
+        <div id="full-slide-1" class="full-hero-slide absolute inset-0 w-full h-full">
+            <img src="assets/images/hero_welder.jpg" alt="Soldadura AWS" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-deepObsidian via-brand-deepObsidian/85 to-brand-deepObsidian/40"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-deepObsidian via-transparent to-brand-deepObsidian/70"></div>
+            <div class="absolute inset-0 bg-black/35"></div>
+        </div>
+
+        <div id="full-slide-2" class="full-hero-slide absolute inset-0 w-full h-full">
+            <img src="assets/images/hero_flotation_cells.jpg" alt="Celdas OK-20" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-deepObsidian via-brand-deepObsidian/85 to-brand-deepObsidian/40"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-deepObsidian via-transparent to-brand-deepObsidian/70"></div>
+            <div class="absolute inset-0 bg-black/35"></div>
+        </div>
+
+        <div id="full-slide-3" class="full-hero-slide absolute inset-0 w-full h-full">
+            <img src="assets/images/hero_heavy_machinery.jpg" alt="Maquinaria Pesada" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-deepObsidian via-brand-deepObsidian/85 to-brand-deepObsidian/40"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-deepObsidian via-transparent to-brand-deepObsidian/70"></div>
+            <div class="absolute inset-0 bg-black/35"></div>
+        </div>
+
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 w-full">
+            <div class="max-w-3xl space-y-7 gsap-reveal">
+                
+                <div class="inline-flex items-center gap-3 bg-brand-titanium/90 border border-brand-gold/40 px-4 py-2 rounded-full text-xs font-semibold shadow-2xl backdrop-blur-md">
+                    <span class="w-2.5 h-2.5 rounded-full bg-slate-300 animate-pulse"></span>
+                    <span id="hero-badge-text" class="text-brand-gold font-extrabold uppercase tracking-wider text-[11px]">MOLIENDA & CHANCADO CRÍTICO</span>
+                    <span class="text-slate-600">|</span>
+                    <span id="hero-tag-text" class="text-slate-200">Paradas de Planta (P.D.P) en Vivo</span>
+                </div>
+
+                <h1 id="hero-main-title" class="font-heading text-3xl sm:text-5xl lg:text-6xl font-black leading-[1.12] tracking-tight text-white drop-shadow-lg">
+                    Mantenimiento & Cambio de Revestimientos en Molinos SAG
+                </h1>
+
+                <p id="hero-main-desc" class="text-slate-300 text-base sm:text-lg leading-relaxed font-normal max-w-2xl drop-shadow-md">
+                    GRUPO GENOLG garantiza máxima disponibilidad operacional y cero incidentes en el desmontaje, torqueado neumático e instalación de chaquetas de acero y caucho en Molinos 7'x12'.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div class="bg-brand-titanium/95 p-4 rounded-2xl border border-slate-800 flex items-center gap-4 hover:border-brand-gold transition duration-300 shadow-xl backdrop-blur-md">
+                        <div class="w-12 h-12 rounded-xl bg-brand-petroleum/40 border border-brand-petroleum/50 text-brand-gold flex items-center justify-center text-xl font-bold flex-shrink-0">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-slate-400 font-medium">Auditoría Internacional</div>
+                            <div class="text-sm font-bold text-white">Bureau Veritas: <span class="text-brand-gold">87.81%</span></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-titanium/95 p-4 rounded-2xl border border-slate-800 flex items-center gap-4 hover:border-brand-gold transition duration-300 shadow-xl backdrop-blur-md">
+                        <div class="w-12 h-12 rounded-xl bg-brand-petroleum/40 border border-brand-petroleum/50 text-brand-gold flex items-center justify-center text-xl font-bold flex-shrink-0">
+                            <i class="fa-solid fa-file-shield"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-slate-400 font-medium">Habilitación Legal</div>
+                            <div class="text-sm font-bold text-white">MINEM R.D. 0288-2021</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-3">
+                    <button onclick="openModal('quote-modal')" class="inline-flex items-center justify-center gap-3 bg-brand-petroleum hover:bg-brand-darkPetroleum text-white font-extrabold text-sm px-8 py-4 rounded-2xl shadow-md transition-all duration-300 border border-brand-gold/30 transform hover:-translate-y-1">
+                        <span>Cotizar Este Servicio</span>
+                        <i class="fa-solid fa-calculator"></i>
+                    </button>
+                    <button onclick="openModal('download-modal')" class="inline-flex items-center justify-center gap-3 bg-brand-titanium/90 hover:bg-brand-steel text-white font-bold text-sm px-7 py-4 rounded-2xl border border-slate-700 hover:border-brand-gold/40 transition-all duration-300 backdrop-blur-md shadow-lg">
+                        <i class="fa-solid fa-file-pdf text-brand-gold text-lg"></i>
+                        <span>Descargar Brochure PDF</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <button onclick="prevFullHeroSlide()" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-brand-titanium/80 hover:bg-brand-gold hover:text-brand-deepObsidian border border-slate-700 text-white flex items-center justify-center text-lg transition duration-300 backdrop-blur-md shadow-2xl">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button onclick="nextFullHeroSlide()" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-brand-titanium/80 hover:bg-brand-gold hover:text-brand-deepObsidian border border-slate-700 text-white flex items-center justify-center text-lg transition duration-300 backdrop-blur-md shadow-2xl">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-slate-900 z-30">
+            <div id="full-hero-progress" class="h-full bg-brand-gold w-0 transition-all duration-100 ease-linear"></div>
+        </div>
+    </section>
+
+    <!-- GSAP Global Setup Script -->
+    <script>
+        const fullSlides = [
+            {
+                badge: 'MOLIENDA & CHANCADO CRÍTICO',
+                tag: 'Paradas de Planta (P.D.P) en Vivo',
+                title: 'Mantenimiento & Cambio de Revestimientos en Molinos SAG',
+                desc: 'GRUPO GENOLG garantiza máxima disponibilidad operacional y cero incidentes en el desmontaje, torqueado neumático e instalación de chaquetas de acero y caucho en Molinos 7\'x12\'.'
+            },
+            {
+                badge: 'HOMOLOGACIÓN AWS D1.1 & ASME IX',
+                tag: 'Estructuras Metalmecánicas de Alta Precisión',
+                title: 'Soldadura Calificada 3G a 6G & Ensayos NDT al 100%',
+                desc: 'Cuadrillas especializadas de soldadores homologados con procedimientos WPS/PQR certificados para estructuras críticas, recipientes a presión y naves industriales mineras.'
+            },
+            {
+                badge: 'TECNOLOGÍA DE FLOTACIÓN OK-20',
+                tag: 'Montaje Electromecánico en Concentradoras',
+                title: 'Fabricación, Izaje & Montaje de Celdas de Flotación',
+                desc: 'Fabricación en taller y maniobras complejas de izaje en planta para celdas OK-20, cajones de molienda y chutes revestidos con planchas antidesgastantes Hardox.'
+            },
+            {
+                badge: 'INFRAESTRUCTURA & CIERRE AMBIENTAL',
+                tag: 'Flota Pesada & Preservación Minera',
+                title: 'Movimiento de Tierras & Obras Civiles en Mina',
+                desc: 'Cimentaciones de concreto armado para maquinaria de alto tonelaje, muros de contención 1.5M, preservación de accesos mineros y remediación ambiental ISO 14001.'
+            }
+        ];
+
+        let activeSlideIdx = 0;
+        let progressVal = 0;
+        let slideInterval = null;
+
+        function setFullHeroSlide(idx) {
+            activeSlideIdx = idx;
+            const data = fullSlides[idx];
+
+            for (let i = 0; i < fullSlides.length; i++) {
+                const slideEl = document.getElementById('full-slide-' + i);
+                if (slideEl) {
+                    if (i === idx) {
+                        slideEl.classList.add('active');
+                    } else {
+                        slideEl.classList.remove('active');
+                    }
+                }
+            }
+
+            document.getElementById('hero-badge-text').textContent = data.badge;
+            document.getElementById('hero-tag-text').textContent = data.tag;
+            document.getElementById('hero-main-title').textContent = data.title;
+            document.getElementById('hero-main-desc').textContent = data.desc;
+
+            progressVal = 0;
+            document.getElementById('full-hero-progress').style.width = '0%';
+        }
+
+        function nextFullHeroSlide() {
+            activeSlideIdx = (activeSlideIdx + 1) % fullSlides.length;
+            setFullHeroSlide(activeSlideIdx);
+        }
+
+        function prevFullHeroSlide() {
+            activeSlideIdx = (activeSlideIdx - 1 + fullSlides.length) % fullSlides.length;
+            setFullHeroSlide(activeSlideIdx);
+        }
+
+        function startFullHeroAutoplay() {
+            if (slideInterval) clearInterval(slideInterval);
+            slideInterval = setInterval(() => {
+                progressVal += 2;
+                const bar = document.getElementById('full-hero-progress');
+                if (bar) bar.style.width = progressVal + '%';
+
+                if (progressVal >= 100) {
+                    nextFullHeroSlide();
+                }
+            }, 120);
+        }
+
+        window.addEventListener('load', () => {
+            startFullHeroAutoplay();
+        });
+    </script>
+</body>
+</html>
