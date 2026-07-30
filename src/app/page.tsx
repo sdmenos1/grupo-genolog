@@ -15,6 +15,7 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import Modals from '@/components/Modals';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
+import LeftScrollProgress from '@/components/LeftScrollProgress';
 
 export default function Home() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
@@ -57,10 +58,13 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-brand-deepObsidian text-slate-200 font-sans relative overflow-x-hidden">
       
-      {/* 1. Top Regulatory Bar */}
+      {/* Left Vertical Scroll Depth Indicator */}
+      <LeftScrollProgress />
+
+      {/* 1. Top Regulatory Bar with Executive Auto-Passing Ticker */}
       <TopBar />
 
-      {/* 2. Main Sticky Header with GSAP Scroll Timeline */}
+      {/* 2. Main Sticky Header (Pinned top-0 z-40) */}
       <Header onOpenQuoteModal={handleOpenQuoteModal} />
 
       {/* 3. Hero Showcase */}
@@ -75,10 +79,10 @@ export default function Home() {
       {/* 5. About Us & Capital Humano */}
       <AboutUs />
 
-      {/* 6. Technical Services Catalog with Split Sticky GSAP Layout */}
+      {/* 6. Technical Services Catalog */}
       <ServicesTabs onOpenQuoteModal={handleOpenQuoteModal} />
 
-      {/* 7. Novel Interactive Industrial Construction Pavement Divider */}
+      {/* 7. Interactive Industrial Construction Pavement Divider */}
       <ConstructionRoadDivider 
         title="Pavimentación & Obras Civiles en Mina"
         subtitle="Demostración Interactiva del Despliegue de Maquinaria Pesada & Movimiento de Tierras"

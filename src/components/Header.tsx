@@ -1,8 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useState, useEffect } from 'react';
 
 interface HeaderProps {
   onOpenQuoteModal: (serviceName?: string) => void;
@@ -11,82 +9,40 @@ interface HeaderProps {
 export default function Header({ onOpenQuoteModal }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
-  
-  const headerRef = useRef<HTMLElement | null>(null);
-  const logoContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
     const handleScroll = () => {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       if (height > 0) {
         setScrollProgress((winScroll / height) * 100);
       }
+      setScrolled(winScroll > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    // Smooth GSAP Navbar shrink & glow animation on scroll
-    if (headerRef.current && logoContainerRef.current) {
-      ScrollTrigger.create({
-        start: 'top -40',
-        onEnter: () => {
-          gsap.to(headerRef.current, {
-            paddingTop: '6px',
-            paddingBottom: '6px',
-            backgroundColor: 'rgba(10, 14, 20, 0.96)',
-            boxShadow: '0 15px 35px rgba(0, 0, 0, 0.85)',
-            borderColor: 'rgba(197, 155, 39, 0.35)',
-            duration: 0.4,
-            ease: 'power2.out',
-          });
-          gsap.to(logoContainerRef.current, {
-            scale: 0.93,
-            duration: 0.4,
-            ease: 'power2.out',
-          });
-        },
-        onLeaveBack: () => {
-          gsap.to(headerRef.current, {
-            paddingTop: '12px',
-            paddingBottom: '12px',
-            backgroundColor: 'rgba(10, 14, 20, 0.85)',
-            boxShadow: 'none',
-            borderColor: 'rgba(255, 255, 255, 0.1)',
-            duration: 0.4,
-            ease: 'power2.out',
-          });
-          gsap.to(logoContainerRef.current, {
-            scale: 1,
-            duration: 0.4,
-            ease: 'power2.out',
-          });
-        },
-      });
-    }
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <header 
-      ref={headerRef} 
-      className="sticky top-0 z-40 transition-all duration-300 bg-brand-deepObsidian/85 backdrop-blur-xl border-b border-white/10 py-3">
-      
-      {/* Scroll Reading Progress Bar */}
+    <header className={`sticky top-0 z-40 transition-all duration-300 ${
+      scrolled 
+        ? 'bg-brand-deepObsidian/95 backdrop-blur-2xl border-b border-brand-gold/30 shadow-[0_10px_30px_rgba(0,0,0,0.85)] py-2' 
+        : 'bg-brand-deepObsidian/90 backdrop-blur-xl border-b border-slate-800/80 py-3'
+    }`}>
+      {/* Scroll Reading Progress Line */}
       <div 
         className="h-1 bg-gradient-to-r from-brand-petroleum via-brand-gold to-brand-copper transition-all duration-150"
         style={{ width: `${scrollProgress}%` }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4 h-18 sm:h-22">
+        <div className="flex items-center justify-between gap-4 h-20 sm:h-22">
           
           {/* LEFT: Executive Logo Plate */}
-          <div ref={logoContainerRef} className="flex-shrink-0 transition-transform origin-left">
+          <div className="flex-shrink-0">
             <a href="#inicio" className="flex items-center group">
               <div className="relative bg-slate-900/90 hover:bg-slate-950 p-2 sm:p-2.5 rounded-2xl border border-brand-gold/40 shadow-soft-gold transition-all duration-300 group-hover:scale-105 flex items-center justify-center backdrop-blur-md">
                 <div className="absolute inset-0 bg-white/95 rounded-xl opacity-90 group-hover:opacity-100 transition-opacity"></div>
@@ -162,7 +118,7 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
             </nav>
           </div>
 
-          {/* RIGHT: Action Buttons Aligned to Far Right */}
+          {/* RIGHT: Action Buttons Aligned Far Right */}
           <div className="hidden sm:flex items-center space-x-3.5 flex-shrink-0">
             <a 
               href="https://wa.me/51950843157?text=Estimados%20GRUPO%20GENOLG,%20solicito%20atenci%C3%B3n%20para%20un%20proyecto%20minero" 
