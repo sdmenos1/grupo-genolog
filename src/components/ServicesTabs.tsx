@@ -8,7 +8,7 @@ interface ServicesTabsProps {
   onOpenQuoteModal: (serviceName?: string) => void;
 }
 
-const serviceCards = [
+const serviceItems = [
   {
     id: 'servicio-1',
     category: '1. Diseño de Ingeniería',
@@ -83,29 +83,30 @@ const serviceCards = [
 
 export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
   const sectionRef = useRef<HTMLDivElement | null>(null);
-  const [activeCardId, setActiveCardId] = useState(serviceCards[0].id);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const activeService = serviceItems[activeIndex];
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     if (sectionRef.current) {
-      const cards = sectionRef.current.querySelectorAll('.gsap-service-card');
+      const scrollItems = sectionRef.current.querySelectorAll('.gsap-scroll-item');
       
-      cards.forEach((card) => {
+      scrollItems.forEach((item, idx) => {
         gsap.fromTo(
-          card,
-          { opacity: 0, y: 50, scale: 0.96 },
+          item,
+          { opacity: 0.3, y: 30 },
           {
             opacity: 1,
             y: 0,
-            scale: 1,
-            duration: 0.9,
-            ease: 'power3.out',
+            duration: 0.7,
             scrollTrigger: {
-              trigger: card,
-              start: 'top 82%',
-              onEnter: () => setActiveCardId(card.id),
-              onEnterBack: () => setActiveCardId(card.id),
+              trigger: item,
+              start: 'top 75%',
+              end: 'bottom 45%',
+              onEnter: () => setActiveIndex(idx),
+              onEnterBack: () => setActiveIndex(idx),
             },
           }
         );
@@ -117,114 +118,119 @@ export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
     <section ref={sectionRef} id="servicios" className="py-24 bg-brand-titanium border-b border-slate-800/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Split Layout: Left Sticky Description + Right Animated Scroll Cards */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="inline-block bg-brand-gold/10 border border-brand-gold/30 text-brand-gold font-extrabold uppercase tracking-widest text-[11px] px-3.5 py-1 rounded-full mb-3">
+            Capacidades Operativas B2B
+          </span>
+          <h2 className="font-heading text-3xl sm:text-5xl font-black text-white tracking-tight">
+            Nuestros Servicios de Ingeniería &amp; Mantenimiento
+          </h2>
+          <p className="text-slate-400 text-sm sm:text-base mt-2">
+            &quot;Somos la mejor opción en ingeniería&quot; — Desplácese a la izquierda para examinar alcances mientras el visor técnico de la derecha se actualiza en tiempo real.
+          </p>
+        </div>
+
+        {/* Layout: LEFT Scrollable Content + RIGHT Sticky Fixed Image Showcase */}
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           
-          {/* LEFT STICKY COLUMN */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
-            <span className="inline-block bg-brand-gold/10 border border-brand-gold/30 text-brand-gold font-extrabold uppercase tracking-widest text-[11px] px-3.5 py-1 rounded-full">
-              Capacidades Operativas B2B
-            </span>
-
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-              Nuestros Servicios de Ingeniería &amp; Mantenimiento
-            </h2>
-
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
-              Desarrollamos soluciones integrales en diseño 3D, fabricación metalmecánica, montaje de alta precisión y mantenimiento en plantas concentradoras e industriales con estándares internacionales de seguridad.
-            </p>
-
-            <div className="p-4 bg-brand-deepObsidian rounded-2xl border-l-4 border-brand-gold text-xs text-slate-300 shadow-md">
-              <div className="font-bold text-brand-gold mb-1">&quot;Somos la mejor opción en ingeniería&quot;</div>
-              <div>Garantizamos cero incidentes, cumplimiento de cronogramas y dossier de calidad auditado por Bureau Veritas.</div>
-            </div>
-
-            {/* Interactive Index Nav */}
-            <div className="space-y-2 pt-2 hidden sm:block">
-              <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Índice de Servicios</div>
-              {serviceCards.map((s) => (
-                <a
-                  key={s.id}
-                  href={`#${s.id}`}
-                  className={`block text-xs font-semibold py-2 px-3 rounded-xl transition-all duration-300 border ${
-                    activeCardId === s.id
-                      ? 'bg-brand-petroleum text-white border-brand-gold/40 shadow-md font-bold'
-                      : 'bg-brand-deepObsidian/60 text-slate-400 border-slate-800 hover:text-white hover:border-slate-700'
-                  }`}>
-                  {s.category}
-                </a>
-              ))}
-            </div>
-
-            <div className="pt-2">
-              <button 
-                onClick={() => onOpenQuoteModal()} 
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum hover:from-brand-gold hover:to-brand-copper text-white font-extrabold text-xs px-7 py-4 rounded-2xl border border-brand-gold/30 shadow-lg transition duration-300">
-                <i className="fa-solid fa-calculator"></i>
-                <span>Solicitar Cotización de Ingeniería</span>
-              </button>
-            </div>
-          </div>
-
-          {/* RIGHT COLUMN: GSAP ANIMATED CARDS WITH REAL IMAGES */}
-          <div className="lg:col-span-7 space-y-10">
-            {serviceCards.map((card) => (
+          {/* LEFT COLUMN: SCROLLABLE SERVICE DETAILS */}
+          <div className="lg:col-span-7 space-y-12">
+            {serviceItems.map((item, idx) => (
               <div 
-                key={card.id}
-                id={card.id}
-                className="gsap-service-card bg-gradient-to-b from-slate-900/90 to-brand-steel/80 backdrop-blur-xl rounded-3xl border border-slate-700/60 overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.5)] group hover:border-brand-gold/50 transition-all duration-500">
+                key={item.id}
+                id={item.id}
+                className={`gsap-scroll-item bg-gradient-to-b from-slate-900/90 to-brand-steel/80 backdrop-blur-xl p-8 rounded-3xl border transition-all duration-500 shadow-[0_15px_35px_rgba(0,0,0,0.5)] ${
+                  activeIndex === idx
+                    ? 'border-brand-gold/60 ring-1 ring-brand-gold/30'
+                    : 'border-slate-800 opacity-70'
+                }`}>
                 
-                {/* Image Container with Dark Vignette */}
-                <div className="relative h-64 sm:h-72 w-full overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img 
-                    src={card.image} 
-                    alt={card.title} 
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
-                  
-                  <div className="absolute top-4 left-4 bg-brand-titanium/90 border border-brand-gold/40 text-brand-gold text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-md backdrop-blur-md">
-                    {card.badge}
-                  </div>
-
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="text-brand-gold font-bold text-xs uppercase tracking-wider">{card.category}</span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mt-1 drop-shadow-md">{card.title}</h3>
-                  </div>
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <span className="bg-brand-petroleum/40 text-brand-gold border border-brand-gold/30 font-bold text-xs px-3.5 py-1 rounded-full uppercase">
+                    {item.category}
+                  </span>
+                  <span className="text-[10px] text-slate-500 font-extrabold uppercase tracking-wider">
+                    {item.badge}
+                  </span>
                 </div>
 
-                {/* Card Content Body */}
-                <div className="p-6 sm:p-8 space-y-4">
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                    {card.desc}
-                  </p>
+                <h3 className="text-2xl font-bold text-white mb-3 font-heading">
+                  {item.title}
+                </h3>
 
-                  <div className="bg-brand-deepObsidian/80 p-4 rounded-2xl border border-slate-800/80 space-y-2">
-                    <div className="text-xs font-bold text-slate-200">Alcances &amp; Entregables:</div>
-                    <ul className="space-y-1.5 text-xs text-slate-400">
-                      {card.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-2">
-                          <i className="fa-solid fa-circle-check text-brand-gold mt-0.5 text-xs"></i>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-6">
+                  {item.desc}
+                </p>
 
-                  <div className="pt-2 flex items-center justify-between">
-                    <button 
-                      onClick={() => onOpenQuoteModal(card.serviceName)} 
-                      className="inline-flex items-center gap-2 text-xs font-bold text-brand-gold hover:text-white transition duration-300 group-hover:translate-x-1">
-                      <span>Cotizar {card.category}</span>
-                      <i className="fa-solid fa-arrow-right text-xs"></i>
-                    </button>
-                    <span className="text-[10px] text-slate-500 font-semibold uppercase">Estándar ISO / AWS</span>
-                  </div>
+                <div className="bg-brand-deepObsidian/90 p-5 rounded-2xl border border-slate-800/80 space-y-3">
+                  <div className="text-xs font-bold text-slate-200 uppercase tracking-wider">Alcances &amp; Entregables Certificados:</div>
+                  <ul className="space-y-2 text-xs text-slate-300">
+                    {item.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2.5">
+                        <i className="fa-solid fa-circle-check text-brand-gold mt-0.5 text-xs"></i>
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                  <button 
+                    onClick={() => onOpenQuoteModal(item.serviceName)} 
+                    className="inline-flex items-center gap-2 text-xs font-bold text-brand-gold hover:text-white transition duration-300">
+                    <i className="fa-solid fa-calculator"></i>
+                    <span>Solicitar Cotización de {item.category}</span>
+                  </button>
+                  <span className="text-[10px] text-slate-500 uppercase font-semibold">CIP / AWS Approved</span>
                 </div>
 
               </div>
             ))}
+          </div>
+
+          {/* RIGHT COLUMN: STICKY FIXED IMAGE SHOWCASE */}
+          <div className="lg:col-span-5 lg:sticky lg:top-28">
+            <div className="bg-gradient-to-b from-slate-900/95 to-brand-steel/90 backdrop-blur-2xl p-6 rounded-3xl border border-brand-gold/40 shadow-2xl space-y-6">
+              
+              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                <span className="text-xs font-bold text-brand-gold uppercase tracking-wider">Visor de Imagen en Vivo</span>
+                <span className="text-[10px] font-bold text-slate-400">Paso 0{activeIndex + 1} de 05</span>
+              </div>
+
+              {/* Dynamic HD Image Container */}
+              <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden border border-slate-700/60 group shadow-lg">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src={activeService.image} 
+                  alt={activeService.title} 
+                  className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+
+                <div className="absolute top-4 left-4 bg-brand-titanium/90 border border-brand-gold/50 text-brand-gold text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-md backdrop-blur-md">
+                  {activeService.badge}
+                </div>
+
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="text-brand-gold font-bold text-xs uppercase">{activeService.category}</div>
+                  <div className="text-lg font-bold text-white mt-0.5 leading-snug drop-shadow-md">{activeService.title}</div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <div className="text-xs text-slate-300 leading-relaxed font-medium">
+                  {activeService.desc}
+                </div>
+
+                <button 
+                  onClick={() => onOpenQuoteModal(activeService.serviceName)} 
+                  className="w-full inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-petroleum via-brand-darkPetroleum to-brand-petroleum hover:from-brand-gold hover:to-brand-copper text-white font-extrabold text-xs px-6 py-4 rounded-2xl border border-brand-gold/40 shadow-lg transition duration-300">
+                  <i className="fa-solid fa-file-signature"></i>
+                  <span>Cotizar {activeService.category}</span>
+                </button>
+              </div>
+
+            </div>
           </div>
 
         </div>
