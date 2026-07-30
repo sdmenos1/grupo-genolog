@@ -83,48 +83,65 @@ const serviceCardsData = [
 
 export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
   const sectionRef = useRef<HTMLDivElement | null>(null);
-  const [activeCardId, setActiveCardId] = useState(serviceCardsData[0].id);
+  const rightColumnRef = useRef<HTMLDivElement | null>(null);
+  const [activeIdx, setActiveIdx] = useState(0);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    if (sectionRef.current) {
-      const cards = sectionRef.current.querySelectorAll('.gsap-service-card');
+    if (sectionRef.current && rightColumnRef.current) {
+      const rightCol = rightColumnRef.current;
       
-      cards.forEach((card) => {
-        ScrollTrigger.create({
-          trigger: card,
-          start: 'top 45%',
-          end: 'bottom 45%',
-          onEnter: () => setActiveCardId(card.id),
-          onEnterBack: () => setActiveCardId(card.id),
-        });
+      // Calculate how far the right column needs to translate vertically
+      const totalScrollHeight = rightCol.scrollHeight - rightCol.clientHeight;
+
+      // GSAP Pin & Scrub Timeline: Pins section & translates the right cards vertically with scroll
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          pin: true,
+          scrub: 0.8,
+          start: 'top top+=80',
+          end: `+=${totalScrollHeight + 400}`,
+          onUpdate: (self) => {
+            const index = Math.min(
+              serviceCardsData.length - 1,
+              Math.floor(self.progress * serviceCardsData.length)
+            );
+            setActiveIdx(index);
+          },
+        },
+      });
+
+      tl.to(rightCol, {
+        y: -totalScrollHeight,
+        ease: 'none',
       });
     }
   }, []);
 
-  const handlePillClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    setActiveCardId(id);
-    const targetEl = document.getElementById(id);
-    if (targetEl) {
-      const targetTop = targetEl.getBoundingClientRect().top + window.pageYOffset - 110;
-      window.scrollTo({
-        top: targetTop,
-        behavior: 'smooth',
+  const handleSelectPill = (idx: number) => {
+    setActiveIdx(idx);
+    const targetCard = document.getElementById(serviceCardsData[idx].id);
+    if (targetCard && sectionRef.current && rightColumnRef.current) {
+      const targetOffset = targetCard.offsetTop;
+      gsap.to(rightColumnRef.current, {
+        y: -targetOffset,
+        duration: 0.6,
+        ease: 'power2.out',
       });
     }
   };
 
   return (
-    <section ref={sectionRef} id="servicios" className="py-24 bg-brand-titanium border-b border-slate-800/80 relative">
+    <section ref={sectionRef} id="servicios" className="py-20 bg-brand-titanium border-b border-slate-800/80 relative min-h-screen overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main Grid Layout: Left Column Sticky + Right Column All 5 Cards Scrolling Naturally */}
-        <div className="grid lg:grid-cols-12 gap-12 items-start relative">
+        {/* Main Layout: Left Fixed Header/Pills + Right Vertical Pinned Scroll Track */}
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
           
-          {/* LEFT COLUMN: STICKY PINNED CONTINUOUSLY (top-28) */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
+          {/* LEFT COLUMN: PINNED HEADER & CATEGORY SELECTOR */}
+          <div className="lg:col-span-5 space-y-6">
             <span className="inline-block bg-brand-gold/10 border border-brand-gold/30 text-brand-gold font-extrabold uppercase tracking-widest text-[11px] px-3.5 py-1 rounded-full">
               Capacidades Operativas B2B
             </span>
@@ -142,26 +159,39 @@ export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
               <div>Garantizamos cero incidentes, cumplimiento de cronogramas y dossier de calidad auditado por Bureau Veritas.</div>
             </div>
 
-            {/* Interactive Category Index Pills */}
-            <div className="space-y-2 pt-2">
-              <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
-                <span>Categorías de Servicio:</span>
-                <span className="text-[10px] text-brand-gold font-normal">Haz clic para ir al servicio</span>
+            {/* Active Category Progress & Selector Pills */}
+            <div className="space-y-3 pt-2">
+              <div className="flex items-center justify-between text-xs font-bold text-slate-300">
+                <span className="text-brand-gold uppercase tracking-wider">Avance de Especialidades</span>
+                <span className="bg-slate-900 border border-brand-gold/40 text-brand-gold px-2.5 py-0.5 rounded-full text-[11px]">
+                  0{activeIdx + 1} / 0{serviceCardsData.length}
+                </span>
               </div>
-              {serviceCardsData.map((s) => (
-                <a
-                  key={s.id}
-                  href={`#${s.id}`}
-                  onClick={(e) => handlePillClick(e, s.id)}
-                  className={`block text-xs font-semibold py-3 px-4 rounded-xl transition-all duration-300 border flex items-center justify-between ${
-                    activeCardId === s.id
-                      ? 'bg-brand-petroleum text-white border-brand-gold/40 shadow-md font-bold transform translate-x-2'
-                      : 'bg-brand-deepObsidian/60 text-slate-400 border-slate-800 hover:text-white hover:border-slate-700'
-                  }`}>
-                  <span>{s.category}</span>
-                  <i className={`fa-solid fa-chevron-right text-[10px] transition-transform ${activeCardId === s.id ? 'translate-x-1 text-brand-gold' : 'opacity-30'}`}></i>
-                </a>
-              ))}
+
+              {/* Progress Line */}
+              <div className="w-full bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-800">
+                <div 
+                  className="bg-gradient-to-r from-brand-petroleum via-brand-gold to-brand-copper h-2 rounded-full transition-all duration-300"
+                  style={{ width: `${((activeIdx + 1) / serviceCardsData.length) * 100}%` }}
+                />
+              </div>
+
+              {/* Category Navigation Pills */}
+              <div className="space-y-1.5 pt-2 hidden sm:block">
+                {serviceCardsData.map((s, idx) => (
+                  <button
+                    key={s.id}
+                    onClick={() => handleSelectPill(idx)}
+                    className={`w-full text-left text-xs font-semibold py-2.5 px-3.5 rounded-xl transition-all duration-300 border flex items-center justify-between ${
+                      activeIdx === idx
+                        ? 'bg-brand-petroleum text-white border-brand-gold/40 shadow-md font-bold transform translate-x-2'
+                        : 'bg-brand-deepObsidian/60 text-slate-400 border-slate-800 hover:text-white hover:border-slate-700'
+                    }`}>
+                    <span>{s.category}</span>
+                    <i className={`fa-solid fa-chevron-right text-[10px] transition-transform ${activeIdx === idx ? 'translate-x-1 text-brand-gold' : 'opacity-30'}`}></i>
+                  </button>
+                ))}
+              </div>
             </div>
 
             <div className="pt-2">
@@ -174,69 +204,75 @@ export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
             </div>
           </div>
 
-          {/* RIGHT COLUMN: ALL 5 CARDS SCROLLING NATURALLY WITH MAIN PAGE */}
-          <div className="lg:col-span-7 space-y-12">
-            {serviceCardsData.map((card) => (
-              <div 
-                key={card.id}
-                id={card.id}
-                className={`gsap-service-card bg-gradient-to-b from-slate-900/95 to-brand-steel/85 backdrop-blur-xl rounded-3xl border overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.5)] transition-all duration-500 ${
-                  activeCardId === card.id
-                    ? 'border-brand-gold/60 ring-1 ring-brand-gold/40 shadow-glow-gold'
-                    : 'border-slate-700/60 opacity-90'
-                }`}>
-                
-                {/* HD Image Header */}
-                <div className="relative h-64 sm:h-76 w-full overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img 
-                    src={card.image} 
-                    alt={card.title} 
-                    className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
+          {/* RIGHT COLUMN: PINNED VERTICAL SCROLL TRACK (SCROLLS CARDS SMOOTHLY VIA MAIN SCROLL) */}
+          <div className="lg:col-span-7 h-[620px] sm:h-[660px] overflow-hidden relative rounded-3xl">
+            <div 
+              ref={rightColumnRef}
+              className="space-y-10 transition-transform duration-100 ease-out">
+              
+              {serviceCardsData.map((card, idx) => (
+                <div 
+                  key={card.id}
+                  id={card.id}
+                  className={`bg-gradient-to-b from-slate-900/95 to-brand-steel/85 backdrop-blur-xl rounded-3xl border overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.5)] transition-all duration-500 ${
+                    activeIdx === idx
+                      ? 'border-brand-gold/60 ring-1 ring-brand-gold/40 shadow-glow-gold'
+                      : 'border-slate-700/60 opacity-80'
+                  }`}>
                   
-                  <div className="absolute top-4 left-4 bg-brand-titanium/90 border border-brand-gold/40 text-brand-gold text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-md backdrop-blur-md">
-                    {card.badge}
+                  {/* Image Container */}
+                  <div className="relative h-64 sm:h-76 w-full overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img 
+                      src={card.image} 
+                      alt={card.title} 
+                      className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
+                    
+                    <div className="absolute top-4 left-4 bg-brand-titanium/90 border border-brand-gold/40 text-brand-gold text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-md backdrop-blur-md">
+                      {card.badge}
+                    </div>
+
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <span className="text-brand-gold font-bold text-xs uppercase tracking-wider">{card.category}</span>
+                      <h3 className="text-xl sm:text-2xl font-bold text-white mt-1 drop-shadow-md">{card.title}</h3>
+                    </div>
                   </div>
 
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="text-brand-gold font-bold text-xs uppercase tracking-wider">{card.category}</span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mt-1 drop-shadow-md">{card.title}</h3>
+                  {/* Card Content Body */}
+                  <div className="p-6 sm:p-8 space-y-4">
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                      {card.desc}
+                    </p>
+
+                    <div className="bg-brand-deepObsidian/90 p-4 rounded-2xl border border-slate-800/80 space-y-2">
+                      <div className="text-xs font-bold text-slate-200 uppercase tracking-wider">Alcances &amp; Entregables Certificados:</div>
+                      <ul className="space-y-1.5 text-xs text-slate-400">
+                        {card.features.map((feat, fIdx) => (
+                          <li key={fIdx} className="flex items-start gap-2">
+                            <i className="fa-solid fa-circle-check text-brand-gold mt-0.5 text-xs"></i>
+                            <span>{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="pt-2 flex items-center justify-between border-t border-slate-800">
+                      <button 
+                        onClick={() => onOpenQuoteModal(card.serviceName)} 
+                        className="inline-flex items-center gap-2 text-xs font-bold text-brand-gold hover:text-white transition duration-300">
+                        <span>Cotizar {card.category}</span>
+                        <i className="fa-solid fa-arrow-right text-xs"></i>
+                      </button>
+                      <span className="text-[10px] text-slate-500 font-semibold uppercase">CIP / AWS Approved</span>
+                    </div>
                   </div>
+
                 </div>
+              ))}
 
-                {/* Content Body */}
-                <div className="p-6 sm:p-8 space-y-4">
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                    {card.desc}
-                  </p>
-
-                  <div className="bg-brand-deepObsidian/90 p-4 rounded-2xl border border-slate-800/80 space-y-2">
-                    <div className="text-xs font-bold text-slate-200 uppercase tracking-wider">Alcances &amp; Entregables Certificados:</div>
-                    <ul className="space-y-1.5 text-xs text-slate-400">
-                      {card.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-2">
-                          <i className="fa-solid fa-circle-check text-brand-gold mt-0.5 text-xs"></i>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="pt-2 flex items-center justify-between border-t border-slate-800">
-                    <button 
-                      onClick={() => onOpenQuoteModal(card.serviceName)} 
-                      className="inline-flex items-center gap-2 text-xs font-bold text-brand-gold hover:text-white transition duration-300">
-                      <span>Cotizar {card.category}</span>
-                      <i className="fa-solid fa-arrow-right text-xs"></i>
-                    </button>
-                    <span className="text-[10px] text-slate-500 font-semibold uppercase">CIP / AWS Approved</span>
-                  </div>
-                </div>
-
-              </div>
-            ))}
+            </div>
           </div>
 
         </div>
