@@ -1,16 +1,17 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface ServicesTabsProps {
   onOpenQuoteModal: (serviceName?: string) => void;
 }
 
-const serviceItems = [
+const serviceCardsData = [
   {
     id: 'servicio-1',
     category: '1. Diseño de Ingeniería',
-    catKey: 'diseno',
     title: 'Desarrollo de Ingeniería de Detalle en AutoCAD 3D',
     image: '/images/hero_welder.jpg',
     badge: 'INNOVACIÓN TECNOLÓGICA',
@@ -25,7 +26,6 @@ const serviceItems = [
   {
     id: 'servicio-2',
     category: '2. Fabricación Metalmecánica',
-    catKey: 'fabricacion',
     title: 'Fabricación Metalmecánica & Estructuras en Taller/Campo',
     image: '/images/hero_flotation_cells.jpg',
     badge: 'SOLDADURA HOMOLOGADA',
@@ -40,7 +40,6 @@ const serviceItems = [
   {
     id: 'servicio-3',
     category: '3. Montaje de Estructuras',
-    catKey: 'montaje',
     title: 'Montaje de Estructuras & Redes de Alta Tensión',
     image: '/images/hero_heavy_machinery.jpg',
     badge: 'SEGURIDAD HSE AUDITADA',
@@ -55,7 +54,6 @@ const serviceItems = [
   {
     id: 'servicio-4',
     category: '4. Mantenimiento Industrial',
-    catKey: 'mantenimiento',
     title: 'Mantenimiento de Plantas Concentradoras & Paradas de Planta (P.D.P)',
     image: '/images/hero_sag_mill.jpg',
     badge: 'DISPONIBILIDAD CONTINUA',
@@ -70,7 +68,6 @@ const serviceItems = [
   {
     id: 'servicio-5',
     category: '5. Obras Civiles & Cierre Ambiental',
-    catKey: 'obras',
     title: 'Obras Civiles, Maquinaria Pesada & Remediación Ambiental',
     image: '/images/hero_heavy_machinery.jpg',
     badge: 'SOSTENIBILIDAD ISO 14001',
@@ -85,136 +82,163 @@ const serviceItems = [
 ];
 
 export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
-  const [filter, setFilter] = useState('all');
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const [activeCardId, setActiveCardId] = useState(serviceCardsData[0].id);
 
-  const filteredServices = filter === 'all' 
-    ? serviceItems 
-    : serviceItems.filter(item => item.catKey === filter);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (sectionRef.current) {
+      const cards = sectionRef.current.querySelectorAll('.gsap-service-card');
+      
+      cards.forEach((card) => {
+        ScrollTrigger.create({
+          trigger: card,
+          start: 'top 45%',
+          end: 'bottom 45%',
+          onEnter: () => setActiveCardId(card.id),
+          onEnterBack: () => setActiveCardId(card.id),
+        });
+      });
+    }
+  }, []);
+
+  const handlePillClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    setActiveCardId(id);
+    const targetEl = document.getElementById(id);
+    if (targetEl) {
+      const targetTop = targetEl.getBoundingClientRect().top + window.pageYOffset - 110;
+      window.scrollTo({
+        top: targetTop,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
-    <section id="servicios" className="py-24 bg-brand-titanium border-b border-slate-800/80 relative">
+    <section ref={sectionRef} id="servicios" className="py-24 bg-brand-titanium border-b border-slate-800/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="inline-block bg-brand-gold/10 border border-brand-gold/30 text-brand-gold font-extrabold uppercase tracking-widest text-[11px] px-3.5 py-1 rounded-full mb-3">
-            Capacidades Operativas B2B
-          </span>
-          <h2 className="font-heading text-3xl sm:text-5xl font-black text-white tracking-tight">
-            Nuestros Servicios de Ingeniería &amp; Mantenimiento
-          </h2>
-          <p className="text-slate-400 text-sm sm:text-base mt-3">
-            &quot;Somos la mejor opción en ingeniería&quot; — Soluciones especializadas en diseño 3D, fabricación metalmecánica, montaje e intervenciones en plantas concentradoras.
-          </p>
-        </div>
+        {/* Main Grid Layout: Left Column Sticky + Right Column All 5 Cards Scrolling Naturally */}
+        <div className="grid lg:grid-cols-12 gap-12 items-start relative">
+          
+          {/* LEFT COLUMN: STICKY PINNED CONTINUOUSLY (top-28) */}
+          <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
+            <span className="inline-block bg-brand-gold/10 border border-brand-gold/30 text-brand-gold font-extrabold uppercase tracking-widest text-[11px] px-3.5 py-1 rounded-full">
+              Capacidades Operativas B2B
+            </span>
 
-        {/* Filter Navigation Bar */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
-          <button
-            onClick={() => setFilter('all')}
-            className={`text-xs sm:text-sm font-bold px-5 py-3 rounded-xl transition duration-300 ${
-              filter === 'all'
-                ? 'bg-brand-petroleum text-white border border-brand-gold/40 shadow-md'
-                : 'bg-brand-deepObsidian text-slate-400 hover:text-white border border-slate-800'
-            }`}>
-            Todos los Servicios (05)
-          </button>
-          <button
-            onClick={() => setFilter('diseno')}
-            className={`text-xs sm:text-sm font-bold px-5 py-3 rounded-xl transition duration-300 ${
-              filter === 'diseno'
-                ? 'bg-brand-petroleum text-white border border-brand-gold/40 shadow-md'
-                : 'bg-brand-deepObsidian text-slate-400 hover:text-white border border-slate-800'
-            }`}>
-            1. Diseño 3D
-          </button>
-          <button
-            onClick={() => setFilter('fabricacion')}
-            className={`text-xs sm:text-sm font-bold px-5 py-3 rounded-xl transition duration-300 ${
-              filter === 'fabricacion'
-                ? 'bg-brand-petroleum text-white border border-brand-gold/40 shadow-md'
-                : 'bg-brand-deepObsidian text-slate-400 hover:text-white border border-slate-800'
-            }`}>
-            2. Fabricación
-          </button>
-          <button
-            onClick={() => setFilter('montaje')}
-            className={`text-xs sm:text-sm font-bold px-5 py-3 rounded-xl transition duration-300 ${
-              filter === 'montaje'
-                ? 'bg-brand-petroleum text-white border border-brand-gold/40 shadow-md'
-                : 'bg-brand-deepObsidian text-slate-400 hover:text-white border border-slate-800'
-            }`}>
-            3. Montaje
-          </button>
-          <button
-            onClick={() => setFilter('mantenimiento')}
-            className={`text-xs sm:text-sm font-bold px-5 py-3 rounded-xl transition duration-300 ${
-              filter === 'mantenimiento'
-                ? 'bg-brand-petroleum text-white border border-brand-gold/40 shadow-md'
-                : 'bg-brand-deepObsidian text-slate-400 hover:text-white border border-slate-800'
-            }`}>
-            4. Mantenimiento &amp; PDP
-          </button>
-        </div>
+            <h2 className="font-heading text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+              Nuestros Servicios de Ingeniería &amp; Mantenimiento
+            </h2>
 
-        {/* Executive 2-Column Services Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {filteredServices.map((card) => (
-            <div 
-              key={card.id}
-              className="bg-gradient-to-b from-slate-900/90 to-brand-steel/80 backdrop-blur-xl rounded-3xl border border-slate-700/60 overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.5)] group hover:border-brand-gold/50 transition-all duration-500 flex flex-col justify-between">
-              
-              {/* Image Container */}
-              <div className="relative h-64 sm:h-72 w-full overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img 
-                  src={card.image} 
-                  alt={card.title} 
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
-                
-                <div className="absolute top-4 left-4 bg-brand-titanium/90 border border-brand-gold/40 text-brand-gold text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-md backdrop-blur-md">
-                  {card.badge}
-                </div>
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
+              Desarrollamos soluciones integrales en diseño 3D, fabricación metalmecánica, montaje de alta precisión y mantenimiento en plantas concentradoras e industriales.
+            </p>
 
-                <div className="absolute bottom-4 left-4 right-4">
-                  <span className="text-brand-gold font-bold text-xs uppercase tracking-wider">{card.category}</span>
-                  <h3 className="text-xl font-bold text-white mt-1 drop-shadow-md">{card.title}</h3>
-                </div>
-              </div>
-
-              {/* Card Body */}
-              <div className="p-6 sm:p-8 space-y-4 flex-1 flex flex-col justify-between">
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                  {card.desc}
-                </p>
-
-                <div className="bg-brand-deepObsidian/90 p-4 rounded-2xl border border-slate-800/80 space-y-2">
-                  <div className="text-xs font-bold text-slate-200 uppercase tracking-wider">Alcances &amp; Entregables Certificados:</div>
-                  <ul className="space-y-1.5 text-xs text-slate-400">
-                    {card.features.map((feat, fIdx) => (
-                      <li key={fIdx} className="flex items-start gap-2">
-                        <i className="fa-solid fa-circle-check text-brand-gold mt-0.5 text-xs"></i>
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
-                  <button 
-                    onClick={() => onOpenQuoteModal(card.serviceName)} 
-                    className="inline-flex items-center gap-2 text-xs font-bold text-brand-gold hover:text-white transition duration-300 group-hover:translate-x-1">
-                    <span>Cotizar Servicio B2B</span>
-                    <i className="fa-solid fa-arrow-right text-xs"></i>
-                  </button>
-                  <span className="text-[10px] text-slate-500 font-semibold uppercase">CIP / AWS Approved</span>
-                </div>
-              </div>
-
+            <div className="p-4 bg-brand-deepObsidian rounded-2xl border-l-4 border-brand-gold text-xs text-slate-300 shadow-md">
+              <div className="font-bold text-brand-gold mb-1">&quot;Somos la mejor opción en ingeniería&quot;</div>
+              <div>Garantizamos cero incidentes, cumplimiento de cronogramas y dossier de calidad auditado por Bureau Veritas.</div>
             </div>
-          ))}
+
+            {/* Interactive Category Index Pills */}
+            <div className="space-y-2 pt-2">
+              <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+                <span>Categorías de Servicio:</span>
+                <span className="text-[10px] text-brand-gold font-normal">Haz clic para ir al servicio</span>
+              </div>
+              {serviceCardsData.map((s) => (
+                <a
+                  key={s.id}
+                  href={`#${s.id}`}
+                  onClick={(e) => handlePillClick(e, s.id)}
+                  className={`block text-xs font-semibold py-3 px-4 rounded-xl transition-all duration-300 border flex items-center justify-between ${
+                    activeCardId === s.id
+                      ? 'bg-brand-petroleum text-white border-brand-gold/40 shadow-md font-bold transform translate-x-2'
+                      : 'bg-brand-deepObsidian/60 text-slate-400 border-slate-800 hover:text-white hover:border-slate-700'
+                  }`}>
+                  <span>{s.category}</span>
+                  <i className={`fa-solid fa-chevron-right text-[10px] transition-transform ${activeCardId === s.id ? 'translate-x-1 text-brand-gold' : 'opacity-30'}`}></i>
+                </a>
+              ))}
+            </div>
+
+            <div className="pt-2">
+              <button 
+                onClick={() => onOpenQuoteModal()} 
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum hover:from-brand-gold hover:to-brand-copper text-white font-extrabold text-xs px-7 py-4 rounded-2xl border border-brand-gold/30 shadow-lg transition duration-300">
+                <i className="fa-solid fa-calculator"></i>
+                <span>Solicitar Cotización de Ingeniería</span>
+              </button>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN: ALL 5 CARDS SCROLLING NATURALLY WITH MAIN PAGE */}
+          <div className="lg:col-span-7 space-y-12">
+            {serviceCardsData.map((card) => (
+              <div 
+                key={card.id}
+                id={card.id}
+                className={`gsap-service-card bg-gradient-to-b from-slate-900/95 to-brand-steel/85 backdrop-blur-xl rounded-3xl border overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.5)] transition-all duration-500 ${
+                  activeCardId === card.id
+                    ? 'border-brand-gold/60 ring-1 ring-brand-gold/40 shadow-glow-gold'
+                    : 'border-slate-700/60 opacity-90'
+                }`}>
+                
+                {/* HD Image Header */}
+                <div className="relative h-64 sm:h-76 w-full overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img 
+                    src={card.image} 
+                    alt={card.title} 
+                    className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
+                  
+                  <div className="absolute top-4 left-4 bg-brand-titanium/90 border border-brand-gold/40 text-brand-gold text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-md backdrop-blur-md">
+                    {card.badge}
+                  </div>
+
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <span className="text-brand-gold font-bold text-xs uppercase tracking-wider">{card.category}</span>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mt-1 drop-shadow-md">{card.title}</h3>
+                  </div>
+                </div>
+
+                {/* Content Body */}
+                <div className="p-6 sm:p-8 space-y-4">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                    {card.desc}
+                  </p>
+
+                  <div className="bg-brand-deepObsidian/90 p-4 rounded-2xl border border-slate-800/80 space-y-2">
+                    <div className="text-xs font-bold text-slate-200 uppercase tracking-wider">Alcances &amp; Entregables Certificados:</div>
+                    <ul className="space-y-1.5 text-xs text-slate-400">
+                      {card.features.map((feat, fIdx) => (
+                        <li key={fIdx} className="flex items-start gap-2">
+                          <i className="fa-solid fa-circle-check text-brand-gold mt-0.5 text-xs"></i>
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="pt-2 flex items-center justify-between border-t border-slate-800">
+                    <button 
+                      onClick={() => onOpenQuoteModal(card.serviceName)} 
+                      className="inline-flex items-center gap-2 text-xs font-bold text-brand-gold hover:text-white transition duration-300">
+                      <span>Cotizar {card.category}</span>
+                      <i className="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                    <span className="text-[10px] text-slate-500 font-semibold uppercase">CIP / AWS Approved</span>
+                  </div>
+                </div>
+
+              </div>
+            ))}
+          </div>
+
         </div>
 
       </div>
