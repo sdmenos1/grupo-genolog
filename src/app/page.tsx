@@ -7,7 +7,6 @@ import Hero from '@/components/Hero';
 import Accreditations from '@/components/Accreditations';
 import AboutUs from '@/components/AboutUs';
 import ServicesTabs from '@/components/ServicesTabs';
-import ConstructionRoadDivider from '@/components/ConstructionRoadDivider';
 import ProjectsShowcase from '@/components/ProjectsShowcase';
 import ClientsMarquee from '@/components/ClientsMarquee';
 import DownloadsCenter from '@/components/DownloadsCenter';
@@ -64,7 +63,7 @@ export default function Home() {
       {/* 1. Top Regulatory Bar with Executive Auto-Passing Ticker */}
       <TopBar />
 
-      {/* 2. Main Sticky Header (Pinned top-0 z-40) */}
+      {/* 2. Main Sticky Header */}
       <Header onOpenQuoteModal={handleOpenQuoteModal} />
 
       {/* 3. Hero Showcase */}
@@ -82,28 +81,22 @@ export default function Home() {
       {/* 6. Technical Services Catalog */}
       <ServicesTabs onOpenQuoteModal={handleOpenQuoteModal} />
 
-      {/* 7. Interactive Industrial Construction Pavement Divider */}
-      <ConstructionRoadDivider 
-        title="Pavimentación & Obras Civiles en Mina"
-        subtitle="Demostración Interactiva del Despliegue de Maquinaria Pesada & Movimiento de Tierras"
-      />
-
-      {/* 8. Featured Mining Projects */}
+      {/* 7. Featured Mining Projects */}
       <ProjectsShowcase />
 
-      {/* 9. Clients Marquee Ticker (14 Official Clients) */}
+      {/* 8. Clients Marquee Ticker (14 Official Clients) */}
       <ClientsMarquee />
 
-      {/* 10. Technical Downloads Center */}
+      {/* 9. Technical Downloads Center */}
       <DownloadsCenter onOpenDownloadModal={handleOpenDownloadModal} />
 
-      {/* 11. Contact & RFQ Form */}
+      {/* 10. Contact & RFQ Form */}
       <ContactSection onShowToast={showToast} />
 
-      {/* 12. Corporate Footer */}
+      {/* 11. Corporate Footer */}
       <Footer onOpenPolicyModal={handleOpenPolicyModal} />
 
-      {/* 13. Modals */}
+      {/* 12. Modals */}
       <Modals
         quoteModalOpen={quoteModalOpen}
         quoteServiceName={quoteServiceName}
@@ -117,10 +110,10 @@ export default function Home() {
         onShowToast={showToast}
       />
 
-      {/* 14. Floating WhatsApp Widget */}
+      {/* 13. Floating WhatsApp Widget */}
       <WhatsAppWidget />
 
-      {/* 15. Toast Notification */}
+      {/* 14. Toast Notification */}
       {toast.show && (
         <div className="fixed bottom-6 right-6 bg-brand-titanium text-white p-4 rounded-2xl shadow-executive border border-brand-gold/40 z-50 transition duration-300">
           <div className="flex items-center gap-3">
