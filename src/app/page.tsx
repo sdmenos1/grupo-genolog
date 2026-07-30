@@ -7,6 +7,7 @@ import Hero from '@/components/Hero';
 import Accreditations from '@/components/Accreditations';
 import AboutUs from '@/components/AboutUs';
 import ServicesTabs from '@/components/ServicesTabs';
+import ConstructionRoadDivider from '@/components/ConstructionRoadDivider';
 import ProjectsShowcase from '@/components/ProjectsShowcase';
 import ClientsMarquee from '@/components/ClientsMarquee';
 import DownloadsCenter from '@/components/DownloadsCenter';
@@ -54,12 +55,12 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-brand-deepObsidian text-slate-200 font-sans relative">
+    <main className="min-h-screen bg-brand-deepObsidian text-slate-200 font-sans relative overflow-x-hidden">
       
       {/* 1. Top Regulatory Bar */}
       <TopBar />
 
-      {/* 2. Main Sticky Header */}
+      {/* 2. Main Sticky Header with GSAP Scroll Timeline */}
       <Header onOpenQuoteModal={handleOpenQuoteModal} />
 
       {/* 3. Hero Showcase */}
@@ -71,28 +72,34 @@ export default function Home() {
       {/* 4. Accreditations */}
       <Accreditations onOpenDownloadModal={handleOpenDownloadModal} />
 
-      {/* 5. About Us & Squads */}
+      {/* 5. About Us & Capital Humano */}
       <AboutUs />
 
-      {/* 6. Technical Services Catalog */}
+      {/* 6. Technical Services Catalog with Split Sticky GSAP Layout */}
       <ServicesTabs onOpenQuoteModal={handleOpenQuoteModal} />
 
-      {/* 7. Featured Projects */}
+      {/* 7. Novel Interactive Industrial Construction Pavement Divider */}
+      <ConstructionRoadDivider 
+        title="Pavimentación & Obras Civiles en Mina"
+        subtitle="Demostración Interactiva del Despliegue de Maquinaria Pesada & Movimiento de Tierras"
+      />
+
+      {/* 8. Featured Mining Projects */}
       <ProjectsShowcase />
 
-      {/* 8. Clients Marquee Ticker */}
+      {/* 9. Clients Marquee Ticker (14 Official Clients) */}
       <ClientsMarquee />
 
-      {/* 9. Technical Downloads Center */}
+      {/* 10. Technical Downloads Center */}
       <DownloadsCenter onOpenDownloadModal={handleOpenDownloadModal} />
 
-      {/* 10. Contact & RFQ Form */}
+      {/* 11. Contact & RFQ Form */}
       <ContactSection onShowToast={showToast} />
 
-      {/* 11. Corporate Footer */}
+      {/* 12. Corporate Footer */}
       <Footer onOpenPolicyModal={handleOpenPolicyModal} />
 
-      {/* 12. Modals */}
+      {/* 13. Modals */}
       <Modals
         quoteModalOpen={quoteModalOpen}
         quoteServiceName={quoteServiceName}
@@ -106,10 +113,10 @@ export default function Home() {
         onShowToast={showToast}
       />
 
-      {/* 13. Floating WhatsApp Widget */}
+      {/* 14. Floating WhatsApp Widget */}
       <WhatsAppWidget />
 
-      {/* 14. Toast Notification */}
+      {/* 15. Toast Notification */}
       {toast.show && (
         <div className="fixed bottom-6 right-6 bg-brand-titanium text-white p-4 rounded-2xl shadow-executive border border-brand-gold/40 z-50 transition duration-300">
           <div className="flex items-center gap-3">
