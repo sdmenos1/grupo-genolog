@@ -11,34 +11,34 @@ interface HeroProps {
 const heroSlides = [
   {
     image: '/images/hero_sag_mill.jpg',
-    badge: 'MOLIENDA & CHANCADO CRÍTICO',
-    tag: 'Paradas de Planta (P.D.P) en Vivo',
-    title: 'Mantenimiento & Cambio de Revestimientos en Molinos SAG',
-    desc: 'GRUPO GENOLG garantiza máxima disponibilidad operacional y cero incidentes en el desmontaje, torqueado neumático e instalación de chaquetas de acero y caucho en Molinos 7\'x12\'.',
+    badge: 'MANTENIMIENTO INDUSTRIAL & PDP',
+    tag: 'Paradas de Planta Operativas en Vivo',
+    title: 'Ingeniería, Mantenimiento & Paradas de Planta Concentradora',
+    desc: 'Ejecución de proyectos metalmecánicos y mantenimiento continuo en plantas concentradoras e industriales. Innovación tecnológica y cero incidentes bajo los más altos estándares de calidad.',
     serviceName: 'Mantenimiento de Planta Concentradora / PDP'
   },
   {
     image: '/images/hero_welder.jpg',
-    badge: 'HOMOLOGACIÓN AWS D1.1 & ASME IX',
-    tag: 'Estructuras Metalmecánicas de Alta Precisión',
-    title: 'Soldadura Calificada 3G a 6G & Ensayos NDT al 100%',
-    desc: 'Cuadrillas especializadas de soldadores homologados con procedimientos WPS/PQR certificados para estructuras críticas, recipientes a presión y naves industriales mineras.',
+    badge: 'DISEÑO AUTOCAD 3D & WELDING',
+    tag: 'Desarrollo de Ingeniería de Detalle',
+    title: 'Diseño en AutoCAD 3D & Fabricación Metalmecánica',
+    desc: 'Suministro y fabricación de estructuras metalmecánicas adaptadas a proyectos mineros e industriales con equipos de soldadura de última generación y homologación AWS D1.1 / ASME IX.',
     serviceName: 'Fabricación y Montaje Metalmecánico'
   },
   {
     image: '/images/hero_flotation_cells.jpg',
-    badge: 'TECNOLOGÍA DE FLOTACIÓN OK-20',
-    tag: 'Montaje Electromecánico en Concentradoras',
-    title: 'Fabricación, Izaje & Montaje de Celdas de Flotación',
-    desc: 'Fabricación en taller y maniobras complejas de izaje en planta para celdas OK-20, cajones de molienda y chutes revestidos con planchas antidesgastantes Hardox.',
+    badge: 'MONTAJE ESTRUCTURAL & OVERHAUL',
+    tag: 'Montaje de Estructuras & Maquinaria',
+    title: 'Montaje de Estructuras & Overhaul de Equipos Industriales',
+    desc: 'Aplicación estricta de estándares de medición, seguridad industrial y controles de calidad con personal técnico especializado para prolongar la vida útil de sus activos.',
     serviceName: 'Fabricación y Montaje Metalmecánico'
   },
   {
     image: '/images/hero_heavy_machinery.jpg',
-    badge: 'INFRAESTRUCTURA & CIERRE AMBIENTAL',
-    tag: 'Flota Pesada & Preservación Minera',
-    title: 'Movimiento de Tierras & Obras Civiles en Mina',
-    desc: 'Cimentaciones de concreto armado para maquinaria de alto tonelaje, muros de contención 1.5M, preservación de accesos mineros y remediación ambiental ISO 14001.',
+    badge: 'OBRAS CIVILES & REMEDIACIÓN AMBIENTAL',
+    tag: 'Maquinaria Pesada & Conservación de Vías',
+    title: 'Movimiento de Tierras, Obras Civiles & Cierre Ambiental',
+    desc: 'Infraestructura de concreto armado, mantenimiento de accesos mineros, apertura de vías y remediación ambiental de pasivos con reforestación según ISO 14001.',
     serviceName: 'Maquinaria Pesada y Cierre Ambiental'
   }
 ];
@@ -116,7 +116,13 @@ export default function Hero({ onOpenDownloadModal, onOpenQuoteModal }: HeroProp
             {currentSlide.desc}
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          {/* Slogan Banner */}
+          <div className="inline-block bg-brand-gold/15 border border-brand-gold/40 p-3 rounded-xl text-xs text-brand-gold font-bold backdrop-blur-md">
+            <i className="fa-solid fa-quote-left mr-2"></i>
+            <span>&quot;Somos la mejor opción en ingeniería&quot; — GRUPO GENOLG (Minería &amp; Construcción)</span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
             <div className="bg-brand-titanium/95 p-4 rounded-2xl border border-slate-800 flex items-center gap-4 hover:border-brand-gold transition duration-300 shadow-xl backdrop-blur-md">
               <div className="w-12 h-12 rounded-xl bg-brand-petroleum/40 border border-brand-petroleum/50 text-brand-gold flex items-center justify-center text-xl font-bold flex-shrink-0">
                 <i className="fa-solid fa-award"></i>
@@ -138,7 +144,7 @@ export default function Hero({ onOpenDownloadModal, onOpenQuoteModal }: HeroProp
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-3">
+          <div className="flex flex-col sm:flex-row gap-4 pt-2">
             <button 
               onClick={() => onOpenQuoteModal(currentSlide.serviceName)} 
               className="inline-flex items-center justify-center gap-3 bg-brand-petroleum hover:bg-brand-darkPetroleum text-white font-extrabold text-sm px-8 py-4 rounded-2xl shadow-md transition-all duration-300 border border-brand-gold/30 transform hover:-translate-y-1">

@@ -7,299 +7,275 @@ interface ServicesTabsProps {
 }
 
 export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
-  const [activeTab, setActiveTab] = useState('pilar1');
+  const [activeTab, setActiveTab] = useState('cat1');
 
   return (
     <section id="servicios" className="py-20 bg-brand-titanium border-b border-slate-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-brand-gold font-bold uppercase tracking-widest text-xs">Capacidades Operativas de Gran Ingeniería</span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-white mt-1">Catálogo de Servicios Técnicos</h2>
-          <p className="text-slate-400 text-xs sm:text-sm mt-2">Seleccione una especialidad para examinar alcances y entregables garantizados.</p>
+          <span className="text-brand-gold font-bold uppercase tracking-widest text-xs">Ingeniería &amp; Especialidades B2B</span>
+          <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-white mt-1">Catálogo Completo de Servicios &amp; Soluciones</h2>
+          <p className="text-slate-400 text-xs sm:text-sm mt-2">&quot;Somos la mejor opción en ingeniería&quot; — Explore nuestras 4 categorías principales y las 10 líneas de trabajo garantizadas.</p>
         </div>
 
-        {/* Tab Buttons */}
+        {/* Category Tab Buttons */}
         <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
           <button 
-            onClick={() => setActiveTab('pilar1')} 
+            onClick={() => setActiveTab('cat1')} 
             className={`font-bold text-xs sm:text-sm px-5 py-3.5 rounded-xl transition duration-300 ${
-              activeTab === 'pilar1' 
+              activeTab === 'cat1' 
                 ? 'bg-brand-petroleum text-white border border-brand-gold/40 shadow-md' 
                 : 'bg-brand-steel text-slate-300 hover:text-white border border-slate-800'
             }`}>
-            <i className="fa-solid fa-gears mr-2 text-brand-gold"></i> 1. Plantas Concentradoras &amp; PDP
+            <i className="fa-solid fa-compass-drafting mr-2 text-brand-gold"></i> 1. Diseño de Ingeniería (AutoCAD 3D)
           </button>
 
           <button 
-            onClick={() => setActiveTab('pilar2')} 
+            onClick={() => setActiveTab('cat2')} 
             className={`font-bold text-xs sm:text-sm px-5 py-3.5 rounded-xl transition duration-300 ${
-              activeTab === 'pilar2' 
+              activeTab === 'cat2' 
                 ? 'bg-brand-petroleum text-white border border-brand-gold/40 shadow-md' 
                 : 'bg-brand-steel text-slate-300 hover:text-white border border-slate-800'
             }`}>
-            <i className="fa-solid fa-industry mr-2"></i> 2. Fabricación Metalmecánica
+            <i className="fa-solid fa-industry mr-2 text-brand-gold"></i> 2. Fabricación Metalmecánica
           </button>
 
           <button 
-            onClick={() => setActiveTab('pilar3')} 
+            onClick={() => setActiveTab('cat3')} 
             className={`font-bold text-xs sm:text-sm px-5 py-3.5 rounded-xl transition duration-300 ${
-              activeTab === 'pilar3' 
+              activeTab === 'cat3' 
                 ? 'bg-brand-petroleum text-white border border-brand-gold/40 shadow-md' 
                 : 'bg-brand-steel text-slate-300 hover:text-white border border-slate-800'
             }`}>
-            <i className="fa-solid fa-bolt mr-2"></i> 3. Redes Eléctricas &amp; Izaje
+            <i className="fa-solid fa-helmet-safety mr-2 text-brand-gold"></i> 3. Montaje de Estructuras
           </button>
 
           <button 
-            onClick={() => setActiveTab('pilar4')} 
+            onClick={() => setActiveTab('cat4')} 
             className={`font-bold text-xs sm:text-sm px-5 py-3.5 rounded-xl transition duration-300 ${
-              activeTab === 'pilar4' 
+              activeTab === 'cat4' 
                 ? 'bg-brand-petroleum text-white border border-brand-gold/40 shadow-md' 
                 : 'bg-brand-steel text-slate-300 hover:text-white border border-slate-800'
             }`}>
-            <i className="fa-solid fa-helmet-safety mr-2"></i> 4. Obras Civiles en Mina
-          </button>
-
-          <button 
-            onClick={() => setActiveTab('pilar5')} 
-            className={`font-bold text-xs sm:text-sm px-5 py-3.5 rounded-xl transition duration-300 ${
-              activeTab === 'pilar5' 
-                ? 'bg-brand-petroleum text-white border border-brand-gold/40 shadow-md' 
-                : 'bg-brand-steel text-slate-300 hover:text-white border border-slate-800'
-            }`}>
-            <i className="fa-solid fa-truck-monster mr-2"></i> 5. Maquinaria &amp; Cierre
+            <i className="fa-solid fa-gears mr-2 text-brand-gold"></i> 4. Mantenimiento Industrial
           </button>
         </div>
 
-        {/* Tab Content Container */}
+        {/* Tab Content Display */}
         <div>
           
-          {/* Pilar 1 */}
-          {activeTab === 'pilar1' && (
+          {/* Category 1: Diseño de Ingeniería */}
+          {activeTab === 'cat1' && (
             <div className="glass-panel rounded-3xl p-8 sm:p-10 border border-slate-800 grid lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-5">
-                <span className="bg-brand-petroleum/40 text-brand-gold border border-brand-gold/30 font-bold text-xs px-3.5 py-1 rounded-full uppercase">Pilar 1 - Operación Crítica</span>
-                <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white">Mantenimiento de Plantas Concentradoras &amp; Paradas de Planta (P.D.P)</h3>
+                <span className="bg-brand-petroleum/40 text-brand-gold border border-brand-gold/30 font-bold text-xs px-3.5 py-1 rounded-full uppercase">Categoría 1 — Innovación Tecnológica</span>
+                <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white">Diseño de Ingeniería de Detalle con Software AutoCAD 3D</h3>
                 <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                  Intervención especializada en componentes de molienda, chancado y flotación, optimizando tiempos de inactividad con cero desviaciones en seguridad.
+                  Desarrollo de ingeniería de detalle utilizando sistemas de última generación y software especializado <strong>AutoCAD 3D</strong> para la fabricación precisa y montaje de estructuras metalmecánicas.
                 </p>
 
                 <div className="grid sm:grid-cols-2 gap-4 pt-2">
                   <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Cambio de Chaquetas en Molinos</div>
-                    <p className="text-xs text-slate-400">Desmontaje y montaje de revestimientos de acero al manganeso y caucho en Molinos SAG y de Bolas (e.g. Molino 7&apos;x12&apos;).</p>
+                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-cube text-brand-gold mr-2"></i>Modelado 3D &amp; Despiece</div>
+                    <p className="text-xs text-slate-400">Generación de planos de detalle, simulación de interferencias y listas de materiales exactas.</p>
                   </div>
                   <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Chancadoras Cónicas y Quijada</div>
-                    <p className="text-xs text-slate-400">Overhaul integral, cambio de cóncavos, mantos, bocinas de bronce y sistemas hidráulicos.</p>
-                  </div>
-                  <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Fajas Transportadoras Overland</div>
-                    <p className="text-xs text-slate-400">Cambio de polines, alineación de poleas motrices, reemplazo de rodamientos SKF/FAG y vulcanizado.</p>
-                  </div>
-                  <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Celdas Flotación &amp; Espesadores</div>
-                    <p className="text-xs text-slate-400">Mantenimiento de mecanismos de agitación, rotores, estatores y overhaul estructural.</p>
+                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-calculator text-brand-gold mr-2"></i>Cálculo Estructural</div>
+                    <p className="text-xs text-slate-400">Verificación de cargas, esfuerzos y momentos de inercia bajo norma AISC / AWS.</p>
                   </div>
                 </div>
 
                 <button 
-                  onClick={() => onOpenQuoteModal('Mantenimiento de Planta Concentradora / PDP')} 
+                  onClick={() => onOpenQuoteModal('Diseño de Ingeniería AutoCAD 3D')} 
                   className="inline-flex items-center gap-2 bg-brand-petroleum hover:bg-brand-darkPetroleum text-white font-bold text-xs px-6 py-3.5 rounded-xl border border-brand-gold/40 transition shadow-md">
-                  <i className="fa-solid fa-calculator"></i> Cotizar Servicio de Parada de Planta
+                  <i className="fa-solid fa-calculator"></i> Cotizar Diseño de Ingeniería
                 </button>
               </div>
 
               <div className="lg:col-span-5 bg-brand-deepObsidian p-7 rounded-2xl border border-slate-800 space-y-4">
-                <h4 className="font-bold text-base text-brand-gold border-b border-slate-800 pb-2">Entregables y Garantía PDP</h4>
+                <h4 className="font-bold text-base text-brand-gold border-b border-slate-800 pb-2">Entregables de Ingeniería</h4>
                 <ul className="space-y-3 text-xs text-slate-200">
-                  <li className="flex items-start gap-2.5"><i className="fa-solid fa-check text-brand-gold mt-0.5"></i> Plan de trabajo detallado por horas (Gantt Operativo).</li>
-                  <li className="flex items-start gap-2.5"><i className="fa-solid fa-check text-brand-gold mt-0.5"></i> Dossier de Calidad e Inspección NDT (Ensayos No Destructivos).</li>
-                  <li className="flex items-start gap-2.5"><i className="fa-solid fa-check text-brand-gold mt-0.5"></i> Certificados de torqueado hidráulico y alineación láser.</li>
-                  <li className="flex items-start gap-2.5"><i className="fa-solid fa-check text-brand-gold mt-0.5"></i> Informe diario de avance físico y curva S.</li>
+                  <li className="flex items-start gap-2.5"><i className="fa-solid fa-check text-brand-gold mt-0.5"></i> Planos de fabricación y montaje aprobados por CIP.</li>
+                  <li className="flex items-start gap-2.5"><i className="fa-solid fa-check text-brand-gold mt-0.5"></i> Memoria de cálculo y especificaciones técnicas.</li>
+                  <li className="flex items-start gap-2.5"><i className="fa-solid fa-check text-brand-gold mt-0.5"></i> Archivos AutoCAD 3D / DWG / IFC.</li>
                 </ul>
               </div>
             </div>
           )}
 
-          {/* Pilar 2 */}
-          {activeTab === 'pilar2' && (
+          {/* Category 2: Fabricación Metalmecánica */}
+          {activeTab === 'cat2' && (
             <div className="glass-panel rounded-3xl p-8 sm:p-10 border border-slate-800 grid lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-5">
-                <span className="bg-brand-petroleum/40 text-brand-gold border border-brand-gold/30 font-bold text-xs px-3.5 py-1 rounded-full uppercase">Pilar 2 - Estructuras Metálicas</span>
-                <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white">Fabricación &amp; Montaje Metalmecánico de Alta Precisión</h3>
+                <span className="bg-brand-petroleum/40 text-brand-gold border border-brand-gold/30 font-bold text-xs px-3.5 py-1 rounded-full uppercase">Categoría 2 — Capacidad Taller &amp; Campo</span>
+                <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white">Fabricación Metalmecánica con Equipamiento de Soldadura Avanzado</h3>
                 <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                  Soluciones estructurales a medida con modelado de ingeniería en AutoCAD 3D y control de calidad estricto bajo normas AWS D1.1 y ASME.
+                  Suministro y fabricación de estructuras metalmecánicas adaptadas a todo tipo de proyectos industriales y mineros. Integramos equipos de soldadura ágiles y versátiles para acelerar procesos eficientemente.
                 </p>
 
                 <div className="grid sm:grid-cols-2 gap-4 pt-2">
                   <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Celdas de Flotación OK-20</div>
-                    <p className="text-xs text-slate-400">Fabricación en taller, izaje y montaje con tintes penetrantes y ultrasonido al 100%.</p>
+                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-warehouse text-brand-gold mr-2"></i>Estructuras para Naves &amp; Plantas</div>
+                    <p className="text-xs text-slate-400">Vigas de gran peralte, columnas, tijerales y puentes grúa.</p>
                   </div>
                   <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Cajones de Molienda &amp; Chutes</div>
-                    <p className="text-xs text-slate-400">Revestimiento con planchas antidesgastantes (Hardox / Creusabro).</p>
-                  </div>
-                  <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Modelado AutoCAD 3D</div>
-                    <p className="text-xs text-slate-400">Planos de detalle, simulación de cargas y despiece estructurado.</p>
-                  </div>
-                  <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Naves &amp; Plataformas</div>
-                    <p className="text-xs text-slate-400">Estructuras metálicas, puentes grúa y pasarelas de mantenimiento bajo AWS D1.1.</p>
+                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Cercos Perimétricos Metálicos</div>
+                    <p className="text-xs text-slate-400">Delimitación y protección física de operaciones, terrenos e instalaciones mineras.</p>
                   </div>
                 </div>
 
                 <button 
-                  onClick={() => onOpenQuoteModal('Fabricación y Montaje Metalmecánico')} 
+                  onClick={() => onOpenQuoteModal('Fabricación Metalmecánica')} 
                   className="inline-flex items-center gap-2 bg-brand-petroleum hover:bg-brand-darkPetroleum text-white font-bold text-xs px-6 py-3.5 rounded-xl border border-brand-gold/40 transition shadow-md">
                   <i className="fa-solid fa-calculator"></i> Cotizar Fabricación Metalmecánica
                 </button>
               </div>
 
               <div className="lg:col-span-5 bg-brand-deepObsidian p-7 rounded-2xl border border-slate-800 space-y-4">
-                <h4 className="font-bold text-base text-brand-gold border-b border-slate-800 pb-2">Calificación de Soldadura</h4>
-                <p className="text-xs text-slate-300">
-                  Procedimientos WPS y PQR aprobados para soldadores homologados en posiciones 3G a 6G.
-                </p>
-                <div className="flex flex-wrap gap-2 pt-2">
-                  <span className="bg-slate-800 border border-slate-700 px-3 py-1 rounded-md text-xs font-bold text-brand-gold">AWS D1.1</span>
-                  <span className="bg-slate-800 border border-slate-700 px-3 py-1 rounded-md text-xs font-bold text-brand-gold">ASME Sec. IX</span>
-                  <span className="bg-slate-800 border border-slate-700 px-3 py-1 rounded-md text-xs font-bold text-brand-gold">SMAW/GTAW/FCAW</span>
-                </div>
+                <h4 className="font-bold text-base text-brand-gold border-b border-slate-800 pb-2">Garantía de Soldadura WPS/PQR</h4>
+                <ul className="space-y-3 text-xs text-slate-200">
+                  <li className="flex items-start gap-2.5"><i className="fa-solid fa-check text-brand-gold mt-0.5"></i> Homologación bajo código AWS D1.1 y ASME IX.</li>
+                  <li className="flex items-start gap-2.5"><i className="fa-solid fa-check text-brand-gold mt-0.5"></i> Inspección NDT: Tintes Penetrantes (PT), Ultrasonido (UT) y Partículas Magnéticas (MT).</li>
+                </ul>
               </div>
             </div>
           )}
 
-          {/* Pilar 3 */}
-          {activeTab === 'pilar3' && (
+          {/* Category 3: Montaje de Estructuras */}
+          {activeTab === 'cat3' && (
             <div className="glass-panel rounded-3xl p-8 sm:p-10 border border-slate-800 grid lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-5">
-                <span className="bg-brand-petroleum/40 text-brand-gold border border-brand-gold/30 font-bold text-xs px-3.5 py-1 rounded-full uppercase">Pilar 3 - Energía e Izaje</span>
-                <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white">Redes Eléctricas, Instrumentación &amp; Maniobras de Izaje</h3>
+                <span className="bg-brand-petroleum/40 text-brand-gold border border-brand-gold/30 font-bold text-xs px-3.5 py-1 rounded-full uppercase">Categoría 3 — Ejecución Rigurosa</span>
+                <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white">Montaje de Estructuras &amp; Seguridad Industrial Auditada</h3>
                 <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                  Infraestructura eléctrica de potencia e izaje crítico para equipos industriales en plantas concentradoras.
+                  Aplicación estricta de estándares de medición, seguridad industrial y controles de calidad con personal técnico especializado en izajes y alineación estructural.
                 </p>
 
                 <div className="grid sm:grid-cols-2 gap-4 pt-2">
                   <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Mantenimiento de Motores</div>
-                    <p className="text-xs text-slate-400">Diagnóstico, megado, pruebas de aislamiento y mantenimiento de motores de gran potencia.</p>
+                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-tower-cell text-brand-gold mr-2"></i>Redes de Alta Tensión &amp; Energía</div>
+                    <p className="text-xs text-slate-400">Montaje y mantenimiento de estructuras para infraestructura energética y tendidos eléctricos.</p>
                   </div>
                   <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Izaje de Precisión (Soplador Spencer)</div>
-                    <p className="text-xs text-slate-400">Maniobras complejas para sopladores de aire, transformadores y tableros MCC.</p>
-                  </div>
-                  <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Líneas de Alta / Media Tensión</div>
-                    <p className="text-xs text-slate-400">Tendido de redes, montaje de subestaciones y pozos a tierra en altura geográfica.</p>
-                  </div>
-                  <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Instrumentación de Planta</div>
-                    <p className="text-xs text-slate-400">Calibración de sensores de nivel, flujo, presión y automatización PLC.</p>
+                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-building text-brand-gold mr-2"></i>Plataformas &amp; Naves Industriales</div>
+                    <p className="text-xs text-slate-400">Maniobras de izaje con grúas de alto tonelaje y torqueado neumático certificado.</p>
                   </div>
                 </div>
 
                 <button 
-                  onClick={() => onOpenQuoteModal('Redes Eléctricas e Instrumentación')} 
+                  onClick={() => onOpenQuoteModal('Montaje de Estructuras')} 
                   className="inline-flex items-center gap-2 bg-brand-petroleum hover:bg-brand-darkPetroleum text-white font-bold text-xs px-6 py-3.5 rounded-xl border border-brand-gold/40 transition shadow-md">
-                  <i className="fa-solid fa-calculator"></i> Cotizar Servicio Eléctrico / Izaje
+                  <i className="fa-solid fa-calculator"></i> Cotizar Montaje de Estructuras
                 </button>
               </div>
 
               <div className="lg:col-span-5 bg-brand-deepObsidian p-7 rounded-2xl border border-slate-800 space-y-4">
-                <h4 className="font-bold text-base text-brand-gold border-b border-slate-800 pb-2">Seguridad Eléctrica LOTO</h4>
+                <h4 className="font-bold text-base text-brand-gold border-b border-slate-800 pb-2">Rigurosidad en Campo</h4>
                 <p className="text-xs text-slate-300">
-                  Cumplimiento riguroso de procedimientos de Bloqueo y Etiquetado (Lockout/Tagout) en media y alta tensión.
+                  Supervisión permanente por ingenieros colegiados de seguridad HSE con permisos EPP / PETAR / ATS en vivo.
                 </p>
               </div>
             </div>
           )}
 
-          {/* Pilar 4 */}
-          {activeTab === 'pilar4' && (
+          {/* Category 4: Mantenimiento Industrial */}
+          {activeTab === 'cat4' && (
             <div className="glass-panel rounded-3xl p-8 sm:p-10 border border-slate-800 grid lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-5">
-                <span className="bg-brand-petroleum/40 text-brand-gold border border-brand-gold/30 font-bold text-xs px-3.5 py-1 rounded-full uppercase">Pilar 4 - Infraestructura Minera</span>
-                <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white">Obras Civiles e Infraestructura en Unidades Mineras</h3>
+                <span className="bg-brand-petroleum/40 text-brand-gold border border-brand-gold/30 font-bold text-xs px-3.5 py-1 rounded-full uppercase">Categoría 4 — Disponibilidad Continua</span>
+                <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white">Mantenimiento Industrial, Paradas de Planta &amp; Overhaul</h3>
                 <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                  Infraestructura civil de concreto armado y estructuras modulares diseñadas para resistir condiciones climáticas extremas.
+                  Servicios de mantenimiento integral en plantas concentradoras, refuerzo de soldadura, mantenimiento eléctrico industrial, pintura de protección y reconstrucción mayor.
                 </p>
 
                 <div className="grid sm:grid-cols-2 gap-4 pt-2">
                   <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Muros de Contención (Muro 1.5M)</div>
-                    <p className="text-xs text-slate-400">Construcción de muros ciclópeos y armados para estabilización de taludes.</p>
+                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-wrench text-brand-gold mr-2"></i>Overhaul de Equipos Industriales</div>
+                    <p className="text-xs text-slate-400">Reconstrucción, reparación mayor y optimización de maquinaria y componentes críticos.</p>
                   </div>
                   <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Losas de Concreto Armado</div>
-                    <p className="text-xs text-slate-400">Cimentaciones para maquinaria pesada con aditivos de alta resistencia temprana.</p>
-                  </div>
-                  <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Campamentos &amp; Módulos</div>
-                    <p className="text-xs text-slate-400">Habilitación de módulos habitacionales, comedores y oficinas con aislación térmica.</p>
+                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-paint-roller text-brand-gold mr-2"></i>Pintura de Protección Industrial</div>
+                    <p className="text-xs text-slate-400">Sistemas epóxicos y poliuretano para prolongar la vida útil de estructuras expuestas a corrosión.</p>
                   </div>
                 </div>
 
                 <button 
-                  onClick={() => onOpenQuoteModal('Obras Civiles en Mina')} 
+                  onClick={() => onOpenQuoteModal('Mantenimiento Industrial & Overhaul')} 
                   className="inline-flex items-center gap-2 bg-brand-petroleum hover:bg-brand-darkPetroleum text-white font-bold text-xs px-6 py-3.5 rounded-xl border border-brand-gold/40 transition shadow-md">
-                  <i className="fa-solid fa-calculator"></i> Cotizar Obras Civiles
+                  <i className="fa-solid fa-calculator"></i> Cotizar Mantenimiento Industrial
                 </button>
               </div>
 
               <div className="lg:col-span-5 bg-brand-deepObsidian p-7 rounded-2xl border border-slate-800 space-y-4">
-                <h4 className="font-bold text-base text-brand-gold border-b border-slate-800 pb-2">Control Geotécnico y Calidad</h4>
+                <h4 className="font-bold text-base text-brand-gold border-b border-slate-800 pb-2">Aseguramiento Operativo</h4>
                 <p className="text-xs text-slate-300">
-                  Pruebas de esclerometría, rotura de probetas de concreto y certificados de ensayo geotécnico.
+                  Planes de intervención diseñados para minimizar tiempos de parada y maximizar el OEE (Overall Equipment Effectiveness).
                 </p>
               </div>
             </div>
           )}
 
-          {/* Pilar 5 */}
-          {activeTab === 'pilar5' && (
-            <div className="glass-panel rounded-3xl p-8 sm:p-10 border border-slate-800 grid lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-7 space-y-5">
-                <span className="bg-brand-petroleum/40 text-brand-gold border border-brand-gold/30 font-bold text-xs px-3.5 py-1 rounded-full uppercase">Pilar 5 - Sostenibilidad</span>
-                <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white">Maquinaria Pesada, Movimiento de Tierras &amp; Cierre Ambiental</h3>
-                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                  Operaciones de flota pesada para preservación de accesos, perfilado de botaderos y restauración de pasivos ambientales.
-                </p>
+        </div>
 
-                <div className="grid sm:grid-cols-2 gap-4 pt-2">
-                  <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Movimiento de Tierras</div>
-                    <p className="text-xs text-slate-400">Excavaciones, conformación de botaderos y nivelación de plataformas en mina.</p>
-                  </div>
-                  <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Mantenimiento de Vías</div>
-                    <p className="text-xs text-slate-400">Afirmado, cuneteado y preservación de accesos mineros en zonas de alta montaña.</p>
-                  </div>
-                  <div className="bg-brand-steel/60 p-4 rounded-xl border border-slate-800">
-                    <div className="font-bold text-sm text-white mb-1"><i className="fa-solid fa-circle-dot text-brand-gold mr-2"></i>Cierre de Minas &amp; Reforestación</div>
-                    <p className="text-xs text-slate-400">Recuperación ambiental, coberturas orgánicas y revegetación nativa.</p>
-                  </div>
-                </div>
+        {/* Full 10 Solutions Grid Catalog */}
+        <div className="mt-16 pt-12 border-t border-slate-800">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="text-brand-gold font-bold uppercase tracking-wider text-xs">Catálogo Detallado de Trabajos</span>
+            <h3 className="font-heading text-2xl font-bold text-white mt-1">10 Soluciones Especializadas en Minería &amp; Construcción</h3>
+          </div>
 
-                <button 
-                  onClick={() => onOpenQuoteModal('Maquinaria Pesada y Cierre Ambiental')} 
-                  className="inline-flex items-center gap-2 bg-brand-petroleum hover:bg-brand-darkPetroleum text-white font-bold text-xs px-6 py-3.5 rounded-xl border border-brand-gold/40 transition shadow-md">
-                  <i className="fa-solid fa-calculator"></i> Cotizar Maquinaria / Cierre
-                </button>
-              </div>
-
-              <div className="lg:col-span-5 bg-brand-deepObsidian p-7 rounded-2xl border border-slate-800 space-y-4">
-                <h4 className="font-bold text-base text-brand-gold border-b border-slate-800 pb-2">Gestión Ambiental ISO 14001</h4>
-                <p className="text-xs text-slate-300">
-                  Intervenciones sostenibles respetando los Límites Máximos Permisibles (LMP) y compromisos comunitarios.
-                </p>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+              <div className="font-bold text-brand-gold"><i className="fa-solid fa-gears mr-1.5"></i>1. Plantas Concentradoras</div>
+              <p className="text-slate-400">Inspección, reparación y aseguramiento operativo continuo en molienda y chancado.</p>
             </div>
-          )}
 
+            <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+              <div className="font-bold text-brand-gold"><i className="fa-solid fa-clock mr-1.5"></i>2. Paradas de Planta (P.D.P)</div>
+              <p className="text-slate-400">Ejecución de intervenciones críticas durante paradas operativas en minería.</p>
+            </div>
+
+            <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+              <div className="font-bold text-brand-gold"><i className="fa-solid fa-bolt mr-1.5"></i>3. Eléctrico e Instrumentación</div>
+              <p className="text-slate-400">Asistencia e instalación técnica en plantas industriales y motores.</p>
+            </div>
+
+            <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+              <div className="font-bold text-brand-gold"><i className="fa-solid fa-tower-broadcast mr-1.5"></i>4. Redes de Alta Tensión</div>
+              <p className="text-slate-400">Montaje y mantenimiento de infraestructura energética y tendidos eléctricos.</p>
+            </div>
+
+            <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+              <div className="font-bold text-brand-gold"><i className="fa-solid fa-industry mr-1.5"></i>5. Estructuras Metálicas</div>
+              <p className="text-slate-400">Fabricación y montaje para naves, plataformas y plantas concentradoras.</p>
+            </div>
+
+            <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+              <div className="font-bold text-brand-gold"><i className="fa-solid fa-shield mr-1.5"></i>6. Cercos Perimétricos</div>
+              <p className="text-slate-400">Instalación, delimitación y protección física de terrenos y operaciones.</p>
+            </div>
+
+            <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+              <div className="font-bold text-brand-gold"><i className="fa-solid fa-rotate mr-1.5"></i>7. Overhaul de Equipos</div>
+              <p className="text-slate-400">Reconstrucción, reparación mayor y optimización de maquinaria industrial.</p>
+            </div>
+
+            <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+              <div className="font-bold text-brand-gold"><i className="fa-solid fa-trowel-bricks mr-1.5"></i>8. Obras Civiles</div>
+              <p className="text-slate-400">Ejecución de obras de infraestructura y cimentación para proyectos industriales.</p>
+            </div>
+
+            <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+              <div className="font-bold text-brand-gold"><i className="fa-solid fa-tree mr-1.5"></i>9. Cierre Ambiental</div>
+              <p className="text-slate-400">Reforestación de áreas perturbadas y remediación de pasivos ambientales.</p>
+            </div>
+
+            <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+              <div className="font-bold text-brand-gold"><i className="fa-solid fa-truck-monster mr-1.5"></i>10. Maquinaria &amp; Vías</div>
+              <p className="text-slate-400">Excavación, movimiento de tierras, construcción y conservación de caminos.</p>
+            </div>
+          </div>
         </div>
 
       </div>

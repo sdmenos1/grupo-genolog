@@ -6,9 +6,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const squadData = [
   {
-    icon: 'fa-wrench',
-    title: 'Mecánicos Montajistas',
-    desc: 'Alineación de ejes, torqueado neumático e instalación de equipos pesados.'
+    icon: 'fa-user-gear',
+    title: 'Staff de Ingenieros',
+    desc: 'Especialistas en ingeniería de detalle 3D, supervisión de seguridad HSE y gestión de proyectos.'
   },
   {
     icon: 'fa-fire-burner',
@@ -16,19 +16,19 @@ const squadData = [
     desc: 'Calificados 3G a 6G bajo código ASME Sec. IX y AWS D1.1 (SMAW, GTAW, FCAW).'
   },
   {
-    icon: 'fa-cubes-stacked',
-    title: 'Andamieros Certificados',
-    desc: 'Estructuras multinivel y trabajo en altura bajo normativa OSHA / ANSI.'
+    icon: 'fa-wrench',
+    title: 'Armadores & Montajistas',
+    desc: 'Montaje de precisión, torqueado neumático e instalación de naves e infraestructura.'
   },
   {
-    icon: 'fa-compass-drafting',
-    title: 'Caldereros & Trazadores',
-    desc: 'Conformado y ajuste de recipientes a presión, chutes y ductos de alta resistencia.'
+    icon: 'fa-bolt',
+    title: 'Técnicos Electricistas',
+    desc: 'Mantenimiento eléctrico industrial, instrumentación de planta y redes de alta tensión.'
   },
   {
-    icon: 'fa-oil-can',
-    title: 'Lubricadores Industriales',
-    desc: 'Gestión de tribología y lubricación centralizada en componentes de planta.'
+    icon: 'fa-person-digging',
+    title: 'Operarios Civiles & Maquinaria',
+    desc: 'Ejecución de obras de concreto armado, movimiento de tierras y apertura de vías.'
   }
 ];
 
@@ -65,17 +65,17 @@ export default function AboutUs() {
         
         <div className="grid lg:grid-cols-12 gap-12 items-center mb-16">
           <div className="lg:col-span-6 space-y-6">
-            <span className="text-brand-gold font-bold uppercase tracking-widest text-xs">Respaldo, Disciplina y Capacidad Operativa</span>
-            <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-white">Liderazgo Operacional y Rigurosidad en Campo</h2>
+            <span className="text-brand-gold font-bold uppercase tracking-widest text-xs">Identidad Corporativa &amp; Capital Humano</span>
+            <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-white">Innovación Tecnológica, Desarrollo Humano y Respeto Ambiental</h2>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              Bajo la Gerencia General de <strong>Teófilo Frank Sánchez Taquire</strong>, <strong>GRUPO GENOLG MINERÍA &amp; CONSTRUCCIÓN S.C.R.L.</strong> ha consolidado estándares estrictos de ejecución sin incidentes, garantizando el cumplimiento de los cronogramas en Paradas de Planta (P.D.P) y proyectos metalmecánicos de gran envergadura.
+              <strong>GRUPO GENOLG (Minería &amp; Construcción)</strong> es una empresa dedicada a la ejecución de proyectos metalmecánicos y mantenimiento en plantas concentradoras e industriales. Operamos en sectores de la economía pública y privada mediante la innovación tecnológica, el desarrollo humano de procesos y el respeto al medio ambiente.
             </p>
             <div className="p-5 bg-brand-titanium rounded-2xl border-l-4 border-brand-gold text-xs sm:text-sm text-slate-300 font-medium shadow-md">
-              &quot;Nuestra filosofía operacional combina la cultura de seguridad absoluta (Safety First) con alineación normativa internacional (AWS, ASME, OSHA) para asegurar la máxima continuidad operativa de la planta.&quot;
+              &quot;Somos la mejor opción en ingeniería: Priorizamos la seguridad absoluta, la calidad certificada y el desarrollo integral de nuestro capital humano en cada operación minera e industrial.&quot;
             </div>
           </div>
 
-          {/* Strategic Pillars Cards */}
+          {/* Strategic Pillars Cards (Misión, Visión, Valores) */}
           <div className="lg:col-span-6 grid sm:grid-cols-2 gap-5">
             <div className="bg-brand-titanium p-6 rounded-2xl border border-slate-800 hover:border-brand-gold/40 transition duration-300 shadow-md">
               <div className="w-12 h-12 rounded-xl bg-brand-petroleum/30 text-brand-gold flex items-center justify-center text-xl font-bold mb-4">
@@ -83,7 +83,7 @@ export default function AboutUs() {
               </div>
               <h3 className="font-bold text-base text-white">Misión</h3>
               <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                Proveer servicios de mantenimiento industrial, fabricación metalmecánica y obras civiles con cero incidentes y máxima eficiencia.
+                Diseñar, fabricar y suministrar soluciones en infraestructura metalmecánica para lograr la satisfacción de sus clientes, el desarrollo de sus colaboradores y el desarrollo social.
               </p>
             </div>
 
@@ -91,9 +91,9 @@ export default function AboutUs() {
               <div className="w-12 h-12 rounded-xl bg-brand-petroleum/30 text-brand-gold flex items-center justify-center text-xl font-bold mb-4">
                 <i className="fa-solid fa-eye"></i>
               </div>
-              <h3 className="font-bold text-base text-white">Visión 2030</h3>
+              <h3 className="font-bold text-base text-white">Visión</h3>
               <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                Consolidarnos como la empresa contratista referente a nivel nacional por nuestra excelencia en Paradas de Planta y seguridad de clase mundial.
+                Ser reconocidos como la empresa líder a nivel nacional en servicios de ingeniería, mantenimiento de plantas concentradoras, fabricación, montaje y mantenimiento de estructuras metalmecánicas.
               </p>
             </div>
 
@@ -102,22 +102,25 @@ export default function AboutUs() {
                 <i className="fa-solid fa-shield-heart"></i>
                 <span>Valores Corporativos B2B</span>
               </h3>
-              <div className="grid grid-cols-2 gap-3 text-xs text-slate-300">
-                <div className="flex items-center gap-2"><i className="fa-solid fa-check text-brand-gold"></i> Seguridad Absoluta</div>
-                <div className="flex items-center gap-2"><i className="fa-solid fa-check text-brand-gold"></i> Rigurosidad Técnica</div>
-                <div className="flex items-center gap-2"><i className="fa-solid fa-check text-brand-gold"></i> Integridad Anti-Soborno</div>
-                <div className="flex items-center gap-2"><i className="fa-solid fa-check text-brand-gold"></i> Sostenibilidad Ambiental</div>
+              <p className="text-xs text-slate-300 mb-3">
+                Fomento de la motivación, implicación, sentido de responsabilidad, afán de superación y orgullo profesional en todo nuestro personal.
+              </p>
+              <div className="grid grid-cols-2 gap-3 text-xs text-slate-300 border-t border-slate-800 pt-3">
+                <div className="flex items-center gap-2"><i className="fa-solid fa-check text-brand-gold"></i> Motivación e Implicación</div>
+                <div className="flex items-center gap-2"><i className="fa-solid fa-check text-brand-gold"></i> Sentido de Responsabilidad</div>
+                <div className="flex items-center gap-2"><i className="fa-solid fa-check text-brand-gold"></i> Afán de Superación</div>
+                <div className="flex items-center gap-2"><i className="fa-solid fa-check text-brand-gold"></i> Orgullo Profesional</div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Squads */}
+        {/* Capital Humano (Equipment & Staff) */}
         <div className="squads-container mt-16 glass-panel p-8 sm:p-10 rounded-3xl border border-slate-800">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <span className="text-brand-gold font-bold uppercase tracking-wider text-xs">Personal Técnico Homologado</span>
-            <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white mt-1">Cuadrillas Especializadas de Alto Rendimiento</h3>
-            <p className="text-slate-400 text-xs sm:text-sm mt-1">Despliegue inmediato de técnicos calificados bajo estándares internacionales.</p>
+            <span className="text-brand-gold font-bold uppercase tracking-wider text-xs">Equipo Humano Calificado</span>
+            <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white mt-1">Capital Humano de Alto Rendimiento</h3>
+            <p className="text-slate-400 text-xs sm:text-sm mt-1">Staff multidisciplinario preparado para despliegue en unidades mineras e industriales con estándares internacionales de seguridad.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
