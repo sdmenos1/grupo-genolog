@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 
 interface HorizontalServicesCarouselProps {
   onOpenQuoteModal: (serviceName?: string) => void;
@@ -10,6 +10,7 @@ const serviceCarouselData = [
   {
     id: 'carrusel-1',
     category: '1. Diseño de Ingeniería',
+    catShort: '1. Diseño 3D',
     title: 'Desarrollo de Ingeniería de Detalle en AutoCAD 3D',
     image: '/images/hero_welder.jpg',
     badge: 'INNOVACIÓN TECNOLÓGICA',
@@ -24,6 +25,7 @@ const serviceCarouselData = [
   {
     id: 'carrusel-2',
     category: '2. Fabricación Metalmecánica',
+    catShort: '2. Fabricación',
     title: 'Fabricación Metalmecánica & Estructuras en Taller/Campo',
     image: '/images/hero_flotation_cells.jpg',
     badge: 'SOLDADURA HOMOLOGADA',
@@ -38,6 +40,7 @@ const serviceCarouselData = [
   {
     id: 'carrusel-3',
     category: '3. Montaje de Estructuras',
+    catShort: '3. Montaje',
     title: 'Montaje de Estructuras & Redes de Alta Tensión',
     image: '/images/hero_heavy_machinery.jpg',
     badge: 'SEGURIDAD HSE AUDITADA',
@@ -52,6 +55,7 @@ const serviceCarouselData = [
   {
     id: 'carrusel-4',
     category: '4. Mantenimiento Industrial',
+    catShort: '4. Mantenimiento & PDP',
     title: 'Mantenimiento de Plantas Concentradoras & Paradas de Planta (P.D.P)',
     image: '/images/hero_sag_mill.jpg',
     badge: 'DISPONIBILIDAD CONTINUA',
@@ -66,6 +70,7 @@ const serviceCarouselData = [
   {
     id: 'carrusel-5',
     category: '5. Obras Civiles & Cierre Ambiental',
+    catShort: '5. Obras Civiles',
     title: 'Obras Civiles, Maquinaria Pesada & Remediación Ambiental',
     image: '/images/hero_heavy_machinery.jpg',
     badge: 'SOSTENIBILIDAD ISO 14001',
@@ -81,8 +86,6 @@ const serviceCarouselData = [
 
 export default function HorizontalServicesCarousel({ onOpenQuoteModal }: HorizontalServicesCarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const trackRef = useRef<HTMLDivElement | null>(null);
-
   const totalSlides = serviceCarouselData.length;
 
   const handlePrev = () => {
@@ -94,25 +97,32 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
   };
 
   return (
-    <div className="py-8 relative overflow-hidden">
+    <div className="py-6 relative">
       
-      {/* Header Controls */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
-        <div>
-          <span className="text-brand-gold text-xs font-bold uppercase tracking-wider">Deslizado Horizontal B2B</span>
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-heading mt-0.5">Carrusel de Especialidades Técnicas</h3>
+      {/* Executive Corporate Header (No generic "Carrusel") */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+        <div className="space-y-1">
+          <span className="inline-block bg-brand-gold/10 border border-brand-gold/30 text-brand-gold font-extrabold uppercase tracking-widest text-[11px] px-3.5 py-1 rounded-full">
+            SOLUCIONES DE INGENIERÍA MINERA
+          </span>
+          <h3 className="text-2xl sm:text-4xl font-black text-white font-heading tracking-tight">
+            Portafolio de Especialidades &amp; Soluciones en Minería
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-400">
+            &quot;Somos la mejor opción en ingeniería&quot; — Explore cada especialidad técnica con fotografías reales de nuestras operaciones.
+          </p>
         </div>
 
         {/* Carousel Arrow Controls */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-shrink-0">
           <button 
             onClick={handlePrev}
             aria-label="Servicio Anterior"
             className="w-12 h-12 rounded-2xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-brand-gold hover:border-brand-gold/60 flex items-center justify-center transition-all duration-300 shadow-lg hover:scale-105 active:scale-95">
             <i className="fa-solid fa-arrow-left text-base"></i>
           </button>
-          
-          <span className="text-xs font-bold text-slate-400 bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800">
+
+          <span className="text-xs font-extrabold text-slate-300 bg-slate-950 px-4 py-2 rounded-xl border border-slate-800">
             <strong className="text-brand-gold">0{currentSlide + 1}</strong> / 0{totalSlides}
           </span>
 
@@ -125,73 +135,81 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
         </div>
       </div>
 
-      {/* Horizontal Track Viewport */}
-      <div className="overflow-hidden w-full rounded-3xl py-2">
+      {/* Category Pills Navigation Bar */}
+      <div className="flex flex-wrap justify-center sm:justify-start gap-2 mb-8 border-b border-slate-800/80 pb-4">
+        {serviceCarouselData.map((item, idx) => (
+          <button
+            key={item.id}
+            onClick={() => setCurrentSlide(idx)}
+            className={`text-xs font-bold px-4 py-2.5 rounded-xl transition-all duration-300 border ${
+              currentSlide === idx
+                ? 'bg-brand-petroleum text-white border-brand-gold/50 shadow-md font-extrabold'
+                : 'bg-slate-900/80 text-slate-400 hover:text-white border-slate-800'
+            }`}>
+            {item.catShort}
+          </button>
+        ))}
+      </div>
+
+      {/* 100% Width Full Viewport Slider Track */}
+      <div className="overflow-hidden w-full rounded-3xl shadow-2xl border border-slate-800">
         <div 
-          ref={trackRef}
-          className="flex items-center gap-6 sm:gap-8 transition-transform duration-500 ease-out will-change-transform"
-          style={{ transform: `translateX(-${currentSlide * 82}%)` }}>
+          className="flex transition-transform duration-600 ease-out will-change-transform"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
           
-          {serviceCarouselData.map((item, idx) => {
-            const isActive = currentSlide === idx;
-            return (
-              <div 
-                key={item.id}
-                className={`w-[88vw] sm:w-[680px] md:w-[750px] lg:w-[840px] flex-shrink-0 bg-gradient-to-b from-slate-900/95 to-brand-steel/85 backdrop-blur-xl rounded-3xl border transition-all duration-500 overflow-hidden grid md:grid-cols-12 gap-0 shadow-2xl ${
-                  isActive 
-                    ? 'border-brand-gold/60 ring-1 ring-brand-gold/40 scale-100 opacity-100 shadow-glow-gold' 
-                    : 'border-slate-800 scale-95 opacity-65 hover:opacity-80'
-                }`}>
+          {serviceCarouselData.map((item) => (
+            <div 
+              key={item.id}
+              className="w-full flex-shrink-0 bg-gradient-to-b from-slate-900/95 to-brand-steel/85 backdrop-blur-xl grid md:grid-cols-12 gap-0 min-h-[460px] sm:min-h-[500px]">
+              
+              {/* HD Image Left (5 Columns on Desktop) */}
+              <div className="md:col-span-5 relative h-64 md:h-auto overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src={item.image} 
+                  alt={item.title} 
+                  className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
                 
-                {/* Rectangular Image Left */}
-                <div className="md:col-span-5 relative h-64 md:h-auto overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-                  
-                  <div className="absolute top-4 left-4 bg-brand-titanium/90 border border-brand-gold/40 text-brand-gold text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-md backdrop-blur-md">
-                    {item.badge}
-                  </div>
+                <div className="absolute top-4 left-4 bg-brand-titanium/90 border border-brand-gold/40 text-brand-gold text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-md backdrop-blur-md">
+                  {item.badge}
                 </div>
-
-                {/* Rectangular Content Right */}
-                <div className="md:col-span-7 p-6 sm:p-8 space-y-4 flex flex-col justify-between">
-                  <div className="space-y-2">
-                    <span className="text-brand-gold font-bold text-xs uppercase tracking-wider">{item.category}</span>
-                    <h4 className="text-xl sm:text-2xl font-bold text-white font-heading">{item.title}</h4>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">{item.desc}</p>
-                  </div>
-
-                  <div className="bg-brand-deepObsidian/90 p-4 rounded-2xl border border-slate-800 space-y-2">
-                    <div className="text-xs font-bold text-slate-200 uppercase tracking-wider">Entregables Clave:</div>
-                    <ul className="space-y-1.5 text-xs text-slate-400">
-                      {item.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-2">
-                          <i className="fa-solid fa-circle-check text-brand-gold mt-0.5 text-xs"></i>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="pt-2 flex items-center justify-between border-t border-slate-800">
-                    <button 
-                      onClick={() => onOpenQuoteModal(item.serviceName)} 
-                      className="inline-flex items-center gap-2 text-xs font-bold text-brand-gold hover:text-white transition duration-300">
-                      <span>Cotizar {item.category}</span>
-                      <i className="fa-solid fa-arrow-right text-xs"></i>
-                    </button>
-                    <span className="text-[10px] text-slate-500 font-semibold uppercase">Estándar ISO / CIP</span>
-                  </div>
-                </div>
-
               </div>
-            );
-          })}
+
+              {/* Rectangular Content Right (7 Columns on Desktop) */}
+              <div className="md:col-span-7 p-6 sm:p-10 space-y-5 flex flex-col justify-between">
+                <div className="space-y-2">
+                  <span className="text-brand-gold font-bold text-xs uppercase tracking-wider">{item.category}</span>
+                  <h4 className="text-2xl sm:text-3xl font-bold text-white font-heading leading-snug">{item.title}</h4>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">{item.desc}</p>
+                </div>
+
+                <div className="bg-brand-deepObsidian/90 p-5 rounded-2xl border border-slate-800 space-y-2">
+                  <div className="text-xs font-bold text-slate-200 uppercase tracking-wider">Entregables Clave &amp; Acreditaciones:</div>
+                  <ul className="space-y-1.5 text-xs text-slate-400">
+                    {item.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2">
+                        <i className="fa-solid fa-circle-check text-brand-gold mt-0.5 text-xs"></i>
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pt-3 flex items-center justify-between border-t border-slate-800/80">
+                  <button 
+                    onClick={() => onOpenQuoteModal(item.serviceName)} 
+                    className="inline-flex items-center gap-2 text-xs font-bold text-brand-gold hover:text-white transition duration-300">
+                    <span>Cotizar {item.category}</span>
+                    <i className="fa-solid fa-arrow-right text-xs"></i>
+                  </button>
+                  <span className="text-[10px] text-slate-500 font-semibold uppercase">CIP / AWS Approved</span>
+                </div>
+              </div>
+
+            </div>
+          ))}
 
         </div>
       </div>
