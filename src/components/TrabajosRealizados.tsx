@@ -379,22 +379,15 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-deepObsidian via-transparent to-black/20 opacity-80 group-hover/img:opacity-60 transition-opacity"></div>
                   
-                  {/* Gallery Counter Tag */}
-                  <div className="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md px-2.5 py-1 rounded-lg border border-brand-gold/40 text-[11px] font-bold text-brand-gold flex items-center gap-1">
-                    <i className="fa-solid fa-camera"></i> {trabajo.galleryImages.length} Fotos Reales
-                  </div>
-
                   <div className="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md border border-brand-gold/40 text-brand-gold w-8 h-8 rounded-full flex items-center justify-center text-xs opacity-0 group-hover/img:opacity-100 transition-all duration-300 transform group-hover/img:scale-110">
                     <i className="fa-solid fa-images"></i>
-                  </div>
-
-                  <div className="absolute bottom-3 left-3 bg-slate-950/90 backdrop-blur-md px-3 py-1 rounded-lg border border-slate-700/80 text-[10px] font-semibold text-slate-300 flex items-center gap-1.5">
-                    <i className="fa-solid fa-industry text-brand-gold"></i> {trabajo.unitLocation || 'Unidad Minera'}
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="font-heading font-black text-white text-base leading-snug mb-3 group-hover:text-brand-gold transition-colors">
+                <h3 
+                  onClick={() => openTrabajoModal(trabajo)}
+                  className="font-heading font-black text-white text-base leading-snug mb-3 group-hover:text-brand-gold transition-colors cursor-pointer">
                   {trabajo.title}
                 </h3>
 
@@ -404,7 +397,7 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                 </p>
 
                 {/* Highlights List */}
-                <ul className="space-y-1.5 mb-5 pt-2 border-t border-slate-800/80">
+                <ul className="space-y-1.5 pt-2 border-t border-slate-800/80">
                   {trabajo.highlights.map((h, i) => (
                     <li key={i} className="text-[11px] text-slate-300 flex items-center gap-2 font-medium">
                       <i className="fa-solid fa-check text-brand-gold text-[10px]"></i>
@@ -412,24 +405,6 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                     </li>
                   ))}
                 </ul>
-              </div>
-
-              {/* Card Footer Badges & Actions */}
-              <div className="pt-4 border-t border-slate-800 flex items-center justify-between gap-2">
-                <div className="flex items-center gap-1.5 flex-wrap">
-                  {trabajo.badges.map((b, i) => (
-                    <span key={i} className="text-[10px] font-bold text-slate-300 bg-slate-900 border border-slate-700/60 px-2 py-0.5 rounded">
-                      {b}
-                    </span>
-                  ))}
-                </div>
-
-                <button
-                  onClick={() => openTrabajoModal(trabajo)}
-                  className="bg-brand-petroleum/30 hover:bg-brand-petroleum text-brand-gold hover:text-white border border-brand-gold/30 text-[11px] font-bold px-3 py-1.5 rounded-xl transition duration-300 flex items-center gap-1.5 flex-shrink-0">
-                  <span>Ver Galería ({trabajo.galleryImages.length})</span>
-                  <i className="fa-solid fa-arrow-right text-[9px]"></i>
-                </button>
               </div>
 
             </div>
