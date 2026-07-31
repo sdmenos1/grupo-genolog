@@ -70,22 +70,28 @@ export default function GaleriaMultimedia() {
   }, [activeCategory]);
 
   // Optimización de rendimiento extrema: IntersectionObserver 
-  // Solo reproduce los videos cuando están 20% visibles en pantalla.
-  // Esto salva RAM y CPU, evitando que la web se sature.
+  // Solo reproduce los videos cuando están en pantalla.
+  // Mantiene el sitio 100% rápido al pausar los videos fuera del campo de visión.
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const video = entry.target as HTMLVideoElement;
         if (entry.isIntersecting) {
-          video.play().catch(() => { /* autoplay bloqueado por el navegador */ });
+          video.muted = true;
+          video.play().catch(() => {
+            // Intentar reproducir si el navegador lo requiere
+          });
         } else {
           video.pause();
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.15 });
 
     videoRefs.current.forEach((vid) => {
-      if (vid) observer.observe(vid);
+      if (vid) {
+        vid.muted = true;
+        observer.observe(vid);
+      }
     });
 
     return () => observer.disconnect();
@@ -144,14 +150,19 @@ export default function GaleriaMultimedia() {
               {item.type === 'video' ? (
                 <video
                   ref={(el) => {
-                    if (el) videoRefs.current.set(item.id, el);
-                    else videoRefs.current.delete(item.id);
+                    if (el) {
+                      el.muted = true;
+                      videoRefs.current.set(item.id, el);
+                    } else {
+                      videoRefs.current.delete(item.id);
+                    }
                   }}
                   src={item.src}
+                  autoPlay
                   muted
                   loop
                   playsInline
-                  preload="none" // Optimización: no descarga el video hasta que sea necesario
+                  preload="metadata"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   onError={(e) => {
                     const target = e.target as HTMLVideoElement;
