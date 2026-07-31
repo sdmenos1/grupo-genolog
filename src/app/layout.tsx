@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Montserrat, Plus_Jakarta_Sans } from 'next/font/google';
+import PageTransition from '@/components/PageTransition';
 import './globals.css';
 
 const montserrat = Montserrat({
@@ -36,7 +37,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${montserrat.variable} ${plusJakartaSans.variable} font-sans bg-brand-deepObsidian text-slate-200 antialiased overflow-x-hidden`}>
-        {children}
+        <PageTransition>{children}</PageTransition>
       </body>
     </html>
   );

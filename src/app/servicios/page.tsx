@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import TopBar from '@/components/TopBar';
 import Header from '@/components/Header';
 import HorizontalServicesCarousel from '@/components/HorizontalServicesCarousel';
-import ServicesTabs from '@/components/ServicesTabs';
 import Footer from '@/components/Footer';
 import Modals from '@/components/Modals';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
@@ -52,15 +51,12 @@ export default function ServiciosPage() {
         </div>
       </section>
 
-      {/* Horizontal Carousel Showcase with Large Rectangular Cards */}
-      <section className="py-16 bg-brand-titanium/60 border-b border-slate-800">
+      {/* Single Unified Modern Services Showcase */}
+      <section className="py-16 bg-brand-titanium border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HorizontalServicesCarousel onOpenQuoteModal={handleOpenQuoteModal} />
         </div>
       </section>
-
-      {/* Detailed Services Grid & 10 Solutions Catalog */}
-      <ServicesTabs onOpenQuoteModal={handleOpenQuoteModal} />
 
       <Footer onOpenPolicyModal={(type) => { setPolicyType(type); setPolicyModalOpen(true); }} />
 

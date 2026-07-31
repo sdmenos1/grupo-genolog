@@ -97,9 +97,9 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
   };
 
   return (
-    <div className="py-6 relative">
+    <div className="py-4 relative">
       
-      {/* Executive Corporate Header (No generic "Carrusel") */}
+      {/* Executive Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
         <div className="space-y-1">
           <span className="inline-block bg-brand-gold/10 border border-brand-gold/30 text-brand-gold font-extrabold uppercase tracking-widest text-[11px] px-3.5 py-1 rounded-full">
@@ -162,7 +162,7 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
               key={item.id}
               className="w-full flex-shrink-0 bg-gradient-to-b from-slate-900/95 to-brand-steel/85 backdrop-blur-xl grid md:grid-cols-12 gap-0 min-h-[460px] sm:min-h-[500px]">
               
-              {/* HD Image Left (5 Columns on Desktop) */}
+              {/* HD Image Left */}
               <div className="md:col-span-5 relative h-64 md:h-auto overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
@@ -177,7 +177,7 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
                 </div>
               </div>
 
-              {/* Rectangular Content Right (7 Columns on Desktop) */}
+              {/* Rectangular Content Right */}
               <div className="md:col-span-7 p-6 sm:p-10 space-y-5 flex flex-col justify-between">
                 <div className="space-y-2">
                   <span className="text-brand-gold font-bold text-xs uppercase tracking-wider">{item.category}</span>
@@ -226,6 +226,66 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
             }`}
           />
         ))}
+      </div>
+
+      {/* Full 10 Solutions Grid Breakdown */}
+      <div className="mt-16 pt-12 border-t border-slate-800">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <span className="text-brand-gold font-bold uppercase tracking-wider text-xs">Catálogo Detallado de Trabajos</span>
+          <h3 className="font-heading text-2xl font-bold text-white mt-1">10 Soluciones Especializadas en Minería &amp; Construcción</h3>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-gears mr-1.5"></i>1. Plantas Concentradoras</div>
+            <p className="text-slate-400">Inspección, reparación y aseguramiento operativo continuo en molienda y chancado.</p>
+          </div>
+
+          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-clock mr-1.5"></i>2. Paradas de Planta (P.D.P)</div>
+            <p className="text-slate-400">Ejecución de intervenciones críticas durante paradas operativas en minería.</p>
+          </div>
+
+          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-bolt mr-1.5"></i>3. Eléctrico e Instrumentación</div>
+            <p className="text-slate-400">Asistencia e instalación técnica en plantas industriales y motores.</p>
+          </div>
+
+          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-tower-broadcast mr-1.5"></i>4. Redes de Alta Tensión</div>
+            <p className="text-slate-400">Montaje y mantenimiento de infraestructura energética y tendidos eléctricos.</p>
+          </div>
+
+          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-industry mr-1.5"></i>5. Estructuras Metálicas</div>
+            <p className="text-slate-400">Fabricación y montaje para naves, plataformas y plantas concentradoras.</p>
+          </div>
+
+          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-shield mr-1.5"></i>6. Cercos Perimétricos</div>
+            <p className="text-slate-400">Instalación, delimitación y protección física de terrenos y operaciones.</p>
+          </div>
+
+          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-rotate mr-1.5"></i>7. Overhaul de Equipos</div>
+            <p className="text-slate-400">Reconstrucción, reparación mayor y optimización de maquinaria industrial.</p>
+          </div>
+
+          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-trowel-bricks mr-1.5"></i>8. Obras Civiles</div>
+            <p className="text-slate-400">Ejecución de obras de infraestructura y cimentación para proyectos industriales.</p>
+          </div>
+
+          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-tree mr-1.5"></i>9. Cierre Ambiental</div>
+            <p className="text-slate-400">Reforestación de áreas perturbadas y remediación de pasivos ambientales.</p>
+          </div>
+
+          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-truck-monster mr-1.5"></i>10. Maquinaria &amp; Vías</div>
+            <p className="text-slate-400">Excavación, movimiento de tierras, construcción y conservación de caminos.</p>
+          </div>
+        </div>
       </div>
 
     </div>
