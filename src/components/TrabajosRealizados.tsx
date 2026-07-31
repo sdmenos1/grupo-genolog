@@ -29,10 +29,8 @@ export const trabajosData: TrabajoRealizado[] = [
     description: 'Desmontaje técnico de revestimientos e inspección Ultrasónica de casco. Instalación de nuevas chaquetas de acero aleado con torqueado controlado en parada de planta.',
     imageFolder: '/images/trabajos_realizados/molino-7x12-chaquetas',
     galleryImages: [
-      '/images/trabajos_realizados/molino-7x12-chaquetas/foto_1.jpg',
-      '/images/trabajos_realizados/molino-7x12-chaquetas/foto_2.jpg',
-      '/images/trabajos_realizados/molino-7x12-chaquetas/foto_3.jpg',
-      '/images/trabajos_realizados/molino-7x12-chaquetas/foto_4.jpg'
+      '/images/trabajos_realizados/molino-7x12-chaquetas/Imagen2.jpg',
+      '/images/trabajos_realizados/molino-7x12-chaquetas/Imagen4.jpg'
     ],
     icon: 'fa-gears',
     highlights: ['Torque neumático calibrado', 'Inspección NDT de casco', 'Reemplazo total de pernos'],
@@ -48,9 +46,9 @@ export const trabajosData: TrabajoRealizado[] = [
     description: 'Ejecución integral de mantenimiento preventivo y correctivo en circuito de chancado secundario y terciario para líneas de plomo y zinc durante ventana operativa de parada.',
     imageFolder: '/images/trabajos_realizados/parada-plomo-zinc-chancado',
     galleryImages: [
-      '/images/trabajos_realizados/parada-plomo-zinc-chancado/foto_1.jpg',
-      '/images/trabajos_realizados/parada-plomo-zinc-chancado/foto_2.jpg',
-      '/images/trabajos_realizados/parada-plomo-zinc-chancado/foto_3.jpg'
+      '/images/trabajos_realizados/parada-plomo-zinc-chancado/Imagen7.png',
+      '/images/trabajos_realizados/parada-plomo-zinc-chancado/Imagen8.png',
+      '/images/trabajos_realizados/parada-plomo-zinc-chancado/Imagen9.png'
     ],
     icon: 'fa-cubes-stacked',
     highlights: ['Mantenimiento fajas transportadoras', 'Cambio de forros de chancadora', 'Calibración de chancado'],
@@ -66,9 +64,9 @@ export const trabajosData: TrabajoRealizado[] = [
     description: 'Intervención y optimización de celdas de flotación operativas en Planta N°1. Reparación de mecanismos de agitación, rotores, estatores y recubrimiento epóxico.',
     imageFolder: '/images/trabajos_realizados/celdas-flotacion-planta-n1',
     galleryImages: [
-      '/images/trabajos_realizados/celdas-flotacion-planta-n1/foto_1.jpg',
-      '/images/trabajos_realizados/celdas-flotacion-planta-n1/foto_2.jpg',
-      '/images/trabajos_realizados/celdas-flotacion-planta-n1/foto_3.jpg'
+      '/images/trabajos_realizados/celdas-flotacion-planta-n1/Imagen10.jpg',
+      '/images/trabajos_realizados/celdas-flotacion-planta-n1/Imagen11.jpg',
+      '/images/trabajos_realizados/celdas-flotacion-planta-n1/Imagen12.jpg'
     ],
     icon: 'fa-vial-virus',
     highlights: ['Alineamiento de eje del rotor', 'Prueba de estanqueidad', 'Recubrimiento anticorrosivo'],
@@ -84,9 +82,9 @@ export const trabajosData: TrabajoRealizado[] = [
     description: 'Desacople, maniobra de izaje con grúa de alta capacidad y sustitución de rodamientos de chumacera en polea motriz de faja transportadora Overland.',
     imageFolder: '/images/trabajos_realizados/overland-rodamiento-polea',
     galleryImages: [
-      '/images/trabajos_realizados/overland-rodamiento-polea/foto_1.jpg',
-      '/images/trabajos_realizados/overland-rodamiento-polea/foto_2.jpg',
-      '/images/trabajos_realizados/overland-rodamiento-polea/foto_3.jpg'
+      '/images/trabajos_realizados/overland-rodamiento-polea/Imagen13.jpg',
+      '/images/trabajos_realizados/overland-rodamiento-polea/Imagen14.jpg',
+      '/images/trabajos_realizados/overland-rodamiento-polea/Imagen15.jpg'
     ],
     icon: 'fa-dharmachakra',
     highlights: ['Extracción hidráulica de rodamiento', 'Calibración de juego radial SKF', 'Alineamiento láser de polea'],
@@ -102,8 +100,8 @@ export const trabajosData: TrabajoRealizado[] = [
     description: 'Plan de izaje riguroso (Rigging Plan) y montaje de soplador industrial Spencer de alto tonelaje en plataforma elevada con supervisión de ingeniería de maniobras.',
     imageFolder: '/images/trabajos_realizados/izaje-soplador-spencer',
     galleryImages: [
-      '/images/trabajos_realizados/izaje-soplador-spencer/foto_1.jpg',
-      '/images/trabajos_realizados/izaje-soplador-spencer/foto_2.jpg'
+      '/images/trabajos_realizados/izaje-soplador-spencer/Imagen16.png',
+      '/images/trabajos_realizados/izaje-soplador-spencer/Imagen17.png'
     ],
     icon: 'fa-truck-ramp-box',
     highlights: ['Plan de izaje con Rigger Nivel III', 'Nivelación micrométrica de base', 'Prueba de vibración estática'],
@@ -119,8 +117,9 @@ export const trabajosData: TrabajoRealizado[] = [
     description: 'Revisión técnica, cambio de componentes de desgaste y lubricación de alta presión en alimentadores de placas (Apron Feeders) y tolvas de finos.',
     imageFolder: '/images/trabajos_realizados/mantenimiento-mecanismo-alimentacion',
     galleryImages: [
-      '/images/trabajos_realizados/mantenimiento-mecanismo-alimentacion/foto_1.jpg',
-      '/images/trabajos_realizados/mantenimiento-mecanismo-alimentacion/foto_2.jpg'
+      '/images/trabajos_realizados/mantenimiento-mecanismo-alimentacion/Imagen18.png',
+      '/images/trabajos_realizados/mantenimiento-mecanismo-alimentacion/Imagen19.png',
+      '/images/trabajos_realizados/mantenimiento-mecanismo-alimentacion/Imagen20.png'
     ],
     icon: 'fa-wrench',
     highlights: ['Ajuste de cadenas de oruga', 'Sustitución de rodillos de apoyo', 'Regulación de variador impulsión'],
@@ -136,8 +135,9 @@ export const trabajosData: TrabajoRealizado[] = [
     description: 'Overhaul y cambio de manto y cóncavo en chancadora cónica secundaria. Ajuste de excéntrica, reemplazo de bocinas de bronce y recarga de resina epóxica.',
     imageFolder: '/images/trabajos_realizados/mantenimiento-chancadora-conica',
     galleryImages: [
-      '/images/trabajos_realizados/mantenimiento-chancadora-conica/foto_1.jpg',
-      '/images/trabajos_realizados/mantenimiento-chancadora-conica/foto_2.jpg'
+      '/images/trabajos_realizados/mantenimiento-chancadora-conica/Imagen21.png',
+      '/images/trabajos_realizados/mantenimiento-chancadora-conica/Imagen22.png',
+      '/images/trabajos_realizados/mantenimiento-chancadora-conica/Imagen23.png'
     ],
     icon: 'fa-industry',
     highlights: ['Vaciado de resina de respaldo', 'Ajuste de CSS operativo', 'Inspección del sistema hidráulico'],
@@ -153,8 +153,9 @@ export const trabajosData: TrabajoRealizado[] = [
     description: 'Ingeniería, habilitado de planchas estructurales de alto espesor, soldeo continuo homologado y revestimiento de goma antiabrasiva para cajón de distribución de molienda.',
     imageFolder: '/images/trabajos_realizados/fabricacion-cajon-molienda',
     galleryImages: [
-      '/images/trabajos_realizados/fabricacion-cajon-molienda/foto_1.jpg',
-      '/images/trabajos_realizados/fabricacion-cajon-molienda/foto_2.jpg'
+      '/images/trabajos_realizados/fabricacion-cajon-molienda/Imagen24.png',
+      '/images/trabajos_realizados/fabricacion-cajon-molienda/Imagen25.png',
+      '/images/trabajos_realizados/fabricacion-cajon-molienda/Imagen26.png'
     ],
     icon: 'fa-compass-drafting',
     highlights: ['Soldadura FCAW/GMAW AWS D1.1', 'Prueba NDT por Tintes Penetrantes', 'Protección antiabrasiva interna'],
@@ -170,9 +171,9 @@ export const trabajosData: TrabajoRealizado[] = [
     description: 'Ensamble y montaje estructural de soporte para banco de celdas de flotación OK-20 de gran volumen. Alineamiento de columnas, vigas estructurales y pernería grado 8.',
     imageFolder: '/images/trabajos_realizados/montaje-estructuras-celdas-ok20',
     galleryImages: [
-      '/images/trabajos_realizados/montaje-estructuras-celdas-ok20/foto_1.jpg',
-      '/images/trabajos_realizados/montaje-estructuras-celdas-ok20/foto_2.jpg',
-      '/images/trabajos_realizados/montaje-estructuras-celdas-ok20/foto_3.jpg'
+      '/images/trabajos_realizados/montaje-estructuras-celdas-ok20/Imagen27.png',
+      '/images/trabajos_realizados/montaje-estructuras-celdas-ok20/Imagen28.png',
+      '/images/trabajos_realizados/montaje-estructuras-celdas-ok20/Imagen29.png'
     ],
     icon: 'fa-layer-group',
     highlights: ['Estructuras estructurales A36/A572', 'Alineamiento óptico de precisión', 'Torque de pernos de alta resistencia'],
@@ -188,8 +189,9 @@ export const trabajosData: TrabajoRealizado[] = [
     description: 'Fabricación de spools, bisexuales y montaje de líneas de pulpa en tubería de 14 pulgadas Schedule 40 para interconexión del banco de celdas OK20.',
     imageFolder: '/images/trabajos_realizados/soldeo-montaje-tuberia-14in',
     galleryImages: [
-      '/images/trabajos_realizados/soldeo-montaje-tuberia-14in/foto_1.jpg',
-      '/images/trabajos_realizados/soldeo-montaje-tuberia-14in/foto_2.jpg'
+      '/images/trabajos_realizados/soldeo-montaje-tuberia-14in/Imagen30.jpg',
+      '/images/trabajos_realizados/soldeo-montaje-tuberia-14in/Imagen31.jpg',
+      '/images/trabajos_realizados/soldeo-montaje-tuberia-14in/Imagen32.jpg'
     ],
     icon: 'fa-water',
     highlights: ['Soldadura de tubería ASME IX / API 1104', 'Radiografía / Inspección UT en juntas', 'Montaje con soportería regulable'],
@@ -205,8 +207,9 @@ export const trabajosData: TrabajoRealizado[] = [
     description: 'Fabricación e instalación de plataformas de operación, pasarelas de inspección, barandas de seguridad y pisos de parrilla electroforjada Grating para celdas OK.',
     imageFolder: '/images/trabajos_realizados/armado-soldeo-plataformas-ok',
     galleryImages: [
-      '/images/trabajos_realizados/armado-soldeo-plataformas-ok/foto_1.jpg',
-      '/images/trabajos_realizados/armado-soldeo-plataformas-ok/foto_2.jpg'
+      '/images/trabajos_realizados/armado-soldeo-plataformas-ok/Imagen33.png',
+      '/images/trabajos_realizados/armado-soldeo-plataformas-ok/Imagen34.jpg',
+      '/images/trabajos_realizados/armado-soldeo-plataformas-ok/Imagen36.jpg'
     ],
     icon: 'fa-shield-halved',
     highlights: ['Pisos Grating galvanizados en caliente', 'Barandas según norma OSHA/MINEM', 'Pintura epóxica de alta durabilidad'],
@@ -222,8 +225,9 @@ export const trabajosData: TrabajoRealizado[] = [
     description: 'Izaje de precisión y fijación mecánica de cajones de alimentación y descarga en banco de flotación. Sellado hidro-estanco e interconexión de válvulas dardos.',
     imageFolder: '/images/trabajos_realizados/montaje-cajon-alimentacion-descarga',
     galleryImages: [
-      '/images/trabajos_realizados/montaje-cajon-alimentacion-descarga/foto_1.jpg',
-      '/images/trabajos_realizados/montaje-cajon-alimentacion-descarga/foto_2.jpg'
+      '/images/trabajos_realizados/montaje-cajon-alimentacion-descarga/Imagen37.png',
+      '/images/trabajos_realizados/montaje-cajon-alimentacion-descarga/Imagen38.png',
+      '/images/trabajos_realizados/montaje-cajon-alimentacion-descarga/Imagen39.png'
     ],
     icon: 'fa-filter',
     highlights: ['Calibración de Válvula Dardo', 'Juntas vulcanizadas herméticas', 'Soportería pesada antivibratoria'],
@@ -291,13 +295,13 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
         {/* Header Section */}
         <div className="text-center max-w-4xl mx-auto mb-14">
           <span className="gsap-tr-header text-brand-gold font-extrabold uppercase tracking-widest text-xs inline-block bg-brand-gold/10 border border-brand-gold/30 px-4 py-1.5 rounded-full mb-3 shadow-md">
-            <i className="fa-solid fa-images mr-2"></i> Galerías Operativas de Proyectos Mineros
+            <i className="fa-solid fa-images mr-2"></i> Fotografía Operativa Real por Proyecto
           </span>
           <h2 className="gsap-tr-header font-heading text-3xl sm:text-5xl font-black text-white mt-1 tracking-tight">
             Trabajos Realizados en Campo &amp; Planta
           </h2>
           <p className="gsap-tr-header text-slate-300 text-sm sm:text-base mt-3 max-w-2xl mx-auto leading-relaxed">
-            Examine las galerías de fotografías técnicas por proyecto: molienda, paradas de planta PDP, celdas OK-20 y montajes con cero incidentes.
+            Fotografías reales de intervenciones técnicas en molienda, paradas de planta PDP, celdas OK-20 y montajes mecánicos.
           </p>
         </div>
 
@@ -366,7 +370,7 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                 {/* Card Main Image Container */}
                 <div 
                   onClick={() => openTrabajoModal(trabajo)}
-                  className="relative h-48 w-full rounded-2xl overflow-hidden mb-5 border border-slate-800/80 cursor-pointer group/img">
+                  className="relative h-48 w-full rounded-2xl overflow-hidden mb-5 border border-slate-800/80 cursor-pointer group/img bg-slate-950">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={trabajo.galleryImages[0]}
@@ -377,7 +381,7 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                   
                   {/* Gallery Counter Tag */}
                   <div className="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md px-2.5 py-1 rounded-lg border border-brand-gold/40 text-[11px] font-bold text-brand-gold flex items-center gap-1">
-                    <i className="fa-solid fa-camera"></i> {trabajo.galleryImages.length} Fotos
+                    <i className="fa-solid fa-camera"></i> {trabajo.galleryImages.length} Fotos Reales
                   </div>
 
                   <div className="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md border border-brand-gold/40 text-brand-gold w-8 h-8 rounded-full flex items-center justify-center text-xs opacity-0 group-hover/img:opacity-100 transition-all duration-300 transform group-hover/img:scale-110">
@@ -423,7 +427,7 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                 <button
                   onClick={() => openTrabajoModal(trabajo)}
                   className="bg-brand-petroleum/30 hover:bg-brand-petroleum text-brand-gold hover:text-white border border-brand-gold/30 text-[11px] font-bold px-3 py-1.5 rounded-xl transition duration-300 flex items-center gap-1.5 flex-shrink-0">
-                  <span>Galería ({trabajo.galleryImages.length})</span>
+                  <span>Ver Galería ({trabajo.galleryImages.length})</span>
                   <i className="fa-solid fa-arrow-right text-[9px]"></i>
                 </button>
               </div>
@@ -464,7 +468,7 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                   <img
                     src={selectedTrabajo.galleryImages[activeImgIndex]}
                     alt={`${selectedTrabajo.title} foto ${activeImgIndex + 1}`}
-                    className="w-full h-full object-cover transition-all duration-300"
+                    className="w-full h-full object-contain bg-slate-950 transition-all duration-300"
                   />
                   
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none"></div>
@@ -492,8 +496,8 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                     <span>Foto {activeImgIndex + 1} de {selectedTrabajo.galleryImages.length}</span>
                   </div>
 
-                  <div className="absolute bottom-3 right-3 bg-slate-950/90 text-[11px] text-slate-300 font-semibold px-3 py-1.5 rounded-lg border border-slate-800 backdrop-blur-md">
-                    foto_{activeImgIndex + 1}.jpg
+                  <div className="absolute bottom-3 right-3 bg-slate-950/90 text-[11px] text-slate-300 font-semibold px-3 py-1.5 rounded-lg border border-slate-800 backdrop-blur-md font-mono">
+                    {selectedTrabajo.galleryImages[activeImgIndex].split('/').pop()}
                   </div>
                 </div>
 
@@ -504,7 +508,7 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                       <button
                         key={idx}
                         onClick={() => setActiveImgIndex(idx)}
-                        className={`relative h-16 sm:h-20 w-24 sm:w-28 rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 ${
+                        className={`relative h-16 sm:h-20 w-24 sm:w-28 rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 bg-slate-950 ${
                           activeImgIndex === idx
                             ? 'border-brand-gold scale-105 shadow-glow-gold'
                             : 'border-slate-800 opacity-60 hover:opacity-100 hover:border-slate-600'
@@ -542,7 +546,7 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
 
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-3 border-t border-slate-800">
                 <div className="text-xs text-slate-400">
-                  Suba múltiples fotos en <code className="text-brand-gold font-mono">{selectedTrabajo.imageFolder}/foto_1.jpg</code>, <code className="text-brand-gold font-mono">foto_2.jpg</code>, etc.
+                  Imágenes cargadas desde <code className="text-brand-gold font-mono">{selectedTrabajo.imageFolder}/</code>
                 </div>
 
                 <button
