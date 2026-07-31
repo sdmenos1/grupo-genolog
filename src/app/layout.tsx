@@ -22,9 +22,12 @@ export const metadata: Metadata = {
   description: 'GRUPO GENOLG MINERÍA & CONSTRUCCIÓN S.C.R.L. (RUC 20608261894). Contratista Minero Homologado Bureau Veritas () y Registro MINEM R.D. 0288-2021.',
   keywords: ['GRUPO GENOLG', 'RUC 20608261894', 'Mantenimiento minero Peru', 'Paradas de planta', 'Cambio de chaquetas molino SAG', 'Montaje metalmecanico Cerro de Pasco'],
   icons: {
-    icon: '/icon.jpg',
-    shortcut: '/icon.jpg',
-    apple: '/icon.jpg',
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/icon.png',
   },
 };
 
@@ -36,8 +39,9 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth dark">
       <head>
-        <link rel="icon" href="/icon.jpg" type="image/jpeg" />
-        <link rel="apple-touch-icon" href="/icon.jpg" />
+        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+        <link rel="icon" href="/icon.png?v=2" type="image/png" />
+        <link rel="apple-touch-icon" href="/icon.png?v=2" />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
