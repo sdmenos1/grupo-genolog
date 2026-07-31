@@ -16,20 +16,35 @@ interface MediaItem {
 
 const galeriaData: MediaItem[] = [
   // Desmontaje Bombas
-  { id: '1', type: 'video', src: '/media/galeria/desmontaje-bombas/video1.mp4', category: 'desmontaje-bombas', title: 'Desmontaje Técnico de Bomba' },
-  { id: '2', type: 'image', src: '/media/galeria/desmontaje-bombas/imagen1.jpg', category: 'desmontaje-bombas', title: 'Inspección de Carcasa' },
+  { id: 'db-1', type: 'image', src: '/media/galeria/desmontaje-bombas/WhatsApp Image 2026-07-25 at 17.50.09.jpeg', category: 'desmontaje-bombas', title: '' },
+  { id: 'db-2', type: 'image', src: '/media/galeria/desmontaje-bombas/WhatsApp Image 2026-07-25 at 17.50.09 (1).jpeg', category: 'desmontaje-bombas', title: '' },
+  { id: 'db-3', type: 'image', src: '/media/galeria/desmontaje-bombas/WhatsApp Image 2026-07-25 at 17.50.09 (2).jpeg', category: 'desmontaje-bombas', title: '' },
   
   // Izaje Soplador
-  { id: '3', type: 'video', src: '/media/galeria/izaje-soplador/video1.mp4', category: 'izaje-soplador', title: 'Maniobra de Izaje de Soplador' },
-  { id: '4', type: 'image', src: '/media/galeria/izaje-soplador/imagen1.jpg', category: 'izaje-soplador', title: 'Posicionamiento Final' },
+  { id: 'is-1', type: 'image', src: '/media/galeria/izaje-soplador/WhatsApp Image 2026-07-25 at 17.50.10.jpeg', category: 'izaje-soplador', title: '' },
+  { id: 'is-2', type: 'image', src: '/media/galeria/izaje-soplador/WhatsApp Image 2026-07-25 at 17.50.10 (1).jpeg', category: 'izaje-soplador', title: '' },
+  { id: 'is-3', type: 'image', src: '/media/galeria/izaje-soplador/WhatsApp Image 2026-07-25 at 17.50.10 (2).jpeg', category: 'izaje-soplador', title: '' },
   
   // Metalmecánica
-  { id: '5', type: 'video', src: '/media/galeria/metalmecanica/video1.mp4', category: 'metalmecanica', title: 'Proceso de Soldadura Homologada' },
-  { id: '6', type: 'image', src: '/media/galeria/metalmecanica/imagen1.jpg', category: 'metalmecanica', title: 'Fabricación de Estructura' },
+  { id: 'mm-1', type: 'image', src: '/media/galeria/metalmecanica/WhatsApp Image 2026-07-25 at 17.50.15.jpeg', category: 'metalmecanica', title: '' },
+  { id: 'mm-2', type: 'image', src: '/media/galeria/metalmecanica/WhatsApp Image 2026-07-25 at 17.50.15 (1).jpeg', category: 'metalmecanica', title: '' },
+  { id: 'mm-3', type: 'image', src: '/media/galeria/metalmecanica/WhatsApp Image 2026-07-25 at 17.50.16.jpeg', category: 'metalmecanica', title: '' },
+  { id: 'mm-4', type: 'image', src: '/media/galeria/metalmecanica/WhatsApp Image 2026-07-25 at 17.50.16 (1).jpeg', category: 'metalmecanica', title: '' },
+  { id: 'mm-5', type: 'image', src: '/media/galeria/metalmecanica/WhatsApp Image 2026-07-25 at 17.50.16 (2).jpeg', category: 'metalmecanica', title: '' },
+  { id: 'mm-6', type: 'image', src: '/media/galeria/metalmecanica/WhatsApp Image 2026-07-25 at 17.50.16 (3).jpeg', category: 'metalmecanica', title: '' },
+  { id: 'mm-7', type: 'image', src: '/media/galeria/metalmecanica/WhatsApp Image 2026-07-25 at 17.50.16 (4).jpeg', category: 'metalmecanica', title: '' },
+  { id: 'mm-8', type: 'image', src: '/media/galeria/metalmecanica/WhatsApp Image 2026-07-25 at 17.50.17.jpeg', category: 'metalmecanica', title: '' },
+  { id: 'mm-9', type: 'image', src: '/media/galeria/metalmecanica/WhatsApp Image 2026-07-25 at 17.50.17 (1).jpeg', category: 'metalmecanica', title: '' },
+  { id: 'mm-10', type: 'image', src: '/media/galeria/metalmecanica/WhatsApp Image 2026-07-25 at 17.50.17 (2).jpeg', category: 'metalmecanica', title: '' },
+  { id: 'mm-11', type: 'image', src: '/media/galeria/metalmecanica/WhatsApp Image 2026-07-25 at 17.50.17 (3).jpeg', category: 'metalmecanica', title: '' },
+  { id: 'mm-12', type: 'image', src: '/media/galeria/metalmecanica/WhatsApp Image 2026-07-25 at 17.50.17 (4).jpeg', category: 'metalmecanica', title: '' },
+  { id: 'mm-13', type: 'image', src: '/media/galeria/metalmecanica/WhatsApp Image 2026-07-25 at 17.50.17 (5).jpeg', category: 'metalmecanica', title: '' },
   
-  // Obras Civiles y Otros
-  { id: '7', type: 'video', src: '/media/galeria/obras-civiles/video1.mp4', category: 'obras-civiles', title: 'Vaciado de Concreto Armado' },
-  { id: '8', type: 'image', src: '/media/galeria/obras-civiles/imagen1.jpg', category: 'obras-civiles', title: 'Topografía y Trazo' },
+  // Otros Trabajos (Videos)
+  { id: 'ot-1', type: 'video', src: '/media/galeria/obras-civiles/WhatsApp Video 2026-07-25 at 17.52.18.mp4', category: 'obras-civiles', title: '' },
+  { id: 'ot-2', type: 'video', src: '/media/galeria/obras-civiles/WhatsApp Video 2026-07-25 at 17.54.00.mp4', category: 'obras-civiles', title: '' },
+  { id: 'ot-3', type: 'video', src: '/media/galeria/obras-civiles/WhatsApp Video 2026-07-25 at 17.54.01.mp4', category: 'obras-civiles', title: '' },
+  { id: 'ot-4', type: 'video', src: '/media/galeria/obras-civiles/WhatsApp Video 2026-07-25 at 17.54.01 (1).mp4', category: 'obras-civiles', title: '' },
 ];
 
 export default function GaleriaMultimedia() {
