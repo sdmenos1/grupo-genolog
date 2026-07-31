@@ -45,17 +45,25 @@ export default function DownloadsCenter({ onOpenDownloadModal }: DownloadsCenter
           <div className="gsap-download glass-panel rounded-2xl p-6 border border-slate-800 hover:border-brand-gold transition duration-300 text-center flex flex-col justify-between custom-ring-hover">
             <div>
               <div className="w-16 h-16 mx-auto rounded-2xl bg-brand-petroleum/30 text-brand-gold border border-brand-petroleum/50 flex items-center justify-center text-3xl font-bold mb-4 shadow-md">
-                <i className="fa-solid fa-file-pdf"></i>
+                <i className="fa-solid fa-book-open text-brand-gold"></i>
               </div>
               <h3 className="font-bold text-base text-white">Brochure Corporativo 2026</h3>
-              <p className="text-xs text-slate-400 mt-2">Presentación completa de capacidad instalada, flota y servicios.</p>
-              <div className="mt-3 inline-block bg-slate-800 text-brand-gold font-bold text-[10px] px-2.5 py-1 rounded-full border border-slate-700">PDF (4.2 MB)</div>
+              <p className="text-xs text-slate-400 mt-2">Dossier web interactivo con capacidad instalada, flota y servicios.</p>
+              <div className="mt-3 inline-block bg-slate-800 text-brand-gold font-bold text-[10px] px-2.5 py-1 rounded-full border border-slate-700">Web / PDF Interactivo</div>
             </div>
-            <button 
-              onClick={() => onOpenDownloadModal('brochure')} 
-              className="mt-6 w-full bg-brand-petroleum hover:bg-brand-darkPetroleum text-white border border-brand-gold/30 font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
-              <i className="fa-solid fa-download"></i> Descargar Brochure
-            </button>
+            
+            <div className="mt-6 space-y-2">
+              <a 
+                href="/brochure"
+                className="w-full bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum hover:from-brand-gold hover:to-brand-copper text-white border border-brand-gold/40 font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
+                <i className="fa-solid fa-eye"></i> Visualizar Brochure Web
+              </a>
+              <button 
+                onClick={() => onOpenDownloadModal('brochure')} 
+                className="w-full bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 font-bold text-[11px] py-2 rounded-lg transition flex items-center justify-center gap-1.5">
+                <i className="fa-solid fa-download text-brand-gold"></i> Solicitar Archivo PDF
+              </button>
+            </div>
           </div>
 
           {/* Card 2 */}

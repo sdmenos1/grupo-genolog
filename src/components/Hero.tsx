@@ -153,12 +153,12 @@ export default function Hero({ onOpenDownloadModal, onOpenQuoteModal }: HeroProp
               <span>Cotizar Este Servicio</span>
               <i className="fa-solid fa-calculator"></i>
             </button>
-            <button 
-              onClick={onOpenDownloadModal} 
+            <a 
+              href="/brochure" 
               className="inline-flex items-center justify-center gap-3 bg-brand-titanium/90 hover:bg-brand-steel text-white font-bold text-sm px-7 py-4 rounded-2xl border border-slate-700 hover:border-brand-gold/40 transition-all duration-300 backdrop-blur-md shadow-lg">
-              <i className="fa-solid fa-file-pdf text-brand-gold text-lg"></i>
-              <span>Descargar Brochure PDF</span>
-            </button>
+              <i className="fa-solid fa-book-open text-brand-gold text-lg"></i>
+              <span>Ver Brochure Web 2026</span>
+            </a>
           </div>
 
         </div>
