@@ -44,7 +44,7 @@ const serviceCarouselData = [
     category: '3. Montaje de Estructuras',
     catShort: '3. Montaje',
     title: 'Montaje de Estructuras & Redes de Alta Tensión',
-    image: '/images/hero_heavy_machinery.jpg',
+    image: '/images/servicios/montaje_estructuras.jpg',
     badge: 'SEGURIDAD HSE AUDITADA',
     desc: 'Aplicación estricta de estándares de medición, seguridad industrial y controles de calidad con personal técnico especializado. Montaje e infraestructura para tendidos eléctricos.',
     features: [
