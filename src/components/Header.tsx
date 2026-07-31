@@ -37,9 +37,9 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
         ? 'bg-brand-deepObsidian/95 backdrop-blur-2xl border-b border-brand-gold/30 shadow-[0_10px_30px_rgba(0,0,0,0.85)] py-2' 
         : 'bg-brand-deepObsidian/90 backdrop-blur-xl border-b border-slate-800/80 py-3'
     }`}>
-      {/* Reading Progress Bar */}
+      {/* Reading Progress Bar (Sin transición CSS para evitar lag y que se vea 'trabado') */}
       <div 
-        className="h-1 bg-gradient-to-r from-brand-petroleum via-brand-gold to-brand-copper transition-all duration-150"
+        className="h-1 bg-gradient-to-r from-brand-petroleum via-brand-gold to-brand-copper"
         style={{ width: `${scrollProgress}%` }}
       />
 
@@ -53,7 +53,7 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
                 <div className="absolute inset-0 bg-white/95 rounded-xl opacity-90 group-hover:opacity-100 transition-opacity"></div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/logo.png"
+                  src="/images/corporativo/logo.png"
                   alt="GRUPO GENOLG MINERÍA & CONSTRUCCIÓN Logo"
                   className="relative z-10 h-11 sm:h-13 md:h-15 w-auto object-contain max-w-[190px] sm:max-w-[220px]"
                 />
@@ -90,8 +90,12 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
                   <i className={`fa-solid fa-chevron-down text-xs text-brand-gold transition-transform duration-300 ${servicesDropdownOpen ? 'rotate-180' : ''}`}></i>
                 </Link>
 
-                {servicesDropdownOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-80 bg-brand-titanium/98 border border-slate-700/80 rounded-2xl p-3 shadow-2xl space-y-1 text-xs z-50 backdrop-blur-2xl">
+                {/* Dropdown Menu con Animación CSS fluida */}
+                <div 
+                  className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 transition-all duration-300 ease-out origin-top
+                    ${servicesDropdownOpen ? 'opacity-100 visible translate-y-0 scale-100' : 'opacity-0 invisible -translate-y-3 scale-95'}
+                  `}>
+                  <div className="w-80 bg-brand-deepObsidian border border-slate-700 rounded-2xl p-3 shadow-2xl shadow-black/80 space-y-1 text-xs">
                     <Link href="/servicios" className="block p-2.5 rounded-xl hover:bg-brand-steel hover:text-brand-gold transition">
                       <div className="font-bold text-white flex items-center gap-2"><i className="fa-solid fa-compass-drafting text-brand-gold"></i> 1. Diseño AutoCAD 3D</div>
                       <div className="text-[11px] text-slate-400 mt-0.5">Ingeniería de detalle para fabricación y montaje.</div>
@@ -108,8 +112,12 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
                       <div className="font-bold text-white flex items-center gap-2"><i className="fa-solid fa-gears text-brand-gold"></i> 4. Mantenimiento &amp; Overhaul</div>
                       <div className="text-[11px] text-slate-400 mt-0.5">Paradas de planta e inspección continua.</div>
                     </Link>
+                    <Link href="/servicios" className="block p-2.5 rounded-xl hover:bg-brand-steel hover:text-brand-gold transition">
+                      <div className="font-bold text-white flex items-center gap-2"><i className="fa-solid fa-person-digging text-brand-gold"></i> 5. Obras Civiles &amp; Ambientales</div>
+                      <div className="text-[11px] text-slate-400 mt-0.5">Cimentaciones pesadas y remediación de pasivos.</div>
+                    </Link>
                   </div>
-                )}
+                </div>
               </div>
 
               <Link 

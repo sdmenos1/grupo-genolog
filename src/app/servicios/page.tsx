@@ -32,7 +32,7 @@ export default function ServiciosPage() {
   };
 
   return (
-    <main className="min-h-screen bg-brand-deepObsidian text-slate-200 font-sans relative overflow-x-hidden">
+    <main className="min-h-screen bg-brand-deepObsidian text-slate-200 font-sans relative">
       <TopBar />
       <Header onOpenQuoteModal={handleOpenQuoteModal} />
 

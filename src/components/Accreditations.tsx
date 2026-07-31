@@ -15,6 +15,24 @@ export default function Accreditations({ onOpenDownloadModal }: AccreditationsPr
     gsap.registerPlugin(ScrollTrigger);
 
     if (sectionRef.current) {
+      // Reveal Header with GSAP
+      const headers = sectionRef.current.querySelectorAll('.gsap-acc-header');
+      gsap.fromTo(
+        headers,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 85%',
+          },
+        }
+      );
+
       // Reveal Cards with GSAP
       const cards = sectionRef.current.querySelectorAll('.gsap-card');
       gsap.fromTo(
@@ -65,11 +83,11 @@ export default function Accreditations({ onOpenDownloadModal }: AccreditationsPr
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block bg-brand-gold/10 border border-brand-gold/30 text-brand-gold font-extrabold uppercase tracking-widest text-[11px] px-3.5 py-1 rounded-full mb-3">
+          <span className="gsap-acc-header inline-block bg-brand-gold/10 border border-brand-gold/30 text-brand-gold font-extrabold uppercase tracking-widest text-[11px] px-3.5 py-1 rounded-full mb-3">
             Respaldo Normativo Auditado
           </span>
-          <h2 className="font-heading text-3xl sm:text-5xl font-black text-white tracking-tight">Garantía Legal, Operativa y de Seguridad</h2>
-          <p className="text-slate-400 text-sm sm:text-base mt-3 leading-relaxed">
+          <h2 className="gsap-acc-header font-heading text-3xl sm:text-5xl font-black text-white tracking-tight">Garantía Legal, Operativa y de Seguridad</h2>
+          <p className="gsap-acc-header text-slate-400 text-sm sm:text-base mt-3 leading-relaxed">
             Acreditaciones oficiales auditadas para agilizar la inclusión inmediata en el padrón de proveedores mineros del Perú.
           </p>
         </div>

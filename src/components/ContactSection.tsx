@@ -15,24 +15,28 @@ export default function ContactSection({ onShowToast }: ContactSectionProps) {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    if (sectionRef.current) {
-      const items = sectionRef.current.querySelectorAll('.gsap-contact-item');
-      gsap.fromTo(
-        items,
-        { opacity: 0, y: 35 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.85,
-          stagger: 0.2,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 80%',
-          },
-        }
-      );
-    }
+    const ctx = gsap.context(() => {
+      const items = sectionRef.current?.querySelectorAll('.gsap-contact-item');
+      if (items) {
+        gsap.fromTo(
+          items,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            stagger: 0.2,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 80%',
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {

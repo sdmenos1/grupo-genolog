@@ -1,33 +1,34 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
+import gsap from 'gsap';
 
 export default function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [displayChildren, setDisplayChildren] = useState(children);
-  const [transitionStage, setTransitionStage] = useState<'fadeIn' | 'fadeOut'>('fadeIn');
+  const transitionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (pathname) {
-      setTransitionStage('fadeOut');
-      const timer = setTimeout(() => {
-        setDisplayChildren(children);
-        setTransitionStage('fadeIn');
-      }, 200);
-
-      return () => clearTimeout(timer);
+    if (transitionRef.current) {
+      // Elegante animación GSAP al cambiar de ruta
+      gsap.fromTo(
+        transitionRef.current,
+        { opacity: 0, y: 15, scale: 0.995 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          scale: 1, 
+          duration: 0.6, 
+          ease: 'power3.out',
+          clearProps: 'all' // Limpiar para evitar problemas de z-index o overflow posteriores
+        }
+      );
     }
-  }, [pathname, children]);
+  }, [pathname]);
 
   return (
-    <div
-      className={`transition-all duration-300 ease-out transform ${
-        transitionStage === 'fadeIn'
-          ? 'opacity-100 translate-y-0 scale-100'
-          : 'opacity-0 -translate-y-2 scale-[0.99]'
-      }`}>
-      {displayChildren}
+    <div ref={transitionRef} className="w-full">
+      {children}
     </div>
   );
 }

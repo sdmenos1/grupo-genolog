@@ -10,7 +10,7 @@ interface HeroProps {
 
 const heroSlides = [
   {
-    image: '/images/hero_sag_mill.jpg',
+    image: '/images/hero/hero_sag_mill.jpg',
     badge: 'MANTENIMIENTO INDUSTRIAL & PDP',
     tag: 'Paradas de Planta Operativas en Vivo',
     title: 'Ingeniería, Mantenimiento & Paradas de Planta Concentradora',
@@ -18,7 +18,7 @@ const heroSlides = [
     serviceName: 'Mantenimiento de Planta Concentradora / PDP'
   },
   {
-    image: '/images/hero_welder.jpg',
+    image: '/images/hero/hero_welder.jpg',
     badge: 'DISEÑO AUTOCAD 3D & WELDING',
     tag: 'Desarrollo de Ingeniería de Detalle',
     title: 'Diseño en AutoCAD 3D & Fabricación Metalmecánica',
@@ -26,7 +26,7 @@ const heroSlides = [
     serviceName: 'Fabricación y Montaje Metalmecánico'
   },
   {
-    image: '/images/hero_flotation_cells.jpg',
+    image: '/images/hero/hero_flotation_cells.jpg',
     badge: 'MONTAJE ESTRUCTURAL & OVERHAUL',
     tag: 'Montaje de Estructuras & Maquinaria',
     title: 'Montaje de Estructuras & Overhaul de Equipos Industriales',
@@ -34,7 +34,7 @@ const heroSlides = [
     serviceName: 'Fabricación y Montaje Metalmecánico'
   },
   {
-    image: '/images/hero_heavy_machinery.jpg',
+    image: '/images/hero/hero_heavy_machinery.jpg',
     badge: 'OBRAS CIVILES & REMEDIACIÓN AMBIENTAL',
     tag: 'Maquinaria Pesada & Conservación de Vías',
     title: 'Movimiento de Tierras, Obras Civiles & Cierre Ambiental',
@@ -74,7 +74,7 @@ export default function Hero({ onOpenDownloadModal, onOpenQuoteModal }: HeroProp
   };
 
   return (
-    <section id="inicio" className="relative min-h-[85vh] sm:min-h-[90vh] w-full flex flex-col justify-between overflow-hidden border-b border-slate-800 bg-brand-deepObsidian">
+    <section id="inicio" className="relative h-[85vh] sm:h-[90vh] min-h-[680px] w-full flex flex-col justify-between overflow-hidden border-b border-slate-800 bg-brand-deepObsidian">
       
       {/* Particle dust canvas simulation */}
       <HeroCanvas />

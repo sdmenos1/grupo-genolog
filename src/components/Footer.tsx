@@ -19,7 +19,7 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
               <div className="relative bg-white p-2 rounded-xl border border-brand-gold/40 inline-block shadow-md">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/logo.png"
+                  src="/images/corporativo/logo.png"
                   alt="GRUPO GENOLG MINERÍA & CONSTRUCCIÓN"
                   className="h-10 w-auto object-contain"
                 />

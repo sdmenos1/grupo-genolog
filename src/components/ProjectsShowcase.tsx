@@ -45,24 +45,21 @@ export default function ProjectsShowcase() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    if (sectionRef.current) {
-      const cards = sectionRef.current.querySelectorAll('.gsap-project');
-      gsap.fromTo(
-        cards,
-        { opacity: 0, y: 35 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 80%',
-          },
-        }
+    const ctx = gsap.context(() => {
+      // Header Animation
+      gsap.fromTo('.gsap-proj-header',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: 'power3.out', scrollTrigger: { trigger: '.gsap-proj-header', start: 'top 85%' } }
       );
-    }
+
+      // Cards Animation
+      gsap.fromTo('.gsap-project',
+        { opacity: 0, y: 35 },
+        { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: 'power2.out', scrollTrigger: { trigger: '.gsap-project', start: 'top 80%' } }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -70,9 +67,9 @@ export default function ProjectsShowcase() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-brand-gold font-bold uppercase tracking-widest text-xs">Evidencia Operativa B2B</span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-white mt-1">Proyectos Destacados en Unidades Mineras</h2>
-          <p className="text-slate-400 text-xs sm:text-sm mt-2">Cumplimiento comprobado de cronogramas, calidad y tolerancias en las principales unidades del Perú.</p>
+          <span className="gsap-proj-header text-brand-gold font-bold uppercase tracking-widest text-xs inline-block">Evidencia Operativa B2B</span>
+          <h2 className="gsap-proj-header font-heading text-3xl sm:text-4xl font-extrabold text-white mt-1">Proyectos Destacados en Unidades Mineras</h2>
+          <p className="gsap-proj-header text-slate-400 text-xs sm:text-sm mt-2">Cumplimiento comprobado de cronogramas, calidad y tolerancias en las principales unidades del Perú.</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

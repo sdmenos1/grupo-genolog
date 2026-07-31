@@ -1,6 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface HorizontalServicesCarouselProps {
   onOpenQuoteModal: (serviceName?: string) => void;
@@ -72,7 +74,7 @@ const serviceCarouselData = [
     category: '5. Obras Civiles & Cierre Ambiental',
     catShort: '5. Obras Civiles',
     title: 'Obras Civiles, Maquinaria Pesada & Remediación Ambiental',
-    image: '/images/hero_heavy_machinery.jpg',
+    image: '/images/servicios/hero_heavy_machinery.jpg',
     badge: 'SOSTENIBILIDAD ISO 14001',
     desc: 'Cimentaciones de concreto armado para maquinaria de alto tonelaje, muros de contención 1.5M, apertura y conservación de accesos mineros, y cierre de pasivos ambientales.',
     features: [
@@ -87,6 +89,27 @@ const serviceCarouselData = [
 export default function HorizontalServicesCarousel({ onOpenQuoteModal }: HorizontalServicesCarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = serviceCarouselData.length;
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    const ctx = gsap.context(() => {
+      // Animación Header Carrusel
+      gsap.fromTo('.gsap-service-header', 
+        { opacity: 0, x: -30 }, 
+        { opacity: 1, x: 0, duration: 0.8, stagger: 0.2, ease: 'power2.out', scrollTrigger: { trigger: '.gsap-service-header', start: 'top 85%' } }
+      );
+
+      // Animación de la grilla de 10 soluciones
+      gsap.fromTo('.gsap-solution-card',
+        { opacity: 0, y: 30, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.1, ease: 'back.out(1.2)', scrollTrigger: { trigger: '.gsap-solutions-grid', start: 'top 85%' } }
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const handlePrev = () => {
     setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
@@ -97,24 +120,24 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
   };
 
   return (
-    <div className="py-4 relative">
+    <div ref={containerRef} className="py-4 relative overflow-hidden">
       
       {/* Executive Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
         <div className="space-y-1">
-          <span className="inline-block bg-brand-gold/10 border border-brand-gold/30 text-brand-gold font-extrabold uppercase tracking-widest text-[11px] px-3.5 py-1 rounded-full">
+          <span className="gsap-service-header inline-block bg-brand-gold/10 border border-brand-gold/30 text-brand-gold font-extrabold uppercase tracking-widest text-[11px] px-3.5 py-1 rounded-full">
             SOLUCIONES DE INGENIERÍA MINERA
           </span>
-          <h3 className="text-2xl sm:text-4xl font-black text-white font-heading tracking-tight">
-            Portafolio de Especialidades &amp; Soluciones en Minería
+          <h3 className="gsap-service-header text-2xl sm:text-4xl font-black text-white font-heading tracking-tight">
+            Portafolio de Especialidades
           </h3>
-          <p className="text-xs sm:text-sm text-slate-400">
-            &quot;Somos la mejor opción en ingeniería&quot; — Explore cada especialidad técnica con fotografías reales de nuestras operaciones.
+          <p className="gsap-service-header text-xs sm:text-sm text-slate-400">
+            &quot;Somos la mejor opción en ingeniería&quot; — Explore nuestro alcance técnico.
           </p>
         </div>
 
         {/* Carousel Arrow Controls */}
-        <div className="flex items-center gap-3 flex-shrink-0">
+        <div className="gsap-service-header flex items-center gap-3 flex-shrink-0">
           <button 
             onClick={handlePrev}
             aria-label="Servicio Anterior"
@@ -231,59 +254,59 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
       {/* Full 10 Solutions Grid Breakdown */}
       <div className="mt-16 pt-12 border-t border-slate-800">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="text-brand-gold font-bold uppercase tracking-wider text-xs">Catálogo Detallado de Trabajos</span>
-          <h3 className="font-heading text-2xl font-bold text-white mt-1">10 Soluciones Especializadas en Minería &amp; Construcción</h3>
+          <span className="gsap-service-header text-brand-gold font-bold uppercase tracking-wider text-xs">Catálogo Detallado de Trabajos</span>
+          <h3 className="gsap-service-header font-heading text-2xl font-bold text-white mt-1">10 Soluciones Especializadas</h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
-            <div className="font-bold text-brand-gold"><i className="fa-solid fa-gears mr-1.5"></i>1. Plantas Concentradoras</div>
-            <p className="text-slate-400">Inspección, reparación y aseguramiento operativo continuo en molienda y chancado.</p>
+        <div className="gsap-solutions-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-gears mr-1.5"></i>1. Concentradoras</div>
+            <p className="text-slate-400">Reparación en molienda y chancado.</p>
           </div>
 
-          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
-            <div className="font-bold text-brand-gold"><i className="fa-solid fa-clock mr-1.5"></i>2. Paradas de Planta (P.D.P)</div>
-            <p className="text-slate-400">Ejecución de intervenciones críticas durante paradas operativas en minería.</p>
+          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-clock mr-1.5"></i>2. Paradas (P.D.P)</div>
+            <p className="text-slate-400">Intervenciones críticas en minería.</p>
           </div>
 
-          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
-            <div className="font-bold text-brand-gold"><i className="fa-solid fa-bolt mr-1.5"></i>3. Eléctrico e Instrumentación</div>
-            <p className="text-slate-400">Asistencia e instalación técnica en plantas industriales y motores.</p>
+          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-bolt mr-1.5"></i>3. Eléctrico</div>
+            <p className="text-slate-400">Asistencia técnica e instrumentación.</p>
           </div>
 
-          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
-            <div className="font-bold text-brand-gold"><i className="fa-solid fa-tower-broadcast mr-1.5"></i>4. Redes de Alta Tensión</div>
-            <p className="text-slate-400">Montaje y mantenimiento de infraestructura energética y tendidos eléctricos.</p>
+          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-tower-broadcast mr-1.5"></i>4. Redes Alta Tensión</div>
+            <p className="text-slate-400">Montaje de infraestructura energética.</p>
           </div>
 
-          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
-            <div className="font-bold text-brand-gold"><i className="fa-solid fa-industry mr-1.5"></i>5. Estructuras Metálicas</div>
-            <p className="text-slate-400">Fabricación y montaje para naves, plataformas y plantas concentradoras.</p>
+          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-industry mr-1.5"></i>5. Estructuras</div>
+            <p className="text-slate-400">Fabricación y montaje para naves.</p>
           </div>
 
-          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
-            <div className="font-bold text-brand-gold"><i className="fa-solid fa-shield mr-1.5"></i>6. Cercos Perimétricos</div>
-            <p className="text-slate-400">Instalación, delimitación y protección física de terrenos y operaciones.</p>
+          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-shield mr-1.5"></i>6. Cercos</div>
+            <p className="text-slate-400">Delimitación física de operaciones.</p>
           </div>
 
-          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
-            <div className="font-bold text-brand-gold"><i className="fa-solid fa-rotate mr-1.5"></i>7. Overhaul de Equipos</div>
-            <p className="text-slate-400">Reconstrucción, reparación mayor y optimización de maquinaria industrial.</p>
+          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-rotate mr-1.5"></i>7. Overhaul</div>
+            <p className="text-slate-400">Reparación mayor de maquinaria.</p>
           </div>
 
-          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
             <div className="font-bold text-brand-gold"><i className="fa-solid fa-trowel-bricks mr-1.5"></i>8. Obras Civiles</div>
-            <p className="text-slate-400">Ejecución de obras de infraestructura y cimentación para proyectos industriales.</p>
+            <p className="text-slate-400">Cimentación para proyectos.</p>
           </div>
 
-          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
             <div className="font-bold text-brand-gold"><i className="fa-solid fa-tree mr-1.5"></i>9. Cierre Ambiental</div>
-            <p className="text-slate-400">Reforestación de áreas perturbadas y remediación de pasivos ambientales.</p>
+            <p className="text-slate-400">Remediación de pasivos ambientales.</p>
           </div>
 
-          <div className="bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
-            <div className="font-bold text-brand-gold"><i className="fa-solid fa-truck-monster mr-1.5"></i>10. Maquinaria &amp; Vías</div>
-            <p className="text-slate-400">Excavación, movimiento de tierras, construcción y conservación de caminos.</p>
+          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+            <div className="font-bold text-brand-gold"><i className="fa-solid fa-truck-monster mr-1.5"></i>10. Maquinaria</div>
+            <p className="text-slate-400">Movimiento de tierras y caminos.</p>
           </div>
         </div>
       </div>

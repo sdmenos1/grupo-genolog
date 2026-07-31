@@ -14,24 +14,19 @@ export default function DownloadsCenter({ onOpenDownloadModal }: DownloadsCenter
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    if (sectionRef.current) {
-      const cards = sectionRef.current.querySelectorAll('.gsap-download');
-      gsap.fromTo(
-        cards,
-        { opacity: 0, y: 35 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 80%',
-          },
-        }
+    const ctx = gsap.context(() => {
+      gsap.fromTo('.gsap-dl-header',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: 'power3.out', scrollTrigger: { trigger: '.gsap-dl-header', start: 'top 85%' } }
       );
-    }
+
+      gsap.fromTo('.gsap-download',
+        { opacity: 0, y: 35 },
+        { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'power2.out', scrollTrigger: { trigger: '.gsap-download', start: 'top 80%' } }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -39,9 +34,9 @@ export default function DownloadsCenter({ onOpenDownloadModal }: DownloadsCenter
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-brand-gold font-bold uppercase tracking-widest text-xs">Documentación para Compras y Licitaciones</span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-white mt-1">Centro de Descargas Técnicas B2B</h2>
-          <p className="text-slate-400 text-xs sm:text-sm mt-2">Acceda directamente a nuestras constancias para homologación inmediata.</p>
+          <span className="gsap-dl-header text-brand-gold font-bold uppercase tracking-widest text-xs inline-block">Documentación Técnica B2B</span>
+          <h2 className="gsap-dl-header font-heading text-3xl sm:text-4xl font-extrabold text-white mt-1">Centro de Descargas</h2>
+          <p className="gsap-dl-header text-slate-400 text-xs sm:text-sm mt-2">Acceda directamente a nuestras constancias para homologación inmediata.</p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
