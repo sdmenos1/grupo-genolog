@@ -305,48 +305,7 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
           </p>
         </div>
 
-        {/* Category Filters */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-12">
-          <button
-            onClick={() => setActiveCategory('todos')}
-            className={`px-5 py-2.5 rounded-xl font-bold text-xs transition-all duration-300 border ${
-              activeCategory === 'todos'
-                ? 'bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum text-white border-brand-gold/60 shadow-lg scale-105'
-                : 'bg-brand-titanium text-slate-400 border-slate-800 hover:border-slate-700 hover:text-white'
-            }`}>
-            <i className="fa-solid fa-layer-group mr-1.5 text-brand-gold"></i> Todos los Trabajos (12)
-          </button>
-          
-          <button
-            onClick={() => setActiveCategory('molienda-pdp')}
-            className={`px-5 py-2.5 rounded-xl font-bold text-xs transition-all duration-300 border ${
-              activeCategory === 'molienda-pdp'
-                ? 'bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum text-white border-brand-gold/60 shadow-lg scale-105'
-                : 'bg-brand-titanium text-slate-400 border-slate-800 hover:border-slate-700 hover:text-white'
-            }`}>
-            <i className="fa-solid fa-gears mr-1.5 text-brand-gold"></i> Molienda &amp; Paradas de Planta
-          </button>
 
-          <button
-            onClick={() => setActiveCategory('celdas-tuberias')}
-            className={`px-5 py-2.5 rounded-xl font-bold text-xs transition-all duration-300 border ${
-              activeCategory === 'celdas-tuberias'
-                ? 'bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum text-white border-brand-gold/60 shadow-lg scale-105'
-                : 'bg-brand-titanium text-slate-400 border-slate-800 hover:border-slate-700 hover:text-white'
-            }`}>
-            <i className="fa-solid fa-vial-virus mr-1.5 text-brand-gold"></i> Celdas OK-20 &amp; Tuberías
-          </button>
-
-          <button
-            onClick={() => setActiveCategory('mecanismos-izaje')}
-            className={`px-5 py-2.5 rounded-xl font-bold text-xs transition-all duration-300 border ${
-              activeCategory === 'mecanismos-izaje'
-                ? 'bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum text-white border-brand-gold/60 shadow-lg scale-105'
-                : 'bg-brand-titanium text-slate-400 border-slate-800 hover:border-slate-700 hover:text-white'
-            }`}>
-            <i className="fa-solid fa-truck-ramp-box mr-1.5 text-brand-gold"></i> Mecanismos &amp; Izajes
-          </button>
-        </div>
 
         {/* 12 Works Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
