@@ -42,13 +42,6 @@ export default function BrochureWebPage() {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <button
-            onClick={handleDownloadPDF}
-            className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-bold px-3.5 py-2 rounded-xl border border-slate-700 transition">
-            <i className="fa-solid fa-file-pdf text-brand-gold"></i>
-            <span className="hidden sm:inline">Descargar PDF Directo</span>
-          </button>
-          
-          <button
             onClick={handlePrint}
             className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum hover:from-brand-gold hover:to-brand-copper text-white text-xs font-extrabold px-4 py-2 rounded-xl border border-brand-gold/40 shadow-lg transition">
             <i className="fa-solid fa-print"></i>
