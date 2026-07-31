@@ -6,6 +6,7 @@ import TopBar from '@/components/TopBar';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import ClientsMarquee from '@/components/ClientsMarquee';
+import TrabajosRealizados from '@/components/TrabajosRealizados';
 import Footer from '@/components/Footer';
 import { gsap } from 'gsap';
 import Modals from '@/components/Modals';
@@ -113,6 +114,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* 4.5. 12 Trabajos Realizados Showcase */}
+      <TrabajosRealizados onOpenQuoteModal={handleOpenQuoteModal} />
 
       {/* 5. Clientes Marquee Ticker */}
       <ClientsMarquee />

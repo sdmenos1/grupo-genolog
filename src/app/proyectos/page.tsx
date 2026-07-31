@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import TopBar from '@/components/TopBar';
 import Header from '@/components/Header';
 import ProjectsShowcase from '@/components/ProjectsShowcase';
+import TrabajosRealizados from '@/components/TrabajosRealizados';
 import ClientsMarquee from '@/components/ClientsMarquee';
 import Footer from '@/components/Footer';
 import Modals from '@/components/Modals';
@@ -11,6 +12,7 @@ import WhatsAppWidget from '@/components/WhatsAppWidget';
 
 export default function ProyectosPage() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const [quoteServiceName, setQuoteServiceName] = useState('');
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
   const [policyModalOpen, setPolicyModalOpen] = useState(false);
   const [policyType, setPolicyType] = useState('antisoborno');
@@ -26,10 +28,15 @@ export default function ProyectosPage() {
     setTimeout(() => setToast({ show: false, title: '', message: '' }), 4000);
   };
 
+  const handleOpenQuoteModal = (serviceName: string = '') => {
+    setQuoteServiceName(serviceName);
+    setQuoteModalOpen(true);
+  };
+
   return (
     <main className="min-h-screen bg-brand-deepObsidian text-slate-200 font-sans relative">
       <TopBar />
-      <Header onOpenQuoteModal={() => setQuoteModalOpen(true)} />
+      <Header onOpenQuoteModal={() => handleOpenQuoteModal()} />
 
       {/* Page Hero Header */}
       <section className="py-20 bg-gradient-to-b from-slate-950 via-brand-titanium to-brand-deepObsidian border-b border-slate-800 text-center relative">
@@ -38,13 +45,16 @@ export default function ProyectosPage() {
             Respaldo Comercial &amp; Operaciones en Campo
           </span>
           <h1 className="font-heading text-4xl sm:text-6xl font-black text-white mt-4 tracking-tight">
-            Clientes Destacados &amp; Proyectos
+            Clientes Destacados &amp; Trabajos Realizados
           </h1>
           <p className="text-slate-300 text-base sm:text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
-            Ejecución rigurosa de proyectos metalmecánicos y mantenimiento en plantas concentradoras para las principales empresas mineras del Perú.
+            Ejecución rigurosa de proyectos metalmecánicos, montaje de celdas OK-20 y mantenimiento en plantas concentradoras para las principales empresas mineras del Perú.
           </p>
         </div>
       </section>
+
+      {/* 12 Trabajos Realizados Component */}
+      <TrabajosRealizados onOpenQuoteModal={handleOpenQuoteModal} />
 
       {/* Projects Showcase Component */}
       <ProjectsShowcase />
@@ -56,7 +66,7 @@ export default function ProyectosPage() {
 
       <Modals
         quoteModalOpen={quoteModalOpen}
-        quoteServiceName=""
+        quoteServiceName={quoteServiceName}
         onCloseQuoteModal={() => setQuoteModalOpen(false)}
         downloadModalOpen={downloadModalOpen}
         downloadType="brochure"
