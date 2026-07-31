@@ -1,79 +1,99 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 interface FooterProps {
-  onOpenPolicyModal: (type: string) => void;
+  onOpenPolicyModal: (policyType: string) => void;
 }
 
 export default function Footer({ onOpenPolicyModal }: FooterProps) {
   return (
-    <footer className="bg-brand-deepObsidian text-slate-400 text-xs border-t border-slate-800">
+    <footer className="bg-slate-950 text-slate-400 text-xs border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           
-          {/* Column 1: Brand & Slogan */}
+          {/* Col 1: Logo & Slogan */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="bg-slate-100/95 p-2.5 rounded-2xl border border-brand-gold/40 inline-block">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/logo.png" alt="GRUPO GENOLG Logo" className="h-12 w-auto object-contain" />
+            <div className="flex items-center gap-3">
+              <div className="relative bg-white p-2 rounded-xl border border-brand-gold/40 inline-block shadow-md">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/logo.png"
+                  alt="GRUPO GENOLG MINERÍA & CONSTRUCCIÓN"
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
             </div>
-            <p className="text-slate-300 text-xs leading-relaxed max-w-sm">
-              <strong>GRUPO GENOLG (Minería &amp; Construcción)</strong> — &quot;Somos la mejor opción en ingeniería&quot;. Ejecución de proyectos metalmecánicos, montaje y mantenimiento en plantas concentradoras con innovación tecnológica y respeto ambiental.
+
+            <p className="text-slate-300 font-bold text-sm">
+              &quot;Somos la mejor opción en ingeniería&quot;
             </p>
-            <div className="text-slate-400 text-[11px]">
-              RUC: <strong className="text-white">20608261894</strong> | MINEM R.D. N° 0288-2021-MINEM/DGM
+
+            <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
+              GRUPO GENOLG MINERÍA &amp; CONSTRUCCIÓN S.C.R.L. (RUC 20608261894). Ejecución de proyectos metalmecánicos, montaje de estructuras y mantenimiento en plantas concentradoras e industriales.
+            </p>
+
+            <div className="pt-2 flex items-center gap-3 text-xs">
+              <span className="bg-brand-petroleum/40 text-brand-gold border border-brand-gold/30 px-3 py-1 rounded-full font-bold">
+                MINEM R.D. 0288-2021
+              </span>
+              <span className="bg-brand-gold/15 text-brand-gold border border-brand-gold/40 px-3 py-1 rounded-full font-bold">
+                Bureau Veritas 87.81%
+              </span>
             </div>
           </div>
 
-          {/* Column 2: Servicios Principales */}
-          <div>
-            <h4 className="font-bold text-sm text-white mb-3 text-brand-gold">Servicios Principales</h4>
+          {/* Col 2: Navegación Corporativa */}
+          <div className="space-y-3">
+            <h4 className="font-bold text-white uppercase text-xs tracking-wider border-b border-slate-800 pb-2">Secciones Web</h4>
             <ul className="space-y-2">
-              <li><a href="#servicios" className="hover:text-white transition">Diseño de Ingeniería AutoCAD 3D</a></li>
-              <li><a href="#servicios" className="hover:text-white transition">Fabricación Metalmecánica</a></li>
-              <li><a href="#servicios" className="hover:text-white transition">Montaje de Estructuras</a></li>
-              <li><a href="#servicios" className="hover:text-white transition">Mantenimiento Industrial &amp; PDP</a></li>
-              <li><a href="#servicios" className="hover:text-white transition">Overhaul de Equipos Industriales</a></li>
+              <li><Link href="/" className="hover:text-brand-gold transition">Inicio</Link></li>
+              <li><Link href="/nosotros" className="hover:text-brand-gold transition">Nosotros &amp; Capital Humano</Link></li>
+              <li><Link href="/servicios" className="hover:text-brand-gold transition">Servicios de Ingeniería</Link></li>
+              <li><Link href="/acreditaciones" className="hover:text-brand-gold transition">Acreditaciones &amp; MINEM</Link></li>
+              <li><Link href="/proyectos" className="hover:text-brand-gold transition">Clientes &amp; Proyectos</Link></li>
+              <li><Link href="/descargas" className="hover:text-brand-gold transition">Centro de Descargas B2B</Link></li>
+              <li><Link href="/contacto" className="hover:text-brand-gold transition">Contacto &amp; Sedes</Link></li>
             </ul>
           </div>
 
-          {/* Column 3: Soluciones B2B */}
-          <div>
-            <h4 className="font-bold text-sm text-white mb-3 text-brand-gold">Soluciones B2B</h4>
+          {/* Col 3: Servicios Principales */}
+          <div className="space-y-3">
+            <h4 className="font-bold text-white uppercase text-xs tracking-wider border-b border-slate-800 pb-2">Especialidades</h4>
             <ul className="space-y-2">
-              <li><a href="#servicios" className="hover:text-white transition">Redes de Alta Tensión</a></li>
-              <li><a href="#servicios" className="hover:text-white transition">Cercos Perimétricos Metálicos</a></li>
-              <li><a href="#servicios" className="hover:text-white transition">Ejecución de Obras Civiles</a></li>
-              <li><a href="#servicios" className="hover:text-white transition">Cierre de Minas &amp; Remediación</a></li>
-              <li><a href="#servicios" className="hover:text-white transition">Maquinaria Pesada &amp; Vías</a></li>
+              <li><Link href="/servicios" className="hover:text-brand-gold transition">Diseño AutoCAD 3D</Link></li>
+              <li><Link href="/servicios" className="hover:text-brand-gold transition">Fabricación Metalmecánica</Link></li>
+              <li><Link href="/servicios" className="hover:text-brand-gold transition">Montaje de Estructuras</Link></li>
+              <li><Link href="/servicios" className="hover:text-brand-gold transition">Paradas de Planta (P.D.P)</Link></li>
+              <li><Link href="/servicios" className="hover:text-brand-gold transition">Overhaul de Equipos</Link></li>
+              <li><Link href="/servicios" className="hover:text-brand-gold transition">Obras Civiles &amp; Remediación</Link></li>
             </ul>
           </div>
 
-          {/* Column 4: Políticas & Certificaciones */}
-          <div>
-            <h4 className="font-bold text-sm text-white mb-3 text-brand-gold">Políticas &amp; Cumplimiento</h4>
+          {/* Col 4: Sedes & Políticas Legal */}
+          <div className="space-y-3">
+            <h4 className="font-bold text-white uppercase text-xs tracking-wider border-b border-slate-800 pb-2">Cumplimiento Legal</h4>
             <ul className="space-y-2">
               <li>
-                <button onClick={() => onOpenPolicyModal('antisoborno')} className="hover:text-white transition text-left">
-                  Sistema Anti-Soborno ISO 37001
+                <button onClick={() => onOpenPolicyModal('antisoborno')} className="hover:text-brand-gold transition text-left">
+                  Política Antisoborno (ISO 37001)
                 </button>
               </li>
               <li>
-                <button onClick={() => onOpenPolicyModal('hse')} className="hover:text-white transition text-left">
-                  Política de Seguridad HSE
+                <button onClick={() => onOpenPolicyModal('hse')} className="hover:text-brand-gold transition text-left">
+                  Política de Seguridad &amp; Salud HSE
                 </button>
               </li>
               <li>
-                <button onClick={() => onOpenPolicyModal('homologacion')} className="hover:text-white transition text-left">
-                  Homologación Bureau Veritas (87.81%)
+                <button onClick={() => onOpenPolicyModal('calidad')} className="hover:text-brand-gold transition text-left">
+                  Política de Calidad &amp; Garantía CIP
                 </button>
               </li>
               <li>
-                <a href="#acreditaciones" className="hover:text-white transition">
-                  Registro de Contratistas MINEM
-                </a>
+                <button onClick={() => onOpenPolicyModal('privacidad')} className="hover:text-brand-gold transition text-left">
+                  Protección de Datos Personales
+                </button>
               </li>
             </ul>
           </div>
@@ -81,14 +101,16 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-slate-500">
+        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
           <div>
-            © {new Date().getFullYear()} GRUPO GENOLG MINERÍA &amp; CONSTRUCCIÓN S.C.R.L. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} GRUPO GENOLG MINERÍA &amp; CONSTRUCCIÓN S.C.R.L. Todos los derechos reservados.
           </div>
-          <div className="flex gap-6">
-            <span>Lima — Carabayllo</span>
-            <span>Pasco — Chaupimarca</span>
-            <span>Atención 24/7 en Mina</span>
+          <div className="flex items-center gap-4">
+            <span>RUC: 20608261894</span>
+            <span>•</span>
+            <span>MINEM R.D. 0288-2021</span>
+            <span>•</span>
+            <span>Bureau Veritas HP0017249</span>
           </div>
         </div>
 
