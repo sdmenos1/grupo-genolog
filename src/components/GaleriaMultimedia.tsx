@@ -85,7 +85,7 @@ export default function GaleriaMultimedia() {
     { id: 'desmontaje-bombas', label: 'Desmontaje de Bombas' },
     { id: 'izaje-soplador', label: 'Izaje Soplador Spencer' },
     { id: 'metalmecanica', label: 'Metalmecánica' },
-    { id: 'obras-civiles', label: 'Obras Civiles y Otros' },
+    { id: 'obras-civiles', label: 'Otros Trabajos' },
   ];
 
   return (
@@ -141,37 +141,42 @@ export default function GaleriaMultimedia() {
                   onError={(e) => {
                     const target = e.target as HTMLVideoElement;
                     target.style.display = 'none';
-                    target.parentElement!.innerHTML = `<div class="flex flex-col items-center justify-center w-full h-full bg-slate-900 text-slate-500 p-4 text-center"><i class="fa-solid fa-file-video text-2xl mb-2"></i><span class="text-[10px] font-mono">Falta archivo:<br/>${item.src.split('/').pop()}</span></div>`;
+                    if (target.parentElement) {
+                      const fallback = target.parentElement.querySelector('.media-fallback');
+                      if (fallback) (fallback as HTMLElement).style.display = 'flex';
+                    }
                   }}
                 />
               ) : (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={item.src}
-                  alt={item.title}
+                  alt=""
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
-                    target.parentElement!.innerHTML = `<div class="flex flex-col items-center justify-center w-full h-full bg-slate-900 text-slate-500 p-4 text-center"><i class="fa-solid fa-image text-2xl mb-2"></i><span class="text-[10px] font-mono">Falta archivo:<br/>${item.src.split('/').pop()}</span></div>`;
+                    if (target.parentElement) {
+                      const fallback = target.parentElement.querySelector('.media-fallback');
+                      if (fallback) (fallback as HTMLElement).style.display = 'flex';
+                    }
                   }}
                 />
               )}
 
-              {/* Capa de Información y Gradiente */}
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-deepObsidian via-black/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-5">
-                <span className="text-brand-gold text-[9px] font-black uppercase tracking-widest mb-1.5 drop-shadow-md">
-                  {categories.find(c => c.id === item.category)?.label}
+              {/* Mensaje Limpio de Estado cuando no existe el archivo */}
+              <div className="media-fallback hidden flex-col items-center justify-center w-full h-full bg-slate-900/90 text-slate-500 p-4 text-center">
+                <i className={`${item.type === 'video' ? 'fa-solid fa-video' : 'fa-solid fa-image'} text-2xl mb-2 text-brand-gold/50`}></i>
+                <span className="text-[11px] font-mono text-slate-400 font-semibold">
+                  Subir archivo: <br/>
+                  <code className="text-brand-gold text-[10px]">{item.src.split('/').pop()}</code>
                 </span>
-                <h3 className="text-white font-bold text-sm leading-snug drop-shadow-lg">
-                  {item.title}
-                </h3>
               </div>
 
               {/* Icono indicador de Tipo */}
-              <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md rounded-full w-8 h-8 flex items-center justify-center border border-slate-700 text-white shadow-lg">
+              <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md rounded-full w-8 h-8 flex items-center justify-center border border-slate-700 text-white shadow-lg z-10">
                 {item.type === 'video' ? (
                   <i className="fa-solid fa-play text-[10px] ml-0.5 text-brand-gold"></i>
                 ) : (
