@@ -70,12 +70,9 @@ export default function BrochureWebPage() {
             <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-3xl bg-slate-950 border-2 border-brand-gold/60 p-2 shadow-2xl flex items-center justify-center print:border-black">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
-                src="/icon.png" 
+                src="/images/logo.png" 
                 alt="Logo Grupo Genolg GG" 
                 className="w-full h-full object-contain rounded-2xl"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/favicon.ico';
-                }}
               />
             </div>
           </div>
