@@ -10,17 +10,15 @@ export default function PageTransition({ children }: { children: React.ReactNode
 
   useEffect(() => {
     if (transitionRef.current) {
-      // Elegante animación GSAP al cambiar de ruta
+      // Elegante animación GSAP al cambiar de ruta (Solo Fade-in para evitar saltos en layout)
       gsap.fromTo(
         transitionRef.current,
-        { opacity: 0, y: 15, scale: 0.995 },
+        { opacity: 0 },
         { 
           opacity: 1, 
-          y: 0, 
-          scale: 1, 
-          duration: 0.6, 
-          ease: 'power3.out',
-          clearProps: 'all' // Limpiar para evitar problemas de z-index o overflow posteriores
+          duration: 0.5, 
+          ease: 'power2.out',
+          clearProps: 'opacity'
         }
       );
     }

@@ -74,7 +74,7 @@ export default function Hero({ onOpenDownloadModal, onOpenQuoteModal }: HeroProp
   };
 
   return (
-    <section id="inicio" className="relative h-[85vh] sm:h-[90vh] min-h-[680px] w-full flex flex-col justify-between overflow-hidden border-b border-slate-800 bg-brand-deepObsidian">
+    <section id="inicio" className="relative min-h-[100svh] w-full flex flex-col justify-center overflow-hidden border-b border-slate-800 bg-brand-deepObsidian pt-24 pb-12">
       
       {/* Particle dust canvas simulation */}
       <HeroCanvas />
@@ -88,6 +88,8 @@ export default function Hero({ onOpenDownloadModal, onOpenQuoteModal }: HeroProp
           <img 
             src={slide.image} 
             alt={slide.title} 
+            loading={idx === currentSlideIndex ? 'eager' : 'lazy'}
+            decoding="async"
             className="w-full h-full object-cover object-center"
           />
           {/* Multi-layered dark vignette for rich text contrast */}
@@ -98,7 +100,7 @@ export default function Hero({ onOpenDownloadModal, onOpenQuoteModal }: HeroProp
       ))}
 
       {/* Foreground Hero Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 w-full my-auto">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full mt-4">
         <div className="max-w-3xl space-y-6">
           
           <div className="inline-flex items-center gap-3 bg-brand-titanium/90 border border-brand-gold/40 px-4 py-2 rounded-full text-xs font-semibold shadow-2xl backdrop-blur-md">
