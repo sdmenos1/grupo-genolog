@@ -96,9 +96,9 @@ export default function Home() {
                 <div className="text-[10px] lg:text-xs text-slate-400 font-bold uppercase tracking-wider">Cumplimiento Legal</div>
               </div>
               <div className="industrial-float-2 bg-slate-900/90 p-6 rounded-3xl border border-brand-gold/20 shadow-2xl backdrop-blur-md text-center transform transition hover:scale-105 duration-300 hover:border-brand-gold/50 flex flex-col justify-center items-center h-full lg:translate-y-8">
-                <i className="fa-solid fa-shield-halved text-4xl text-brand-gold mb-3 drop-shadow-md"></i>
-                <div className="text-3xl lg:text-4xl font-black text-white mb-1 drop-shadow-sm">87.8%</div>
-                <div className="text-[10px] lg:text-xs text-slate-400 font-bold uppercase tracking-wider">Bureau Veritas</div>
+                <i className="fa-solid fa-award text-4xl text-brand-gold mb-3 drop-shadow-md"></i>
+                <div className="text-3xl lg:text-4xl font-black text-white mb-1 drop-shadow-sm">100%</div>
+                <div className="text-[10px] lg:text-xs text-slate-400 font-bold uppercase tracking-wider">Homologados B2B</div>
               </div>
               <div className="industrial-float-3 bg-slate-900/90 p-6 rounded-3xl border border-brand-gold/20 shadow-2xl backdrop-blur-md text-center transform transition hover:scale-105 duration-300 hover:border-brand-gold/50 flex flex-col justify-center items-center h-full">
                 <i className="fa-solid fa-users-gear text-4xl text-brand-gold mb-3 drop-shadow-md"></i>
