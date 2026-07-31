@@ -2,7 +2,9 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+
+// Importamos el dataset completo de los 12 trabajos con sus imágenes reales de alta resolución
+import { trabajosData } from '@/components/TrabajosRealizados';
 
 export default function BrochureWebPage() {
   const handlePrint = () => {
@@ -11,236 +13,429 @@ export default function BrochureWebPage() {
     }
   };
 
+  const handleDownloadPDF = () => {
+    if (typeof window !== 'undefined') {
+      const link = document.createElement('a');
+      link.href = '/documentos/BROCHURE.pdf';
+      link.download = 'BROCHURE_CORPORATIVO_GRUPO_GENOLG_2026.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100 font-sans print:bg-white print:text-black">
       
-      {/* Top Floating Navigation (Hidden on Print) */}
-      <header className="sticky top-0 z-50 bg-brand-deepObsidian/90 backdrop-blur-md border-b border-slate-800 py-3 px-4 sm:px-8 flex items-center justify-between print:hidden">
+      {/* Barra de Navegación Flotante Superior (Oculta al imprimir) */}
+      <header className="sticky top-0 z-50 bg-brand-deepObsidian/95 backdrop-blur-md border-b border-slate-800 py-3 px-4 sm:px-8 flex items-center justify-between print:hidden shadow-xl">
         <div className="flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-2 text-slate-300 hover:text-brand-gold transition text-xs font-bold">
-            <i className="fa-solid fa-arrow-left"></i>
+          <Link href="/" className="flex items-center gap-2 text-slate-300 hover:text-brand-gold transition text-xs font-bold bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-800">
+            <i className="fa-solid fa-arrow-left text-brand-gold"></i>
             <span>Volver a la Web</span>
           </Link>
-          <span className="text-slate-700">|</span>
-          <span className="text-brand-gold text-xs font-extrabold uppercase tracking-wider hidden sm:inline">
-            Brochure Corporativo Digital 2026
+          <span className="text-slate-700 hidden sm:inline">|</span>
+          <span className="text-brand-gold text-xs font-extrabold uppercase tracking-wider hidden md:inline flex items-center gap-2">
+            <i className="fa-solid fa-book-open"></i> Brochure Corporativo Digital 2026 — GRUPO GENOLG
           </span>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <button
+            onClick={handleDownloadPDF}
+            className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-bold px-3.5 py-2 rounded-xl border border-slate-700 transition">
+            <i className="fa-solid fa-file-pdf text-brand-gold"></i>
+            <span className="hidden sm:inline">Descargar PDF Directo</span>
+          </button>
+          
           <button
             onClick={handlePrint}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum hover:from-brand-gold hover:to-brand-copper text-white text-xs font-bold px-4 py-2 rounded-xl border border-brand-gold/40 shadow-lg transition">
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum hover:from-brand-gold hover:to-brand-copper text-white text-xs font-extrabold px-4 py-2 rounded-xl border border-brand-gold/40 shadow-lg transition">
             <i className="fa-solid fa-print"></i>
-            <span>Imprimir / Descargar PDF</span>
+            <span>Imprimir / Exportar</span>
           </button>
         </div>
       </header>
 
-      {/* BROCHURE CONTAINER (Formatted for Web & Print) */}
-      <div className="max-w-5xl mx-auto px-4 py-8 sm:py-12 space-y-16 print:p-0 print:space-y-8">
+
+      {/* CONTENEDOR PRINCIPAL DEL DOSSIER CORPORATIVO */}
+      <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12 space-y-16 print:p-0 print:space-y-8">
         
-        {/* PORTADA / COVER PAGE */}
+        {/* SLIDE 1: PORTADA CORPORATIVA B2B */}
         <section className="bg-gradient-to-b from-brand-titanium via-brand-deepObsidian to-slate-950 rounded-3xl border border-slate-800 p-8 sm:p-14 text-center relative overflow-hidden shadow-2xl print:border-none print:shadow-none print:bg-white print:text-black print:p-4">
           <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-brand-petroleum via-brand-gold to-brand-copper"></div>
           
-          {/* Logo */}
+          {/* Logo Oficial GG */}
           <div className="flex justify-center mb-6">
-            <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-3xl bg-slate-900 border-2 border-brand-gold/60 p-2 shadow-2xl flex items-center justify-center print:border-black">
+            <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-3xl bg-slate-950 border-2 border-brand-gold/60 p-2 shadow-2xl flex items-center justify-center print:border-black">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/icon.jpg" alt="Logo Grupo Genolg" className="w-full h-full object-contain rounded-2xl" />
+              <img 
+                src="/icon.png" 
+                alt="Logo Grupo Genolg GG" 
+                className="w-full h-full object-contain rounded-2xl"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/favicon.ico';
+                }}
+              />
             </div>
           </div>
 
           <span className="bg-brand-gold/10 border border-brand-gold/40 text-brand-gold font-extrabold uppercase tracking-widest text-xs px-4 py-1.5 rounded-full inline-block mb-4 print:border-black print:text-black">
-            Dossier Empresarial B2B — Versión 2026
+            &quot;SOMOS LA MEJOR OPCIÓN EN INGENIERÍA&quot; — DOSSIER CORPORATIVO 2026
           </span>
 
           <h1 className="font-heading text-3xl sm:text-5xl font-black tracking-tight text-white print:text-black uppercase">
             GRUPO GENOLG MINERÍA &amp; CONSTRUCCIÓN S.C.R.L.
           </h1>
           <p className="text-brand-gold text-sm sm:text-base font-bold mt-2 tracking-wider print:text-black">
-            RUC: 20608261894 | R.D. MINEM 0288-2021
+            RUC: 20608261894 | REGISTRO MINEM R.D. 0288-2021 | HOMOLOGADO BUREAU VERITAS (87.81%)
           </p>
 
-          <p className="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto mt-6 leading-relaxed font-normal print:text-black">
-            Ingeniería de Detalle, Fabricación Metalmecánica, Montaje de Estructuras, Mantenimiento en Paradas de Planta (P.D.P) y Obras Civiles para la Minería e Industria del Perú.
+          <p className="text-slate-300 text-sm sm:text-base max-w-3xl mx-auto mt-6 leading-relaxed font-normal print:text-black">
+            Empresa peruana especializada en la ejecución de proyectos metalmecánicos, montaje de estructuras, mantenimiento mecánico en paradas de planta (P.D.P), sistemas eléctricos e instrumentación para los principales sectores mineros e industriales.
           </p>
 
-          {/* Quick Badges */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 max-w-3xl mx-auto text-left">
+          {/* Tarjetas de Acreditaciones Destacadas */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 max-w-4xl mx-auto text-left">
             <div className="bg-slate-900/90 p-4 rounded-2xl border border-slate-800 print:bg-gray-100 print:border-gray-300 print:text-black">
               <div className="text-[10px] text-slate-400 font-bold uppercase">Auditoría Internacional</div>
               <div className="text-sm font-extrabold text-brand-gold print:text-black">Bureau Veritas: 87.81%</div>
+              <div className="text-[10px] text-slate-400 mt-1">Informe HP0017249 (Nivel B)</div>
             </div>
             <div className="bg-slate-900/90 p-4 rounded-2xl border border-slate-800 print:bg-gray-100 print:border-gray-300 print:text-black">
               <div className="text-[10px] text-slate-400 font-bold uppercase">Habilitación Legal</div>
               <div className="text-sm font-extrabold text-white print:text-black">MINEM R.D. 0288-2021</div>
+              <div className="text-[10px] text-slate-400 mt-1">Registro Contratista Minero</div>
             </div>
             <div className="bg-slate-900/90 p-4 rounded-2xl border border-slate-800 print:bg-gray-100 print:border-gray-300 print:text-black">
-              <div className="text-[10px] text-slate-400 font-bold uppercase">Estándar de Seguridad</div>
-              <div className="text-sm font-extrabold text-white print:text-black">Cero Incidentes HSE</div>
+              <div className="text-[10px] text-slate-400 font-bold uppercase">Estándar HSE &amp; Calidad</div>
+              <div className="text-sm font-extrabold text-white print:text-black">Cero Incidentes</div>
+              <div className="text-[10px] text-slate-400 mt-1">Norma ISO 14001 Ambiental</div>
             </div>
             <div className="bg-slate-900/90 p-4 rounded-2xl border border-slate-800 print:bg-gray-100 print:border-gray-300 print:text-black">
-              <div className="text-[10px] text-slate-400 font-bold uppercase">Normativa Soldadura</div>
+              <div className="text-[10px] text-slate-400 font-bold uppercase">Calificación Soldadura</div>
               <div className="text-sm font-extrabold text-brand-gold print:text-black">AWS D1.1 / ASME IX</div>
+              <div className="text-[10px] text-slate-400 mt-1">Soldadores 3G a 6G</div>
             </div>
           </div>
         </section>
 
 
-        {/* SECCIÓN 1: PRESENTACIÓN INSTITUCIONAL */}
+        {/* SLIDE 2: PRESENTACIÓN INSTITUCIONAL & OBJETIVOS */}
         <section className="bg-slate-900/90 rounded-3xl border border-slate-800 p-8 sm:p-10 space-y-6 print:border-gray-300 print:bg-white print:text-black">
-          <div className="border-b border-slate-800 pb-4">
-            <span className="text-brand-gold text-xs font-bold uppercase tracking-wider">01. Identidad Corporativa</span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white font-heading mt-1 print:text-black">Quienes Somos</h2>
+          <div className="border-b border-slate-800 pb-4 flex items-center justify-between">
+            <div>
+              <span className="text-brand-gold text-xs font-bold uppercase tracking-wider">01. Perfil Corporativo</span>
+              <h2 className="text-2xl sm:text-3xl font-black text-white font-heading mt-1 print:text-black">Respaldo Técnico &amp; Propósito</h2>
+            </div>
+            <span className="text-slate-600 font-mono text-xs hidden sm:inline">GRUPO GENOLG S.C.R.L.</span>
           </div>
 
           <p className="text-slate-300 text-sm leading-relaxed print:text-black">
-            <strong>GRUPO GENOLG MINERÍA &amp; CONSTRUCCIÓN S.C.R.L.</strong> es una empresa peruana especializada en la ejecución integral de servicios metalmecánicos y mantenimiento continuo en plantas concentradoras. Contamos con una amplia trayectoria operativa en la zona central y nacional del Perú, destacando por nuestra capacidad técnica de respuesta inmediata 24/7 en paradas de planta críticas.
+            Somos una empresa dedicada a satisfacer las necesidades de nuestros clientes mineros e industriales mediante la continua innovación tecnológica, capacitación del talento humano y estricto respeto ambiental. Nuestra misión es mejorar la eficiencia operativa y productividad de cada unidad minera intervenida.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 pt-2">
-            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-2 print:border-gray-300 print:bg-gray-50">
+            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-3 print:border-gray-300 print:bg-gray-50">
               <div className="text-brand-gold font-bold text-sm flex items-center gap-2 print:text-black">
-                <i className="fa-solid fa-bullseye"></i> Misión
+                <i className="fa-solid fa-bullseye"></i> Compromisos Clave B2B
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed print:text-black">
-                Brindar soluciones de ingeniería, mantenimiento y montaje metalmecánico con los más altos estándares de calidad, seguridad y protección ambiental, superando las expectativas operativas de nuestros clientes mineros.
-              </p>
+              <ul className="space-y-2 text-xs text-slate-300 print:text-black">
+                <li className="flex items-start gap-2">
+                  <i className="fa-solid fa-check text-brand-gold mt-0.5"></i>
+                  <span><strong>Eficiencia Operativa:</strong> Reducción de tiempos muertos en Paradas de Planta (P.D.P).</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <i className="fa-solid fa-check text-brand-gold mt-0.5"></i>
+                  <span><strong>Disponibilidad 24/7:</strong> Cuadrillas técnicas preparadas para despliegue inmediato.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <i className="fa-solid fa-check text-brand-gold mt-0.5"></i>
+                  <span><strong>Dossier de Calidad:</strong> Certificación de ensayos NDT (Ultrasonido, Tintes Penetrantes).</span>
+                </li>
+              </ul>
             </div>
 
-            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-2 print:border-gray-300 print:bg-gray-50">
+            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-3 print:border-gray-300 print:bg-gray-50">
               <div className="text-brand-gold font-bold text-sm flex items-center gap-2 print:text-black">
-                <i className="fa-solid fa-eye"></i> Visión
+                <i className="fa-solid fa-shield-cat"></i> Seguridad &amp; Medio Ambiente
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed print:text-black">
-                Consolidarnos como el contratista minero e industrial líder en el Perú en paradas de planta y fabricación de estructuras pesadas, reconocido por nuestra homologación internacional y cero incidentes.
-              </p>
+              <ul className="space-y-2 text-xs text-slate-300 print:text-black">
+                <li className="flex items-start gap-2">
+                  <i className="fa-solid fa-check text-brand-gold mt-0.5"></i>
+                  <span><strong>Cero Incidentes HSE:</strong> Aplicación de PETS, IPERC Continuo y Charlas de 5 Minutos.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <i className="fa-solid fa-check text-brand-gold mt-0.5"></i>
+                  <span><strong>Estándar ISO 14001:</strong> Gestión de residuos y remediación de pasivos ambientales.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <i className="fa-solid fa-check text-brand-gold mt-0.5"></i>
+                  <span><strong>Antisoborno ISO 37001:</strong> Auditoría Bureau Veritas con calificación del 98.00%.</span>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
 
 
-        {/* SECCIÓN 2: PORTAFOLIO DE SERVICIOS */}
-        <section className="bg-slate-900/90 rounded-3xl border border-slate-800 p-8 sm:p-10 space-y-8 print:border-gray-300 print:bg-white print:text-black">
-          <div className="border-b border-slate-800 pb-4">
-            <span className="text-brand-gold text-xs font-bold uppercase tracking-wider">02. Capacidades Operativas</span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white font-heading mt-1 print:text-black">Nuestros Servicios Principales</h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            
-            {/* Servicio 1 */}
-            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-3 print:border-gray-300 print:bg-gray-50">
-              <div className="text-xs font-extrabold text-brand-gold uppercase">01. Ingeniería &amp; Diseño AutoCAD 3D</div>
-              <h3 className="text-lg font-bold text-white print:text-black">Diseño en AutoCAD 3D &amp; Memoria de Cálculo</h3>
-              <p className="text-xs text-slate-300 leading-relaxed print:text-black">
-                Desarrollo de planos estructurales de detalle, despiece técnico y simulaciones de interferencias bajo normativas AISC y AWS D1.1 con firma de Ingenieros CIP.
-              </p>
-            </div>
-
-            {/* Servicio 2 */}
-            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-3 print:border-gray-300 print:bg-gray-50">
-              <div className="text-xs font-extrabold text-brand-gold uppercase">02. Fabricación Metalmecánica</div>
-              <h3 className="text-lg font-bold text-white print:text-black">Fabricación de Celdas, Cajones &amp; Chutes</h3>
-              <p className="text-xs text-slate-300 leading-relaxed print:text-black">
-                Fabricación de Celdas de Flotación OK-20, cajones de molienda y revestimiento con planchas antidesgastantes (Hardox) con soldadores homologados 3G a 6G.
-              </p>
-            </div>
-
-            {/* Servicio 3 */}
-            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-3 print:border-gray-300 print:bg-gray-50">
-              <div className="text-xs font-extrabold text-brand-gold uppercase">03. Montaje de Estructuras</div>
-              <h3 className="text-lg font-bold text-white print:text-black">Montaje Estructural &amp; Alta Tensión</h3>
-              <p className="text-xs text-slate-300 leading-relaxed print:text-black">
-                Montaje de naves industriales, plataformas, pasarelas de inspección, tendido de redes de alta tensión e maniobras de izaje crítico con grúas pesadas.
-              </p>
-            </div>
-
-            {/* Servicio 4 */}
-            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-3 print:border-gray-300 print:bg-gray-50">
-              <div className="text-xs font-extrabold text-brand-gold uppercase">04. Mantenimiento &amp; PDP</div>
-              <h3 className="text-lg font-bold text-white print:text-black">Paradas de Planta Concentradora (P.D.P)</h3>
-              <p className="text-xs text-slate-300 leading-relaxed print:text-black">
-                Intervención 24/7 en cambio de chaquetas en Molinos SAG 7&apos;x12&apos;, cambio de rodamientos de poleas Overland, Overhaul de chancadoras cónicas y sopladores.
-              </p>
-            </div>
-
-          </div>
-        </section>
-
-
-        {/* SECCIÓN 3: TRABAJOS DESTACADOS & CLIENTES */}
+        {/* SLIDE 9: ORGANIGRAMA & PERSONAL TÉCNICO HOMOLOGADO */}
         <section className="bg-slate-900/90 rounded-3xl border border-slate-800 p-8 sm:p-10 space-y-6 print:border-gray-300 print:bg-white print:text-black">
           <div className="border-b border-slate-800 pb-4">
-            <span className="text-brand-gold text-xs font-bold uppercase tracking-wider">03. Experiencia Comprobada</span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white font-heading mt-1 print:text-black">Trabajos Ejecutados</h2>
+            <span className="text-brand-gold text-xs font-bold uppercase tracking-wider">02. Talento Humano &amp; Especialidades</span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white font-heading mt-1 print:text-black">Organigrama Técnico Operativo</h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-3 text-xs text-slate-300 font-medium">
-            <div className="flex items-center gap-2 bg-slate-950 p-3 rounded-xl border border-slate-800 print:border-gray-300 print:bg-gray-50 print:text-black">
-              <i className="fa-solid fa-check text-brand-gold"></i>
-              <span>Servicio Molino 7&apos;x12&apos;: Cambio de Chaquetas del Interior</span>
+          <p className="text-xs text-slate-300 leading-relaxed print:text-black">
+            Contamos con personal altamente especializado en maniobras de alto riesgo, mantenimiento mecánico, calderería e izajes críticos en minería de socavón y tajo abierto:
+          </p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 text-xs">
+            <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 flex items-center gap-3 print:bg-gray-100 print:border-gray-300 print:text-black">
+              <i className="fa-solid fa-user-gear text-brand-gold text-base"></i>
+              <div>
+                <div className="font-bold text-white print:text-black">Técnico Mecánico</div>
+                <div className="text-[10px] text-slate-400">Especialista Planta</div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 bg-slate-950 p-3 rounded-xl border border-slate-800 print:border-gray-300 print:bg-gray-50 print:text-black">
-              <i className="fa-solid fa-check text-brand-gold"></i>
-              <span>Parada de Planta Plomo y Zinc - Chancado</span>
+
+            <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 flex items-center gap-3 print:bg-gray-100 print:border-gray-300 print:text-black">
+              <i className="fa-solid fa-helmet-safety text-brand-gold text-base"></i>
+              <div>
+                <div className="font-bold text-white print:text-black">Mecánico Montajista</div>
+                <div className="text-[10px] text-slate-400">Montajes Pesados</div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 bg-slate-950 p-3 rounded-xl border border-slate-800 print:border-gray-300 print:bg-gray-50 print:text-black">
-              <i className="fa-solid fa-check text-brand-gold"></i>
-              <span>Celdas de Flotación en Planta Concentradora N°1</span>
+
+            <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 flex items-center gap-3 print:bg-gray-100 print:border-gray-300 print:text-black">
+              <i className="fa-solid fa-cubes text-brand-gold text-base"></i>
+              <div>
+                <div className="font-bold text-white print:text-black">Mecánico Andamiero</div>
+                <div className="text-[10px] text-slate-400">Norma Layher/OSHA</div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 bg-slate-950 p-3 rounded-xl border border-slate-800 print:border-gray-300 print:bg-gray-50 print:text-black">
-              <i className="fa-solid fa-check text-brand-gold"></i>
-              <span>Overland: Cambio de Rodamiento de Polea</span>
+
+            <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 flex items-center gap-3 print:bg-gray-100 print:border-gray-300 print:text-black">
+              <i className="fa-solid fa-oil-can text-brand-gold text-base"></i>
+              <div>
+                <div className="font-bold text-white print:text-black">Mecánico Lubricador</div>
+                <div className="text-[10px] text-slate-400">Tribología &amp; Aceites</div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 bg-slate-950 p-3 rounded-xl border border-slate-800 print:border-gray-300 print:bg-gray-50 print:text-black">
-              <i className="fa-solid fa-check text-brand-gold"></i>
-              <span>Izaje de Soplador Spencer &amp; Alineamiento</span>
+
+            <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 flex items-center gap-3 print:bg-gray-100 print:border-gray-300 print:text-black">
+              <i className="fa-solid fa-fire text-brand-gold text-base"></i>
+              <div>
+                <div className="font-bold text-white print:text-black">Mecánico Calderero</div>
+                <div className="text-[10px] text-slate-400">Trazos &amp; Habilitado</div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 bg-slate-950 p-3 rounded-xl border border-slate-800 print:border-gray-300 print:bg-gray-50 print:text-black">
-              <i className="fa-solid fa-check text-brand-gold"></i>
-              <span>Montaje de Estructuras y Celdas de Flotación OK-20</span>
+
+            <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 flex items-center gap-3 print:bg-gray-100 print:border-gray-300 print:text-black">
+              <i className="fa-solid fa-crosshairs text-brand-gold text-base"></i>
+              <div>
+                <div className="font-bold text-white print:text-black">Mecánico Alineador</div>
+                <div className="text-[10px] text-slate-400">Alineamiento Láser</div>
+              </div>
+            </div>
+
+            <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 flex items-center gap-3 print:bg-gray-100 print:border-gray-300 print:text-black">
+              <i className="fa-solid fa-burst text-brand-gold text-base"></i>
+              <div>
+                <div className="font-bold text-white print:text-black">Soldador 3G, 4G, 5G, 6G</div>
+                <div className="text-[10px] text-slate-400">SMAW, GTAW, FCAW</div>
+              </div>
+            </div>
+
+            <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 flex items-center gap-3 print:bg-gray-100 print:border-gray-300 print:text-black">
+              <i className="fa-solid fa-users text-brand-gold text-base"></i>
+              <div>
+                <div className="font-bold text-white print:text-black">Ayudante Soldador</div>
+                <div className="text-[10px] text-slate-400">Soporte Operativo</div>
+              </div>
             </div>
           </div>
         </section>
 
 
-        {/* SECCIÓN 4: CONTACTO & DATOS FISCALES */}
-        <section className="bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum rounded-3xl p-8 sm:p-10 text-white space-y-6 shadow-2xl print:bg-gray-900 print:text-white">
+        {/* SLIDES 11-22: CATÁLOGO COMPLETO DE LOS 12 TRABAJOS REALIZADOS (CON FOTOS REALES) */}
+        <section className="space-y-10">
+          <div className="bg-slate-900/90 rounded-3xl border border-slate-800 p-8 sm:p-10 print:border-gray-300 print:bg-white print:text-black">
+            <span className="text-brand-gold text-xs font-bold uppercase tracking-wider">03. Portafolio de Campo</span>
+            <h2 className="text-2xl sm:text-4xl font-black text-white font-heading mt-1 print:text-black">
+              Trabajos Realizados &amp; Operaciones en Vivo
+            </h2>
+            <p className="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed print:text-black">
+              A continuación presentamos la evidencia fotográfica y ficha técnica de los 12 principales proyectos ejecutados en plantas concentradoras e instalaciones mineras:
+            </p>
+          </div>
+
+          {/* Bucle dinámico por cada uno de los 12 proyectos reales */}
+          <div className="space-y-12">
+            {trabajosData.map((trabajo, idx) => (
+              <div 
+                key={trabajo.id}
+                className="bg-slate-900/80 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl p-6 sm:p-8 space-y-6 print:border-gray-300 print:bg-white print:text-black print:break-inside-avoid">
+                
+                {/* Header del Trabajo */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/80 pb-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="bg-brand-gold/10 border border-brand-gold/40 text-brand-gold font-extrabold text-[10px] px-2.5 py-0.5 rounded-md uppercase">
+                        {trabajo.shortCode}
+                      </span>
+                      <span className="text-slate-400 text-xs font-bold">{trabajo.categoryLabel}</span>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-black text-white font-heading leading-snug print:text-black">
+                      {trabajo.title}
+                    </h3>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5 flex-shrink-0">
+                    {trabajo.badges.map((b, bIdx) => (
+                      <span key={bIdx} className="bg-slate-950 border border-slate-800 text-slate-300 text-[10px] font-bold px-2.5 py-1 rounded-full print:border-gray-300 print:bg-gray-100 print:text-black">
+                        {b}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed print:text-black">
+                  {trabajo.description}
+                </p>
+
+                {/* Galería de Fotografías Reales del Proyecto */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-2">
+                  {trabajo.galleryImages.map((imgUrl, imgIdx) => (
+                    <div key={imgIdx} className="relative aspect-video rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 group print:border-gray-300">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img 
+                        src={imgUrl} 
+                        alt={`${trabajo.title} - Foto ${imgIdx + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute top-2 left-2 bg-black/70 backdrop-blur-sm text-white text-[9px] font-bold px-2 py-0.5 rounded">
+                        Foto Real Campo #{imgIdx + 1}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Entregables Técnicos */}
+                <div className="bg-slate-950 p-4 sm:p-5 rounded-2xl border border-slate-800/80 space-y-2 print:border-gray-300 print:bg-gray-50">
+                  <span className="text-[11px] font-bold text-brand-gold uppercase tracking-wider print:text-black">Entregables Técnicos Certificados:</span>
+                  <div className="grid sm:grid-cols-3 gap-2 text-xs text-slate-300 print:text-black">
+                    {trabajo.highlights.map((h, hIdx) => (
+                      <div key={hIdx} className="flex items-center gap-2">
+                        <i className="fa-solid fa-check-double text-brand-gold text-xs"></i>
+                        <span>{h}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            ))}
+          </div>
+        </section>
+
+
+        {/* SLIDES 23-24: TALLER & ALMACÉN DE HERRAMIENTAS */}
+        <section className="bg-slate-900/90 rounded-3xl border border-slate-800 p-8 sm:p-10 space-y-6 print:border-gray-300 print:bg-white print:text-black">
+          <div className="border-b border-slate-800 pb-4">
+            <span className="text-brand-gold text-xs font-bold uppercase tracking-wider">04. Infraestructura &amp; Equipamiento</span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white font-heading mt-1 print:text-black">Taller de Fabricación &amp; Almacén</h2>
+          </div>
+
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed print:text-black">
+            Contamos con taller propio equipado con máquinas de soldar de alta frecuencia, corte por oxicorte y plasma, prensas hidráulicas de 100Tn, torqueadoras neumáticas calibradas y stock permanente de EPPs normados para respuesta inmediata.
+          </p>
+
+          <div className="grid sm:grid-cols-2 gap-6 pt-2">
+            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-3 print:border-gray-300 print:bg-gray-50">
+              <div className="text-brand-gold font-bold text-sm flex items-center gap-2 print:text-black">
+                <i className="fa-solid fa-warehouse"></i> Equipamiento de Taller
+              </div>
+              <ul className="space-y-2 text-xs text-slate-300 print:text-black">
+                <li className="flex items-center gap-2">
+                  <i className="fa-solid fa-circle-check text-brand-gold"></i>
+                  <span>Máquinas de soldar Miller / Lincoln (FCAW, SMAW, GTAW).</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <i className="fa-solid fa-circle-check text-brand-gold"></i>
+                  <span>Equipos de oxicorte automatizado y corte por plasma.</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <i className="fa-solid fa-circle-check text-brand-gold"></i>
+                  <span>Prensas hidráulicas de 100 Toneladas y esmeriles industriales.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-3 print:border-gray-300 print:bg-gray-50">
+              <div className="text-brand-gold font-bold text-sm flex items-center gap-2 print:text-black">
+                <i className="fa-solid fa-toolbox"></i> Almacén &amp; Logística
+              </div>
+              <ul className="space-y-2 text-xs text-slate-300 print:text-black">
+                <li className="flex items-center gap-2">
+                  <i className="fa-solid fa-circle-check text-brand-gold"></i>
+                  <span>Torqueadoras neumáticas HYTORC y llaves de impacto.</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <i className="fa-solid fa-circle-check text-brand-gold"></i>
+                  <span>Tecles de cadena de 1.5Tn a 10Tn con certificado vigente.</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <i className="fa-solid fa-circle-check text-brand-gold"></i>
+                  <span>Arneses de seguridad, líneas de vida y detectores de gas.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+
+        {/* SLIDE FINAL: INFORMACIÓN FISCAL & COTIZACIÓN B2B */}
+        <section className="bg-gradient-to-r from-brand-petroleum via-brand-darkPetroleum to-slate-950 rounded-3xl p-8 sm:p-12 text-white space-y-8 shadow-2xl print:bg-gray-900 print:text-white">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div>
-              <span className="text-brand-gold font-bold text-xs uppercase tracking-wider">Contacto Comercial Directo</span>
-              <h2 className="text-2xl sm:text-3xl font-black font-heading mt-1">Solicite su Cotización B2B</h2>
-              <p className="text-xs text-slate-200 mt-2 max-w-lg">
-                Oficina Principal: Mza. C Lote 3 A.H. La Esperanza, Chaupimarca, Pasco. Atendemos proyectos a nivel nacional.
+            <div className="space-y-2">
+              <span className="text-brand-gold font-extrabold text-xs uppercase tracking-widest">Atención Comercial Minera 24/7</span>
+              <h2 className="text-3xl sm:text-4xl font-black font-heading">Contrate Nuestros Servicios</h2>
+              <p className="text-xs sm:text-sm text-slate-200 max-w-xl leading-relaxed">
+                Oficina Principal: Mza. C Lote 3 A.H. La Esperanza, Chaupimarca, Pasco. Operaciones continuas a nivel nacional en unidades mineras.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto print:hidden">
               <a
-                href="https://wa.me/51950302787?text=Hola%20Grupo%20Genolg,%20requiero%20cotizar%20un%20servicio%20desde%20su%20Brochure"
+                href="https://wa.me/51950302787?text=Hola%20Grupo%20Genolg,%20estoy%20revisando%20el%20Brochure%20Oficial%202026%20y%20deseo%20solicitar%20una%20cotizacion."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs px-6 py-3.5 rounded-xl border border-emerald-400 shadow-md flex items-center justify-center gap-2 transition">
-                <i className="fa-brands fa-whatsapp text-sm"></i>
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs px-6 py-4 rounded-2xl border border-emerald-400 shadow-xl flex items-center justify-center gap-2 transition">
+                <i className="fa-brands fa-whatsapp text-base"></i>
                 <span>WhatsApp Comercial</span>
               </a>
+
+              <button
+                onClick={handlePrint}
+                className="bg-brand-gold hover:bg-yellow-400 text-slate-950 font-black text-xs px-6 py-4 rounded-2xl border border-yellow-300 shadow-xl flex items-center justify-center gap-2 transition">
+                <i className="fa-solid fa-print text-base"></i>
+                <span>Imprimir Brochure</span>
+              </button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-white/20 text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-white/20 text-xs">
             <div>
-              <div className="text-slate-300 text-[10px] uppercase font-bold">Teléfono de Operaciones</div>
+              <div className="text-slate-300 text-[10px] uppercase font-bold">Teléfono Directo</div>
               <div className="font-extrabold text-sm mt-0.5">+51 950 302 787</div>
             </div>
             <div>
-              <div className="text-slate-300 text-[10px] uppercase font-bold">Correo Electrónico</div>
+              <div className="text-slate-300 text-[10px] uppercase font-bold">Correo Institucional</div>
               <div className="font-extrabold text-sm mt-0.5">g_genolg_adrian@hotmail.com</div>
             </div>
             <div>
-              <div className="text-slate-300 text-[10px] uppercase font-bold">Datos RUC / Razón Social</div>
+              <div className="text-slate-300 text-[10px] uppercase font-bold">Razón Social &amp; RUC</div>
               <div className="font-extrabold text-sm mt-0.5">20608261894 — GRUPO GENOLG</div>
             </div>
           </div>
