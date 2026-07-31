@@ -45,7 +45,18 @@ export default function Modals({
 
   const handleSimulateDownload = () => {
     onCloseDownloadModal();
-    onShowToast('Descarga Iniciada', 'El archivo PDF ha comenzado a descargarse.');
+    const link = document.createElement('a');
+    if (downloadType === 'brochure') {
+      link.href = '/documentos/BROCHURE.pdf';
+      link.download = 'BROCHURE_GRUPO_GENOLG_2026.pdf';
+    } else {
+      link.href = '/documentos/BROCHURE.pdf';
+      link.download = 'DOCUMENTO_GRUPO_GENOLG.pdf';
+    }
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    onShowToast('Descarga Iniciada', 'El archivo PDF corporativo se ha descargado correctamente.');
   };
 
   let downloadTitle = 'Brochure Corporativo Oficial 2026';
