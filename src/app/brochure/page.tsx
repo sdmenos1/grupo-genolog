@@ -274,7 +274,6 @@ export default function BrochureWebPage() {
                       <span className="bg-brand-gold/10 border border-brand-gold/40 text-brand-gold font-extrabold text-[10px] px-2.5 py-0.5 rounded-md uppercase">
                         {trabajo.shortCode}
                       </span>
-                      <span className="text-slate-400 text-xs font-bold">{trabajo.categoryLabel}</span>
                     </div>
                     <h3 className="text-xl sm:text-2xl font-black text-white font-heading leading-snug print:text-black">
                       {trabajo.title}

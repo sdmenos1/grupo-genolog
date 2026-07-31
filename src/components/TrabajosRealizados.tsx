@@ -320,10 +320,6 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                   <span className="text-[10px] font-black text-brand-gold bg-slate-900 border border-brand-gold/30 px-2.5 py-1 rounded-md tracking-wider">
                     {trabajo.shortCode}
                   </span>
-                  <span className="text-[11px] font-bold text-slate-400 bg-slate-900/60 px-3 py-1 rounded-full border border-slate-800 flex items-center gap-1.5">
-                    <i className={`fa-solid ${trabajo.icon} text-brand-gold text-xs`}></i>
-                    <span>{trabajo.categoryLabel}</span>
-                  </span>
                 </div>
 
                 {/* Card Main Image Container */}
