@@ -63,19 +63,22 @@ Logotipos de empresas mineras y clientes corporativos para el carrusel de marcas
 ---
 
 ### 8. `public/images/trabajos_realizados/`
-Carpetas dedicadas para cada uno de los **12 Trabajos Realizados** por la empresa:
-- `molino-7x12-chaquetas/` -> Foto principal: `foto_1.jpg` (Cambio de chaquetas en Molino 7'x12')
-- `parada-plomo-zinc-chancado/` -> Foto principal: `foto_1.jpg` (Parada de planta plomo y zinc - chancado)
-- `celdas-flotacion-planta-n1/` -> Foto principal: `foto_1.jpg` (Celdas de flotación en Planta N°1)
-- `overland-rodamiento-polea/` -> Foto principal: `foto_1.jpg` (Overland cambio de rodamiento de polea)
-- `izaje-soplador-spencer/` -> Foto principal: `foto_1.jpg` (Izaje de soplador Spencer)
-- `mantenimiento-mecanismo-alimentacion/` -> Foto principal: `foto_1.jpg` (Mecánica de alimentación)
-- `mantenimiento-chancadora-conica/` -> Foto principal: `foto_1.jpg` (Chancadora cónica)
-- `fabricacion-cajon-molienda/` -> Foto principal: `foto_1.jpg` (Cajón molienda metalmecánica)
-- `montaje-estructuras-celdas-ok20/` -> Foto principal: `foto_1.jpg` (Montaje estructuras celdas OK-20)
-- `soldeo-montaje-tuberia-14in/` -> Foto principal: `foto_1.jpg` (Tubería de 14" para celdas OK20)
-- `armado-soldeo-plataformas-ok/` -> Foto principal: `foto_1.jpg` (Armado y soldeo de plataformas OK)
-- `montaje-cajon-alimentacion-descarga/` -> Foto principal: `foto_1.jpg` (Montaje cajón alimentación y descarga)
+Carpetas dedicadas para cada uno de los **12 Trabajos Realizados** por la empresa. **¡Cada carpeta soporta múltiples fotografías reales!** (`foto_1.jpg`, `foto_2.jpg`, `foto_3.jpg`, `foto_4.jpg`, etc.)
+
+- `molino-7x12-chaquetas/` -> Subir fotos: `foto_1.jpg`, `foto_2.jpg`, `foto_3.jpg`, `foto_4.jpg`
+- `parada-plomo-zinc-chancado/` -> Subir fotos: `foto_1.jpg`, `foto_2.jpg`, `foto_3.jpg`
+- `celdas-flotacion-planta-n1/` -> Subir fotos: `foto_1.jpg`, `foto_2.jpg`, `foto_3.jpg`
+- `overland-rodamiento-polea/` -> Subir fotos: `foto_1.jpg`, `foto_2.jpg`, `foto_3.jpg`
+- `izaje-soplador-spencer/` -> Subir fotos: `foto_1.jpg`, `foto_2.jpg`
+- `mantenimiento-mecanismo-alimentacion/` -> Subir fotos: `foto_1.jpg`, `foto_2.jpg`
+- `mantenimiento-chancadora-conica/` -> Subir fotos: `foto_1.jpg`, `foto_2.jpg`
+- `fabricacion-cajon-molienda/` -> Subir fotos: `foto_1.jpg`, `foto_2.jpg`
+- `montaje-estructuras-celdas-ok20/` -> Subir fotos: `foto_1.jpg`, `foto_2.jpg`, `foto_3.jpg`
+- `soldeo-montaje-tuberia-14in/` -> Subir fotos: `foto_1.jpg`, `foto_2.jpg`
+- `armado-soldeo-plataformas-ok/` -> Subir fotos: `foto_1.jpg`, `foto_2.jpg`
+- `montaje-cajon-alimentacion-descarga/` -> Subir fotos: `foto_1.jpg`, `foto_2.jpg`
+
+> 💡 **Nota:** La aplicación detecta automáticamente todas las fotos agregadas en la carpeta y genera una galería deslizante interactiva con flechas de navegación y miniaturas para cada proyecto.
 
 ---
 
