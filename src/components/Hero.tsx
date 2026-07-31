@@ -100,63 +100,68 @@ export default function Hero({ onOpenDownloadModal, onOpenQuoteModal }: HeroProp
       ))}
 
       {/* Foreground Hero Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full mt-4">
-        <div className="max-w-3xl space-y-6">
+      <div className="relative z-20 max-w-7xl mx-auto px-5 sm:px-8 lg:px-8 py-6 sm:py-10 w-full mt-2 sm:mt-4">
+        <div className="max-w-3xl space-y-4 sm:space-y-6">
           
-          <div className="inline-flex items-center gap-3 bg-brand-titanium/90 border border-brand-gold/40 px-4 py-2 rounded-full text-xs font-semibold shadow-2xl backdrop-blur-md">
-            <span className="w-2.5 h-2.5 rounded-full bg-slate-300 animate-pulse"></span>
-            <span className="text-brand-gold font-extrabold uppercase tracking-wider text-[11px]">{currentSlide.badge}</span>
-            <span className="text-slate-600">|</span>
-            <span className="text-slate-200">{currentSlide.tag}</span>
+          {/* Badge Pill Adaptable */}
+          <div className="inline-flex flex-wrap sm:flex-nowrap items-center gap-1.5 sm:gap-3 bg-brand-titanium/95 border border-brand-gold/40 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-semibold shadow-2xl backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-slate-300 animate-pulse"></span>
+            <span className="text-brand-gold font-extrabold uppercase tracking-wider text-[10px] sm:text-[11px]">{currentSlide.badge}</span>
+            <span className="text-slate-600 hidden sm:inline">|</span>
+            <span className="text-slate-300 text-[10px] sm:text-xs hidden sm:inline">{currentSlide.tag}</span>
           </div>
 
-          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black leading-[1.12] tracking-tight text-white drop-shadow-lg transition-all duration-500">
+          {/* Título Principal Tipográfico Adaptativo */}
+          <h1 className="font-heading text-2xl sm:text-5xl lg:text-6xl font-black leading-snug sm:leading-[1.12] tracking-tight text-white drop-shadow-lg transition-all duration-500">
             {currentSlide.title}
           </h1>
 
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-normal max-w-2xl drop-shadow-md">
+          {/* Descripción */}
+          <p className="text-slate-300 text-xs sm:text-lg leading-relaxed font-normal max-w-2xl drop-shadow-md">
             {currentSlide.desc}
           </p>
 
-          {/* Slogan Banner */}
-          <div className="inline-block bg-brand-gold/15 border border-brand-gold/40 p-3 rounded-xl text-xs text-brand-gold font-bold backdrop-blur-md">
-            <i className="fa-solid fa-quote-left mr-2"></i>
-            <span>&quot;Somos la mejor opción en ingeniería&quot; — GRUPO GENOLG (Minería &amp; Construcción)</span>
+          {/* Banner de Slogan Compacto */}
+          <div className="inline-block bg-brand-gold/15 border border-brand-gold/40 p-2.5 sm:p-3 rounded-xl text-[11px] sm:text-xs text-brand-gold font-bold backdrop-blur-md leading-tight">
+            <i className="fa-solid fa-quote-left mr-1.5"></i>
+            <span>&quot;Somos la mejor opción en ingeniería&quot; — GRUPO GENOLG</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-            <div className="bg-brand-titanium/95 p-4 rounded-2xl border border-slate-800 flex items-center gap-4 hover:border-brand-gold transition duration-300 shadow-xl backdrop-blur-md">
-              <div className="w-12 h-12 rounded-xl bg-brand-petroleum/40 border border-brand-petroleum/50 text-brand-gold flex items-center justify-center text-xl font-bold flex-shrink-0">
+          {/* Cajas de Métricas Responsivas */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-4 pt-1">
+            <div className="bg-brand-titanium/95 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-800 flex items-center gap-3 sm:gap-4 hover:border-brand-gold transition duration-300 shadow-xl backdrop-blur-md">
+              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-brand-petroleum/40 border border-brand-petroleum/50 text-brand-gold flex items-center justify-center text-base sm:text-xl font-bold flex-shrink-0">
                 <i className="fa-solid fa-award"></i>
               </div>
               <div>
-                <div className="text-xs text-slate-400 font-medium">Auditoría Internacional</div>
-                <div className="text-sm font-bold text-white">Bureau Veritas: <span className="text-brand-gold"></span></div>
+                <div className="text-[10px] sm:text-xs text-slate-400 font-medium">Auditoría Internacional</div>
+                <div className="text-xs sm:text-sm font-bold text-white">Bureau Veritas: <span className="text-brand-gold">87.81%</span></div>
               </div>
             </div>
 
-            <div className="bg-brand-titanium/95 p-4 rounded-2xl border border-slate-800 flex items-center gap-4 hover:border-brand-gold transition duration-300 shadow-xl backdrop-blur-md">
-              <div className="w-12 h-12 rounded-xl bg-brand-petroleum/40 border border-brand-petroleum/50 text-brand-gold flex items-center justify-center text-xl font-bold flex-shrink-0">
+            <div className="bg-brand-titanium/95 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-800 flex items-center gap-3 sm:gap-4 hover:border-brand-gold transition duration-300 shadow-xl backdrop-blur-md">
+              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-brand-petroleum/40 border border-brand-petroleum/50 text-brand-gold flex items-center justify-center text-base sm:text-xl font-bold flex-shrink-0">
                 <i className="fa-solid fa-file-shield"></i>
               </div>
               <div>
-                <div className="text-xs text-slate-400 font-medium">Habilitación Legal</div>
-                <div className="text-sm font-bold text-white">MINEM R.D. 0288-2021</div>
+                <div className="text-[10px] sm:text-xs text-slate-400 font-medium">Habilitación Legal</div>
+                <div className="text-xs sm:text-sm font-bold text-white">MINEM R.D. 0288-2021</div>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-2">
+          {/* Botones de Acción (Full Width en Mobile) */}
+          <div className="flex flex-col sm:flex-row gap-3 pt-2">
             <button 
               onClick={() => onOpenQuoteModal(currentSlide.serviceName)} 
-              className="inline-flex items-center justify-center gap-3 bg-brand-petroleum hover:bg-brand-darkPetroleum text-white font-extrabold text-sm px-8 py-4 rounded-2xl shadow-md transition-all duration-300 border border-brand-gold/30 transform hover:-translate-y-1">
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-brand-petroleum hover:bg-brand-darkPetroleum text-white font-extrabold text-xs sm:text-sm px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl shadow-md transition-all duration-300 border border-brand-gold/30">
               <span>Cotizar Este Servicio</span>
-              <i className="fa-solid fa-calculator"></i>
+              <i className="fa-solid fa-calculator text-xs"></i>
             </button>
             <a 
               href="/brochure" 
-              className="inline-flex items-center justify-center gap-3 bg-brand-titanium/90 hover:bg-brand-steel text-white font-bold text-sm px-7 py-4 rounded-2xl border border-slate-700 hover:border-brand-gold/40 transition-all duration-300 backdrop-blur-md shadow-lg">
-              <i className="fa-solid fa-book-open text-brand-gold text-lg"></i>
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-brand-titanium/90 hover:bg-brand-steel text-white font-bold text-xs sm:text-sm px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl border border-slate-700 hover:border-brand-gold/40 transition-all duration-300 backdrop-blur-md shadow-lg">
+              <i className="fa-solid fa-book-open text-brand-gold text-sm"></i>
               <span>Ver Brochure Web 2026</span>
             </a>
           </div>
@@ -164,18 +169,18 @@ export default function Hero({ onOpenDownloadModal, onOpenQuoteModal }: HeroProp
         </div>
       </div>
 
-      {/* Floating Arrows */}
+      {/* Flechas Flotantes (Ocultas en celular para no tapar el texto, visibles en pantallas sm+) */}
       <button 
         onClick={handlePrevSlide}
         aria-label="Diapositiva Anterior"
-        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-brand-titanium/80 hover:bg-brand-gold hover:text-brand-deepObsidian border border-slate-700 text-white flex items-center justify-center text-lg transition duration-300 backdrop-blur-md shadow-2xl">
+        className="hidden sm:flex absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-titanium/80 hover:bg-brand-gold hover:text-brand-deepObsidian border border-slate-700 text-white items-center justify-center text-base sm:text-lg transition duration-300 backdrop-blur-md shadow-2xl">
         <i className="fa-solid fa-chevron-left"></i>
       </button>
       
       <button 
         onClick={handleNextSlide}
         aria-label="Siguiente Diapositiva"
-        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-brand-titanium/80 hover:bg-brand-gold hover:text-brand-deepObsidian border border-slate-700 text-white flex items-center justify-center text-lg transition duration-300 backdrop-blur-md shadow-2xl">
+        className="hidden sm:flex absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-titanium/80 hover:bg-brand-gold hover:text-brand-deepObsidian border border-slate-700 text-white items-center justify-center text-base sm:text-lg transition duration-300 backdrop-blur-md shadow-2xl">
         <i className="fa-solid fa-chevron-right"></i>
       </button>
 
