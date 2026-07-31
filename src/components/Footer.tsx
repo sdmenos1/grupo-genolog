@@ -39,7 +39,7 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
                 MINEM R.D. 0288-2021
               </span>
               <span className="bg-brand-gold/15 text-brand-gold border border-brand-gold/40 px-3 py-1 rounded-full font-bold">
-                Bureau Veritas 87.81%
+                Bureau Veritas 
               </span>
             </div>
           </div>

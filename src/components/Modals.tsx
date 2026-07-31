@@ -53,7 +53,7 @@ export default function Modals({
 
   if (downloadType === 'bv') {
     downloadTitle = 'Certificado Bureau Veritas HP0017249';
-    downloadDesc = 'Documento de homologación con calificación del 87.81%.';
+    downloadDesc = 'Documento de homologación con nivel B';
   } else if (downloadType === 'minem') {
     downloadTitle = 'Registro MINEM R.D. 0288-2021';
     downloadDesc = 'Habilitación oficial para beneficio, exploración y explotación.';

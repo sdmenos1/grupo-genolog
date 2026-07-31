@@ -46,7 +46,7 @@ export default function AcreditacionesPage() {
             Acreditaciones &amp; Homologaciones MINEM
           </h1>
           <p className="text-slate-300 text-base sm:text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
-            Respaldo legal auditado por Bureau Veritas (Calificación Nivel B - 87.81%) y Registro MINEM RD N° 0288-2021 para inclusión inmediata en padrón minero.
+            Respaldo legal auditado por Bureau Veritas ( Nivel B ) y Registro MINEM RD N° 0288-2021 para inclusión inmediata en padrón minero.
           </p>
         </div>
       </section>

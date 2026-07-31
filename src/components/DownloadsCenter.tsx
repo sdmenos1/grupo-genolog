@@ -65,7 +65,7 @@ export default function DownloadsCenter({ onOpenDownloadModal }: DownloadsCenter
                 <i className="fa-solid fa-shield-halved"></i>
               </div>
               <h3 className="font-bold text-base text-white">Certificado Bureau Veritas</h3>
-              <p className="text-xs text-slate-400 mt-2">Informe de homologación empresarial HP0017249 (Puntaje 87.81%).</p>
+              <p className="text-xs text-slate-400 mt-2">Informe de homologación empresarial HP0017249 (Puntaje ).</p>
               <div className="mt-3 inline-block bg-slate-800 text-brand-gold font-bold text-[10px] px-2.5 py-1 rounded-full border border-slate-700">PDF (1.1 MB)</div>
             </div>
             <button 

@@ -5,6 +5,7 @@ import TopBar from '@/components/TopBar';
 import Header from '@/components/Header';
 import ProjectsShowcase from '@/components/ProjectsShowcase';
 import TrabajosRealizados from '@/components/TrabajosRealizados';
+import GaleriaMultimedia from '@/components/GaleriaMultimedia';
 import ClientsMarquee from '@/components/ClientsMarquee';
 import Footer from '@/components/Footer';
 import Modals from '@/components/Modals';
@@ -55,6 +56,9 @@ export default function ProyectosPage() {
 
       {/* 12 Trabajos Realizados Component */}
       <TrabajosRealizados onOpenQuoteModal={handleOpenQuoteModal} />
+
+      {/* Galería Multimedia de Videos y Fotos */}
+      <GaleriaMultimedia />
 
       {/* Projects Showcase Component */}
       <ProjectsShowcase />

@@ -21,7 +21,7 @@ const topBarTickerItems = [
   {
     icon: 'fa-shield-halved',
     label: 'AUDITORÍA B2B',
-    text: 'Bureau Veritas Certificado HP0017249 — Homologación Calificación Global 87.81% (Nivel B)',
+    text: 'Bureau Veritas Certificado HP0017249 — Homologación Calificación Global  (Nivel B)',
   },
 ];
 

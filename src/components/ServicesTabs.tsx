@@ -132,7 +132,7 @@ export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
             <div className="p-5 bg-brand-deepObsidian/90 rounded-2xl border border-slate-800 space-y-3">
               <div className="font-bold text-xs text-brand-gold uppercase tracking-wider">Compromiso de Calidad B2B</div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Garantizamos cero incidentes, cumplimiento estricto de cronogramas y dossier de calidad auditado por <strong>Bureau Veritas (Nivel B - 87.81%)</strong>.
+                Garantizamos cero incidentes, cumplimiento estricto de cronogramas y dossier de calidad auditado por <strong>Bureau Veritas (Nivel B - )</strong>.
               </p>
             </div>
 

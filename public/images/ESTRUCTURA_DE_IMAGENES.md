@@ -44,7 +44,7 @@ Fotografías reales representativas de cada uno de los 5 servicios ofrecidos.
 
 ### 5. `public/images/acreditaciones/`
 Certificados, sellos de homologación y resoluciones ministeriales.
-- **`bureau_veritas_cert.png`**: Constancia de Homologación Bureau Veritas (87.81%) (`600x800 px` o PNG).
+- **`bureau_veritas_cert.png`**: Constancia de Homologación Bureau Veritas () (`600x800 px` o PNG).
 - **`minem_resolucion.png`**: Sello / Documento R.D. 0288-2021 del MINEM (`600x800 px`).
 - **`iso_9001.png`**, **`iso_14001.png`**, **`iso_45001.png`**: Logos de certificaciones ISO.
 

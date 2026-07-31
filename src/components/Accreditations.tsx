@@ -149,7 +149,7 @@ export default function Accreditations({ onOpenDownloadModal }: AccreditationsPr
               <div className="w-full space-y-1">
                 <h3 className="text-xl font-bold text-white group-hover:text-brand-gold transition duration-300">Homologación Bureau Veritas</h3>
                 <p className="text-xs font-semibold text-slate-300">
-                  Certificado N° HP0017249 (Calificación <strong className="text-brand-gold">87.81% - Nivel B</strong>)
+                  Certificado N° HP0017249 (<strong className="text-brand-gold">Nivel B</strong>)
                 </p>
               </div>
             </div>
