@@ -59,15 +59,13 @@ export default function BrochureWebPage() {
           <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-brand-petroleum via-brand-gold to-brand-copper"></div>
           
           {/* Logo Oficial GG */}
-          <div className="flex justify-center mb-6">
-            <div className="bg-white p-3 sm:p-4 rounded-2xl border-2 border-brand-gold/60 shadow-2xl inline-block max-w-sm sm:max-w-md w-full print:border-black">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img 
-                src="/images/logo.png" 
-                alt="Logo Grupo Genolg MINERÍA & CONSTRUCCIÓN" 
-                className="w-full h-auto max-h-20 sm:max-h-24 object-contain"
-              />
-            </div>
+          <div className="flex justify-center mb-8">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="/images/logo.png" 
+              alt="Logo GRUPO GENOLG MINERÍA & CONSTRUCCIÓN" 
+              className="h-28 sm:h-36 md:h-44 w-auto object-contain max-w-full filter drop-shadow-[0_10px_30px_rgba(229,168,35,0.35)] transition-transform duration-500 hover:scale-105"
+            />
           </div>
 
           <span className="bg-brand-gold/10 border border-brand-gold/40 text-brand-gold font-extrabold uppercase tracking-widest text-xs px-4 py-1.5 rounded-full inline-block mb-4 print:border-black print:text-black">

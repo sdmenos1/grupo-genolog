@@ -16,14 +16,12 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
           {/* Col 1: Logo & Slogan */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative bg-white p-2 rounded-xl border border-brand-gold/40 inline-block shadow-md">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/corporativo/logo.png"
-                  alt="GRUPO GENOLG MINERÍA & CONSTRUCCIÓN"
-                  className="h-10 w-auto object-contain"
-                />
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/corporativo/logo.png"
+                alt="GRUPO GENOLG MINERÍA & CONSTRUCCIÓN"
+                className="h-14 sm:h-16 w-auto object-contain filter drop-shadow-[0_4px_12px_rgba(229,168,35,0.2)]"
+              />
             </div>
 
             <p className="text-slate-300 font-bold text-sm">

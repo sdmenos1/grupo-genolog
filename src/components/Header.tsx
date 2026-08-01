@@ -48,16 +48,13 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
           
           {/* LEFT: Executive Logo Plate */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center group">
-              <div className="relative bg-slate-900/90 hover:bg-slate-950 p-2 sm:p-2.5 rounded-2xl border border-brand-gold/40 shadow-soft-gold transition-all duration-300 group-hover:scale-105 flex items-center justify-center backdrop-blur-md">
-                <div className="absolute inset-0 bg-white/95 rounded-xl opacity-90 group-hover:opacity-100 transition-opacity"></div>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/corporativo/logo.png"
-                  alt="GRUPO GENOLG MINERÍA & CONSTRUCCIÓN Logo"
-                  className="relative z-10 h-11 sm:h-13 md:h-15 w-auto object-contain max-w-[190px] sm:max-w-[220px]"
-                />
-              </div>
+            <Link href="/" className="flex items-center group py-1">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/corporativo/logo.png"
+                alt="GRUPO GENOLG MINERÍA & CONSTRUCCIÓN Logo"
+                className="h-14 sm:h-16 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_4px_16px_rgba(229,168,35,0.3)]"
+              />
             </Link>
           </div>
 
