@@ -173,7 +173,7 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
               className="text-slate-200 hover:text-brand-gold p-2 text-2xl focus:outline-none">
               <i className={`fa-solid ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
             </button>
-          </div>    </div>
+          </div>
         </div>
       </div>
 
