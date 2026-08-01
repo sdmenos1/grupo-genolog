@@ -10,18 +10,18 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          petroleum: '#1D8BA5',       // Vibrant Cyan Petroleum from Logo Text
-          darkPetroleum: '#115C6F',   // Deep Petroleum Teal for gradients and hover states
-          lightPetroleum: '#36B3D1',  // Bright Cyan Highlight
-          deepObsidian: '#09121A',    // Deep Navy Charcoal background tinted with Petroleum
-          titanium: '#0E1B26',        // Rich Card Container & Panel Background
-          steel: '#1B2D3D',           // Border & Divider Color
-          gold: '#E5A823',            // Minero Gear Gold from the 'G' and gears
-          goldLight: '#F5C242',       // Bright Gold Highlight
-          goldHover: '#C48B12',       // Dark Metallic Gold Hover
-          copper: '#C86E1B',          // Industrial Copper Accent
-          silver: '#A0B2C6',          // Clean Metallic Silver Text/Borders
-          muted: '#60758A'
+          gold: '#E5A823',            // Amarillo Dorado Engranaje Principal
+          goldLight: '#F5C242',       // Amarillo Dorado Brillante
+          goldHover: '#D4920E',       // Dorado Intenso Hover
+          amber: '#F59E0B',           // Amarillo Ambar Industrial
+          white: '#FFFFFF',           // Blanco Puro para alto contraste
+          petroleum: '#0F4C5C',       // Azul Petroleo Oscuro
+          darkPetroleum: '#0A323D',   // Fondo Petroleo Noche
+          deepObsidian: '#0A0E14',    // Gris Oscuro Antracita
+          titanium: '#121824',        // Superficie de Tarjetas
+          steel: '#1E293B',           // Bordes de Acero
+          silver: '#94A3B8',          // Gris Platinado
+          muted: '#64748B'
         }
       },
       fontFamily: {
