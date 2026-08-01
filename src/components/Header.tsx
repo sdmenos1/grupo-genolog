@@ -44,7 +44,7 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4 h-20 sm:h-22">
+        <div className="flex items-center justify-between gap-4 h-24 sm:h-28">
           
           {/* LEFT: Executive Logo Plate */}
           <div className="flex-shrink-0">
@@ -53,7 +53,7 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
               <img
                 src="/images/corporativo/logo.png"
                 alt="GRUPO GENOLG MINERÍA & CONSTRUCCIÓN Logo"
-                className="h-14 sm:h-16 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_4px_16px_rgba(229,168,35,0.3)]"
+                className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_4px_20px_rgba(229,168,35,0.4)]"
               />
             </Link>
           </div>
