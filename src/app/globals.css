@@ -13,40 +13,40 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A0E14;
+  background: #0A1117;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1E293B;
+  background: #1B2A38;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C59B27;
+  background: #E5A823;
 }
 
-/* Blueprint Grid Backgrounds - Subtle & Muted */
+/* Blueprint Grid Backgrounds - Muted Gear Gold */
 .blueprint-grid {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(197, 155, 39, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(197, 155, 39, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(229, 168, 35, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(229, 168, 35, 0.04) 1px, transparent 1px);
 }
 
 .glass-panel {
-  background: rgba(18, 24, 36, 0.85);
+  background: rgba(15, 26, 36, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(27, 42, 56, 0.8);
 }
 
 .glass-card {
-  background: rgba(30, 41, 59, 0.65);
+  background: rgba(27, 42, 56, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(197, 155, 39, 0.15);
+  border: 1px solid rgba(229, 168, 35, 0.2);
 }
 
 .text-gradient-gold {
-  background: linear-gradient(135deg, #F3E5AB 0%, #C59B27 60%, #8C6B16 100%);
+  background: linear-gradient(135deg, #F5C242 0%, #E5A823 60%, #BA8210 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -55,8 +55,8 @@
   transition: all 0.3s ease-out;
 }
 .custom-ring-hover:hover {
-  box-shadow: 0 10px 30px -10px rgba(197, 155, 39, 0.2);
-  border-color: rgba(197, 155, 39, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(229, 168, 35, 0.25);
+  border-color: rgba(229, 168, 35, 0.5);
   transform: translateY(-3px);
 }
 

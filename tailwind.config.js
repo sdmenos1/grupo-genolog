@@ -10,15 +10,16 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          petroleum: '#0F4C5C',
-          darkPetroleum: '#0A323D',
-          deepObsidian: '#0A0E14',
-          titanium: '#121824',
-          steel: '#1E293B',
-          gold: '#C59B27',
-          goldLight: '#E5BF54',
-          goldHover: '#A67F1A',
-          copper: '#B85312',
+          petroleum: '#135B6D',       // Exact Deep Teal from 'RUPO ENOLG' logo text
+          darkPetroleum: '#0C3E4B',   // Darker Teal for gradients and active states
+          lightPetroleum: '#1D7F97',  // Vibrant Teal Accent
+          deepObsidian: '#0A1117',    // Deep Charcoal Slate background with subtle teal tint
+          titanium: '#0F1A24',        // Rich Card & Section Container Background
+          steel: '#1B2A38',           // Border & Divider Color
+          gold: '#E5A823',            // Exact Minero Gear Gold from the 'G' and gears
+          goldLight: '#F5C242',       // Bright Gold Highlight
+          goldHover: '#BA8210',       // Dark Metallic Gold Shadow/Hover
+          copper: '#C86E1B',          // Warm Industrial Copper Accent
           silver: '#94A3B8',
           muted: '#64748B'
         }
