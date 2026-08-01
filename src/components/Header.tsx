@@ -164,6 +164,8 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
               <i className="fa-solid fa-calculator"></i>
               <span>Solicitar Cotización</span>
             </button>
+          </div>
+
           {/* Mobile Toggle */}
           <div className="lg:hidden">
             <button 
