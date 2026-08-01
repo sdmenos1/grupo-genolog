@@ -13,40 +13,46 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A1117;
+  background: #09121A;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1B2A38;
+  background: #1B2D3D;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #E5A823;
+  background: #1D8BA5;
 }
 
-/* Blueprint Grid Backgrounds - Muted Gear Gold */
+/* Blueprint Grid Backgrounds - Petroleum & Gold tint */
 .blueprint-grid {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(229, 168, 35, 0.04) 1px, transparent 1px),
+    linear-gradient(to right, rgba(29, 139, 165, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(229, 168, 35, 0.04) 1px, transparent 1px);
 }
 
 .glass-panel {
-  background: rgba(15, 26, 36, 0.88);
+  background: rgba(14, 27, 38, 0.90);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(27, 42, 56, 0.8);
+  border: 1px solid rgba(27, 45, 61, 0.9);
 }
 
 .glass-card {
-  background: rgba(27, 42, 56, 0.7);
+  background: rgba(27, 45, 61, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(229, 168, 35, 0.2);
+  border: 1px solid rgba(29, 139, 165, 0.25);
 }
 
 .text-gradient-gold {
-  background: linear-gradient(135deg, #F5C242 0%, #E5A823 60%, #BA8210 100%);
+  background: linear-gradient(135deg, #F5C242 0%, #E5A823 60%, #C48B12 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-teal {
+  background: linear-gradient(135deg, #36B3D1 0%, #1D8BA5 60%, #115C6F 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -55,7 +61,7 @@
   transition: all 0.3s ease-out;
 }
 .custom-ring-hover:hover {
-  box-shadow: 0 10px 30px -10px rgba(229, 168, 35, 0.25);
+  box-shadow: 0 10px 30px -10px rgba(29, 139, 165, 0.3);
   border-color: rgba(229, 168, 35, 0.5);
   transform: translateY(-3px);
 }
