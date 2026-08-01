@@ -60,12 +60,12 @@ export default function BrochureWebPage() {
           
           {/* Logo Oficial GG */}
           <div className="flex justify-center mb-6">
-            <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-3xl bg-slate-950 border-2 border-brand-gold/60 p-2 shadow-2xl flex items-center justify-center print:border-black">
+            <div className="bg-white p-3 sm:p-4 rounded-2xl border-2 border-brand-gold/60 shadow-2xl inline-block max-w-sm sm:max-w-md w-full print:border-black">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
                 src="/images/logo.png" 
-                alt="Logo Grupo Genolg GG" 
-                className="w-full h-full object-contain rounded-2xl"
+                alt="Logo Grupo Genolg MINERÍA & CONSTRUCCIÓN" 
+                className="w-full h-auto max-h-20 sm:max-h-24 object-contain"
               />
             </div>
           </div>
