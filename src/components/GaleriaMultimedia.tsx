@@ -110,7 +110,7 @@ export default function GaleriaMultimedia() {
   ];
 
   return (
-    <section ref={sectionRef} className="py-24 bg-brand-titanium border-t border-slate-800 relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 bg-slate-100 border-t border-slate-200 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Encabezado */}
@@ -118,10 +118,10 @@ export default function GaleriaMultimedia() {
           <span className="gsap-gal-header text-brand-gold font-extrabold uppercase tracking-widest text-xs inline-block bg-brand-gold/10 border border-brand-gold/30 px-4 py-1.5 rounded-full mb-3 shadow-md">
             <i className="fa-solid fa-play mr-2"></i> Videogalería Multimedia
           </span>
-          <h2 className="gsap-gal-header font-heading text-3xl sm:text-5xl font-black text-white mt-1 tracking-tight">
+          <h2 className="gsap-gal-header font-heading text-3xl sm:text-5xl font-black text-slate-900 mt-1 tracking-tight">
             Nuestros Trabajos en Acción
           </h2>
-          <p className="gsap-gal-header text-slate-300 text-sm sm:text-base mt-3 max-w-2xl mx-auto leading-relaxed">
+          <p className="gsap-gal-header text-slate-700 text-sm sm:text-base mt-3 max-w-2xl mx-auto leading-relaxed">
             Explora de cerca nuestras operaciones con videos en vivo e imágenes detalladas de maniobras críticas y mantenimientos.
           </p>
         </div>
@@ -135,7 +135,7 @@ export default function GaleriaMultimedia() {
               className={`px-5 py-2.5 rounded-xl font-bold text-xs transition-all duration-300 border ${
                 activeCategory === cat.id
                   ? 'bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum text-white border-brand-gold/60 shadow-lg scale-105'
-                  : 'bg-slate-900 text-slate-400 border-slate-800 hover:border-slate-700 hover:text-white'
+                  : 'bg-slate-100 text-slate-600 border-slate-200 hover:border-slate-300 hover:text-white'
               }`}>
               {cat.label}
             </button>
@@ -145,7 +145,7 @@ export default function GaleriaMultimedia() {
         {/* Cuadrícula Multimedia */}
         <div className="gsap-gal-grid grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredData.map((item) => (
-            <div key={item.id} className="gsap-gal-item group relative rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 hover:border-brand-gold/50 shadow-lg aspect-square sm:aspect-video lg:aspect-square flex items-center justify-center">
+            <div key={item.id} className="gsap-gal-item group relative rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-brand-gold/50 shadow-lg aspect-square sm:aspect-video lg:aspect-square flex items-center justify-center">
               
               {item.type === 'video' ? (
                 <video
@@ -193,16 +193,16 @@ export default function GaleriaMultimedia() {
               )}
 
               {/* Mensaje Limpio de Estado cuando no existe el archivo */}
-              <div className="media-fallback hidden flex-col items-center justify-center w-full h-full bg-slate-900/90 text-slate-500 p-4 text-center">
+              <div className="media-fallback hidden flex-col items-center justify-center w-full h-full bg-slate-100/90 text-slate-500 p-4 text-center">
                 <i className={`${item.type === 'video' ? 'fa-solid fa-video' : 'fa-solid fa-image'} text-2xl mb-2 text-brand-gold/50`}></i>
-                <span className="text-[11px] font-mono text-slate-400 font-semibold">
+                <span className="text-[11px] font-mono text-slate-600 font-semibold">
                   Subir archivo: <br/>
                   <code className="text-brand-gold text-[10px]">{item.src.split('/').pop()}</code>
                 </span>
               </div>
 
               {/* Icono indicador de Tipo */}
-              <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md rounded-full w-8 h-8 flex items-center justify-center border border-slate-700 text-white shadow-lg z-10">
+              <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md rounded-full w-8 h-8 flex items-center justify-center border border-slate-300 text-white shadow-lg z-10">
                 {item.type === 'video' ? (
                   <i className="fa-solid fa-play text-[10px] ml-0.5 text-brand-gold"></i>
                 ) : (

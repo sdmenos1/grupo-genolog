@@ -108,18 +108,18 @@ export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
   };
 
   return (
-    <section id="servicios" className="py-24 bg-brand-titanium border-b border-slate-800/80 relative">
+    <section id="servicios" className="py-24 bg-slate-100 border-b border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block bg-brand-gold/10 border border-brand-gold/30 text-brand-gold font-extrabold uppercase tracking-widest text-[11px] px-3.5 py-1 rounded-full mb-3">
+          <span className="inline-block bg-brand-petroleum/10 border border-brand-gold/30 text-brand-petroleum font-extrabold uppercase tracking-widest text-[11px] px-3.5 py-1 rounded-full mb-3">
             Capacidades Operativas B2B
           </span>
-          <h2 className="font-heading text-3xl sm:text-5xl font-black text-white tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
             Nuestros Servicios de Ingeniería &amp; Mantenimiento
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base mt-2">
+          <p className="text-slate-600 text-sm sm:text-base mt-2">
             &quot;Somos la mejor opción en ingeniería&quot; — Seleccione cualquier categoría para examinar en detalle nuestra capacidad instalada.
           </p>
         </div>
@@ -129,24 +129,24 @@ export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
           
           {/* LEFT COLUMN: Category Selector Pills & Progress Indicator */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-5 bg-brand-deepObsidian/90 rounded-2xl border border-slate-800 space-y-3">
-              <div className="font-bold text-xs text-brand-gold uppercase tracking-wider">Compromiso de Calidad B2B</div>
-              <p className="text-xs text-slate-300 leading-relaxed">
+            <div className="p-5 bg-slate-100/90 rounded-2xl border border-slate-200 space-y-3">
+              <div className="font-bold text-xs text-brand-petroleum uppercase tracking-wider">Compromiso de Calidad B2B</div>
+              <p className="text-xs text-slate-700 leading-relaxed">
                 Garantizamos cero incidentes, cumplimiento estricto de cronogramas y dossier de calidad auditado por <strong>Bureau Veritas (Nivel B - )</strong>.
               </p>
             </div>
 
             {/* Category Progress Bar */}
             <div className="space-y-3 pt-2">
-              <div className="flex items-center justify-between text-xs font-bold text-slate-300">
-                <span className="text-brand-gold uppercase tracking-wider">Especialidad Seleccionada</span>
-                <span className="bg-slate-900 border border-brand-gold/40 text-brand-gold px-2.5 py-0.5 rounded-full text-[11px]">
+              <div className="flex items-center justify-between text-xs font-bold text-slate-700">
+                <span className="text-brand-petroleum uppercase tracking-wider">Especialidad Seleccionada</span>
+                <span className="bg-slate-100 border border-brand-gold/40 text-brand-petroleum px-2.5 py-0.5 rounded-full text-[11px]">
                   0{activeIdx + 1} / 0{serviceCardsData.length}
                 </span>
               </div>
 
               {/* Smooth Progress Indicator Bar */}
-              <div className="w-full bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-800">
+              <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden border border-slate-200">
                 <div 
                   className="bg-gradient-to-r from-brand-petroleum via-brand-gold to-brand-copper h-2 rounded-full transition-all duration-500 ease-out"
                   style={{ width: `${((activeIdx + 1) / serviceCardsData.length) * 100}%` }}
@@ -162,7 +162,7 @@ export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
                     className={`w-full text-left text-xs font-semibold py-3 px-4 rounded-xl transition-all duration-300 ease-out border flex items-center justify-between cursor-pointer ${
                       activeIdx === idx
                         ? 'bg-brand-petroleum text-white border-brand-gold/50 shadow-md font-bold transform translate-x-2'
-                        : 'bg-brand-deepObsidian/60 text-slate-400 border-slate-800/80 hover:text-white hover:border-slate-700 hover:bg-slate-900/80'
+                        : 'bg-slate-100/60 text-slate-600 border-slate-200/80 hover:text-brand-petroleum hover:border-slate-300 hover:bg-slate-200'
                     }`}>
                     <span>{s.category}</span>
                     <i className={`fa-solid fa-chevron-right text-[10px] transition-transform duration-300 ${activeIdx === idx ? 'translate-x-1 text-brand-gold' : 'opacity-30'}`}></i>
@@ -189,7 +189,7 @@ export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
             
             {/* Top Controls Bar */}
             <div className="flex items-center justify-between mb-4 px-2">
-              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
+              <span className="text-xs font-bold text-slate-600 uppercase tracking-wider flex items-center gap-2">
                 <i className="fa-solid fa-shield-cat text-brand-gold"></i>
                 <span>Visor B2B de Especialidad</span>
               </span>
@@ -198,13 +198,13 @@ export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
                 <button
                   onClick={handlePrev}
                   title="Anterior Especialidad"
-                  className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-brand-gold hover:border-brand-gold/50 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-md">
+                  className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 hover:text-brand-gold hover:border-brand-gold/50 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-md">
                   <i className="fa-solid fa-chevron-left text-xs"></i>
                 </button>
                 <button
                   onClick={handleNext}
                   title="Siguiente Especialidad"
-                  className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-brand-gold hover:border-brand-gold/50 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-md">
+                  className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 hover:text-brand-gold hover:border-brand-gold/50 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-md">
                   <i className="fa-solid fa-chevron-right text-xs"></i>
                 </button>
               </div>
@@ -233,7 +233,7 @@ export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
                       
-                      <div className="absolute top-4 left-4 bg-brand-titanium/90 border border-brand-gold/40 text-brand-gold text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-md backdrop-blur-md">
+                      <div className="absolute top-4 left-4 bg-white/90 border border-brand-gold/40 text-brand-gold text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-md backdrop-blur-md">
                         {card.badge}
                       </div>
 
@@ -245,13 +245,13 @@ export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
 
                     {/* Content Body */}
                     <div className="p-6 sm:p-8 space-y-5 flex-1 flex flex-col justify-between">
-                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                      <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
                         {card.desc}
                       </p>
 
-                      <div className="bg-brand-deepObsidian/90 p-5 rounded-2xl border border-slate-800/80 space-y-3">
-                        <div className="text-xs font-bold text-slate-200 uppercase tracking-wider">Alcances &amp; Entregables Certificados:</div>
-                        <ul className="space-y-2 text-xs text-slate-400">
+                      <div className="bg-slate-100/90 p-5 rounded-2xl border border-slate-200/80 space-y-3">
+                        <div className="text-xs font-bold text-slate-800 uppercase tracking-wider">Alcances &amp; Entregables Certificados:</div>
+                        <ul className="space-y-2 text-xs text-slate-600">
                           {card.features.map((feat, fIdx) => (
                             <li key={fIdx} className="flex items-start gap-2.5">
                               <i className="fa-solid fa-circle-check text-brand-gold mt-0.5 text-xs"></i>
@@ -261,7 +261,7 @@ export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
                         </ul>
                       </div>
 
-                      <div className="pt-3 flex items-center justify-between border-t border-slate-800">
+                      <div className="pt-3 flex items-center justify-between border-t border-slate-200">
                         <button 
                           onClick={() => onOpenQuoteModal(card.serviceName)} 
                           className="inline-flex items-center gap-2 text-xs font-bold text-brand-gold hover:text-white transition duration-300">

@@ -63,30 +63,30 @@ export default function ProjectsShowcase() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="proyectos" className="py-20 bg-brand-deepObsidian border-b border-slate-800">
+    <section ref={sectionRef} id="proyectos" className="py-20 bg-slate-100 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="gsap-proj-header text-brand-gold font-bold uppercase tracking-widest text-xs inline-block">Evidencia Operativa B2B</span>
-          <h2 className="gsap-proj-header font-heading text-3xl sm:text-4xl font-extrabold text-white mt-1">Proyectos Destacados en Unidades Mineras</h2>
-          <p className="gsap-proj-header text-slate-400 text-xs sm:text-sm mt-2">Cumplimiento comprobado de cronogramas, calidad y tolerancias en las principales unidades del Perú.</p>
+          <h2 className="gsap-proj-header font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">Proyectos Destacados en Unidades Mineras</h2>
+          <p className="gsap-proj-header text-slate-600 text-xs sm:text-sm mt-2">Cumplimiento comprobado de cronogramas, calidad y tolerancias en las principales unidades del Perú.</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {projects.map((proj, idx) => (
             <div 
               key={idx}
-              className="gsap-project bg-brand-titanium rounded-2xl p-6 border border-slate-800 hover:border-brand-gold transition duration-300 flex flex-col justify-between group custom-ring-hover">
+              className="gsap-project bg-white rounded-2xl p-6 border border-slate-200 hover:border-brand-gold transition duration-300 flex flex-col justify-between group custom-ring-hover">
               <div>
                 <div className="flex items-center justify-between text-xs mb-3">
-                  <span className="bg-brand-petroleum/40 text-brand-gold border border-brand-gold/30 font-bold px-2.5 py-1 rounded-md">{proj.client}</span>
-                  <span className="text-slate-400"><i className="fa-solid fa-location-dot text-brand-gold mr-1"></i> {proj.location}</span>
+                  <span className="bg-brand-petroleum text-brand-gold border border-brand-petroleum font-bold px-2.5 py-1 rounded-md">{proj.client}</span>
+                  <span className="text-slate-600"><i className="fa-solid fa-location-dot text-brand-gold mr-1"></i> {proj.location}</span>
                 </div>
-                <h3 className="font-bold text-base text-white mb-2 group-hover:text-brand-gold transition">{proj.title}</h3>
-                <p className="text-xs text-slate-400 leading-relaxed">{proj.desc}</p>
+                <h3 className="font-bold text-base text-slate-900 mb-2 group-hover:text-brand-petroleum transition">{proj.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">{proj.desc}</p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
-                <span className="text-xs font-bold text-slate-300"><i className="fa-solid fa-clock-check mr-1 text-brand-gold"></i> {proj.badge1}</span>
+              <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+                <span className="text-xs font-bold text-slate-700"><i className="fa-solid fa-clock-check mr-1 text-brand-gold"></i> {proj.badge1}</span>
                 <span className="text-xs font-bold text-brand-gold">{proj.badge2}</span>
               </div>
             </div>

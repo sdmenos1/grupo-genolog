@@ -57,7 +57,7 @@ export default function ConstructionRoadDivider({
   }, []);
 
   return (
-    <div ref={containerRef} className="py-12 bg-brand-deepObsidian border-y border-slate-800/80 relative overflow-hidden">
+    <div ref={containerRef} className="py-12 bg-slate-50 border-y border-slate-200/80 relative overflow-hidden">
       
       {/* Industrial Pavement Grid Pattern */}
       <div className="blueprint-grid absolute inset-0 opacity-20 pointer-events-none"></div>
@@ -72,11 +72,11 @@ export default function ConstructionRoadDivider({
             </div>
             <div>
               <div className="text-xs font-bold text-brand-gold uppercase tracking-wider">{title}</div>
-              <div className="text-sm font-semibold text-slate-300">{subtitle}</div>
+              <div className="text-sm font-semibold text-slate-700">{subtitle}</div>
             </div>
           </div>
 
-          <div className="hidden lg:flex items-center gap-2 text-xs text-slate-400">
+          <div className="hidden lg:flex items-center gap-2 text-xs text-slate-600">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
             <span>Avance de Pavimentación en Vivo</span>
           </div>
@@ -86,7 +86,7 @@ export default function ConstructionRoadDivider({
         <div className="relative w-full h-12 flex items-center">
           
           {/* Base Road Bed Line */}
-          <div className="absolute inset-x-0 h-3 bg-slate-900 rounded-full border border-slate-800 shadow-inner"></div>
+          <div className="absolute inset-x-0 h-3 bg-slate-50 rounded-full border border-slate-200 shadow-inner"></div>
 
           {/* SVG Paved Asphalt Road Line with GSAP Scrub */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
@@ -111,7 +111,7 @@ export default function ConstructionRoadDivider({
             <div className="w-10 h-10 rounded-xl bg-brand-petroleum border border-brand-gold text-white flex items-center justify-center shadow-lg transform -scale-x-100">
               <i className="fa-solid fa-truck-monster text-brand-gold text-base"></i>
             </div>
-            <div className="hidden sm:inline-block bg-brand-titanium/90 text-brand-gold text-[10px] font-bold px-2 py-0.5 rounded border border-brand-gold/30 shadow-md">
+            <div className="hidden sm:inline-block bg-white/90 text-brand-gold text-[10px] font-bold px-2 py-0.5 rounded border border-brand-gold/30 shadow-md">
               Pavimentando Vía Minera...
             </div>
           </div>

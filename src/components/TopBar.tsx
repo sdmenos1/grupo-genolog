@@ -39,17 +39,17 @@ export default function TopBar() {
   const currentItem = topBarTickerItems[currentIdx];
 
   return (
-    <div className="bg-slate-950/95 border-b border-slate-800/80 text-xs py-2 px-4 sm:px-8 text-slate-300 relative z-50 overflow-hidden">
+    <div className="bg-brand-petroleum border-b border-brand-darkPetroleum text-xs py-2 px-4 sm:px-8 text-white relative z-50 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-3">
         
         {/* Left: Executive Passing Ticker Animation */}
         <div className="flex items-center gap-3 overflow-hidden min-h-[26px]">
-          <span className="text-[10px] font-black uppercase tracking-wider bg-brand-gold/15 text-brand-gold border border-brand-gold/40 px-2.5 py-0.5 rounded-full flex-shrink-0 flex items-center gap-1.5">
+          <span className="text-[10px] font-black uppercase tracking-wider bg-brand-gold text-brand-darkPetroleum border border-brand-gold/40 px-2.5 py-0.5 rounded-full flex-shrink-0 flex items-center gap-1.5">
             <i className={`fa-solid ${currentItem.icon}`}></i>
             <span>{currentItem.label}</span>
           </span>
 
-          <div className="text-slate-200 text-xs font-semibold truncate transition-all duration-500 transform translate-y-0 opacity-100">
+          <div className="text-white text-xs font-semibold truncate transition-all duration-500 transform translate-y-0 opacity-100">
             {currentItem.text}
           </div>
         </div>
@@ -63,10 +63,10 @@ export default function TopBar() {
             <span>gerencia@grupogenolg.com</span>
           </a>
           <a 
-            href="tel:+51950843157" 
-            className="hover:text-brand-gold transition-colors flex items-center gap-2 font-bold text-white bg-slate-800/80 px-3 py-1 rounded-lg border border-slate-700">
-            <i className="fa-solid fa-phone text-brand-gold"></i>
-            <span>+51 950 843 157</span>
+            href="tel:+51902967134" 
+            className="hover:text-brand-darkPetroleum transition-colors flex items-center gap-2 font-bold text-brand-darkPetroleum bg-brand-gold px-3 py-1 rounded-lg border border-brand-gold">
+            <i className="fa-solid fa-phone text-brand-darkPetroleum"></i>
+            <span>+51 902 967 134</span>
           </a>
         </div>
 

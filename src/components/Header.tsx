@@ -34,8 +34,8 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
   return (
     <header className={`sticky top-0 z-40 transition-all duration-300 ${
       scrolled 
-        ? 'bg-brand-deepObsidian/95 backdrop-blur-2xl border-b border-brand-gold/30 shadow-[0_10px_30px_rgba(0,0,0,0.85)] py-2' 
-        : 'bg-brand-deepObsidian/90 backdrop-blur-xl border-b border-slate-800/80 py-3'
+        ? 'bg-white/95 backdrop-blur-2xl border-b border-slate-200 shadow-lg shadow-black/5 py-2' 
+        : 'bg-white/90 backdrop-blur-xl border-b border-slate-100 py-3'
     }`}>
       {/* Reading Progress Bar */}
       <div 
@@ -53,14 +53,14 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
               <img
                 src="/images/corporativo/logo.png"
                 alt="GRUPO GENOLG MINERÍA & CONSTRUCCIÓN Logo"
-                className="h-14 sm:h-18 md:h-22 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_10px_rgba(255,255,255,0.1)]"
+                className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_10px_rgba(255,255,255,0.1)]"
               />
             </Link>
           </div>
 
           {/* CENTER: Multi-Page Navigation Links */}
           <div className="hidden lg:flex flex-1 justify-center items-center">
-            <nav className="flex items-center space-x-5 xl:space-x-7 text-sm font-bold text-slate-200">
+            <nav className="flex items-center space-x-5 xl:space-x-7 text-sm font-bold text-slate-800">
               <Link 
                 href="/" 
                 className={`py-2 px-1 relative group transition-colors ${isActive('/') ? 'text-brand-gold font-extrabold' : 'hover:text-brand-gold'}`}>
@@ -70,9 +70,9 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
 
               <Link 
                 href="/nosotros" 
-                className={`py-2 px-1 relative group transition-colors ${isActive('/nosotros') ? 'text-brand-gold font-extrabold' : 'hover:text-brand-gold'}`}>
+                className={`py-2 px-1 relative group transition-colors ${isActive('/nosotros') ? 'text-brand-petroleum font-extrabold' : 'hover:text-brand-petroleum'}`}>
                 Nosotros
-                <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-gold transition-all duration-300 ${isActive('/nosotros') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-petroleum transition-all duration-300 ${isActive('/nosotros') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
               </Link>
 
               {/* Services Dropdown */}
@@ -82,9 +82,9 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
                 onMouseLeave={() => setServicesDropdownOpen(false)}>
                 <Link 
                   href="/servicios" 
-                  className={`py-2 px-1 inline-flex items-center gap-1.5 group transition-colors ${isActive('/servicios') ? 'text-brand-gold font-extrabold' : 'hover:text-brand-gold'}`}>
+                  className={`py-2 px-1 inline-flex items-center gap-1.5 group transition-colors ${isActive('/servicios') ? 'text-brand-petroleum font-extrabold' : 'hover:text-brand-petroleum'}`}>
                   <span>Servicios</span>
-                  <i className={`fa-solid fa-chevron-down text-xs text-brand-gold transition-transform duration-300 ${servicesDropdownOpen ? 'rotate-180' : ''}`}></i>
+                  <i className={`fa-solid fa-chevron-down text-xs text-brand-petroleum transition-transform duration-300 ${servicesDropdownOpen ? 'rotate-180' : ''}`}></i>
                 </Link>
 
                 {/* Dropdown Menu */}
@@ -92,26 +92,26 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
                   className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 transition-all duration-300 ease-out origin-top
                     ${servicesDropdownOpen ? 'opacity-100 visible translate-y-0 scale-100' : 'opacity-0 invisible -translate-y-3 scale-95'}
                   `}>
-                  <div className="w-80 bg-brand-deepObsidian border border-slate-700 rounded-2xl p-3 shadow-2xl shadow-black/80 space-y-1 text-xs text-slate-200">
-                    <Link href="/servicios" className="block p-2.5 rounded-xl hover:bg-brand-steel hover:text-brand-gold transition">
-                      <div className="font-bold text-white flex items-center gap-2"><i className="fa-solid fa-compass-drafting text-brand-gold"></i> 1. Diseño AutoCAD 3D</div>
-                      <div className="text-[11px] text-slate-400 mt-0.5">Ingeniería de detalle para fabricación y montaje.</div>
+                  <div className="w-80 bg-white border border-slate-200 rounded-2xl p-3 shadow-2xl shadow-black/10 space-y-1 text-xs text-slate-800">
+                    <Link href="/servicios" className="block p-2.5 rounded-xl hover:bg-slate-50 hover:text-brand-petroleum transition">
+                      <div className="font-bold text-slate-900 flex items-center gap-2"><i className="fa-solid fa-compass-drafting text-brand-petroleum"></i> 1. Diseño AutoCAD 3D</div>
+                      <div className="text-[11px] text-slate-600 mt-0.5">Ingeniería de detalle para fabricación y montaje.</div>
                     </Link>
-                    <Link href="/servicios" className="block p-2.5 rounded-xl hover:bg-brand-steel hover:text-brand-gold transition">
-                      <div className="font-bold text-white flex items-center gap-2"><i className="fa-solid fa-industry text-brand-gold"></i> 2. Fabricación Metalmecánica</div>
-                      <div className="text-[11px] text-slate-400 mt-0.5">Suministro con soldadura WPS/PQR.</div>
+                    <Link href="/servicios" className="block p-2.5 rounded-xl hover:bg-slate-50 hover:text-brand-petroleum transition">
+                      <div className="font-bold text-slate-900 flex items-center gap-2"><i className="fa-solid fa-industry text-brand-petroleum"></i> 2. Fabricación Metalmecánica</div>
+                      <div className="text-[11px] text-slate-600 mt-0.5">Suministro con soldadura WPS/PQR.</div>
                     </Link>
-                    <Link href="/servicios" className="block p-2.5 rounded-xl hover:bg-brand-steel hover:text-brand-gold transition">
-                      <div className="font-bold text-white flex items-center gap-2"><i className="fa-solid fa-helmet-safety text-brand-gold"></i> 3. Montaje de Estructuras</div>
-                      <div className="text-[11px] text-slate-400 mt-0.5">Calidad y seguridad industrial HSE.</div>
+                    <Link href="/servicios" className="block p-2.5 rounded-xl hover:bg-slate-50 hover:text-brand-petroleum transition">
+                      <div className="font-bold text-slate-900 flex items-center gap-2"><i className="fa-solid fa-helmet-safety text-brand-petroleum"></i> 3. Montaje de Estructuras</div>
+                      <div className="text-[11px] text-slate-600 mt-0.5">Calidad y seguridad industrial HSE.</div>
                     </Link>
-                    <Link href="/servicios" className="block p-2.5 rounded-xl hover:bg-brand-steel hover:text-brand-gold transition">
-                      <div className="font-bold text-white flex items-center gap-2"><i className="fa-solid fa-gears text-brand-gold"></i> 4. Mantenimiento &amp; Overhaul</div>
-                      <div className="text-[11px] text-slate-400 mt-0.5">Paradas de planta e inspección continua.</div>
+                    <Link href="/servicios" className="block p-2.5 rounded-xl hover:bg-slate-50 hover:text-brand-petroleum transition">
+                      <div className="font-bold text-slate-900 flex items-center gap-2"><i className="fa-solid fa-gears text-brand-petroleum"></i> 4. Mantenimiento &amp; Overhaul</div>
+                      <div className="text-[11px] text-slate-600 mt-0.5">Paradas de planta e inspección continua.</div>
                     </Link>
-                    <Link href="/servicios" className="block p-2.5 rounded-xl hover:bg-brand-steel hover:text-brand-gold transition">
-                      <div className="font-bold text-white flex items-center gap-2"><i className="fa-solid fa-person-digging text-brand-gold"></i> 5. Obras Civiles &amp; Ambientales</div>
-                      <div className="text-[11px] text-slate-400 mt-0.5">Cimentaciones pesadas y remediación de pasivos.</div>
+                    <Link href="/servicios" className="block p-2.5 rounded-xl hover:bg-slate-50 hover:text-brand-petroleum transition">
+                      <div className="font-bold text-slate-900 flex items-center gap-2"><i className="fa-solid fa-person-digging text-brand-petroleum"></i> 5. Obras Civiles &amp; Ambientales</div>
+                      <div className="text-[11px] text-slate-600 mt-0.5">Cimentaciones pesadas y remediación de pasivos.</div>
                     </Link>
                   </div>
                 </div>
@@ -119,50 +119,44 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
 
               <Link 
                 href="/acreditaciones" 
-                className={`py-2 px-1 relative group transition-colors ${isActive('/acreditaciones') ? 'text-brand-gold font-extrabold' : 'hover:text-brand-gold'}`}>
+                className={`py-2 px-1 relative group transition-colors ${isActive('/acreditaciones') ? 'text-brand-petroleum font-extrabold' : 'hover:text-brand-petroleum'}`}>
                 Acreditaciones
-                <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-gold transition-all duration-300 ${isActive('/acreditaciones') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-petroleum transition-all duration-300 ${isActive('/acreditaciones') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
               </Link>
 
               <Link 
                 href="/proyectos" 
-                className={`py-2 px-1 relative group transition-colors ${isActive('/proyectos') ? 'text-brand-gold font-extrabold' : 'hover:text-brand-gold'}`}>
+                className={`py-2 px-1 relative group transition-colors ${isActive('/proyectos') ? 'text-brand-petroleum font-extrabold' : 'hover:text-brand-petroleum'}`}>
                 Clientes
-                <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-gold transition-all duration-300 ${isActive('/proyectos') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-petroleum transition-all duration-300 ${isActive('/proyectos') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
               </Link>
 
               <Link 
                 href="/descargas" 
-                className={`py-2 px-1 relative group transition-colors text-center ${isActive('/descargas') ? 'text-brand-gold font-extrabold' : 'hover:text-brand-gold'}`}>
+                className={`py-2 px-1 relative group transition-colors text-center ${isActive('/descargas') ? 'text-brand-petroleum font-extrabold' : 'hover:text-brand-petroleum'}`}>
                 <span>Descargas B2B</span>
-                <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-gold transition-all duration-300 ${isActive('/descargas') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-petroleum transition-all duration-300 ${isActive('/descargas') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
               </Link>
 
               <Link 
                 href="/contacto" 
-                className={`py-2 px-1 relative group transition-colors ${isActive('/contacto') ? 'text-brand-gold font-extrabold' : 'hover:text-brand-gold'}`}>
+                className={`py-2 px-1 relative group transition-colors ${isActive('/contacto') ? 'text-brand-petroleum font-extrabold' : 'hover:text-brand-petroleum'}`}>
                 Contacto
-                <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-gold transition-all duration-300 ${isActive('/contacto') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-petroleum transition-all duration-300 ${isActive('/contacto') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
               </Link>
             </nav>
           </div>
 
-          {/* RIGHT: Action CTAs */}
-          <div className="hidden sm:flex items-center gap-3">
-            <a 
-              href="https://wa.me/51936931034?text=Hola%20Grupo%20Genolg,%20quisiera%20solicitar%20atenci%C3%B3n%20comercial%20para%20un%20proyecto."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden xl:inline-flex items-center gap-2 bg-slate-900/90 hover:bg-slate-800 text-brand-gold border border-brand-gold/40 px-3.5 py-2 rounded-xl text-xs font-bold shadow-md transition transform hover:-translate-y-0.5">
-              <i className="fa-brands fa-whatsapp text-sm text-green-400"></i>
-              <span>WhatsApp B2B</span>
-            </a>
+          {/* RIGHT: Certificates */}
+          <div className="hidden sm:flex items-center gap-2">
+            {/* Bureau Veritas Image Logo */}
+            <img src="/images/bureau-veritas.png" alt="Bureau Veritas Empresa Homologada" className="h-10 w-auto object-contain rounded shadow-sm" />
 
             <button
               onClick={() => onOpenQuoteModal()}
-              className="bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum hover:from-brand-gold hover:to-brand-copper text-white font-extrabold text-xs px-4 py-2.5 rounded-xl border border-brand-gold/40 shadow-lg transition duration-300 flex items-center gap-2 transform hover:scale-105">
+              className="hidden xl:flex bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum hover:from-brand-gold hover:to-brand-copper text-white font-extrabold text-[11px] px-3.5 py-2 rounded-lg border border-brand-gold/40 shadow-md transition duration-300 items-center gap-2 transform hover:scale-105">
               <i className="fa-solid fa-calculator"></i>
-              <span>Solicitar Cotización</span>
+              <span>Cotizar</span>
             </button>
           </div>
 
@@ -170,7 +164,7 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
           <div className="lg:hidden">
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-              className="text-slate-200 hover:text-brand-gold p-2 text-2xl focus:outline-none">
+              className="text-slate-800 hover:text-brand-gold p-2 text-2xl focus:outline-none">
               <i className={`fa-solid ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
             </button>
           </div>
@@ -179,17 +173,17 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-brand-titanium/98 border-b border-slate-800 px-6 py-6 space-y-4 text-sm font-semibold shadow-2xl backdrop-blur-2xl">
-          <Link href="/" onClick={() => setMobileMenuOpen(false)} className="block text-slate-200 hover:text-brand-gold py-1">Inicio</Link>
-          <Link href="/nosotros" onClick={() => setMobileMenuOpen(false)} className="block text-slate-200 hover:text-brand-gold py-1">Nosotros &amp; Capital Humano</Link>
-          <Link href="/servicios" onClick={() => setMobileMenuOpen(false)} className="block text-slate-200 hover:text-brand-gold py-1">Servicios de Ingeniería</Link>
-          <Link href="/acreditaciones" onClick={() => setMobileMenuOpen(false)} className="block text-slate-200 hover:text-brand-gold py-1">Acreditaciones Bureau Veritas &amp; MINEM</Link>
-          <Link href="/proyectos" onClick={() => setMobileMenuOpen(false)} className="block text-slate-200 hover:text-brand-gold py-1">Clientes Destacados &amp; Proyectos</Link>
-          <Link href="/descargas" onClick={() => setMobileMenuOpen(false)} className="block text-slate-200 hover:text-brand-gold py-1">Centro de Descargas Técnicas</Link>
-          <Link href="/contacto" onClick={() => setMobileMenuOpen(false)} className="block text-slate-200 hover:text-brand-gold py-1">Contacto &amp; Sedes</Link>
+        <div className="lg:hidden bg-white/98 border-b border-slate-200 px-6 py-6 space-y-4 text-sm font-semibold shadow-2xl backdrop-blur-2xl">
+          <Link href="/" onClick={() => setMobileMenuOpen(false)} className="block text-slate-800 hover:text-brand-gold py-1">Inicio</Link>
+          <Link href="/nosotros" onClick={() => setMobileMenuOpen(false)} className="block text-slate-800 hover:text-brand-gold py-1">Nosotros &amp; Capital Humano</Link>
+          <Link href="/servicios" onClick={() => setMobileMenuOpen(false)} className="block text-slate-800 hover:text-brand-gold py-1">Servicios de Ingeniería</Link>
+          <Link href="/acreditaciones" onClick={() => setMobileMenuOpen(false)} className="block text-slate-800 hover:text-brand-gold py-1">Acreditaciones Bureau Veritas &amp; MINEM</Link>
+          <Link href="/proyectos" onClick={() => setMobileMenuOpen(false)} className="block text-slate-800 hover:text-brand-gold py-1">Clientes Destacados &amp; Proyectos</Link>
+          <Link href="/descargas" onClick={() => setMobileMenuOpen(false)} className="block text-slate-800 hover:text-brand-gold py-1">Centro de Descargas Técnicas</Link>
+          <Link href="/contacto" onClick={() => setMobileMenuOpen(false)} className="block text-slate-800 hover:text-brand-gold py-1">Contacto &amp; Sedes</Link>
           <div className="pt-4 space-y-3">
-            <a href="https://wa.me/51950843157" target="_blank" rel="noopener noreferrer" className="w-full bg-brand-steel text-brand-gold border border-brand-gold/30 py-3 rounded-xl font-bold flex items-center justify-center gap-2">
-              <i className="fa-brands fa-whatsapp text-lg"></i> Contacto Directo (+51 950 843 157)
+            <a href="https://wa.me/51902967134" target="_blank" rel="noopener noreferrer" className="w-full bg-brand-steel text-brand-gold border border-brand-gold/30 py-3 rounded-xl font-bold flex items-center justify-center gap-2">
+              <i className="fa-brands fa-whatsapp text-lg"></i> Contacto Directo (+51 902 967 134)
             </a>
             <button 
               onClick={() => { setMobileMenuOpen(false); onOpenQuoteModal(); }} 

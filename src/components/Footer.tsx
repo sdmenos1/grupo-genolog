@@ -9,8 +9,8 @@ interface FooterProps {
 
 export default function Footer({ onOpenPolicyModal }: FooterProps) {
   return (
-    <footer className="bg-slate-950 text-slate-400 text-xs border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="bg-slate-100 text-slate-600 text-xs border-t border-slate-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           
           {/* Col 1: Logo & Slogan */}
@@ -26,11 +26,11 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
               </div>
             </div>
 
-            <p className="text-slate-300 font-bold text-sm">
+            <p className="text-slate-700 font-bold text-sm">
               &quot;Somos la mejor opción en ingeniería&quot;
             </p>
 
-            <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
+            <p className="text-slate-600 text-xs leading-relaxed max-w-sm">
               GRUPO GENOLG MINERÍA &amp; CONSTRUCCIÓN S.C.R.L. (RUC 20608261894). Ejecución de proyectos metalmecánicos, montaje de estructuras y mantenimiento en plantas concentradoras e industriales.
             </p>
 
@@ -46,7 +46,7 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
 
           {/* Col 2: Navegación Corporativa */}
           <div className="space-y-3">
-            <h4 className="font-bold text-white uppercase text-xs tracking-wider border-b border-slate-800 pb-2">Secciones Web</h4>
+            <h4 className="font-bold text-white uppercase text-xs tracking-wider border-b border-slate-200 pb-2">Secciones Web</h4>
             <ul className="space-y-2">
               <li><Link href="/" className="hover:text-brand-gold transition">Inicio</Link></li>
               <li><Link href="/nosotros" className="hover:text-brand-gold transition">Nosotros &amp; Capital Humano</Link></li>
@@ -60,7 +60,7 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
 
           {/* Col 3: Servicios Principales */}
           <div className="space-y-3">
-            <h4 className="font-bold text-white uppercase text-xs tracking-wider border-b border-slate-800 pb-2">Especialidades</h4>
+            <h4 className="font-bold text-white uppercase text-xs tracking-wider border-b border-slate-200 pb-2">Especialidades</h4>
             <ul className="space-y-2">
               <li><Link href="/servicios" className="hover:text-brand-gold transition">Diseño AutoCAD 3D</Link></li>
               <li><Link href="/servicios" className="hover:text-brand-gold transition">Fabricación Metalmecánica</Link></li>
@@ -73,7 +73,7 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
 
           {/* Col 4: Sedes & Políticas Legal */}
           <div className="space-y-3">
-            <h4 className="font-bold text-white uppercase text-xs tracking-wider border-b border-slate-800 pb-2">Cumplimiento Legal</h4>
+            <h4 className="font-bold text-white uppercase text-xs tracking-wider border-b border-slate-200 pb-2">Cumplimiento Legal</h4>
             <ul className="space-y-2">
               <li>
                 <button onClick={() => onOpenPolicyModal('antisoborno')} className="hover:text-brand-gold transition text-left">
@@ -101,16 +101,15 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div className="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
           <div>
             &copy; {new Date().getFullYear()} GRUPO GENOLG MINERÍA &amp; CONSTRUCCIÓN S.C.R.L. Todos los derechos reservados.
           </div>
           <div className="flex items-center gap-4">
             <span>RUC: 20608261894</span>
-            <span>•</span>
-            <span>MINEM R.D. 0288-2021</span>
-            <span>•</span>
-            <span>Bureau Veritas HP0017249</span>
+            <span className="bg-slate-800 text-white px-3 py-1.5 rounded-full text-[10px] font-bold border border-slate-700 shadow-sm tracking-wider">MINEM R.D. 0288-2021</span>
+            {/* Bureau Veritas Image Logo */}
+            <img src="/images/bureau-veritas.png" alt="Bureau Veritas Empresa Homologada" className="h-8 w-auto object-contain rounded shadow-sm" />
           </div>
         </div>
 

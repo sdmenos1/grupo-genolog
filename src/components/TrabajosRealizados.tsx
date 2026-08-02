@@ -284,7 +284,7 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
     : trabajosData.filter(t => t.category === activeCategory);
 
   return (
-    <section ref={sectionRef} id="trabajos-realizados" className="py-24 bg-brand-deepObsidian border-b border-slate-800 relative overflow-hidden">
+    <section ref={sectionRef} id="trabajos-realizados" className="py-24 bg-slate-200 border-b border-slate-200 relative overflow-hidden">
       
       {/* Background Subtle Accent Gradients */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-brand-gold/5 blur-[140px] rounded-full pointer-events-none"></div>
@@ -297,10 +297,10 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
           <span className="gsap-tr-header text-brand-gold font-extrabold uppercase tracking-widest text-xs inline-block bg-brand-gold/10 border border-brand-gold/30 px-4 py-1.5 rounded-full mb-3 shadow-md">
             <i className="fa-solid fa-images mr-2"></i> Fotografía Operativa Real por Proyecto
           </span>
-          <h2 className="gsap-tr-header font-heading text-3xl sm:text-5xl font-black text-white mt-1 tracking-tight">
+          <h2 className="gsap-tr-header font-heading text-3xl sm:text-5xl font-black text-slate-900 mt-1 tracking-tight">
             Trabajos Realizados en Campo &amp; Planta
           </h2>
-          <p className="gsap-tr-header text-slate-300 text-sm sm:text-base mt-3 max-w-2xl mx-auto leading-relaxed">
+          <p className="gsap-tr-header text-slate-800 text-sm sm:text-base mt-3 max-w-2xl mx-auto leading-relaxed">
             Fotografías reales de intervenciones técnicas en molienda, paradas de planta PDP, celdas OK-20 y montajes mecánicos.
           </p>
         </div>
@@ -312,12 +312,12 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
           {filteredTrabajos.map((trabajo) => (
             <div
               key={trabajo.id}
-              className="gsap-tr-card group bg-brand-titanium/90 rounded-3xl p-6 border border-slate-800 hover:border-brand-gold/50 shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-brand-gold/5">
+              className="gsap-tr-card group bg-white/90 rounded-3xl p-6 border border-slate-200 hover:border-brand-gold/50 shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-brand-gold/5">
               
               <div>
                 {/* Card Top Meta */}
                 <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className="text-[10px] font-black text-brand-gold bg-slate-900 border border-brand-gold/30 px-2.5 py-1 rounded-md tracking-wider">
+                  <span className="text-[10px] font-black text-brand-petroleum bg-slate-100 border border-brand-gold/30 px-2.5 py-1 rounded-md tracking-wider">
                     {trabajo.shortCode}
                   </span>
                 </div>
@@ -325,16 +325,16 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                 {/* Card Main Image Container */}
                 <div 
                   onClick={() => openTrabajoModal(trabajo)}
-                  className="relative h-48 w-full rounded-2xl overflow-hidden mb-5 border border-slate-800/80 cursor-pointer group/img bg-slate-950">
+                  className="relative h-48 w-full rounded-2xl overflow-hidden mb-5 border border-slate-200/80 cursor-pointer group/img bg-white">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={trabajo.galleryImages[0]}
                     alt={trabajo.title}
                     className="w-full h-full object-cover object-center group-hover/img:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-deepObsidian via-transparent to-black/20 opacity-80 group-hover/img:opacity-60 transition-opacity"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/20 opacity-80 group-hover/img:opacity-60 transition-opacity"></div>
                   
-                  <div className="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md border border-brand-gold/40 text-brand-gold w-8 h-8 rounded-full flex items-center justify-center text-xs opacity-0 group-hover/img:opacity-100 transition-all duration-300 transform group-hover/img:scale-110">
+                  <div className="absolute top-3 right-3 bg-white/80 backdrop-blur-md border border-brand-gold/40 text-brand-petroleum w-8 h-8 rounded-full flex items-center justify-center text-xs opacity-0 group-hover/img:opacity-100 transition-all duration-300 transform group-hover/img:scale-110">
                     <i className="fa-solid fa-images"></i>
                   </div>
                 </div>
@@ -342,20 +342,20 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                 {/* Title */}
                 <h3 
                   onClick={() => openTrabajoModal(trabajo)}
-                  className="font-heading font-black text-white text-base leading-snug mb-3 group-hover:text-brand-gold transition-colors cursor-pointer">
+                  className="font-heading font-black text-slate-900 text-base leading-snug mb-3 group-hover:text-brand-petroleum transition-colors cursor-pointer">
                   {trabajo.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-slate-300 text-xs leading-relaxed mb-4 line-clamp-3">
+                <p className="text-slate-800 text-xs leading-relaxed mb-4 line-clamp-3">
                   {trabajo.description}
                 </p>
 
                 {/* Highlights List */}
-                <ul className="space-y-1.5 pt-2 border-t border-slate-800/80">
+                <ul className="space-y-1.5 pt-2 border-t border-slate-200/80">
                   {trabajo.highlights.map((h, i) => (
-                    <li key={i} className="text-[11px] text-slate-300 flex items-center gap-2 font-medium">
-                      <i className="fa-solid fa-check text-brand-gold text-[10px]"></i>
+                    <li key={i} className="text-[11px] text-slate-800 flex items-center gap-2 font-medium">
+                      <i className="fa-solid fa-check text-brand-petroleum text-[10px]"></i>
                       <span>{h}</span>
                     </li>
                   ))}
@@ -369,36 +369,36 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
         {/* Modal De Galería de Fotos de Trabajo Realizado */}
         {selectedTrabajo && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in">
-            <div className="bg-brand-titanium border border-brand-gold/40 rounded-3xl max-w-3xl w-full p-6 sm:p-8 relative shadow-2xl space-y-5 max-h-[95vh] overflow-y-auto">
+            <div className="bg-white border border-brand-gold/40 rounded-3xl max-w-3xl w-full p-6 sm:p-8 relative shadow-2xl space-y-5 max-h-[95vh] overflow-y-auto">
               
               {/* Close Button */}
               <button
                 onClick={() => setSelectedTrabajo(null)}
-                className="absolute top-5 right-5 text-slate-400 hover:text-brand-gold w-9 h-9 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-lg transition z-20">
+                className="absolute top-5 right-5 text-slate-600 hover:text-brand-petroleum w-9 h-9 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center text-lg transition z-20">
                 <i className="fa-solid fa-xmark"></i>
               </button>
 
               <div className="flex items-center gap-3">
-                <span className="bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs font-black px-3 py-1 rounded-md">
+                <span className="bg-brand-gold/10 border border-brand-gold/30 text-brand-petroleum text-xs font-black px-3 py-1 rounded-md">
                   {selectedTrabajo.shortCode}
                 </span>
-                <span className="text-xs text-slate-400 uppercase font-bold tracking-wider">
+                <span className="text-xs text-slate-600 uppercase font-bold tracking-wider">
                   {selectedTrabajo.categoryLabel}
                 </span>
               </div>
 
-              <h3 className="font-heading text-xl sm:text-2xl font-black text-white leading-tight pr-10">
+              <h3 className="font-heading text-xl sm:text-2xl font-black text-slate-900 leading-tight pr-10">
                 {selectedTrabajo.title}
               </h3>
 
               {/* Interactive Multi-Photo Gallery Viewer */}
               <div className="space-y-3">
-                <div className="h-72 sm:h-96 w-full rounded-2xl overflow-hidden border border-slate-700 relative bg-black flex items-center justify-center">
+                <div className="h-72 sm:h-96 w-full rounded-2xl overflow-hidden border border-slate-300 relative bg-black flex items-center justify-center">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={selectedTrabajo.galleryImages[activeImgIndex]}
                     alt={`${selectedTrabajo.title} foto ${activeImgIndex + 1}`}
-                    className="w-full h-full object-contain bg-slate-950 transition-all duration-300"
+                    className="w-full h-full object-contain bg-white transition-all duration-300"
                   />
                   
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none"></div>
@@ -408,25 +408,25 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                     <>
                       <button
                         onClick={handlePrevImg}
-                        className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-950/80 hover:bg-brand-gold hover:text-brand-deepObsidian border border-slate-700 text-white flex items-center justify-center text-base transition backdrop-blur-md shadow-lg">
+                        className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-brand-gold hover:text-brand-deepObsidian border border-slate-300 text-slate-900 flex items-center justify-center text-base transition backdrop-blur-md shadow-lg">
                         <i className="fa-solid fa-chevron-left"></i>
                       </button>
 
                       <button
                         onClick={handleNextImg}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-950/80 hover:bg-brand-gold hover:text-brand-deepObsidian border border-slate-700 text-white flex items-center justify-center text-base transition backdrop-blur-md shadow-lg">
+                        className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-brand-gold hover:text-brand-deepObsidian border border-slate-300 text-slate-900 flex items-center justify-center text-base transition backdrop-blur-md shadow-lg">
                         <i className="fa-solid fa-chevron-right"></i>
                       </button>
                     </>
                   )}
 
                   {/* Photo Counter Tag */}
-                  <div className="absolute bottom-3 left-3 bg-slate-950/90 text-xs text-brand-gold font-bold px-3.5 py-1.5 rounded-lg border border-brand-gold/40 backdrop-blur-md flex items-center gap-2">
+                  <div className="absolute bottom-3 left-3 bg-white/90 text-xs text-brand-petroleum font-bold px-3.5 py-1.5 rounded-lg border border-brand-gold/40 backdrop-blur-md flex items-center gap-2">
                     <i className="fa-solid fa-camera"></i>
                     <span>Foto {activeImgIndex + 1} de {selectedTrabajo.galleryImages.length}</span>
                   </div>
 
-                  <div className="absolute bottom-3 right-3 bg-slate-950/90 text-[11px] text-slate-300 font-semibold px-3 py-1.5 rounded-lg border border-slate-800 backdrop-blur-md font-mono">
+                  <div className="absolute bottom-3 right-3 bg-white/90 text-[11px] text-slate-800 font-semibold px-3 py-1.5 rounded-lg border border-slate-200 backdrop-blur-md font-mono">
                     {selectedTrabajo.galleryImages[activeImgIndex].split('/').pop()}
                   </div>
                 </div>
@@ -438,10 +438,10 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                       <button
                         key={idx}
                         onClick={() => setActiveImgIndex(idx)}
-                        className={`relative h-16 sm:h-20 w-24 sm:w-28 rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 bg-slate-950 ${
+                        className={`relative h-16 sm:h-20 w-24 sm:w-28 rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 bg-white ${
                           activeImgIndex === idx
                             ? 'border-brand-gold scale-105 shadow-glow-gold'
-                            : 'border-slate-800 opacity-60 hover:opacity-100 hover:border-slate-600'
+                            : 'border-slate-200 opacity-60 hover:opacity-100 hover:border-slate-400'
                         }`}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
@@ -458,25 +458,25 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                 )}
               </div>
 
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              <p className="text-slate-800 text-xs sm:text-sm leading-relaxed">
                 {selectedTrabajo.description}
               </p>
 
-              <div className="bg-brand-deepObsidian p-4 rounded-2xl border border-slate-800 space-y-2">
-                <div className="text-xs font-bold text-brand-gold uppercase tracking-wider">Especificaciones Técnicas &amp; Tolerancias</div>
-                <div className="grid sm:grid-cols-2 gap-2 text-xs text-slate-300">
+              <div className="bg-slate-100 p-4 rounded-2xl border border-slate-200 space-y-2">
+                <div className="text-xs font-bold text-brand-petroleum uppercase tracking-wider">Especificaciones Técnicas &amp; Tolerancias</div>
+                <div className="grid sm:grid-cols-2 gap-2 text-xs text-slate-800">
                   {selectedTrabajo.highlights.map((h, idx) => (
                     <div key={idx} className="flex items-center gap-2">
-                      <i className="fa-solid fa-check-double text-brand-gold"></i>
+                      <i className="fa-solid fa-check-double text-brand-petroleum"></i>
                       <span>{h}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-3 border-t border-slate-800">
-                <div className="text-xs text-slate-400">
-                  Imágenes cargadas desde <code className="text-brand-gold font-mono">{selectedTrabajo.imageFolder}/</code>
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-3 border-t border-slate-200">
+                <div className="text-xs text-slate-600">
+                  Imágenes cargadas desde <code className="text-brand-petroleum font-mono">{selectedTrabajo.imageFolder}/</code>
                 </div>
 
                 <button

@@ -37,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className="scroll-smooth dark">
+    <html lang="es" className="scroll-smooth">
       <head>
         <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
         <link rel="icon" href="/icon.png?v=2" type="image/png" />
@@ -47,7 +47,7 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         />
       </head>
-      <body className={`${montserrat.variable} ${plusJakartaSans.variable} font-sans bg-brand-deepObsidian text-slate-200 antialiased overflow-x-hidden`}>
+      <body className={`${montserrat.variable} ${plusJakartaSans.variable} font-sans bg-slate-50 text-slate-800 antialiased overflow-x-hidden`}>
         <PageTransition>{children}</PageTransition>
       </body>
     </html>

@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-brand-deepObsidian text-slate-200 font-sans antialiased selection:bg-brand-gold selection:text-brand-deepObsidian overflow-x-hidden;
+    @apply bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-gold selection:text-brand-deepObsidian overflow-x-hidden;
   }
 }
 
@@ -32,14 +32,14 @@
 }
 
 .glass-panel {
-  background: rgba(14, 27, 38, 0.90);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(27, 45, 61, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.9);
 }
 
 .glass-card {
-  background: rgba(27, 45, 61, 0.75);
+  background: rgba(255, 255, 255, 0.90);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(29, 139, 165, 0.25);
@@ -52,7 +52,7 @@
 }
 
 .text-gradient-teal {
-  background: linear-gradient(135deg, #36B3D1 0%, #1D8BA5 60%, #115C6F 100%);
+  background: linear-gradient(135deg, #005BB5 0%, #004385 60%, #002B5E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

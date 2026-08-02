@@ -10,16 +10,16 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          gold: '#E5A823',            // Amarillo Dorado Engranaje Principal
-          goldLight: '#F5C242',       // Amarillo Dorado Brillante
-          goldHover: '#D4920E',       // Dorado Intenso Hover
-          amber: '#F59E0B',           // Amarillo Ambar Industrial
-          white: '#FFFFFF',           // Blanco Puro para alto contraste
-          petroleum: '#0F4C5C',       // Azul Petroleo Oscuro
-          darkPetroleum: '#0A323D',   // Fondo Petroleo Noche
-          deepObsidian: '#0A0E14',    // Gris Oscuro Antracita
-          titanium: '#121824',        // Superficie de Tarjetas
-          steel: '#1E293B',           // Bordes de Acero
+          gold: '#FFC107',            // Amarillo Vivo Maquinaria
+          goldLight: '#FFE082',       // Amarillo Claro
+          goldHover: '#FFA000',       // Amarillo Oscuro Hover
+          amber: '#FF8F00',           // Naranja/Ambar Industrial
+          white: '#FFFFFF',           // Blanco Puro
+          petroleum: '#005BB5',       // Azul Corporativo Vibrante
+          darkPetroleum: '#004385',   // Azul Corporativo Oscuro
+          deepObsidian: '#0A0E14',    // Gris Oscuro Antracita (Mantenido para overlays)
+          titanium: '#121824',        // Superficie de Tarjetas (Mantenido para legacy)
+          steel: '#E2E8F0',           // Bordes de Acero Claras
           silver: '#94A3B8',          // Gris Platinado
           muted: '#64748B'
         }

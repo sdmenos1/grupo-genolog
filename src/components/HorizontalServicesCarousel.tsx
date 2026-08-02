@@ -125,13 +125,13 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
       {/* Executive Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
         <div className="space-y-1">
-          <span className="gsap-service-header inline-block bg-brand-gold/10 border border-brand-gold/30 text-brand-gold font-extrabold uppercase tracking-widest text-[11px] px-3.5 py-1 rounded-full">
+          <span className="gsap-service-header inline-block bg-brand-petroleum/10 border border-brand-petroleum/30 text-brand-petroleum font-extrabold uppercase tracking-widest text-[11px] px-3.5 py-1 rounded-full">
             SOLUCIONES DE INGENIERÍA MINERA
           </span>
-          <h3 className="gsap-service-header text-2xl sm:text-4xl font-black text-white font-heading tracking-tight">
+          <h3 className="gsap-service-header text-2xl sm:text-4xl font-black text-slate-900 font-heading tracking-tight">
             Portafolio de Especialidades
           </h3>
-          <p className="gsap-service-header text-xs sm:text-sm text-slate-400">
+          <p className="gsap-service-header text-xs sm:text-sm text-slate-600">
             &quot;Somos la mejor opción en ingeniería&quot; — Explore nuestro alcance técnico.
           </p>
         </div>
@@ -141,25 +141,25 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
           <button 
             onClick={handlePrev}
             aria-label="Servicio Anterior"
-            className="w-12 h-12 rounded-2xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-brand-gold hover:border-brand-gold/60 flex items-center justify-center transition-all duration-300 shadow-lg hover:scale-105 active:scale-95">
+            className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 text-slate-700 hover:text-brand-gold hover:border-brand-gold/60 flex items-center justify-center transition-all duration-300 shadow-lg hover:scale-105 active:scale-95">
             <i className="fa-solid fa-arrow-left text-base"></i>
           </button>
 
-          <span className="text-xs font-extrabold text-slate-300 bg-slate-950 px-4 py-2 rounded-xl border border-slate-800">
-            <strong className="text-brand-gold">0{currentSlide + 1}</strong> / 0{totalSlides}
+          <span className="text-xs font-extrabold text-slate-700 bg-white px-4 py-2 rounded-xl border border-slate-200">
+            <strong className="text-brand-petroleum">0{currentSlide + 1}</strong> / 0{totalSlides}
           </span>
 
           <button 
             onClick={handleNext}
             aria-label="Siguiente Servicio"
-            className="w-12 h-12 rounded-2xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-brand-gold hover:border-brand-gold/60 flex items-center justify-center transition-all duration-300 shadow-lg hover:scale-105 active:scale-95">
+            className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 text-slate-700 hover:text-brand-gold hover:border-brand-gold/60 flex items-center justify-center transition-all duration-300 shadow-lg hover:scale-105 active:scale-95">
             <i className="fa-solid fa-arrow-right text-base"></i>
           </button>
         </div>
       </div>
 
       {/* Category Pills Navigation Bar */}
-      <div className="flex flex-wrap justify-center sm:justify-start gap-2 mb-8 border-b border-slate-800/80 pb-4">
+      <div className="flex flex-wrap justify-center sm:justify-start gap-2 mb-8 border-b border-slate-200/80 pb-4">
         {serviceCarouselData.map((item, idx) => (
           <button
             key={item.id}
@@ -167,7 +167,7 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
             className={`text-xs font-bold px-4 py-2.5 rounded-xl transition-all duration-300 border ${
               currentSlide === idx
                 ? 'bg-brand-petroleum text-white border-brand-gold/50 shadow-md font-extrabold'
-                : 'bg-slate-900/80 text-slate-400 hover:text-white border-slate-800'
+                : 'bg-slate-50/80 text-slate-600 hover:text-white border-slate-200'
             }`}>
             {item.catShort}
           </button>
@@ -175,7 +175,7 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
       </div>
 
       {/* 100% Width Full Viewport Slider Track */}
-      <div className="overflow-hidden w-full rounded-3xl shadow-2xl border border-slate-800">
+      <div className="overflow-hidden w-full rounded-3xl shadow-2xl border border-slate-200">
         <div 
           className="flex transition-transform duration-600 ease-out will-change-transform"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
@@ -183,7 +183,7 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
           {serviceCarouselData.map((item) => (
             <div 
               key={item.id}
-              className="w-full flex-shrink-0 bg-gradient-to-b from-slate-900/95 to-brand-steel/85 backdrop-blur-xl grid md:grid-cols-12 gap-0 min-h-[460px] sm:min-h-[500px]">
+              className="w-full flex-shrink-0 bg-white grid md:grid-cols-12 gap-0 min-h-[460px] sm:min-h-[500px]">
               
               {/* HD Image Left */}
               <div className="md:col-span-5 relative h-64 md:h-auto overflow-hidden">
@@ -195,7 +195,7 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
                 
-                <div className="absolute top-4 left-4 bg-brand-titanium/90 border border-brand-gold/40 text-brand-gold text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-md backdrop-blur-md">
+                <div className="absolute top-4 left-4 bg-brand-petroleum/90 border border-brand-petroleum text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-md backdrop-blur-md">
                   {item.badge}
                 </div>
               </div>
@@ -203,27 +203,27 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
               {/* Rectangular Content Right */}
               <div className="md:col-span-7 p-6 sm:p-10 space-y-5 flex flex-col justify-between">
                 <div className="space-y-2">
-                  <span className="text-brand-gold font-bold text-xs uppercase tracking-wider">{item.category}</span>
-                  <h4 className="text-2xl sm:text-3xl font-bold text-white font-heading leading-snug">{item.title}</h4>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">{item.desc}</p>
+                  <span className="text-brand-petroleum font-bold text-xs uppercase tracking-wider">{item.category}</span>
+                  <h4 className="text-2xl sm:text-3xl font-bold text-slate-900 font-heading leading-snug">{item.title}</h4>
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">{item.desc}</p>
                 </div>
 
-                <div className="bg-brand-deepObsidian/90 p-5 rounded-2xl border border-slate-800 space-y-2">
-                  <div className="text-xs font-bold text-slate-200 uppercase tracking-wider">Entregables Clave &amp; Acreditaciones:</div>
-                  <ul className="space-y-1.5 text-xs text-slate-400">
+                <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2">
+                  <div className="text-xs font-bold text-slate-800 uppercase tracking-wider">Entregables Clave &amp; Acreditaciones:</div>
+                  <ul className="space-y-1.5 text-xs text-slate-700">
                     {item.features.map((feat, fIdx) => (
                       <li key={fIdx} className="flex items-start gap-2">
-                        <i className="fa-solid fa-circle-check text-brand-gold mt-0.5 text-xs"></i>
+                        <i className="fa-solid fa-circle-check text-brand-petroleum mt-0.5 text-xs"></i>
                         <span>{feat}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="pt-3 flex items-center justify-between border-t border-slate-800/80">
+                <div className="pt-3 flex items-center justify-between border-t border-slate-200/80">
                   <button 
                     onClick={() => onOpenQuoteModal(item.serviceName)} 
-                    className="inline-flex items-center gap-2 text-xs font-bold text-brand-gold hover:text-white transition duration-300">
+                    className="inline-flex items-center gap-2 text-xs font-bold text-brand-petroleum hover:text-brand-darkPetroleum transition duration-300">
                     <span>Cotizar {item.category}</span>
                     <i className="fa-solid fa-arrow-right text-xs"></i>
                   </button>
@@ -245,68 +245,68 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
             onClick={() => setCurrentSlide(idx)}
             aria-label={`Ir al servicio ${idx + 1}`}
             className={`h-2.5 rounded-full transition-all duration-300 ${
-              currentSlide === idx ? 'w-8 bg-brand-gold' : 'w-2.5 bg-slate-800 hover:bg-slate-700'
+              currentSlide === idx ? 'w-8 bg-brand-gold' : 'w-2.5 bg-slate-100 hover:bg-slate-700'
             }`}
           />
         ))}
       </div>
 
       {/* Full 10 Solutions Grid Breakdown */}
-      <div className="mt-16 pt-12 border-t border-slate-800">
+      <div className="mt-16 pt-12 border-t border-slate-200">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="gsap-service-header text-brand-gold font-bold uppercase tracking-wider text-xs">Catálogo Detallado de Trabajos</span>
           <h3 className="gsap-service-header font-heading text-2xl font-bold text-white mt-1">10 Soluciones Especializadas</h3>
         </div>
 
         <div className="gsap-solutions-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+          <div className="gsap-solution-card bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
             <div className="font-bold text-brand-gold"><i className="fa-solid fa-gears mr-1.5"></i>1. Concentradoras</div>
-            <p className="text-slate-400">Reparación en molienda y chancado.</p>
+            <p className="text-slate-600">Reparación en molienda y chancado.</p>
           </div>
 
-          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+          <div className="gsap-solution-card bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
             <div className="font-bold text-brand-gold"><i className="fa-solid fa-clock mr-1.5"></i>2. Paradas (P.D.P)</div>
-            <p className="text-slate-400">Intervenciones críticas en minería.</p>
+            <p className="text-slate-600">Intervenciones críticas en minería.</p>
           </div>
 
-          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+          <div className="gsap-solution-card bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
             <div className="font-bold text-brand-gold"><i className="fa-solid fa-bolt mr-1.5"></i>3. Eléctrico</div>
-            <p className="text-slate-400">Asistencia técnica e instrumentación.</p>
+            <p className="text-slate-600">Asistencia técnica e instrumentación.</p>
           </div>
 
-          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+          <div className="gsap-solution-card bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
             <div className="font-bold text-brand-gold"><i className="fa-solid fa-tower-broadcast mr-1.5"></i>4. Redes Alta Tensión</div>
-            <p className="text-slate-400">Montaje de infraestructura energética.</p>
+            <p className="text-slate-600">Montaje de infraestructura energética.</p>
           </div>
 
-          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+          <div className="gsap-solution-card bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
             <div className="font-bold text-brand-gold"><i className="fa-solid fa-industry mr-1.5"></i>5. Estructuras</div>
-            <p className="text-slate-400">Fabricación y montaje para naves.</p>
+            <p className="text-slate-600">Fabricación y montaje para naves.</p>
           </div>
 
-          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+          <div className="gsap-solution-card bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
             <div className="font-bold text-brand-gold"><i className="fa-solid fa-shield mr-1.5"></i>6. Cercos</div>
-            <p className="text-slate-400">Delimitación física de operaciones.</p>
+            <p className="text-slate-600">Delimitación física de operaciones.</p>
           </div>
 
-          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+          <div className="gsap-solution-card bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
             <div className="font-bold text-brand-gold"><i className="fa-solid fa-rotate mr-1.5"></i>7. Overhaul</div>
-            <p className="text-slate-400">Reparación mayor de maquinaria.</p>
+            <p className="text-slate-600">Reparación mayor de maquinaria.</p>
           </div>
 
-          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+          <div className="gsap-solution-card bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
             <div className="font-bold text-brand-gold"><i className="fa-solid fa-trowel-bricks mr-1.5"></i>8. Obras Civiles</div>
-            <p className="text-slate-400">Cimentación para proyectos.</p>
+            <p className="text-slate-600">Cimentación para proyectos.</p>
           </div>
 
-          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+          <div className="gsap-solution-card bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
             <div className="font-bold text-brand-gold"><i className="fa-solid fa-tree mr-1.5"></i>9. Cierre Ambiental</div>
-            <p className="text-slate-400">Remediación de pasivos ambientales.</p>
+            <p className="text-slate-600">Remediación de pasivos ambientales.</p>
           </div>
 
-          <div className="gsap-solution-card bg-brand-deepObsidian p-4 rounded-xl border border-slate-800 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
+          <div className="gsap-solution-card bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-1.5 hover:border-brand-gold/50 transition">
             <div className="font-bold text-brand-gold"><i className="fa-solid fa-truck-monster mr-1.5"></i>10. Maquinaria</div>
-            <p className="text-slate-400">Movimiento de tierras y caminos.</p>
+            <p className="text-slate-600">Movimiento de tierras y caminos.</p>
           </div>
         </div>
       </div>
