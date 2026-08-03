@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import HeroCanvas from './HeroCanvas';
 
 interface HeroProps {
@@ -84,13 +85,13 @@ export default function Hero({ onOpenDownloadModal, onOpenQuoteModal }: HeroProp
         <div 
           key={idx}
           className={`full-hero-slide absolute inset-0 w-full h-full ${idx === currentSlideIndex ? 'active' : ''}`}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img 
+          <Image 
             src={slide.image} 
             alt={slide.title} 
-            loading={idx === currentSlideIndex ? 'eager' : 'lazy'}
-            decoding="async"
-            className="w-full h-full object-cover object-center"
+            priority={idx === 0}
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
           />
           {/* Multi-layered light vignette for rich text contrast */}
           <div className="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/90 to-transparent" />
