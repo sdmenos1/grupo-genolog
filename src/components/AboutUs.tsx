@@ -37,7 +37,6 @@ const policiesData = [
   { title: 'Política de RSE', file: 'POLITICA DE RSE.pdf', icon: 'fa-hand-holding-heart' },
   { title: 'Política de SST', file: 'POLITICA DE SST.pdf', icon: 'fa-hard-hat' },
   { title: 'Políticas de Calidad', file: 'POLITICAS DE CALIDAD.pdf', icon: 'fa-award' },
-  { title: 'Reglamento Interno', file: 'REGLAMENTO INTERNO  GRUPO GENOLG.pdf', icon: 'fa-book' },
 ];
 
 export default function AboutUs() {
@@ -218,7 +217,7 @@ export default function AboutUs() {
             <p className="text-slate-600 text-sm mt-3">Documentos oficiales que rigen nuestro compromiso con la excelencia, seguridad y responsabilidad social.</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {policiesData.map((policy, idx) => (
               <a 
                 key={idx}

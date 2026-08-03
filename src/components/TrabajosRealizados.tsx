@@ -443,9 +443,7 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                       <span>Foto {activeImgIndex + 1} de {selectedTrabajo.galleryImages.length}</span>
                     </div>
 
-                    <div className="absolute bottom-3 right-3 bg-white/90 text-[10px] sm:text-[11px] text-slate-800 font-semibold px-2 sm:px-3 py-1.5 rounded-lg border border-slate-200 backdrop-blur-md font-mono hidden sm:block">
-                      {selectedTrabajo.galleryImages[activeImgIndex].split('/').pop()}
-                    </div>
+
                   </div>
 
                   {/* Thumbnails Gallery Bar */}
