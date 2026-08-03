@@ -35,10 +35,10 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
             </p>
 
             <div className="pt-2 flex items-center gap-3 text-xs">
-              <span className="bg-brand-petroleum/40 text-brand-gold border border-brand-gold/30 px-3 py-1 rounded-full font-bold">
+              <span className="bg-brand-petroleum text-brand-gold border border-brand-gold/30 px-3 py-1 rounded-full font-bold">
                 MINEM R.D. 0288-2021
               </span>
-              <span className="bg-brand-gold/15 text-brand-gold border border-brand-gold/40 px-3 py-1 rounded-full font-bold">
+              <span className="bg-brand-gold text-slate-900 border border-brand-gold/40 px-3 py-1 rounded-full font-bold">
                 Bureau Veritas 
               </span>
             </div>
@@ -46,7 +46,7 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
 
           {/* Col 2: Navegación Corporativa */}
           <div className="space-y-3">
-            <h4 className="font-bold text-white uppercase text-xs tracking-wider border-b border-slate-200 pb-2">Secciones Web</h4>
+            <h4 className="font-bold text-slate-900 uppercase text-xs tracking-wider border-b border-slate-200 pb-2">Secciones Web</h4>
             <ul className="space-y-2">
               <li><Link href="/" className="hover:text-brand-gold transition">Inicio</Link></li>
               <li><Link href="/nosotros" className="hover:text-brand-gold transition">Nosotros &amp; Capital Humano</Link></li>
@@ -60,7 +60,7 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
 
           {/* Col 3: Servicios Principales */}
           <div className="space-y-3">
-            <h4 className="font-bold text-white uppercase text-xs tracking-wider border-b border-slate-200 pb-2">Especialidades</h4>
+            <h4 className="font-bold text-slate-900 uppercase text-xs tracking-wider border-b border-slate-200 pb-2">Especialidades</h4>
             <ul className="space-y-2">
               <li><Link href="/servicios" className="hover:text-brand-gold transition">Diseño AutoCAD 3D</Link></li>
               <li><Link href="/servicios" className="hover:text-brand-gold transition">Fabricación Metalmecánica</Link></li>
@@ -73,7 +73,7 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
 
           {/* Col 4: Sedes & Políticas Legal */}
           <div className="space-y-3">
-            <h4 className="font-bold text-white uppercase text-xs tracking-wider border-b border-slate-200 pb-2">Cumplimiento Legal</h4>
+            <h4 className="font-bold text-slate-900 uppercase text-xs tracking-wider border-b border-slate-200 pb-2">Cumplimiento Legal</h4>
             <ul className="space-y-2">
               <li>
                 <button onClick={() => onOpenPolicyModal('antisoborno')} className="hover:text-brand-gold transition text-left">
@@ -101,7 +101,7 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div className="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-700">
           <div>
             &copy; {new Date().getFullYear()} GRUPO GENOLG MINERÍA &amp; CONSTRUCCIÓN S.C.R.L. Todos los derechos reservados.
           </div>

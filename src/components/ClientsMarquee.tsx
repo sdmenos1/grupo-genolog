@@ -23,7 +23,7 @@ export default function ClientsMarquee() {
   return (
     <section className="py-12 bg-slate-100 border-b border-slate-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-6">
-        <span className="text-brand-gold font-bold uppercase tracking-widest text-xs">Respaldo Comercial &amp; Experiencia Acreditada</span>
+        <span className="text-brand-petroleum font-bold uppercase tracking-widest text-xs">Respaldo Comercial &amp; Experiencia Acreditada</span>
         <h3 className="font-heading text-lg font-bold text-slate-700 mt-1">Clientes Destacados y Compañías Mineras</h3>
       </div>
 

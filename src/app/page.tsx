@@ -50,7 +50,7 @@ export default function Home() {
                 <Link href="/nosotros" className="bg-brand-petroleum hover:bg-brand-darkPetroleum text-white font-bold py-3 px-6 rounded-xl transition duration-300 shadow-lg border border-brand-gold/30 flex items-center gap-2">
                   <span>Conocer Más</span> <i className="fa-solid fa-arrow-right"></i>
                 </Link>
-                <Link href="/acreditaciones" className="bg-slate-100 hover:bg-slate-200 text-brand-gold font-bold py-3 px-6 rounded-xl transition duration-300 shadow-lg border border-slate-300 flex items-center gap-2">
+                <Link href="/acreditaciones" className="bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold py-3 px-6 rounded-xl transition duration-300 shadow-lg border border-slate-300 flex items-center gap-2">
                   <span>Ver Acreditaciones</span> <i className="fa-solid fa-certificate"></i>
                 </Link>
               </div>

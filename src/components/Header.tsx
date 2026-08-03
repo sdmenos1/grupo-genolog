@@ -164,6 +164,7 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
           <div className="lg:hidden">
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+              aria-label={mobileMenuOpen ? 'Cerrar menú principal' : 'Abrir menú principal'}
               className="text-slate-800 hover:text-brand-gold p-2 text-2xl focus:outline-none">
               <i className={`fa-solid ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
             </button>
