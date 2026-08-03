@@ -136,39 +136,17 @@ export default function ContactSection({ onShowToast }: ContactSectionProps) {
 
                 <div>
 
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">N°ombre y Apellidos *</label>
+                  <label htmlFor="name" className="block text-xs font-semibold text-slate-700 mb-1">N°ombre y Apellidos *</label>
 
-                  <input type="text" required placeholder="Ing. Roberto Mendoza" className="w-full text-xs px-4 py-3 rounded-xl bg-slate-100 border border-slate-300/60 text-slate-900 focus:outline-none focus:border-brand-gold transition" />
-
-                </div>
-
-                <div>
-
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">Empresa / Razón Social *</label>
-
-                  <input type="text" required placeholder="Compañía Minera S.A.A." className="w-full text-xs px-4 py-3 rounded-xl bg-slate-100 border border-slate-300/60 text-slate-900 focus:outline-none focus:border-brand-gold transition" />
-
-                </div>
-
-              </div>
-
-
-
-              <div className="grid sm:grid-cols-2 gap-4">
-
-                <div>
-
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">RUC de la Empresa *</label>
-
-                  <input type="text" maxLength={11} required placeholder="20123456789" className="w-full text-xs px-4 py-3 rounded-xl bg-slate-100 border border-slate-300/60 text-slate-900 focus:outline-none focus:border-brand-gold transition" />
+                  <input id="name" name="name" type="text" required placeholder="Ing. Roberto Mendoza" className="w-full text-xs px-4 py-3 rounded-xl bg-slate-100 border border-slate-300/60 text-slate-900 focus:outline-none focus:border-brand-gold transition" />
 
                 </div>
 
                 <div>
 
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">Correo Corporativo *</label>
+                  <label htmlFor="company" className="block text-xs font-semibold text-slate-700 mb-1">Empresa / Razón Social *</label>
 
-                  <input type="email" required placeholder="rmendoza@minera.com" className="w-full text-xs px-4 py-3 rounded-xl bg-slate-100 border border-slate-300/60 text-slate-900 focus:outline-none focus:border-brand-gold transition" />
+                  <input id="company" name="company" type="text" required placeholder="Compañía Minera S.A.A." className="w-full text-xs px-4 py-3 rounded-xl bg-slate-100 border border-slate-300/60 text-slate-900 focus:outline-none focus:border-brand-gold transition" />
 
                 </div>
 
@@ -180,17 +158,39 @@ export default function ContactSection({ onShowToast }: ContactSectionProps) {
 
                 <div>
 
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">Teléfono / WhatsApp *</label>
+                  <label htmlFor="ruc" className="block text-xs font-semibold text-slate-700 mb-1">RUC de la Empresa *</label>
 
-                  <input type="tel" required placeholder="+51 902 967 134" className="w-full text-xs px-4 py-3 rounded-xl bg-slate-100 border border-slate-300/60 text-slate-900 focus:outline-none focus:border-brand-gold transition" />
+                  <input id="ruc" name="ruc" type="text" maxLength={11} required placeholder="20123456789" className="w-full text-xs px-4 py-3 rounded-xl bg-slate-100 border border-slate-300/60 text-slate-900 focus:outline-none focus:border-brand-gold transition" />
 
                 </div>
 
                 <div>
 
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">Tipo de Servicio Requerido *</label>
+                  <label htmlFor="email" className="block text-xs font-semibold text-slate-700 mb-1">Correo Corporativo *</label>
 
-                  <select required className="w-full text-xs px-4 py-3 rounded-xl bg-slate-100 border border-slate-300/60 text-slate-900 focus:outline-none focus:border-brand-gold transition">
+                  <input id="email" name="email" type="email" required placeholder="rmendoza@minera.com" className="w-full text-xs px-4 py-3 rounded-xl bg-slate-100 border border-slate-300/60 text-slate-900 focus:outline-none focus:border-brand-gold transition" />
+
+                </div>
+
+              </div>
+
+
+
+              <div className="grid sm:grid-cols-2 gap-4">
+
+                <div>
+
+                  <label htmlFor="phone" className="block text-xs font-semibold text-slate-700 mb-1">Teléfono / WhatsApp *</label>
+
+                  <input id="phone" name="phone" type="tel" required placeholder="+51 902 967 134" className="w-full text-xs px-4 py-3 rounded-xl bg-slate-100 border border-slate-300/60 text-slate-900 focus:outline-none focus:border-brand-gold transition" />
+
+                </div>
+
+                <div>
+
+                  <label htmlFor="service" className="block text-xs font-semibold text-slate-700 mb-1">Tipo de Servicio Requerido *</label>
+
+                  <select id="service" name="service" required className="w-full text-xs px-4 py-3 rounded-xl bg-slate-100 border border-slate-300/60 text-slate-900 focus:outline-none focus:border-brand-gold transition">
 
                     <option value="">Seleccione una especialidad...</option>
 
@@ -214,9 +214,9 @@ export default function ContactSection({ onShowToast }: ContactSectionProps) {
 
               <div>
 
-                <label className="block text-xs font-semibold text-slate-700 mb-1">Detalle del Trabajo o Alcances *</label>
+                <label htmlFor="details" className="block text-xs font-semibold text-slate-700 mb-1">Detalle del Trabajo o Alcances *</label>
 
-                <textarea rows={4} required placeholder="Describa el alcance de la parada de planta, ubicación de mina, cantidad de técnicos requeridos y plazos estimados..." className="w-full text-xs px-4 py-3 rounded-xl bg-slate-100 border border-slate-300/60 text-slate-900 focus:outline-none focus:border-brand-gold transition"></textarea>
+                <textarea id="details" name="details" rows={4} required placeholder="Describa el alcance de la parada de planta, ubicación de mina, cantidad de técnicos requeridos y plazos estimados..." className="w-full text-xs px-4 py-3 rounded-xl bg-slate-100 border border-slate-300/60 text-slate-900 focus:outline-none focus:border-brand-gold transition"></textarea>
 
               </div>
 
@@ -232,7 +232,7 @@ export default function ContactSection({ onShowToast }: ContactSectionProps) {
 
                     <span>{fileName}</span>
 
-                    <input type="file" className="hidden" onChange={handleFileChange} />
+                    <input id="attachment" name="attachment" type="file" className="hidden" onChange={handleFileChange} />
 
                   </label>
 

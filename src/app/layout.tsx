@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Montserrat, Plus_Jakarta_Sans } from 'next/font/google';
-import PageTransition from '@/components/PageTransition';
+import ClientLayout from '@/components/ClientLayout';
 import './globals.css';
 
 const montserrat = Montserrat({
@@ -39,16 +39,13 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
-        <link rel="icon" href="/icon.png?v=2" type="image/png" />
-        <link rel="apple-touch-icon" href="/icon.png?v=2" />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         />
       </head>
       <body className={`${montserrat.variable} ${plusJakartaSans.variable} font-sans bg-slate-50 text-slate-800 antialiased overflow-x-hidden`}>
-        <PageTransition>{children}</PageTransition>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

@@ -1,75 +1,36 @@
 'use client';
 
-import React, { useState } from 'react';
-import TopBar from '@/components/TopBar';
-import Header from '@/components/Header';
+import React from 'react';
 import DownloadsCenter from '@/components/DownloadsCenter';
-import Footer from '@/components/Footer';
-import Modals from '@/components/Modals';
-import WhatsAppWidget from '@/components/WhatsAppWidget';
+import { useModals } from '@/context/ModalContext';
 
 export default function DescargasPage() {
-  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
-  const [downloadModalOpen, setDownloadModalOpen] = useState(false);
-  const [downloadType, setDownloadType] = useState('brochure');
-  const [policyModalOpen, setPolicyModalOpen] = useState(false);
-  const [policyType, setPolicyType] = useState('antisoborno');
-
-  const [toast, setToast] = useState<{ show: boolean; title: string; message: string }>({
-    show: false,
-    title: '',
-    message: '',
-  });
-
-  const showToast = (title: string, message: string) => {
-    setToast({ show: true, title, message });
-    setTimeout(() => setToast({ show: false, title: '', message: '' }), 4000);
-  };
-
-  const handleOpenDownloadModal = (type: string = 'brochure') => {
-    setDownloadType(type);
-    setDownloadModalOpen(true);
-  };
+  const { openDownloadModal } = useModals();
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-800 font-sans relative">
-      <TopBar />
-      <Header onOpenQuoteModal={() => setQuoteModalOpen(true)} />
-
       {/* Page Hero Header */}
-      <section className="py-20 bg-gradient-to-b from-slate-950 via-brand-titanium to-slate-950 border-b border-slate-200 text-center relative">
-        <div className="max-w-4xl mx-auto px-4">
-          <span className="bg-brand-gold/10 border border-brand-gold/30 text-brand-gold font-extrabold uppercase tracking-widest text-[11px] px-4 py-1 rounded-full">
+      <section className="py-20 bg-slate-50 border-b border-slate-200 text-center relative overflow-hidden">
+        {/* Subtle Light Gradients for background */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-gold/5 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-petroleum/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <span className="bg-white border border-slate-200 text-brand-petroleum font-extrabold uppercase tracking-widest text-[11px] px-4 py-1.5 rounded-full shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-brand-gold inline-block mr-2"></span>
             Recursos Técnicos &amp; Documentación Auditada
           </span>
-          <h1 className="font-heading text-4xl sm:text-6xl font-black text-white mt-4 tracking-tight">
+          <h1 className="font-heading text-4xl sm:text-6xl font-black text-slate-900 mt-5 tracking-tight drop-shadow-sm">
             Centro de Descargas B2B
           </h1>
-          <p className="text-slate-700 text-base sm:text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-700 text-base sm:text-lg mt-4 max-w-2xl mx-auto leading-relaxed font-medium">
             Descargue el Brochure Corporativo 2026, Fichas de Soldadura WPS/PQR, Certificado Bureau Veritas y Constancia MINEM oficial.
           </p>
         </div>
       </section>
 
       {/* Downloads Center Component */}
-      <DownloadsCenter onOpenDownloadModal={handleOpenDownloadModal} />
-
-      <Footer onOpenPolicyModal={(type) => { setPolicyType(type); setPolicyModalOpen(true); }} />
-
-      <Modals
-        quoteModalOpen={quoteModalOpen}
-        quoteServiceName=""
-        onCloseQuoteModal={() => setQuoteModalOpen(false)}
-        downloadModalOpen={downloadModalOpen}
-        downloadType={downloadType}
-        onCloseDownloadModal={() => setDownloadModalOpen(false)}
-        policyModalOpen={policyModalOpen}
-        policyType={policyType}
-        onClosePolicyModal={() => setPolicyModalOpen(false)}
-        onShowToast={showToast}
-      />
-
-      <WhatsAppWidget />
+      <DownloadsCenter onOpenDownloadModal={openDownloadModal} />
     </main>
   );
 }

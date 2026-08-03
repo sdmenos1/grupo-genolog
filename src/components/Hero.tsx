@@ -74,7 +74,7 @@ export default function Hero({ onOpenDownloadModal, onOpenQuoteModal }: HeroProp
   };
 
   return (
-    <section id="inicio" className="relative min-h-[100svh] w-full flex flex-col justify-center overflow-hidden border-b border-slate-200 bg-slate-950 pt-24 pb-12">
+    <section id="inicio" className="relative min-h-[100svh] w-full flex flex-col justify-center overflow-hidden border-b border-slate-200 bg-slate-50 pt-24 pb-12">
       
       {/* Particle dust canvas simulation */}
       <HeroCanvas />
@@ -92,10 +92,10 @@ export default function Hero({ onOpenDownloadModal, onOpenQuoteModal }: HeroProp
             decoding="async"
             className="w-full h-full object-cover object-center"
           />
-          {/* Multi-layered dark vignette for rich text contrast */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/70" />
-          <div className="absolute inset-0 bg-black/40" />
+          {/* Multi-layered light vignette for rich text contrast */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-slate-50/40" />
+          <div className="absolute inset-0 bg-white/20" />
         </div>
       ))}
 
@@ -104,48 +104,48 @@ export default function Hero({ onOpenDownloadModal, onOpenQuoteModal }: HeroProp
         <div className="max-w-3xl space-y-4 sm:space-y-6">
           
           {/* Badge Pill Adaptable */}
-          <div className="inline-flex flex-wrap sm:flex-nowrap items-center gap-1.5 sm:gap-3 bg-slate-900/60 border border-slate-700/50 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-semibold shadow-2xl backdrop-blur-md">
+          <div className="inline-flex flex-wrap sm:flex-nowrap items-center gap-1.5 sm:gap-3 bg-white/90 border border-slate-200 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-semibold shadow-sm backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
-            <span className="text-brand-gold font-extrabold uppercase tracking-wider text-[10px] sm:text-[11px]">{currentSlide.badge}</span>
-            <span className="text-slate-400 hidden sm:inline">|</span>
-            <span className="text-white text-[10px] sm:text-xs hidden sm:inline">{currentSlide.tag}</span>
+            <span className="text-brand-petroleum font-extrabold uppercase tracking-wider text-[10px] sm:text-[11px]">{currentSlide.badge}</span>
+            <span className="text-slate-300 hidden sm:inline">|</span>
+            <span className="text-slate-600 text-[10px] sm:text-xs hidden sm:inline">{currentSlide.tag}</span>
           </div>
 
           {/* Título Principal Tipográfico Adaptativo */}
-          <h1 className="font-heading text-2xl sm:text-5xl lg:text-6xl font-black leading-snug sm:leading-[1.12] tracking-tight text-white drop-shadow-lg transition-all duration-500">
+          <h1 className="font-heading text-2xl sm:text-5xl lg:text-6xl font-black leading-snug sm:leading-[1.12] tracking-tight text-slate-900 transition-all duration-500">
             {currentSlide.title}
           </h1>
 
           {/* Descripción */}
-          <p className="text-slate-200 text-xs sm:text-lg leading-relaxed font-normal max-w-2xl drop-shadow-md">
+          <p className="text-slate-700 text-xs sm:text-lg leading-relaxed font-medium max-w-2xl">
             {currentSlide.desc}
           </p>
 
           {/* Banner de Slogan Compacto */}
-          <div className="inline-block bg-brand-gold/15 border border-brand-gold/40 p-2.5 sm:p-3 rounded-xl text-[11px] sm:text-xs text-brand-gold font-bold backdrop-blur-md leading-tight">
+          <div className="inline-block bg-brand-gold/10 border border-brand-gold/30 p-2.5 sm:p-3 rounded-xl text-[11px] sm:text-xs text-brand-petroleum font-bold backdrop-blur-md leading-tight">
             <i className="fa-solid fa-quote-left mr-1.5"></i>
             <span>&quot;Somos la mejor opción en ingeniería&quot; — GRUPO GENOLG</span>
           </div>
 
           {/* Cajas de Métricas Responsivas */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-4 pt-1">
-            <div className="bg-slate-900/50 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-700/50 flex items-center gap-3 sm:gap-4 hover:border-brand-gold transition duration-300 shadow-xl backdrop-blur-md">
-              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-slate-800/80 border border-slate-700 text-brand-gold flex items-center justify-center text-base sm:text-xl font-bold flex-shrink-0">
+            <div className="bg-white/80 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 flex items-center gap-3 sm:gap-4 hover:border-brand-gold transition duration-300 shadow-sm backdrop-blur-md">
+              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-slate-50 border border-slate-200 text-brand-petroleum flex items-center justify-center text-base sm:text-xl font-bold flex-shrink-0">
                 <i className="fa-solid fa-award"></i>
               </div>
               <div>
-                <div className="text-[10px] sm:text-xs text-slate-400 font-medium">Auditoría Internacional</div>
-                <div className="text-xs sm:text-sm font-bold text-white">Bureau Veritas: <span className="text-brand-gold">87.81%</span></div>
+                <div className="text-[10px] sm:text-xs text-slate-500 font-medium">Auditoría Internacional</div>
+                <div className="text-xs sm:text-sm font-bold text-slate-900">Bureau Veritas: <span className="text-brand-petroleum">87.81%</span></div>
               </div>
             </div>
 
-            <div className="bg-slate-900/50 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-700/50 flex items-center gap-3 sm:gap-4 hover:border-brand-gold transition duration-300 shadow-xl backdrop-blur-md">
-              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-slate-800/80 border border-slate-700 text-brand-gold flex items-center justify-center text-base sm:text-xl font-bold flex-shrink-0">
+            <div className="bg-white/80 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 flex items-center gap-3 sm:gap-4 hover:border-brand-gold transition duration-300 shadow-sm backdrop-blur-md">
+              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-slate-50 border border-slate-200 text-brand-petroleum flex items-center justify-center text-base sm:text-xl font-bold flex-shrink-0">
                 <i className="fa-solid fa-file-shield"></i>
               </div>
               <div>
-                <div className="text-[10px] sm:text-xs text-slate-400 font-medium">Habilitación Legal</div>
-                <div className="text-xs sm:text-sm font-bold text-white">MINEM R.D. 0288-2021</div>
+                <div className="text-[10px] sm:text-xs text-slate-500 font-medium">Habilitación Legal</div>
+                <div className="text-xs sm:text-sm font-bold text-slate-900">MINEM R.D. 0288-2021</div>
               </div>
             </div>
           </div>
@@ -160,7 +160,7 @@ export default function Hero({ onOpenDownloadModal, onOpenQuoteModal }: HeroProp
             </button>
             <a 
               href="/brochure" 
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-white/90 hover:bg-brand-steel text-slate-900 hover:text-white font-bold text-xs sm:text-sm px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl border border-slate-300 hover:border-brand-gold/40 transition-all duration-300 backdrop-blur-md shadow-lg">
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-white hover:bg-slate-50 text-slate-900 hover:text-brand-petroleum font-bold text-xs sm:text-sm px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl border border-slate-300 hover:border-brand-gold/50 transition-all duration-300 shadow-sm">
               <i className="fa-solid fa-book-open text-brand-gold text-sm"></i>
               <span>Ver Brochure Web 2026</span>
             </a>
@@ -173,19 +173,19 @@ export default function Hero({ onOpenDownloadModal, onOpenQuoteModal }: HeroProp
       <button 
         onClick={handlePrevSlide}
         aria-label="Diapositiva Anterior"
-        className="hidden sm:flex absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 hover:bg-brand-gold hover:text-brand-deepObsidian border border-slate-300 text-white items-center justify-center text-base sm:text-lg transition duration-300 backdrop-blur-md shadow-2xl">
+        className="hidden sm:flex absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 hover:bg-slate-100 hover:text-brand-petroleum border border-slate-300 text-slate-600 items-center justify-center text-base sm:text-lg transition duration-300 shadow-md">
         <i className="fa-solid fa-chevron-left"></i>
       </button>
       
       <button 
         onClick={handleNextSlide}
         aria-label="Siguiente Diapositiva"
-        className="hidden sm:flex absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 hover:bg-brand-gold hover:text-brand-deepObsidian border border-slate-300 text-white items-center justify-center text-base sm:text-lg transition duration-300 backdrop-blur-md shadow-2xl">
+        className="hidden sm:flex absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 hover:bg-slate-100 hover:text-brand-petroleum border border-slate-300 text-slate-600 items-center justify-center text-base sm:text-lg transition duration-300 shadow-md">
         <i className="fa-solid fa-chevron-right"></i>
       </button>
 
       {/* Autoplay Progress Line */}
-      <div className="relative z-30 w-full h-1.5 bg-slate-50">
+      <div className="relative z-30 w-full h-1.5 bg-slate-200">
         <div 
           className="h-full bg-brand-gold transition-all duration-100 ease-linear"
           style={{ width: `${progress}%` }}

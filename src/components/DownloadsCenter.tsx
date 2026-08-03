@@ -44,7 +44,7 @@ export default function DownloadsCenter({ onOpenDownloadModal }: DownloadsCenter
           {/* Card 1 */}
           <div className="gsap-download glass-panel rounded-2xl p-6 border border-slate-200 hover:border-brand-gold transition duration-300 text-center flex flex-col justify-between custom-ring-hover">
             <div>
-              <div className="w-16 h-16 mx-auto rounded-2xl  bg-slate-800  bg-brand-petroleum/30 text-brand-gold border border-brand-petroleum/50 flex items-center justify-center text-3xl font-bold mb-4 shadow-md">
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-slate-50 text-brand-petroleum border border-slate-200 flex items-center justify-center text-3xl font-bold mb-4 shadow-sm">
                 <i className="fa-solid fa-book-open text-brand-gold"></i>
               </div>
               <h3 className="font-bold text-base text-slate-900">Brochure Corporativo 2026</h3>
@@ -64,7 +64,7 @@ export default function DownloadsCenter({ onOpenDownloadModal }: DownloadsCenter
           {/* Card 2 */}
           <div className="gsap-download glass-panel rounded-2xl p-6 border border-slate-200 hover:border-brand-gold transition duration-300 text-center flex flex-col justify-between custom-ring-hover">
             <div>
-              <div className="w-16 h-16 mx-auto rounded-2xl bg-slate-800 text-brand-gold border border-brand-petroleum/50 flex items-center justify-center text-3xl font-bold mb-4 shadow-md">
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-slate-50 text-brand-petroleum border border-slate-200 flex items-center justify-center text-3xl font-bold mb-4 shadow-sm">
                 <i className="fa-solid fa-shield-halved"></i>
               </div>
               <h3 className="font-bold text-base text-slate-900">Certificado Bureau Veritas</h3>
@@ -81,7 +81,7 @@ export default function DownloadsCenter({ onOpenDownloadModal }: DownloadsCenter
           {/* Card 3 */}
           <div className="gsap-download glass-panel rounded-2xl p-6 border border-slate-200 hover:border-brand-gold transition duration-300 text-center flex flex-col justify-between custom-ring-hover">
             <div>
-              <div className="w-16 h-16 mx-auto rounded-2xl bg-slate-800 text-brand-gold border border-brand-petroleum/50 flex items-center justify-center text-3xl font-bold mb-4 shadow-md">
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-slate-50 text-brand-petroleum border border-slate-200 flex items-center justify-center text-3xl font-bold mb-4 shadow-sm">
                 <i className="fa-solid fa-building-flag"></i>
               </div>
               <h3 className="font-bold text-base text-slate-900">Registro MINEM RD 0288-2021</h3>
@@ -98,7 +98,7 @@ export default function DownloadsCenter({ onOpenDownloadModal }: DownloadsCenter
           {/* Card 4 */}
           <div className="gsap-download glass-panel rounded-2xl p-6 border border-slate-200 hover:border-brand-gold transition duration-300 text-center flex flex-col justify-between custom-ring-hover">
             <div>
-              <div className="w-16 h-16 mx-auto rounded-2xl bg-slate-800 text-brand-gold border border-brand-petroleum/50 flex items-center justify-center text-3xl font-bold mb-4 shadow-md">
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-slate-50 text-brand-petroleum border border-slate-200 flex items-center justify-center text-3xl font-bold mb-4 shadow-sm">
                 <i className="fa-solid fa-file-invoice"></i>
               </div>
               <h3 className="font-bold text-base text-slate-900">Ficha RUC y SUNAT</h3>

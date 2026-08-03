@@ -105,22 +105,24 @@ export default function Modals({
 
             <form onSubmit={handleModalQuoteSubmit} className="space-y-3 text-xs">
               <div>
-                <label className="block text-slate-700 font-semibold mb-1">Nombre Completo *</label>
-                <input type="text" required placeholder="Ing. Juan Pérez" className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/10 text-white focus:outline-none focus:border-brand-gold" />
+                <label htmlFor="modal-name" className="block text-slate-700 font-semibold mb-1">Nombre Completo *</label>
+                <input id="modal-name" name="modal-name" type="text" required placeholder="Ing. Juan Pérez" className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/10 text-white focus:outline-none focus:border-brand-gold" />
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-700 font-semibold mb-1">Empresa / RUC *</label>
-                  <input type="text" required placeholder="Compañía Minera" className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/10 text-white focus:outline-none focus:border-brand-gold" />
+                  <label htmlFor="modal-company" className="block text-slate-700 font-semibold mb-1">Empresa / RUC *</label>
+                  <input id="modal-company" name="modal-company" type="text" required placeholder="Compañía Minera" className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/10 text-white focus:outline-none focus:border-brand-gold" />
                 </div>
                 <div>
-                  <label className="block text-slate-700 font-semibold mb-1">Teléfono *</label>
-                  <input type="tel" required placeholder="+51 902 967 134" className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/10 text-white focus:outline-none focus:border-brand-gold" />
+                  <label htmlFor="modal-phone" className="block text-slate-700 font-semibold mb-1">Teléfono *</label>
+                  <input id="modal-phone" name="modal-phone" type="tel" required placeholder="+51 902 967 134" className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/10 text-white focus:outline-none focus:border-brand-gold" />
                 </div>
               </div>
               <div>
-                <label className="block text-slate-700 font-semibold mb-1">Servicio a Cotizar *</label>
+                <label htmlFor="modal-service" className="block text-slate-700 font-semibold mb-1">Servicio a Cotizar *</label>
                 <input 
+                  id="modal-service"
+                  name="modal-service"
                   type="text" 
                   required 
                   value={serviceName} 
@@ -129,8 +131,8 @@ export default function Modals({
                 />
               </div>
               <div>
-                <label className="block text-slate-700 font-semibold mb-1">Detalle del Trabajo *</label>
-                <textarea rows={3} required placeholder="Especificaciones o plazos estimados..." className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/10 text-white focus:outline-none focus:border-brand-gold"></textarea>
+                <label htmlFor="modal-details" className="block text-slate-700 font-semibold mb-1">Detalle del Trabajo *</label>
+                <textarea id="modal-details" name="modal-details" rows={3} required placeholder="Especificaciones o plazos estimados..." className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/10 text-white focus:outline-none focus:border-brand-gold"></textarea>
               </div>
               <button type="submit" className="w-full bg-brand-petroleum hover:bg-brand-darkPetroleum border border-brand-gold/40 text-white font-bold text-xs py-3.5 rounded-xl transition shadow-glow-petroleum mt-2">
                 Enviar Requerimiento

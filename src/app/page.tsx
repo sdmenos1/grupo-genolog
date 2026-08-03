@@ -1,28 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import TopBar from '@/components/TopBar';
-import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import ClientsMarquee from '@/components/ClientsMarquee';
 import TrabajosRealizados from '@/components/TrabajosRealizados';
-import Footer from '@/components/Footer';
 import { gsap } from 'gsap';
-import Modals from '@/components/Modals';
-import WhatsAppWidget from '@/components/WhatsAppWidget';
+import { useModals } from '@/context/ModalContext';
 
 export default function Home() {
-  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
-  const [quoteServiceName, setQuoteServiceName] = useState('');
-  const [policyModalOpen, setPolicyModalOpen] = useState(false);
-  const [policyType, setPolicyType] = useState('antisoborno');
-
-  const [toast, setToast] = useState<{ show: boolean; title: string; message: string }>({
-    show: false,
-    title: '',
-    message: '',
-  });
+  const { openQuoteModal } = useModals();
 
   React.useEffect(() => {
     // Animación de levitación industrial pesada
@@ -35,33 +22,13 @@ export default function Home() {
     return () => ctx.revert();
   }, []);
 
-  const showToast = (title: string, message: string) => {
-    setToast({ show: true, title, message });
-    setTimeout(() => {
-      setToast({ show: false, title: '', message: '' });
-    }, 4000);
-  };
-
-  const handleOpenQuoteModal = (serviceName: string = '') => {
-    setQuoteServiceName(serviceName);
-    setQuoteModalOpen(true);
-  };
-
-  const handleOpenPolicyModal = (type: string = 'antisoborno') => {
-    setPolicyType(type);
-    setPolicyModalOpen(true);
-  };
-
   return (
     <main className="min-h-screen bg-slate-100 text-slate-800 font-sans relative">
       
-      <TopBar />
-      <Header onOpenQuoteModal={handleOpenQuoteModal} />
-
       {/* 3. Hero Showcase (GSAP Animations are inside Hero component) */}
       <Hero 
         onOpenDownloadModal={() => {}} // Descargas movido a su propia pagina
-        onOpenQuoteModal={handleOpenQuoteModal}
+        onOpenQuoteModal={openQuoteModal}
       />
 
       {/* 4. Resumen Ejecutivo Estratégico (Conciso para el Inicio) */}
@@ -116,7 +83,7 @@ export default function Home() {
       </section>
 
       {/* 4.5. 12 Trabajos Realizados Showcase */}
-      <TrabajosRealizados onOpenQuoteModal={handleOpenQuoteModal} />
+      <TrabajosRealizados onOpenQuoteModal={openQuoteModal} />
 
       {/* 5. Clientes Marquee Ticker */}
       <ClientsMarquee />
@@ -136,39 +103,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 11. Corporate Footer */}
-      <Footer onOpenPolicyModal={handleOpenPolicyModal} />
-
-      {/* 12. Modals */}
-      <Modals
-        quoteModalOpen={quoteModalOpen}
-        quoteServiceName={quoteServiceName}
-        onCloseQuoteModal={() => setQuoteModalOpen(false)}
-        downloadModalOpen={false}
-        downloadType={'brochure'}
-        onCloseDownloadModal={() => {}}
-        policyModalOpen={policyModalOpen}
-        policyType={policyType}
-        onClosePolicyModal={() => setPolicyModalOpen(false)}
-        onShowToast={showToast}
-      />
-
-      <WhatsAppWidget />
-      
-      {/* Toast */}
-      {toast.show && (
-        <div className="fixed bottom-6 right-6 bg-white text-white p-4 rounded-2xl shadow-executive border border-brand-gold/40 z-50 transition duration-300">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
-              <i className="fa-solid fa-check"></i>
-            </div>
-            <div>
-              <div className="font-bold text-sm">{toast.title}</div>
-              <div className="text-xs text-slate-700">{toast.message}</div>
-            </div>
-          </div>
-        </div>
-      )}
     </main>
   );
 }

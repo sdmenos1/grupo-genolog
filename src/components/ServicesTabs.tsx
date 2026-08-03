@@ -73,7 +73,8 @@ const serviceCardsData = [
     features: [
       'Excavación, movimiento de tierras y construcción de caminos.',
       'Construcción de muros ciclópeos y losas pesadas.',
-      'Reforestación y remediación de pasivos ambientales.'
+      'Reforestación y remediación de pasivos ambientales.',
+      'Construcción de muros de contención.'
     ],
     serviceName: 'Maquinaria Pesada y Cierre Ambiental'
   }

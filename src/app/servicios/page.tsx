@@ -1,41 +1,14 @@
 'use client';
 
-import React, { useState } from 'react';
-import TopBar from '@/components/TopBar';
-import Header from '@/components/Header';
+import React from 'react';
 import HorizontalServicesCarousel from '@/components/HorizontalServicesCarousel';
-import Footer from '@/components/Footer';
-import Modals from '@/components/Modals';
-import WhatsAppWidget from '@/components/WhatsAppWidget';
+import { useModals } from '@/context/ModalContext';
 
 export default function ServiciosPage() {
-  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
-  const [quoteServiceName, setQuoteServiceName] = useState('');
-  const [downloadModalOpen, setDownloadModalOpen] = useState(false);
-  const [policyModalOpen, setPolicyModalOpen] = useState(false);
-  const [policyType, setPolicyType] = useState('antisoborno');
-
-  const [toast, setToast] = useState<{ show: boolean; title: string; message: string }>({
-    show: false,
-    title: '',
-    message: '',
-  });
-
-  const showToast = (title: string, message: string) => {
-    setToast({ show: true, title, message });
-    setTimeout(() => setToast({ show: false, title: '', message: '' }), 4000);
-  };
-
-  const handleOpenQuoteModal = (serviceName: string = '') => {
-    setQuoteServiceName(serviceName);
-    setQuoteModalOpen(true);
-  };
+  const { openQuoteModal } = useModals();
 
   return (
     <main className="min-h-screen bg-slate-100 text-slate-800 font-sans relative">
-      <TopBar />
-      <Header onOpenQuoteModal={handleOpenQuoteModal} />
-
       {/* Page Hero Header */}
       <section className="py-20 bg-brand-petroleum border-b border-brand-darkPetroleum text-center relative shadow-inner">
         <div className="max-w-4xl mx-auto px-4">
@@ -54,26 +27,9 @@ export default function ServiciosPage() {
       {/* Single Unified Modern Services Showcase */}
       <section className="py-16 bg-slate-100 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <HorizontalServicesCarousel onOpenQuoteModal={handleOpenQuoteModal} />
+          <HorizontalServicesCarousel onOpenQuoteModal={openQuoteModal} />
         </div>
       </section>
-
-      <Footer onOpenPolicyModal={(type) => { setPolicyType(type); setPolicyModalOpen(true); }} />
-
-      <Modals
-        quoteModalOpen={quoteModalOpen}
-        quoteServiceName={quoteServiceName}
-        onCloseQuoteModal={() => setQuoteModalOpen(false)}
-        downloadModalOpen={downloadModalOpen}
-        downloadType="brochure"
-        onCloseDownloadModal={() => setDownloadModalOpen(false)}
-        policyModalOpen={policyModalOpen}
-        policyType={policyType}
-        onClosePolicyModal={() => setPolicyModalOpen(false)}
-        onShowToast={showToast}
-      />
-
-      <WhatsAppWidget />
     </main>
   );
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -264,6 +265,18 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
     return () => ctx.revert();
   }, []);
 
+  // Fix: Prevent background scroll when modal is open
+  useEffect(() => {
+    if (selectedTrabajo) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedTrabajo]);
+
   const openTrabajoModal = (trabajo: TrabajoRealizado) => {
     setSelectedTrabajo(trabajo);
     setActiveImgIndex(0);
@@ -367,131 +380,133 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
         </div>
 
         {/* Modal De Galería de Fotos de Trabajo Realizado */}
-        {selectedTrabajo && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in">
-            <div className="bg-white border border-brand-gold/40 rounded-3xl max-w-3xl w-full p-6 sm:p-8 relative shadow-2xl space-y-5 max-h-[95vh] overflow-y-auto">
+        {selectedTrabajo && typeof window !== 'undefined' && createPortal(
+          <div className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md animate-fade-in">
+            {/* Contenedor Principal del Modal (Limitado al 90% del alto) */}
+            <div className="bg-white border border-brand-gold/40 rounded-3xl max-w-3xl w-full shadow-2xl flex flex-col h-full max-h-[90vh] relative">
               
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedTrabajo(null)}
-                className="absolute top-5 right-5 text-slate-600 hover:text-brand-petroleum w-9 h-9 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center text-lg transition z-20">
-                <i className="fa-solid fa-xmark"></i>
-              </button>
-
-              <div className="flex items-center gap-3">
-                <span className="bg-brand-gold/10 border border-brand-gold/30 text-brand-petroleum text-xs font-black px-3 py-1 rounded-md">
-                  {selectedTrabajo.shortCode}
-                </span>
-                <span className="text-xs text-slate-600 uppercase font-bold tracking-wider">
-                  {selectedTrabajo.categoryLabel}
-                </span>
-              </div>
-
-              <h3 className="font-heading text-xl sm:text-2xl font-black text-slate-900 leading-tight pr-10">
-                {selectedTrabajo.title}
-              </h3>
-
-              {/* Interactive Multi-Photo Gallery Viewer */}
-              <div className="space-y-3">
-                <div className="h-72 sm:h-96 w-full rounded-2xl overflow-hidden border border-slate-300 relative bg-black flex items-center justify-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={selectedTrabajo.galleryImages[activeImgIndex]}
-                    alt={`${selectedTrabajo.title} foto ${activeImgIndex + 1}`}
-                    className="w-full h-full object-contain bg-white transition-all duration-300"
-                  />
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none"></div>
-
-                  {/* Navigation Arrows (if > 1 image) */}
-                  {selectedTrabajo.galleryImages.length > 1 && (
-                    <>
-                      <button
-                        onClick={handlePrevImg}
-                        className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-brand-gold hover:text-brand-deepObsidian border border-slate-300 text-slate-900 flex items-center justify-center text-base transition backdrop-blur-md shadow-lg">
-                        <i className="fa-solid fa-chevron-left"></i>
-                      </button>
-
-                      <button
-                        onClick={handleNextImg}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-brand-gold hover:text-brand-deepObsidian border border-slate-300 text-slate-900 flex items-center justify-center text-base transition backdrop-blur-md shadow-lg">
-                        <i className="fa-solid fa-chevron-right"></i>
-                      </button>
-                    </>
-                  )}
-
-                  {/* Photo Counter Tag */}
-                  <div className="absolute bottom-3 left-3 bg-white/90 text-xs text-brand-petroleum font-bold px-3.5 py-1.5 rounded-lg border border-brand-gold/40 backdrop-blur-md flex items-center gap-2">
-                    <i className="fa-solid fa-camera"></i>
-                    <span>Foto {activeImgIndex + 1} de {selectedTrabajo.galleryImages.length}</span>
-                  </div>
-
-                  <div className="absolute bottom-3 right-3 bg-white/90 text-[11px] text-slate-800 font-semibold px-3 py-1.5 rounded-lg border border-slate-200 backdrop-blur-md font-mono">
-                    {selectedTrabajo.galleryImages[activeImgIndex].split('/').pop()}
-                  </div>
-                </div>
-
-                {/* Thumbnails Gallery Bar */}
-                {selectedTrabajo.galleryImages.length > 1 && (
-                  <div className="flex items-center gap-3 overflow-x-auto pb-2 pt-1">
-                    {selectedTrabajo.galleryImages.map((imgUrl, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => setActiveImgIndex(idx)}
-                        className={`relative h-16 sm:h-20 w-24 sm:w-28 rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 bg-white ${
-                          activeImgIndex === idx
-                            ? 'border-brand-gold scale-105 shadow-glow-gold'
-                            : 'border-slate-200 opacity-60 hover:opacity-100 hover:border-slate-400'
-                        }`}>
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={imgUrl}
-                          alt={`Miniatura ${idx + 1}`}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute bottom-1 right-1 text-[9px] font-black text-white bg-black/80 px-1.5 rounded">
-                          #{idx + 1}
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <p className="text-slate-800 text-xs sm:text-sm leading-relaxed">
-                {selectedTrabajo.description}
-              </p>
-
-              <div className="bg-slate-100 p-4 rounded-2xl border border-slate-200 space-y-2">
-                <div className="text-xs font-bold text-brand-petroleum uppercase tracking-wider">Especificaciones Técnicas &amp; Tolerancias</div>
-                <div className="grid sm:grid-cols-2 gap-2 text-xs text-slate-800">
-                  {selectedTrabajo.highlights.map((h, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <i className="fa-solid fa-check-double text-brand-petroleum"></i>
-                      <span>{h}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-3 border-t border-slate-200">
-                <div className="text-xs text-slate-600">
-                  Imágenes cargadas desde <code className="text-brand-petroleum font-mono">{selectedTrabajo.imageFolder}/</code>
-                </div>
-
+              {/* Botón Flotante de Cerrar */}
+              <div className="absolute top-4 right-4 sm:top-5 sm:right-5 z-[9999]">
                 <button
-                  onClick={() => {
-                    const title = selectedTrabajo.title;
-                    setSelectedTrabajo(null);
-                    if (onOpenQuoteModal) onOpenQuoteModal(`Cotizar Operaciones de ${title}`);
-                  }}
-                  className="w-full sm:w-auto bg-brand-petroleum hover:bg-brand-darkPetroleum text-white font-extrabold text-xs px-6 py-3 rounded-xl border border-brand-gold/40 shadow-md transition">
-                  <i className="fa-solid fa-calculator mr-2"></i> Cotizar Servicio Similar
+                  onClick={() => setSelectedTrabajo(null)}
+                  className="text-slate-600 hover:text-white hover:bg-red-600 w-10 h-10 rounded-full bg-slate-100 hover:bg-red-600/90 border border-slate-300 flex items-center justify-center text-lg transition-all shadow-xl">
+                  <i className="fa-solid fa-xmark"></i>
                 </button>
               </div>
 
+              {/* Área de Contenido con Scroll Interno */}
+              <div className="flex-1 overflow-y-auto p-6 sm:p-8 space-y-6">
+                
+                <div className="flex flex-wrap items-center gap-2 pr-12">
+                  <span className="bg-brand-gold/10 border border-brand-gold/30 text-brand-petroleum text-xs font-black px-3 py-1 rounded-md">
+                    {selectedTrabajo.shortCode}
+                  </span>
+                  <span className="text-xs text-slate-600 uppercase font-bold tracking-wider">
+                    {selectedTrabajo.categoryLabel}
+                  </span>
+                </div>
+
+                <h3 className="font-heading text-xl sm:text-2xl font-black text-slate-900 leading-tight pr-10">
+                  {selectedTrabajo.title}
+                </h3>
+
+                {/* Interactive Multi-Photo Gallery Viewer */}
+                <div className="space-y-4">
+                  <div className="h-64 sm:h-96 w-full rounded-2xl overflow-hidden border border-slate-200 relative bg-slate-100 flex items-center justify-center group/modalimg shadow-inner">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={selectedTrabajo.galleryImages[activeImgIndex]}
+                      alt={`${selectedTrabajo.title} foto ${activeImgIndex + 1}`}
+                      className="w-full h-full object-cover transition-all duration-300 drop-shadow-sm"
+                    />
+
+                    {/* Navigation Arrows (if > 1 image) */}
+                    {selectedTrabajo.galleryImages.length > 1 && (
+                      <>
+                        <button
+                          onClick={handlePrevImg}
+                          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-brand-gold hover:text-brand-deepObsidian border border-slate-300 text-slate-900 flex items-center justify-center text-base transition backdrop-blur-md shadow-lg z-20">
+                          <i className="fa-solid fa-chevron-left"></i>
+                        </button>
+
+                        <button
+                          onClick={handleNextImg}
+                          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-brand-gold hover:text-brand-deepObsidian border border-slate-300 text-slate-900 flex items-center justify-center text-base transition backdrop-blur-md shadow-lg z-20">
+                          <i className="fa-solid fa-chevron-right"></i>
+                        </button>
+                      </>
+                    )}
+
+                    {/* Photo Counter Tag */}
+                    <div className="absolute bottom-3 left-3 bg-white/90 text-[10px] sm:text-xs text-brand-petroleum font-bold px-3 py-1.5 rounded-lg border border-brand-gold/40 backdrop-blur-md flex items-center gap-2">
+                      <i className="fa-solid fa-camera"></i>
+                      <span>Foto {activeImgIndex + 1} de {selectedTrabajo.galleryImages.length}</span>
+                    </div>
+
+                    <div className="absolute bottom-3 right-3 bg-white/90 text-[10px] sm:text-[11px] text-slate-800 font-semibold px-2 sm:px-3 py-1.5 rounded-lg border border-slate-200 backdrop-blur-md font-mono hidden sm:block">
+                      {selectedTrabajo.galleryImages[activeImgIndex].split('/').pop()}
+                    </div>
+                  </div>
+
+                  {/* Thumbnails Gallery Bar */}
+                  {selectedTrabajo.galleryImages.length > 1 && (
+                    <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-2 pt-1">
+                      {selectedTrabajo.galleryImages.map((imgUrl, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setActiveImgIndex(idx)}
+                          className={`relative h-14 sm:h-20 w-20 sm:w-28 rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 bg-white ${
+                            activeImgIndex === idx
+                              ? 'border-brand-gold scale-105 shadow-glow-gold'
+                              : 'border-slate-200 opacity-60 hover:opacity-100 hover:border-slate-400'
+                          }`}>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={imgUrl}
+                            alt={`Miniatura ${idx + 1}`}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute bottom-1 right-1 text-[9px] font-black text-white bg-black/80 px-1.5 rounded">
+                            #{idx + 1}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <p className="text-slate-800 text-xs sm:text-sm leading-relaxed">
+                  {selectedTrabajo.description}
+                </p>
+
+                <div className="bg-slate-100 p-4 rounded-2xl border border-slate-200 space-y-3">
+                  <div className="text-[10px] sm:text-xs font-bold text-brand-petroleum uppercase tracking-wider">Especificaciones Técnicas &amp; Tolerancias</div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[11px] sm:text-xs text-slate-800">
+                    {selectedTrabajo.highlights.map((h, idx) => (
+                      <div key={idx} className="flex items-start sm:items-center gap-2">
+                        <i className="fa-solid fa-check-double text-brand-petroleum mt-0.5 sm:mt-0"></i>
+                        <span>{h}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex justify-end pt-5 border-t border-slate-200">
+                  <button
+                    onClick={() => {
+                      const title = selectedTrabajo.title;
+                      setSelectedTrabajo(null);
+                      if (onOpenQuoteModal) onOpenQuoteModal(`Cotizar Operaciones de ${title}`);
+                    }}
+                    className="w-full sm:w-auto bg-brand-petroleum hover:bg-brand-darkPetroleum text-white font-extrabold text-[11px] sm:text-xs px-6 py-3 rounded-xl border border-brand-gold/40 shadow-md transition flex items-center justify-center">
+                    <i className="fa-solid fa-calculator mr-2"></i> Cotizar Servicio Similar
+                  </button>
+                </div>
+              </div>
+
             </div>
-          </div>
+          </div>,
+          document.body
         )}
 
       </div>
