@@ -300,7 +300,7 @@ export default function ContactSection({ onShowToast }: ContactSectionProps) {
 
                     <div className="font-bold text-slate-900 text-sm">Sede Operativa Pasco</div>
 
-                    <div className="text-slate-600 mt-0.5">Av. Los Incas N° 405, Chaupimarca, Cerro de Pasco - Perú.</div>
+                    <div className="text-slate-600 mt-0.5">Calle Paseo los vencedores MZ B Lt 01 vista alegre San Juan</div>
 
                   </div>
 
@@ -320,7 +320,7 @@ export default function ContactSection({ onShowToast }: ContactSectionProps) {
 
                     <div className="font-bold text-slate-900 text-sm">Correos Electrónicos</div>
 
-                    <div className="text-slate-600 mt-0.5">gerencia@grupogenolg.com | administración@grupogenolg.com</div>
+                    <div className="text-slate-600 mt-0.5">supervisor@grupogenolg.com</div>
 
                   </div>
 

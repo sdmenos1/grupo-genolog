@@ -136,7 +136,7 @@ export default function Hero({ onOpenDownloadModal, onOpenQuoteModal }: HeroProp
               </div>
               <div>
                 <div className="text-[10px] sm:text-xs text-slate-500 font-medium">Auditoría Internacional</div>
-                <div className="text-xs sm:text-sm font-bold text-slate-900">Bureau Veritas: <span className="text-brand-petroleum">87.81%</span></div>
+                <div className="text-xs sm:text-sm font-bold text-slate-900">Bureau Veritas</div>
               </div>
             </div>
 

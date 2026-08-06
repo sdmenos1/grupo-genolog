@@ -57,10 +57,10 @@ export default function TopBar() {
         {/* Right: Direct Contacts */}
         <div className="hidden md:flex items-center gap-5 text-xs flex-shrink-0">
           <a 
-            href="mailto:gerencia@grupogenolg.com" 
+            href="mailto:supervisor@grupogenolg.com" 
             className="hover:text-brand-gold transition-colors flex items-center gap-2">
             <i className="fa-regular fa-envelope text-brand-gold"></i>
-            <span>gerencia@grupogenolg.com</span>
+            <span>supervisor@grupogenolg.com</span>
           </a>
           <a 
             href="tel:+51902967134" 

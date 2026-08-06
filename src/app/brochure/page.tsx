@@ -78,7 +78,7 @@ export default function BrochureWebPage() {
             GRUPO GENOLG MINERÍA &amp; CONSTRUCCIÓN S.C.R.L.
           </h1>
           <p className="text-brand-petroleum text-sm sm:text-base font-bold mt-2 tracking-wider print:text-black">
-            RUC: 20608261894 | REGISTRO MINEM R.D. 0288-2021 | HOMOLOGADO BUREAU VERITAS (87.81%)
+            RUC: 20608261894 | REGISTRO MINEM R.D. 0288-2021 | HOMOLOGADO BUREAU VERITAS
           </p>
 
           <p className="text-slate-700 text-sm sm:text-base max-w-3xl mx-auto mt-6 leading-relaxed font-normal print:text-black">
@@ -89,7 +89,7 @@ export default function BrochureWebPage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 max-w-4xl mx-auto text-left">
             <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm print:bg-gray-100 print:border-gray-300 print:text-black">
               <div className="text-[10px] text-slate-500 font-bold uppercase">Auditoría Internacional</div>
-              <div className="text-sm font-extrabold text-brand-petroleum print:text-black">Bureau Veritas: 87.81%</div>
+              <div className="text-sm font-extrabold text-brand-petroleum print:text-black">Bureau Veritas</div>
               <div className="text-[10px] text-slate-500 mt-1">Informe HP0017249 (Nivel B)</div>
             </div>
             <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm print:bg-gray-100 print:border-gray-300 print:text-black">
