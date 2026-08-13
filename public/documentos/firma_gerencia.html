@@ -7,7 +7,7 @@
 <body style="font-family: Arial, sans-serif; padding: 20px;">
 
 <!-- INICIO DE LA FIRMA (Copiar desde aquí) -->
-<table cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 15px 25px; font-family: 'Segoe UI', Arial, sans-serif; max-width: 700px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+<table id="firma-contenedor" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 15px 25px; font-family: 'Segoe UI', Arial, sans-serif; max-width: 700px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
   <tr>
     <td style="padding-right: 25px; border-right: 2px solid #e2e8f0; text-align: center; vertical-align: middle;">
       <!-- Usamos una ruta relativa para que cargue al abrir el archivo en tu computadora -->
@@ -30,16 +30,45 @@
 <!-- FIN DE LA FIRMA (Hasta aquí) -->
 
 <div style="margin-top: 40px; border-top: 1px solid #cbd5e1; padding-top: 20px; font-size: 14px; color: #475569;">
-  <strong>Instrucciones para instalar la firma:</strong>
+  <strong>Opciones para instalar la firma:</strong>
+  
+  <div style="margin: 20px 0;">
+    <button onclick="descargarImagen()" style="background: #2563eb; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px;">
+      ⬇️ Descargar como Imagen (.png)
+    </button>
+    <p style="font-size: 12px; margin-top: 8px;">(Luego puedes arrastrar la imagen descargada a tu Gmail o Outlook).</p>
+  </div>
+
   <ol>
-    <li>Mantén presionado el clic y arrastra el ratón para <strong>seleccionar todo el recuadro de arriba</strong> (asegúrate de que el logo y el texto queden sombreados).</li>
+    <li>O si prefieres usar el texto: Mantén presionado el clic y arrastra el ratón para <strong>seleccionar todo el recuadro de arriba</strong> (asegúrate de que el logo y el texto queden sombreados).</li>
     <li>Copia lo seleccionado presionando <strong>Ctrl + C</strong> (o Cmd + C en Mac).</li>
     <li>Abre tu correo (Gmail, Outlook, etc.) y ve a la sección de Configuración > <strong>Firma</strong>.</li>
     <li>Haz clic en el cuadro de texto de la nueva firma y pégalo presionando <strong>Ctrl + V</strong> (o Cmd + V en Mac).</li>
     <li>¡Listo! Guarda los cambios en tu correo.</li>
   </ol>
-  <em>Nota Técnica: Si las imágenes no cargan, asegúrate de que la URL de la imagen en este archivo HTML apunte al dominio en vivo donde está alojado el logo.</em>
+  <em>Nota Técnica: Si las imágenes no cargan al pegar el texto, asegúrate de que la URL de la imagen en este archivo HTML apunte al dominio en vivo donde está alojado el logo.</em>
 </div>
+
+<!-- Script para descargar como imagen -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+  function descargarImagen() {
+    const firma = document.getElementById('firma-contenedor');
+    
+    // Configuramos html2canvas para mejor calidad
+    html2canvas(firma, {
+      scale: 2, // Mejor resolución
+      backgroundColor: null, // Fondo transparente si es posible
+      useCORS: true // Permite cargar imágenes externas
+    }).then(canvas => {
+      // Crear un enlace temporal para descargar
+      const enlace = document.createElement('a');
+      enlace.download = 'Firma_Correo_Gerencia.png';
+      enlace.href = canvas.toDataURL('image/png');
+      enlace.click();
+    });
+  }
+</script>
 
 </body>
 </html>
