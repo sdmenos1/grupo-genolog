@@ -481,7 +481,7 @@ export default function BrochureWebPage() {
               {/* Información de Contacto (Gerencia) */}
               <div className="flex flex-col justify-center space-y-3 text-center md:text-left pt-2">
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 font-heading uppercase tracking-tight print:text-black drop-shadow-sm">
-                  Teofilo Frank Sanchez T.
+                  Ing. Teofilo Frank Sanchez T.
                 </h3>
                 <p className="text-base sm:text-lg lg:text-xl font-extrabold text-slate-700 uppercase tracking-widest print:text-black">
                   Gerente General – Grupo Genolg
