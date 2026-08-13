@@ -116,52 +116,88 @@ export default function BrochureWebPage() {
           <div className="border-b border-slate-200 pb-4 flex items-center justify-between">
             <div>
               <span className="text-brand-petroleum text-xs font-bold uppercase tracking-wider">01. Perfil Corporativo</span>
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 font-heading mt-1 print:text-black">Respaldo Técnico &amp; Propósito</h2>
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 font-heading mt-1 print:text-black">Misión, Visión y Compromisos</h2>
             </div>
             <span className="text-slate-600 font-mono text-xs hidden sm:inline">GRUPO GENOLG S.C.R.L.</span>
           </div>
 
-          <p className="text-slate-700 text-sm leading-relaxed print:text-black">
-            Somos una empresa dedicada a satisfacer las necesidades de nuestros clientes mineros e industriales mediante la continua innovación tecnológica, capacitación del talento humano y estricto respeto ambiental. Nuestra misión es mejorar la eficiencia operativa y productividad de cada unidad minera intervenida.
-          </p>
-
           <div className="grid md:grid-cols-2 gap-6 pt-2">
             <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-sm print:border-gray-300 print:bg-gray-50">
               <div className="text-brand-petroleum font-bold text-sm flex items-center gap-2 print:text-black">
-                <i className="fa-solid fa-bullseye"></i> Compromisos Clave B2B
+                <i className="fa-solid fa-flag"></i> Nuestra Misión
               </div>
-              <ul className="space-y-2 text-xs text-slate-700 print:text-black">
-                <li className="flex items-start gap-2">
-                  <i className="fa-solid fa-check text-brand-gold mt-0.5"></i>
-                  <span><strong>Eficiencia Operativa:</strong> Reducción de tiempos muertos en Paradas de Planta (P.D.P).</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <i className="fa-solid fa-check text-brand-gold mt-0.5"></i>
-                  <span><strong>Disponibilidad 24/7:</strong> Cuadrillas técnicas preparadas para despliegue inmediato.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <i className="fa-solid fa-check text-brand-gold mt-0.5"></i>
-                  <span><strong>Dossier de Calidad:</strong> Certificación de ensayos NDT (Ultrasonido, Tintes Penetrantes).</span>
-                </li>
-              </ul>
+              <p className="text-xs text-slate-700 leading-relaxed print:text-black">
+                Satisfacer plenamente las necesidades de nuestros clientes mineros e industriales mediante la continua innovación tecnológica, capacitación del talento humano y estricto respeto ambiental, garantizando la eficiencia operativa y productividad de cada unidad minera intervenida.
+              </p>
             </div>
 
             <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-sm print:border-gray-300 print:bg-gray-50">
               <div className="text-brand-petroleum font-bold text-sm flex items-center gap-2 print:text-black">
-                <i className="fa-solid fa-shield-cat"></i> Seguridad &amp; Medio Ambiente
+                <i className="fa-solid fa-eye"></i> Nuestra Visión
+              </div>
+              <p className="text-xs text-slate-700 leading-relaxed print:text-black">
+                Posicionarnos como la empresa líder y referente a nivel nacional en la ejecución de proyectos metalmecánicos, mantenimiento de plantas y montajes industriales, reconocidos por nuestros altos estándares de calidad, seguridad y compromiso sostenible.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-4 pt-2">
+            <div className="bg-white p-5 rounded-2xl border border-slate-200 space-y-2 shadow-sm print:border-gray-300 print:bg-gray-50">
+              <div className="text-brand-petroleum font-bold text-sm flex items-center gap-2 print:text-black">
+                <i className="fa-solid fa-gem"></i> Valores
               </div>
               <ul className="space-y-2 text-xs text-slate-700 print:text-black">
+                <li className="flex items-center gap-2">
+                  <i className="fa-solid fa-angle-right text-brand-gold"></i> Integridad y Ética Operativa
+                </li>
+                <li className="flex items-center gap-2">
+                  <i className="fa-solid fa-angle-right text-brand-gold"></i> Compromiso con la Excelencia
+                </li>
+                <li className="flex items-center gap-2">
+                  <i className="fa-solid fa-angle-right text-brand-gold"></i> Trabajo en Equipo Efectivo
+                </li>
+                <li className="flex items-center gap-2">
+                  <i className="fa-solid fa-angle-right text-brand-gold"></i> Innovación y Mejora Continua
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-5 rounded-2xl border border-slate-200 space-y-2 shadow-sm print:border-gray-300 print:bg-gray-50">
+              <div className="text-brand-petroleum font-bold text-sm flex items-center gap-2 print:text-black">
+                <i className="fa-solid fa-bullseye"></i> Compromisos B2B
+              </div>
+              <ul className="space-y-2 text-[11px] sm:text-xs text-slate-700 print:text-black">
                 <li className="flex items-start gap-2">
                   <i className="fa-solid fa-check text-brand-gold mt-0.5"></i>
-                  <span><strong>Cero Incidentes HSE:</strong> Aplicación de PETS, IPERC Continuo y Charlas de 5 Minutos.</span>
+                  <span><strong>Eficiencia:</strong> Reducción de tiempos en P.D.P.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <i className="fa-solid fa-check text-brand-gold mt-0.5"></i>
-                  <span><strong>Estándar ISO 14001:</strong> Gestión de residuos y remediación de pasivos ambientales.</span>
+                  <span><strong>Disponibilidad:</strong> Cuadrillas operativas 24/7.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <i className="fa-solid fa-check text-brand-gold mt-0.5"></i>
-                  <span><strong>Antisoborno ISO 37001:</strong> Auditoría Bureau Veritas con calificación del 98.00%.</span>
+                  <span><strong>Calidad:</strong> Dossier y certificaciones NDT.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-5 rounded-2xl border border-slate-200 space-y-2 shadow-sm print:border-gray-300 print:bg-gray-50">
+              <div className="text-brand-petroleum font-bold text-sm flex items-center gap-2 print:text-black">
+                <i className="fa-solid fa-shield-cat"></i> Seguridad HSE
+              </div>
+              <ul className="space-y-2 text-[11px] sm:text-xs text-slate-700 print:text-black">
+                <li className="flex items-start gap-2">
+                  <i className="fa-solid fa-check text-brand-gold mt-0.5"></i>
+                  <span><strong>Cero Incidentes:</strong> PETS, IPERC, Charlas.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <i className="fa-solid fa-check text-brand-gold mt-0.5"></i>
+                  <span><strong>ISO 14001:</strong> Residuos y cuidado ambiental.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <i className="fa-solid fa-check text-brand-gold mt-0.5"></i>
+                  <span><strong>ISO 37001:</strong> Gestión antisoborno auditada.</span>
                 </li>
               </ul>
             </div>
@@ -428,6 +464,40 @@ export default function BrochureWebPage() {
               <div className="font-extrabold text-slate-900 text-sm mt-0.5">20608261894 — GRUPO GENOLG</div>
             </div>
           </div>
+
+          {/* TARJETA DE GERENCIA GENERAL - RÉPLICA DE DISEÑO */}
+          <div className="mt-8 pt-8 border-t border-slate-200 print:border-gray-300">
+            <div className="bg-white border-2 border-slate-100 rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row items-center md:items-start gap-8 sm:gap-12 shadow-xl shadow-slate-200/50 print:shadow-none print:border-gray-400">
+              {/* Logo */}
+              <div className="flex-shrink-0 bg-white p-4 rounded-2xl border-2 border-slate-100 flex items-center justify-center w-full max-w-[280px] md:w-72 shadow-sm print:border-gray-200">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src="/images/logo.png" 
+                  alt="Logo GRUPO GENOLG MINERÍA & CONSTRUCCIÓN" 
+                  className="w-full h-auto object-contain drop-shadow-md"
+                />
+              </div>
+
+              {/* Información de Contacto (Gerencia) */}
+              <div className="flex flex-col justify-center space-y-3 text-center md:text-left pt-2">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 font-heading uppercase tracking-tight print:text-black drop-shadow-sm">
+                  Teofilo Frank Sanchez T.
+                </h3>
+                <p className="text-base sm:text-lg lg:text-xl font-extrabold text-slate-700 uppercase tracking-widest print:text-black">
+                  Gerente General – Grupo Genolg
+                </p>
+                <div className="pt-2">
+                  <a href="mailto:gerencia@grupogenolg.com" className="text-lg sm:text-xl lg:text-2xl text-blue-600 hover:text-blue-800 hover:underline font-bold transition print:text-blue-700 drop-shadow-sm">
+                    gerencia@grupogenolg.com
+                  </a>
+                </div>
+                <p className="text-lg sm:text-xl lg:text-2xl font-black text-slate-900 print:text-black pt-1">
+                  Cel. 950843157 – 902967134
+                </p>
+              </div>
+            </div>
+          </div>
+
         </section>
 
       </div>
