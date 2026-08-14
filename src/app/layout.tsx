@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Montserrat, Plus_Jakarta_Sans } from 'next/font/google';
 import ClientLayout from '@/components/ClientLayout';
 import './globals.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -39,10 +40,7 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        />
+        <meta name="theme-color" content="#ffffff" />
       </head>
       <body className={`${montserrat.variable} ${plusJakartaSans.variable} font-sans bg-slate-50 text-slate-800 antialiased overflow-x-hidden`}>
         <ClientLayout>{children}</ClientLayout>
