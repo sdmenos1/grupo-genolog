@@ -28,7 +28,7 @@ function ClientLayoutContent({ children }: { children: React.ReactNode }) {
     openPolicyModal
   } = useModals();
 
-  const isBrochure = pathname === '/brochure';
+  const isBrochure = pathname === '/brochure' || pathname === '/brochure-print';
 
   if (isBrochure) {
     return <PageTransition>{children}</PageTransition>;

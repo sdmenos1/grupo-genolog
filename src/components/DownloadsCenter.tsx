@@ -52,11 +52,19 @@ export default function DownloadsCenter({ onOpenDownloadModal }: DownloadsCenter
               <div className="mt-3 inline-block bg-slate-100 text-slate-700 font-bold text-[10px] px-2.5 py-1 rounded-full border border-slate-300">Web / PDF Interactivo</div>
             </div>
             
-            <div className="mt-6">
+            <div className="mt-6 flex flex-col gap-3">
               <a 
                 href="/brochure"
                 className="w-full bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum hover:from-brand-gold hover:to-brand-copper text-white border border-brand-gold/40 font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
                 <i className="fa-solid fa-eye"></i> Visualizar Brochure Web
+              </a>
+              <a 
+                href="/documentos/BROCHURE.pdf"
+                download="BROCHURE_CORPORATIVO_2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-white hover:bg-slate-50 text-brand-petroleum border border-slate-300 font-bold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-sm">
+                <i className="fa-solid fa-download"></i> Descargar PDF
               </a>
             </div>
           </div>

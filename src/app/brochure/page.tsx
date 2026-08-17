@@ -41,12 +41,15 @@ export default function BrochureWebPage() {
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <button
-            onClick={handlePrint}
+          <a
+            href="/documentos/BROCHURE.pdf"
+            download="BROCHURE_CORPORATIVO_2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum hover:from-brand-gold hover:to-brand-copper text-white text-xs font-extrabold px-4 py-2 rounded-xl border border-brand-gold/40 shadow-lg transition">
-            <i className="fa-solid fa-print"></i>
-            <span>Imprimir / Exportar</span>
-          </button>
+            <i className="fa-solid fa-download"></i>
+            <span>Descargar PDF</span>
+          </a>
         </div>
       </header>
 
@@ -427,7 +430,7 @@ export default function BrochureWebPage() {
               <span className="text-brand-petroleum font-extrabold text-xs uppercase tracking-widest">Atención Comercial Minera 24/7</span>
               <h2 className="text-3xl sm:text-4xl font-black font-heading text-slate-900">Contrate Nuestros Servicios</h2>
               <p className="text-xs sm:text-sm text-slate-700 max-w-xl leading-relaxed">
-                Oficina Principal: Mza. C Lote 3 A.H. La Esperanza, Chaupimarca, Pasco. Operaciones continuas a nivel nacional en unidades mineras.
+                Oficina Principal: Av. TUPAC AMARU N° 3747 Comas - Lima. Operaciones continuas a nivel nacional en unidades mineras.
               </p>
             </div>
 
@@ -441,12 +444,15 @@ export default function BrochureWebPage() {
                 <span>WhatsApp Comercial</span>
               </a>
 
-              <button
-                onClick={handlePrint}
+              <a
+                href="/documentos/BROCHURE.pdf"
+                download="BROCHURE_CORPORATIVO_2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-white hover:bg-slate-50 text-brand-petroleum font-black text-xs px-6 py-4 rounded-2xl border border-slate-300 shadow-sm flex items-center justify-center gap-2 transition">
-                <i className="fa-solid fa-print text-base"></i>
-                <span>Imprimir Brochure</span>
-              </button>
+                <i className="fa-solid fa-download text-base"></i>
+                <span>Descargar PDF</span>
+              </a>
             </div>
           </div>
 
