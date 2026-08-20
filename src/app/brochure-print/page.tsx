@@ -77,73 +77,73 @@ export default function BrochurePrintPage() {
       </section>
 
       {/* PÁGINA 2: PERFIL CORPORATIVO */}
-      <section className="a4-page flex flex-col bg-[#F9FAFB] relative overflow-hidden">
+      <section className="a4-page flex flex-col bg-[#F9FAFB] relative overflow-hidden justify-between py-10">
         {/* Header Banner */}
-        <div className="w-full bg-[#006979] text-white pt-16 pb-12 px-16 clip-chevron-right relative z-10 shadow-lg">
-           <h1 className="text-center text-5xl font-black tracking-wide">
+        <div className="w-full bg-[#006979] text-white pt-10 pb-8 px-16 clip-chevron-right relative z-10 shadow-lg">
+           <h1 className="text-center text-4xl font-black tracking-wide">
              NOSOTROS<br/>
              <span className="text-[#F28C28]">GRUPO GENOLG</span>
            </h1>
         </div>
 
         {/* Top Text Content */}
-        <div className="px-16 pt-12 pb-6 relative z-10">
-           <p className="text-xl text-center text-slate-800 font-medium leading-relaxed max-w-2xl mx-auto">
+        <div className="px-16 py-3 relative z-10">
+           <p className="text-base text-center text-slate-800 font-medium leading-relaxed max-w-3xl mx-auto">
              Somos una empresa dedicada a la <strong>ejecución de proyectos metal mecánica, mantenimiento en plantas concentradoras e industriales</strong> para los principales sectores de la economía, privadas y públicas a través de la continua innovación tecnológica, humana de procesos y respeto por el medio ambiente.
            </p>
         </div>
 
         {/* VISIÓN */}
-        <div className="relative mt-10 w-full flex flex-row items-center">
-           <div className="w-2/3">
-             <div className="bg-[#006979] text-white py-4 px-12 clip-chevron-right inline-block shadow-md">
-               <h2 className="text-4xl font-black">VISIÓN</h2>
+        <div className="relative w-full flex flex-row items-center justify-between px-8">
+           {/* Left Content (Banner + Box expanded to touch the hexagon) */}
+           <div className="flex-1 pr-2 z-10">
+             <div className="bg-[#006979] text-white py-3 px-10 clip-chevron-right w-full shadow-md mb-2">
+               <h2 className="text-2xl font-black tracking-wider">VISIÓN</h2>
              </div>
-             <div className="px-12 py-6">
-               <p className="text-base text-slate-700 leading-relaxed text-justify">
+             <div className="bg-white border-l-4 border-[#006979] p-4 shadow-md rounded-r-lg">
+               <p className="text-[13px] text-slate-700 leading-relaxed text-justify">
                  Ser reconocidos como la empresa líder a nivel nacional en servicios de ingeniería, mantenimientos de plantas concentradoras del sector minero, fabricación montaje y mantenimiento de estructuras metal mecánicas, con altos estándares de seguridad, calidad y cumplimiento.
                </p>
              </div>
            </div>
+
            {/* Decorational Hex right */}
-           <div className="w-1/3 flex justify-center items-center relative pl-4">
-             <div className="w-[250px] h-[290px] clip-hexagon bg-[#006979] flex items-center justify-center">
-               <div className="w-[230px] h-[270px] clip-hexagon bg-slate-200 overflow-hidden">
-                  <img src={trabajosData[4]?.galleryImages[0] || portadaImg1} className="w-full h-full object-cover scale-110"/>
-               </div>
+           <div className="z-20 w-[270px] h-[300px] clip-hexagon bg-[#006979] flex items-center justify-center shadow-xl flex-shrink-0 -ml-4">
+             <div className="w-[250px] h-[280px] clip-hexagon bg-slate-200 overflow-hidden">
+                <img src={trabajosData[4]?.galleryImages[0] || portadaImg1} className="w-full h-full object-cover scale-110" alt="Visión"/>
              </div>
            </div>
         </div>
 
         {/* MISIÓN */}
-        <div className="relative mt-8 w-full flex flex-row-reverse items-center">
-           <div className="w-2/3 flex flex-col items-end">
-             <div className="bg-[#F28C28] text-white py-4 px-12 clip-chevron-left inline-block shadow-md">
-               <h2 className="text-4xl font-black">MISIÓN</h2>
+        <div className="relative w-full flex flex-row-reverse items-center justify-between px-8">
+           {/* Right Content (Banner + Box expanded to touch the hexagon) */}
+           <div className="flex-1 pl-2 z-10 text-right">
+             <div className="bg-[#F28C28] text-white py-3 px-10 clip-chevron-left w-full shadow-md mb-2 flex justify-end">
+               <h2 className="text-2xl font-black tracking-wider text-right">MISIÓN</h2>
              </div>
-             <div className="px-12 py-6 text-right">
-               <p className="text-base text-slate-700 leading-relaxed text-justify" style={{textAlignLast: 'right'}}>
+             <div className="bg-white border-r-4 border-[#F28C28] p-4 shadow-md rounded-l-lg text-right">
+               <p className="text-[13px] text-slate-700 leading-relaxed text-justify" style={{textAlignLast: 'right'}}>
                  Diseñar, fabricar y suministrar soluciones en infraestructura metal mecánica obteniendo la satisfacción de nuestros clientes, el desarrollo de nuestros colaboradores y el desarrollo social.
                </p>
              </div>
            </div>
+
            {/* Decorational Hex left */}
-           <div className="w-1/3 flex justify-center items-center relative pr-4">
-             <div className="w-[250px] h-[290px] clip-hexagon bg-[#F28C28] flex items-center justify-center">
-               <div className="w-[230px] h-[270px] clip-hexagon bg-slate-200 overflow-hidden">
-                  <img src={trabajosData[5]?.galleryImages[0] || portadaImg2} className="w-full h-full object-cover scale-110"/>
-               </div>
+           <div className="z-20 w-[270px] h-[300px] clip-hexagon bg-[#F28C28] flex items-center justify-center shadow-xl flex-shrink-0 -mr-4">
+             <div className="w-[250px] h-[280px] clip-hexagon bg-slate-200 overflow-hidden">
+                <img src={trabajosData[5]?.galleryImages[0] || portadaImg2} className="w-full h-full object-cover scale-110" alt="Misión"/>
              </div>
            </div>
         </div>
 
         {/* VALORES */}
-        <div className="relative mt-8">
-           <div className="bg-[#006979] text-white py-4 px-12 clip-chevron-right inline-block shadow-md">
-             <h2 className="text-4xl font-black">VALORES</h2>
+        <div className="relative w-full px-8 pb-2">
+           <div className="bg-[#006979] text-white py-2.5 px-10 clip-chevron-right inline-block shadow-md mb-2">
+             <h2 className="text-2xl font-black tracking-wider">VALORES</h2>
            </div>
-           <div className="px-16 py-6 text-center max-w-3xl mx-auto">
-             <p className="text-lg text-slate-700 leading-relaxed">
+           <div className="bg-white border-l-4 border-[#006979] p-4 shadow-md rounded-r-lg max-w-4xl">
+             <p className="text-[13px] text-slate-700 leading-relaxed">
                Fomentamos su motivación e implicación. Creemos en el sentido de la responsabilidad, en su afán de superación y en su orgullo profesional.
              </p>
            </div>
@@ -236,17 +236,18 @@ export default function BrochurePrintPage() {
       <section className="a4-page flex flex-col bg-[#F9FAFB] relative overflow-hidden">
         
         {/* Clientes Section */}
-        <div className="flex-1 py-12 px-16 relative z-10">
-           <div className="w-full bg-[#006979] text-white py-5 clip-chevron-right inline-block text-center shadow-md px-16 mb-16 max-w-xl mx-auto block">
+        <div className="flex-1 py-10 px-16 relative z-10 flex flex-col items-center justify-center">
+           <div className="w-full bg-[#006979] text-white py-4 clip-chevron-right inline-block text-center shadow-md px-16 mb-8 max-w-xl mx-auto block">
              <h2 className="text-3xl font-black uppercase tracking-widest">NUESTROS CLIENTES</h2>
            </div>
            
-           <div className="grid grid-cols-2 gap-y-10 gap-x-12 px-12 place-items-center">
-             {clientes.map(cliente => (
-               <div key={cliente} className="w-full bg-white border-t-8 border-[#F28C28] shadow-lg rounded-b-md flex items-center justify-center py-8 hover:-translate-y-1 transition-transform">
-                 <h3 className="text-3xl font-black text-[#006979] tracking-wider">{cliente}</h3>
-               </div>
-             ))}
+           <div className="w-full max-w-4xl bg-white rounded-3xl p-8 shadow-xl border border-slate-200 flex items-center justify-center">
+             {/* eslint-disable-next-line @next/next/no-img-element */}
+             <img 
+               src="/images/clientes.png" 
+               alt="Nuestros Clientes Mineros" 
+               className="w-full h-auto object-contain max-h-[440px]"
+             />
            </div>
         </div>
 

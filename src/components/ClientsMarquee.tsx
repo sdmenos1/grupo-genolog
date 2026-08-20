@@ -2,42 +2,29 @@
 
 import React from 'react';
 
-const clients = [
-  'Pan American Silver',
-  'Glencore',
-  'Volcan',
-  'Nexa Resources',
-  'Compañía de Minas Buenaventura',
-  'Austria Duvaz S.A.C.',
-  'El Brocal',
-  'E.A. Cerro S.A.C.',
-  'Kolpa',
-  'Compañía Minera Atacocha S.A.',
-  'Sierra Antapite',
-  'Milpo',
-  'Catalina Huanca Sociedad Minera S.A.C.',
-  'Gobierno Regional Pasco'
-];
-
 export default function ClientsMarquee() {
   return (
-    <section className="py-12 bg-slate-100 border-b border-slate-200 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-6">
-        <span className="text-brand-petroleum font-bold uppercase tracking-widest text-xs">Respaldo Comercial &amp; Experiencia Acreditada</span>
-        <h3 className="font-heading text-lg font-bold text-slate-700 mt-1">Clientes Destacados y Compañías Mineras</h3>
-      </div>
+    <section className="py-16 bg-slate-50 border-b border-slate-200 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span className="text-brand-petroleum font-extrabold uppercase tracking-widest text-xs bg-white px-4 py-1.5 rounded-full border border-slate-200 shadow-sm">
+          <span className="w-2 h-2 rounded-full bg-brand-gold inline-block mr-2"></span>
+          Respaldo Comercial &amp; Experiencia Acreditada
+        </span>
+        <h2 className="font-heading text-3xl sm:text-4xl font-black text-slate-900 mt-4 tracking-tight">
+          Nuestros Clientes
+        </h2>
+        <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mt-3 mb-10 leading-relaxed font-medium">
+          Confían en la calidad operativa y técnica de <strong className="text-slate-800">GRUPO GENOLG</strong> las empresas mineras e instituciones líderes del país.
+        </p>
 
-      {/* Infinite Horizontal Ticker */}
-      <div className="relative w-full overflow-hidden">
-        <div className="animate-marquee flex items-center gap-6 whitespace-nowrap">
-          {clients.concat(clients).map((client, idx) => (
-            <div 
-              key={idx} 
-              className="bg-slate-100 hover:bg-brand-steel border border-slate-200 hover:border-brand-gold/50 px-6 py-3 rounded-2xl text-xs font-bold text-slate-800 hover:text-brand-gold transition duration-300 flex items-center gap-3 shadow-md flex-shrink-0">
-              <i className="fa-solid fa-building-user text-brand-gold"></i>
-              <span>{client}</span>
-            </div>
-          ))}
+        {/* Imagen Oficial de Logos de Clientes */}
+        <div className="max-w-4xl mx-auto bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl shadow-slate-200/50 flex items-center justify-center transition-all hover:shadow-2xl">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img 
+            src="/images/clientes.png" 
+            alt="Nuestros Clientes - Empresas Mineras del Perú (Pan American Silver, Nexa, Glencore, Volcan, Milpo, Buenaventura, etc.)"
+            className="w-full h-auto max-h-[420px] object-contain drop-shadow-sm"
+          />
         </div>
       </div>
     </section>

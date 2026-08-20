@@ -423,6 +423,27 @@ export default function BrochureWebPage() {
         </section>
 
 
+        {/* SLIDE: NUESTROS CLIENTES */}
+        <section className="bg-slate-50/90 rounded-3xl border border-slate-200 p-8 sm:p-10 space-y-6 print:border-gray-300 print:bg-white print:text-black">
+          <div className="border-b border-slate-200 pb-4 text-center sm:text-left">
+            <span className="text-brand-petroleum text-xs font-bold uppercase tracking-wider">05. Respaldo Comercial</span>
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 font-heading mt-1 print:text-black">Nuestros Clientes</h2>
+            <p className="text-xs sm:text-sm text-slate-700 mt-2">
+              Empresas mineras líderes e instituciones que confían en las operaciones de GRUPO GENOLG.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm flex items-center justify-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="/images/clientes.png" 
+              alt="Nuestros Clientes Mineros" 
+              className="w-full h-auto max-h-[380px] object-contain"
+            />
+          </div>
+        </section>
+
+
         {/* SLIDE FINAL: INFORMACIÓN FISCAL & COTIZACIÓN B2B */}
         <section className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 space-y-8 shadow-sm print:bg-gray-50 print:border-gray-300 print:text-black">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
