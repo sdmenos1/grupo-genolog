@@ -81,27 +81,67 @@ export default function ContactSection({ onShowToast }: ContactSectionProps) {
 
 
   const handleSubmit = (e: React.FormEvent) => {
-
     e.preventDefault();
 
-    onShowToast('Requerimiento Recibido', 'Un ingeniero de proyectos se pondrá en contacto en menos de 24 horas.');
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
 
-    (e.target as HTMLFormElement).reset();
+    const nombre   = data.get('name')    as string;
+    const empresa  = data.get('company') as string;
+    const ruc      = data.get('ruc')     as string;
+    const email    = data.get('email')   as string;
+    const telefono = data.get('phone')   as string;
+    const servicio = data.get('service') as string;
+    const detalle  = data.get('details') as string;
+    const adjunto  = fileName !== 'Adjuntar TDR / Especificación (PDF/Zip)' ? fileName : 'Sin adjunto';
 
+    const mensaje = [
+      '📋 *SOLICITUD DE COTIZACIÓN — GRUPO GENOLG*',
+      '─────────────────────────────',
+      `👤 *Nombre:* ${nombre}`,
+      `🏢 *Empresa:* ${empresa}`,
+      `🔢 *RUC:* ${ruc}`,
+      `📧 *Email:* ${email}`,
+      `📞 *Teléfono:* ${telefono}`,
+      `⚙️ *Servicio:* ${servicio}`,
+      '─────────────────────────────',
+      `📝 *Detalle:*\n${detalle}`,
+      `📎 *Adjunto:* ${adjunto}`,
+      '─────────────────────────────',
+      '_Mensaje generado desde grupogenolg.com_',
+    ].join('\n');
+
+    const url = `https://wa.me/51902967134?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+
+    onShowToast('Requerimiento Recibido', 'Se abrirá WhatsApp para confirmar el envío a la Gerencia Comercial.');
+    form.reset();
     setFileName('Adjuntar TDR / Especificación (PDF/Zip)');
-
   };
 
-
-
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
 
-    if (e.target.files && e.target.files[0]) {
+    const allowedTypes = [
+      'application/pdf',
+      'application/zip',
+      'application/x-zip-compressed',
+      'application/octet-stream',
+    ];
+    const maxSizeBytes = 10 * 1024 * 1024; // 10 MB
 
-      setFileName(e.target.files[0].name);
-
+    if (!allowedTypes.includes(file.type) && !file.name.match(/\.(pdf|zip)$/i)) {
+      onShowToast('Archivo no permitido', 'Solo se aceptan archivos PDF o ZIP.');
+      e.target.value = '';
+      return;
     }
-
+    if (file.size > maxSizeBytes) {
+      onShowToast('Archivo muy grande', 'El archivo no puede superar los 10 MB.');
+      e.target.value = '';
+      return;
+    }
+    setFileName(file.name);
   };
 
 
@@ -232,7 +272,7 @@ export default function ContactSection({ onShowToast }: ContactSectionProps) {
 
                     <span>{fileName}</span>
 
-                    <input id="attachment" name="attachment" type="file" className="hidden" onChange={handleFileChange} />
+                    <input id="attachment" name="attachment" type="file" accept=".pdf,.zip" className="hidden" onChange={handleFileChange} />
 
                   </label>
 
@@ -270,7 +310,7 @@ export default function ContactSection({ onShowToast }: ContactSectionProps) {
 
                 <div className="flex items-start gap-3.5">
 
-                  <div className="w-10 h-10 rounded-xl bg-brand-petroleum text-brand-gold border border-brand-darkPetroleum flex items-center justify-center text-lg font-bold flex-shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-brand-petroleum border border-blue-200 flex items-center justify-center text-lg font-bold flex-shrink-0">
 
                     <i className="fa-solid fa-location-dot"></i>
 
@@ -290,7 +330,7 @@ export default function ContactSection({ onShowToast }: ContactSectionProps) {
 
                 <div className="flex items-start gap-3.5">
 
-                  <div className="w-10 h-10 rounded-xl bg-brand-petroleum text-brand-gold border border-brand-darkPetroleum flex items-center justify-center text-lg font-bold flex-shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-brand-petroleum border border-blue-200 flex items-center justify-center text-lg font-bold flex-shrink-0">
 
                     <i className="fa-solid fa-industry"></i>
 
@@ -310,7 +350,7 @@ export default function ContactSection({ onShowToast }: ContactSectionProps) {
 
                 <div className="flex items-start gap-3.5">
 
-                  <div className="w-10 h-10 rounded-xl bg-brand-petroleum text-brand-gold border border-brand-darkPetroleum flex items-center justify-center text-lg font-bold flex-shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-brand-petroleum border border-blue-200 flex items-center justify-center text-lg font-bold flex-shrink-0">
 
                     <i className="fa-solid fa-envelope"></i>
 
@@ -330,7 +370,7 @@ export default function ContactSection({ onShowToast }: ContactSectionProps) {
 
                 <div className="flex items-start gap-3.5">
 
-                  <div className="w-10 h-10 rounded-xl bg-brand-petroleum text-brand-gold border border-brand-darkPetroleum flex items-center justify-center text-lg font-bold flex-shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-brand-petroleum border border-blue-200 flex items-center justify-center text-lg font-bold flex-shrink-0">
 
                     <i className="fa-solid fa-phone"></i>
 

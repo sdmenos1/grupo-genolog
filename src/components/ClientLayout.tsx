@@ -9,6 +9,7 @@ import Footer from '@/components/Footer';
 import Modals from '@/components/Modals';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
 import PageTransition from '@/components/PageTransition';
+import ScrollReveal from '@/components/ScrollReveal';
 
 function ClientLayoutContent({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -28,9 +29,9 @@ function ClientLayoutContent({ children }: { children: React.ReactNode }) {
     openPolicyModal
   } = useModals();
 
-  const isBrochure = pathname === '/brochure' || pathname === '/brochure-print';
+  const isBrochurePrint = pathname === '/brochure-print';
 
-  if (isBrochure) {
+  if (isBrochurePrint) {
     return <PageTransition>{children}</PageTransition>;
   }
 
@@ -42,6 +43,8 @@ function ClientLayoutContent({ children }: { children: React.ReactNode }) {
       <main className="flex-grow">
         <PageTransition>{children}</PageTransition>
       </main>
+
+      <ScrollReveal />
 
       <Footer onOpenPolicyModal={openPolicyModal} />
 

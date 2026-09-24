@@ -1,0 +1,78 @@
+.page {
+  --page-navy: #102235;
+  --page-blue: #005bb5;
+  --page-yellow: #ffc107;
+  background: #f4f6f8;
+  color: var(--page-navy);
+}
+.hero { position: relative; isolation: isolate; overflow: hidden; color: white; background: var(--page-navy); }
+.background { object-fit: cover; z-index: -2; }
+.overlay { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(16,34,53,.97) 0%, rgba(16,34,53,.86) 40%, rgba(16,34,53,.38) 100%); }
+.heroInner { max-width: 1280px; margin: auto; padding: 28px 32px 64px; }
+.breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 40px; font-size: 12px; color: #c5d2df; }
+.breadcrumb a { color: white; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb > span:first-of-type { color: var(--page-yellow); }
+.eyebrow { display: flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; color: #e1e9f2; }
+.eyebrow > span { height: 2px; width: 30px; flex-shrink: 0; background: var(--page-yellow); }
+.hero h1 { max-width: 880px; margin-top: 20px; font-family: var(--font-heading), sans-serif; font-size: clamp(36px, 4.3vw, 58px); line-height: 1.12; letter-spacing: -.035em; font-weight: 700; }
+.hero h1 > span { color: var(--page-yellow); }
+.description { max-width: 620px; margin-top: 24px; font-size: 16px; line-height: 1.8; color: #e1e9f2; }
+.heroButton { display: inline-flex; justify-content: center; align-items: center; gap: 24px; min-height: 48px; margin-top: 28px; padding: 13px 22px; border-radius: 6px; background: var(--page-yellow); color: var(--page-navy); font-size: 13px; font-weight: 700; transition: background .2s; }
+.heroButton:hover { background: #ffda63; }
+.hero :where(a, button):focus-visible { outline: 3px solid white; outline-offset: 5px; }
+.signature { padding: 16px max(32px, calc((100vw - 1216px) / 2)); display: flex; flex-wrap: wrap; gap: 12px; border-top: 1px solid #ffffff26; background: #10223555; color: #d0dce8; font-size: 10px; letter-spacing: .14em; font-weight: 600; }
+.signature span { color: var(--page-yellow); }
+.content section[id], .content > div[id] { scroll-margin-top: 140px; }
+.content { overflow: clip; }
+.content > section, .content > div > section { padding-top: 64px; padding-bottom: 64px; }
+.content h2 { font-weight: 700; letter-spacing: -.035em; font-size: clamp(28px, 3vw, 40px); line-height: 1.2; }
+.content h3 { letter-spacing: -.02em; }
+.content p { font-size: 15px; line-height: 1.8; }
+.content :is(input, select, textarea) { font-size: 16px; border-color: #cbd5e1; border-radius: 8px; }
+.content label { font-size: 13px; }
+.content :where(a, button, input, textarea, select):focus-visible { outline: 3px solid var(--page-blue); outline-offset: 4px; }
+.content :global(.bg-slate-200), .content :global(.bg-slate-100) { background-color: #f0f4f8; }
+.content :global(.bg-slate-50) { background-color: #f8fafc; }
+.content :global(.bg-brand-petroleum) { background-color: var(--page-navy); }
+.content :global(.text-brand-petroleum), .content :global(.text-brand-gold) { color: var(--page-blue); }
+.content :global(.border-brand-gold\/30), .content :global(.border-brand-gold\/40) { border-color: #d6e1ed; }
+.content :global(.bg-brand-gold\/10), .content :global(.bg-brand-petroleum\/10) { background-color: #eaf2fb; }
+.content :global(.bg-brand-petroleum\/30),
+.content :global(.bg-brand-petroleum\/40),
+.content :global(.bg-slate-200) { background-color: #eff6ff; }
+.content :global(.rounded-3xl) { border-radius: 14px; }
+.content :global(.rounded-2xl) { border-radius: 10px; }
+.content :global(.shadow-xl), .content :global(.shadow-2xl), .content :global(.shadow-lg) { box-shadow: 0 8px 24px -16px #10223538; }
+.content :global(.glass-panel), .content :global(.glass-card) { background: white; backdrop-filter: none; }
+/* Yellow remains a high-contrast accent on dark surfaces and photographs. */
+.content :global(.bg-brand-petroleum.text-brand-gold),
+.content :global(.bg-brand-petroleum) :global(.text-brand-gold),
+.content :global(.from-slate-900\/90) :global(.text-brand-gold) { color: var(--page-yellow); }
+.content :is(button, a):global(.bg-brand-petroleum) { background-color: var(--page-blue); color: white; min-height: 44px; }
+.content :is(button, a):global(.bg-brand-petroleum):hover { background-color: #004385; }
+.content :global(.hover\:bg-brand-petroleum):hover { background-color: var(--page-navy); }
+.content :global(.group):hover :global(.group-hover\:text-white) { color: white; }
+.content :global(.group):hover :global(.group-hover\:text-brand-gold) { color: var(--page-yellow); }
+@media (max-width: 640px) {
+  .heroInner { padding: 22px 24px 38px; }
+  .breadcrumb { margin-bottom: 30px; }
+  .hero h1 { font-size: clamp(32px, 8.8vw, 40px); }
+  .description { font-size: 15px; line-height: 1.75; margin-top: 20px; }
+  .heroButton { margin-top: 24px; }
+  .signature { padding: 14px 24px; font-size: 9px; gap: 8px; }
+  .overlay { background: linear-gradient(90deg, #102235f2, #102235b8); }
+  .content > section, .content > div > section { padding-top: 44px; padding-bottom: 44px; }
+  .content p { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page *, .page *::before, .page *::after { transition: none !important; animation: none !important; }
+}
+@media print {
+  .hero { background: white; color: #102235; }
+  .heroInner { padding: 24px; }
+  .hero h1, .hero h1 > span, .eyebrow, .description { color: #102235; }
+  .hero h1 { font-size: 32px; }
+  .background, .overlay, .breadcrumb, .heroButton, .signature { display: none; }
+  .content { overflow: visible; }
+}

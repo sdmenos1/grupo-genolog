@@ -198,8 +198,8 @@ export default function AboutUs() {
             {squadData.map((squad, idx) => (
               <div 
                 key={idx} 
-                className="gsap-squad bg-slate-100 p-5 rounded-2xl border border-slate-200 text-center hover:border-brand-gold/50 transition duration-300">
-                <div className="w-12 h-12 mx-auto rounded-xl bg-brand-petroleum/40 text-brand-petroleum flex items-center justify-center text-xl font-bold mb-3">
+                className="gsap-squad bg-white p-5 rounded-2xl border border-slate-200 text-center hover:border-brand-petroleum/40 hover:shadow-md transition duration-300">
+                <div className="w-12 h-12 mx-auto rounded-xl bg-blue-50 border border-blue-200 text-brand-petroleum flex items-center justify-center text-xl font-bold mb-3 shadow-sm">
                   <i className={`fa-solid ${squad.icon}`}></i>
                 </div>
                 <h4 className="font-bold text-sm text-slate-900">{squad.title}</h4>
@@ -224,13 +224,13 @@ export default function AboutUs() {
                 href={`/documentos/pdfs/${policy.file}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-slate-50 border border-slate-200 p-5 rounded-2xl hover:bg-brand-petroleum hover:border-brand-petroleum transition duration-300 flex flex-col items-center text-center"
+                className="group bg-white border border-slate-200 p-5 rounded-2xl hover:bg-blue-50 hover:border-brand-petroleum/40 transition duration-300 flex flex-col items-center text-center"
               >
-                <div className="w-12 h-12 rounded-full bg-slate-200 text-slate-500 group-hover:bg-white/20 group-hover:text-brand-gold flex items-center justify-center text-xl transition duration-300 mb-3">
+                <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-200 text-brand-petroleum group-hover:bg-white flex items-center justify-center text-xl transition duration-300 mb-3 shadow-sm">
                   <i className={`fa-solid ${policy.icon}`}></i>
                 </div>
-                <h4 className="font-bold text-sm text-slate-900 group-hover:text-white transition duration-300">{policy.title}</h4>
-                <span className="mt-auto pt-3 text-[10px] uppercase font-bold text-slate-500 group-hover:text-brand-gold flex items-center gap-1 transition duration-300">
+                <h4 className="font-bold text-sm text-slate-900 group-hover:text-brand-petroleum transition duration-300">{policy.title}</h4>
+                <span className="mt-auto pt-3 text-[10px] uppercase font-bold text-brand-petroleum flex items-center gap-1 transition duration-300">
                   <i className="fa-solid fa-download"></i> Descargar PDF
                 </span>
               </a>

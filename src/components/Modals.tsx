@@ -39,8 +39,34 @@ export default function Modals({
 
   const handleModalQuoteSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+
+    const nombre   = data.get('modal-name')    as string;
+    const empresa  = data.get('modal-company') as string;
+    const telefono = data.get('modal-phone')   as string;
+    const servicio = data.get('modal-service') as string;
+    const detalle  = data.get('modal-details') as string;
+
+    const mensaje = [
+      '📋 *SOLICITUD DE COTIZACIÓN — GRUPO GENOLG*',
+      '─────────────────────────────',
+      `👤 *Nombre:* ${nombre}`,
+      `🏢 *Empresa / RUC:* ${empresa}`,
+      `📞 *Teléfono:* ${telefono}`,
+      `⚙️ *Servicio:* ${servicio}`,
+      '─────────────────────────────',
+      `📝 *Detalle:*\n${detalle}`,
+      '─────────────────────────────',
+      '_Mensaje generado desde grupogenolg.com_',
+    ].join('\n');
+
+    const url = `https://wa.me/51902967134?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+
     onCloseQuoteModal();
-    onShowToast('Solicitud Enviada', 'Su requerimiento fue derivado a la gerencia comercial.');
+    onShowToast('Solicitud Enviada', 'Se abrirá WhatsApp para confirmar el envío a la Gerencia Comercial.');
   };
 
   const handleSimulateDownload = () => {
@@ -152,7 +178,7 @@ export default function Modals({
               <i className="fa-solid fa-xmark"></i>
             </button>
             
-            <div className="w-16 h-16 mx-auto rounded-full bg-brand-petroleum/40 border border-brand-gold/30 text-brand-gold flex items-center justify-center text-3xl font-bold mb-4 shadow-glow-petroleum">
+            <div className="w-16 h-16 mx-auto rounded-2xl bg-blue-50 border border-blue-200 text-brand-petroleum flex items-center justify-center text-3xl font-bold mb-4 shadow-sm">
               <i className="fa-solid fa-file-circle-check"></i>
             </div>
             
@@ -189,7 +215,7 @@ export default function Modals({
 
             <button 
               onClick={onClosePolicyModal} 
-              className="mt-6 w-full bg-brand-steel hover:bg-slate-100 text-white hover:text-slate-900 border border-white/10 font-bold text-xs py-3 rounded-xl transition">
+              className="mt-6 w-full bg-white hover:bg-blue-50 text-brand-petroleum border border-blue-200 font-bold text-xs py-3 rounded-xl transition">
               Cerrar
             </button>
           </div>

@@ -142,7 +142,7 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
           <button 
             onClick={handlePrev}
             aria-label="Servicio Anterior"
-            className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 text-slate-700 hover:text-brand-gold hover:border-brand-gold/60 flex items-center justify-center transition-all duration-300 shadow-lg hover:scale-105 active:scale-95">
+            className="w-12 h-12 rounded-xl bg-white border border-blue-200 text-brand-petroleum hover:bg-blue-50 hover:border-brand-petroleum/40 flex items-center justify-center transition-all duration-300 shadow-sm hover:scale-105 active:scale-95">
             <i className="fa-solid fa-arrow-left text-base"></i>
           </button>
 
@@ -153,7 +153,7 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
           <button 
             onClick={handleNext}
             aria-label="Siguiente Servicio"
-            className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 text-slate-700 hover:text-brand-gold hover:border-brand-gold/60 flex items-center justify-center transition-all duration-300 shadow-lg hover:scale-105 active:scale-95">
+            className="w-12 h-12 rounded-xl bg-white border border-blue-200 text-brand-petroleum hover:bg-blue-50 hover:border-brand-petroleum/40 flex items-center justify-center transition-all duration-300 shadow-sm hover:scale-105 active:scale-95">
             <i className="fa-solid fa-arrow-right text-base"></i>
           </button>
         </div>
@@ -168,7 +168,7 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
             className={`text-xs font-bold px-4 py-2.5 rounded-xl transition-all duration-300 border ${
               currentSlide === idx
                 ? 'bg-brand-petroleum text-white border-brand-gold/50 shadow-md font-extrabold'
-                : 'bg-slate-50/80 text-slate-600 hover:text-white border-slate-200'
+                : 'bg-slate-50/80 text-slate-600 hover:text-brand-petroleum hover:bg-blue-50 border-slate-200'
             }`}>
             {item.catShort}
           </button>
@@ -246,7 +246,7 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
             onClick={() => setCurrentSlide(idx)}
             aria-label={`Ir al servicio ${idx + 1}`}
             className={`h-2.5 rounded-full transition-all duration-300 ${
-              currentSlide === idx ? 'w-8 bg-brand-gold' : 'w-2.5 bg-slate-100 hover:bg-slate-700'
+              currentSlide === idx ? 'w-8 bg-brand-petroleum' : 'w-2.5 bg-slate-200 hover:bg-blue-300'
             }`}
           />
         ))}
@@ -256,7 +256,7 @@ export default function HorizontalServicesCarousel({ onOpenQuoteModal }: Horizon
       <div className="mt-16 pt-12 border-t border-slate-200">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="gsap-service-header text-brand-gold font-bold uppercase tracking-wider text-xs">Catálogo Detallado de Trabajos</span>
-          <h3 className="gsap-service-header font-heading text-2xl font-bold text-white mt-1">10 Soluciones Especializadas</h3>
+          <h3 className="gsap-service-header font-heading text-2xl font-bold text-slate-900 mt-1">10 Soluciones Especializadas</h3>
         </div>
 
         <div className="gsap-solutions-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">

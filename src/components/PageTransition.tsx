@@ -9,6 +9,8 @@ export default function PageTransition({ children }: { children: React.ReactNode
   const transitionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     if (transitionRef.current) {
       // Elegante animación GSAP al cambiar de ruta (Solo Fade-in para evitar saltos en layout)
       gsap.fromTo(

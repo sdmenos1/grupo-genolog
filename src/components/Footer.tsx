@@ -2,14 +2,14 @@
 
 import React from 'react';
 import Link from 'next/link';
-
+import Image from 'next/image';
 interface FooterProps {
   onOpenPolicyModal: (policyType: string) => void;
 }
 
 export default function Footer({ onOpenPolicyModal }: FooterProps) {
   return (
-    <footer className="bg-slate-100 text-slate-600 text-xs border-t border-slate-200">
+    <footer className="print:hidden bg-slate-100 text-slate-600 text-xs border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           
@@ -17,10 +17,11 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <div className="bg-white px-4 py-2 rounded-xl border-2 border-brand-gold shadow-md inline-block">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="/images/corporativo/logo.png"
                   alt="GRUPO GENOLG MINERÍA & CONSTRUCCIÓN"
+                  width={200}
+                  height={56}
                   className="h-12 sm:h-14 w-auto object-contain"
                 />
               </div>
@@ -53,7 +54,7 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
               <li><Link href="/servicios" className="hover:text-brand-gold transition">Servicios de Ingeniería</Link></li>
               <li><Link href="/acreditaciones" className="hover:text-brand-gold transition">Acreditaciones &amp; MINEM</Link></li>
               <li><Link href="/proyectos" className="hover:text-brand-gold transition">Clientes &amp; Proyectos</Link></li>
-              <li><Link href="/descargas" className="hover:text-brand-gold transition">Centro de Descargas B2B</Link></li>
+              <li><Link href="/brochure" className="hover:text-brand-gold transition">Brochure Web & PDF</Link></li>
               <li><Link href="/contacto" className="hover:text-brand-gold transition">Contacto &amp; Sedes</Link></li>
             </ul>
           </div>
@@ -109,7 +110,7 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
             <span>RUC: 20608261894</span>
             <span className="bg-slate-800 text-white px-3 py-1.5 rounded-full text-[10px] font-bold border border-slate-700 shadow-sm tracking-wider">MINEM R.D. 0288-2021</span>
             {/* Bureau Veritas Image Logo */}
-            <img src="/images/bureau-veritas.png" alt="Bureau Veritas Empresa Homologada" className="h-8 w-auto object-contain rounded shadow-sm" />
+            <Image src="/images/bureau-veritas.png" alt="Bureau Veritas Empresa Homologada" width={80} height={32} className="h-8 w-auto object-contain rounded shadow-sm" />
           </div>
         </div>
 

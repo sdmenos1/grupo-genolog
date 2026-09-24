@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 
 export interface TrabajoRealizado {
   id: string;
@@ -339,11 +340,12 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                 <div 
                   onClick={() => openTrabajoModal(trabajo)}
                   className="relative h-48 w-full rounded-2xl overflow-hidden mb-5 border border-slate-200/80 cursor-pointer group/img bg-white">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={trabajo.galleryImages[0]}
                     alt={trabajo.title}
-                    className="w-full h-full object-cover object-center group-hover/img:scale-110 transition-transform duration-500"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-center group-hover/img:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/20 opacity-80 group-hover/img:opacity-60 transition-opacity"></div>
                   
@@ -413,11 +415,12 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                 {/* Interactive Multi-Photo Gallery Viewer */}
                 <div className="space-y-4">
                   <div className="h-64 sm:h-96 w-full rounded-2xl overflow-hidden border border-slate-200 relative bg-slate-100 flex items-center justify-center group/modalimg shadow-inner">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={selectedTrabajo.galleryImages[activeImgIndex]}
                       alt={`${selectedTrabajo.title} foto ${activeImgIndex + 1}`}
-                      className="w-full h-full object-cover transition-all duration-300 drop-shadow-sm"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-all duration-300 drop-shadow-sm"
                     />
 
                     {/* Navigation Arrows (if > 1 image) */}
@@ -458,11 +461,12 @@ export default function TrabajosRealizados({ onOpenQuoteModal }: TrabajosRealiza
                               ? 'border-brand-gold scale-105 shadow-glow-gold'
                               : 'border-slate-200 opacity-60 hover:opacity-100 hover:border-slate-400'
                           }`}>
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
+                          <Image
                             src={imgUrl}
                             alt={`Miniatura ${idx + 1}`}
-                            className="w-full h-full object-cover"
+                            fill
+                            sizes="120px"
+                            className="object-cover"
                           />
                           <div className="absolute bottom-1 right-1 text-[9px] font-black text-white bg-black/80 px-1.5 rounded">
                             #{idx + 1}

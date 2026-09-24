@@ -39,7 +39,7 @@ export default function TopBar() {
   const currentItem = topBarTickerItems[currentIdx];
 
   return (
-    <div className="bg-brand-petroleum border-b border-brand-darkPetroleum text-xs py-2 px-4 sm:px-8 text-white relative z-50 overflow-hidden">
+    <div className="print:hidden bg-brand-petroleum border-b border-brand-darkPetroleum text-xs py-2 px-4 sm:px-8 text-white relative z-50 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-3">
         
         {/* Left: Executive Passing Ticker Animation */}

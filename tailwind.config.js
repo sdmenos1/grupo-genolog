@@ -15,8 +15,8 @@ module.exports = {
           goldHover: '#FFA000',       // Amarillo Oscuro Hover
           amber: '#FF8F00',           // Naranja/Ambar Industrial
           white: '#FFFFFF',           // Blanco Puro
-          petroleum: '#005BB5',       // Azul Corporativo Vibrante
-          darkPetroleum: '#004385',   // Azul Corporativo Oscuro
+          petroleum: '#0f172a',       // Azul Oscuro (Fondo Hero)
+          darkPetroleum: '#020617',   // Azul Oscuro Profundo
           deepObsidian: '#0A0E14',    // Gris Oscuro Antracita (Mantenido para overlays)
           titanium: '#121824',        // Superficie de Tarjetas (Mantenido para legacy)
           steel: '#E2E8F0',           // Bordes de Acero Claras

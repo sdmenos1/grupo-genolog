@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 interface HeaderProps {
   onOpenQuoteModal: (serviceName?: string) => void;
@@ -32,14 +33,14 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <header className={`sticky top-0 z-40 transition-all duration-300 ${
+    <header className={`print:hidden sticky top-0 z-40 transition-all duration-300 ${
       scrolled 
         ? 'bg-white/95 backdrop-blur-2xl border-b border-slate-200 shadow-lg shadow-black/5 py-2' 
         : 'bg-white/90 backdrop-blur-xl border-b border-slate-100 py-3'
     }`}>
       {/* Reading Progress Bar */}
       <div 
-        className="h-1 bg-gradient-to-r from-brand-petroleum via-brand-gold to-brand-copper"
+        className="h-1 bg-gradient-to-r from-brand-petroleum via-brand-gold to-brand-amber"
         style={{ width: `${scrollProgress}%` }}
       />
 
@@ -49,10 +50,12 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
           {/* LEFT: Executive Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center group py-1">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/images/corporativo/logo.png"
                 alt="GRUPO GENOLG MINERÍA & CONSTRUCCIÓN Logo"
+                width={300}
+                height={112}
+                priority
                 className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_10px_rgba(255,255,255,0.1)]"
               />
             </Link>
@@ -132,10 +135,10 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
               </Link>
 
               <Link 
-                href="/descargas" 
-                className={`py-2 px-1 relative group transition-colors text-center ${isActive('/descargas') ? 'text-brand-petroleum font-extrabold' : 'hover:text-brand-petroleum'}`}>
-                <span>Descargas B2B</span>
-                <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-petroleum transition-all duration-300 ${isActive('/descargas') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                href="/brochure"
+                className={`py-2 px-1 relative group transition-colors text-center ${isActive('/brochure') ? 'text-brand-petroleum font-extrabold' : 'hover:text-brand-petroleum'}`}>
+                <span>Brochure</span>
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-petroleum transition-all duration-300 ${isActive('/brochure') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
               </Link>
 
               <Link 
@@ -150,11 +153,11 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
           {/* RIGHT: Certificates */}
           <div className="hidden sm:flex items-center gap-2">
             {/* Bureau Veritas Image Logo */}
-            <img src="/images/bureau-veritas.png" alt="Bureau Veritas Empresa Homologada" className="h-10 w-auto object-contain rounded shadow-sm" />
+            <Image src="/images/bureau-veritas.png" alt="Bureau Veritas Empresa Homologada" width={100} height={40} className="h-10 w-auto object-contain rounded shadow-sm" />
 
             <button
               onClick={() => onOpenQuoteModal()}
-              className="hidden xl:flex bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum hover:from-brand-gold hover:to-brand-copper text-white font-extrabold text-[11px] px-3.5 py-2 rounded-lg border border-brand-gold/40 shadow-md transition duration-300 items-center gap-2 transform hover:scale-105">
+              className="hidden xl:flex bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum hover:from-brand-gold hover:to-brand-amber text-white hover:text-brand-petroleum font-extrabold text-[11px] px-3.5 py-2 rounded-lg border border-brand-gold/40 shadow-md transition duration-300 items-center gap-2 transform hover:scale-105">
               <i className="fa-solid fa-calculator"></i>
               <span>Cotizar</span>
             </button>
@@ -180,10 +183,10 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
           <Link href="/servicios" onClick={() => setMobileMenuOpen(false)} className="block text-slate-800 hover:text-brand-gold py-1">Servicios de Ingeniería</Link>
           <Link href="/acreditaciones" onClick={() => setMobileMenuOpen(false)} className="block text-slate-800 hover:text-brand-gold py-1">Acreditaciones Bureau Veritas &amp; MINEM</Link>
           <Link href="/proyectos" onClick={() => setMobileMenuOpen(false)} className="block text-slate-800 hover:text-brand-gold py-1">Clientes Destacados &amp; Proyectos</Link>
-          <Link href="/descargas" onClick={() => setMobileMenuOpen(false)} className="block text-slate-800 hover:text-brand-gold py-1">Centro de Descargas Técnicas</Link>
+          <Link href="/brochure" onClick={() => setMobileMenuOpen(false)} className="block text-slate-800 hover:text-brand-gold py-1">Brochure Web & PDF</Link>
           <Link href="/contacto" onClick={() => setMobileMenuOpen(false)} className="block text-slate-800 hover:text-brand-gold py-1">Contacto &amp; Sedes</Link>
           <div className="pt-4 space-y-3">
-            <a href="https://wa.me/51902967134" target="_blank" rel="noopener noreferrer" className="w-full bg-brand-steel text-brand-gold border border-brand-gold/30 py-3 rounded-xl font-bold flex items-center justify-center gap-2">
+            <a href="https://wa.me/51902967134" target="_blank" rel="noopener noreferrer" className="w-full bg-blue-50 text-brand-petroleum border border-blue-200 py-3 rounded-xl font-bold flex items-center justify-center gap-2">
               <i className="fa-brands fa-whatsapp text-lg"></i> Contacto Directo (+51 902 967 134)
             </a>
             <button 

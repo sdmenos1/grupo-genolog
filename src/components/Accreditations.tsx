@@ -101,7 +101,7 @@ export default function Accreditations({ onOpenDownloadModal }: AccreditationsPr
             </div>
 
             <div className="flex items-start gap-5">
-              <div className="w-16 h-16 rounded-2xl bg-brand-petroleum/30 border border-brand-petroleum/60 text-brand-gold flex items-center justify-center text-3xl font-bold flex-shrink-0 shadow-lg group-hover:scale-110 transition duration-300">
+              <div className="w-16 h-16 rounded-2xl bg-blue-50 border border-blue-200 text-brand-petroleum flex items-center justify-center text-3xl font-bold flex-shrink-0 shadow-sm group-hover:scale-105 transition duration-300">
                 <i className="fa-solid fa-file-contract"></i>
               </div>
               <div className="space-y-2">
@@ -143,7 +143,7 @@ export default function Accreditations({ onOpenDownloadModal }: AccreditationsPr
             </div>
 
             <div className="flex items-start gap-5">
-              <div className="w-16 h-16 rounded-2xl bg-brand-gold/15 border border-brand-gold/40 text-brand-gold flex items-center justify-center text-3xl font-bold flex-shrink-0 shadow-lg group-hover:scale-110 transition duration-300">
+              <div className="w-16 h-16 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center text-3xl font-bold flex-shrink-0 shadow-sm group-hover:scale-105 transition duration-300">
                 <i className="fa-solid fa-shield-halved"></i>
               </div>
               <div className="w-full space-y-1">
@@ -200,7 +200,7 @@ export default function Accreditations({ onOpenDownloadModal }: AccreditationsPr
             <div className="mt-8 pt-4 border-t border-slate-200 flex items-center justify-between">
               <button 
                 onClick={() => onOpenDownloadModal('bv')} 
-                className="inline-flex items-center gap-2 text-xs font-bold text-brand-gold hover:text-white transition duration-300 group-hover:translate-x-1">
+                className="inline-flex items-center gap-2 text-xs font-bold text-brand-petroleum hover:text-brand-darkPetroleum transition duration-300 group-hover:translate-x-1">
                 <i className="fa-solid fa-download"></i>
                 <span>Descargar Homologación BV (PDF)</span>
               </button>

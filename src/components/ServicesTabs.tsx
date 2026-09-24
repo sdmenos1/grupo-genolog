@@ -149,7 +149,7 @@ export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
               {/* Smooth Progress Indicator Bar */}
               <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden border border-slate-200">
                 <div 
-                  className="bg-gradient-to-r from-brand-petroleum via-brand-gold to-brand-copper h-2 rounded-full transition-all duration-500 ease-out"
+                  className="bg-gradient-to-r from-brand-petroleum via-brand-gold to-brand-amber h-2 rounded-full transition-all duration-500 ease-out"
                   style={{ width: `${((activeIdx + 1) / serviceCardsData.length) * 100}%` }}
                 />
               </div>
@@ -175,7 +175,7 @@ export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
             <div className="pt-2">
               <button 
                 onClick={() => onOpenQuoteModal(serviceCardsData[activeIdx].serviceName)} 
-                className="w-full inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum hover:from-brand-gold hover:to-brand-copper text-white font-extrabold text-xs px-7 py-4 rounded-2xl border border-brand-gold/30 shadow-lg transition duration-300 hover:scale-[1.02]">
+                className="w-full inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-petroleum to-brand-darkPetroleum hover:from-brand-gold hover:to-brand-amber text-white hover:text-brand-petroleum font-extrabold text-xs px-7 py-4 rounded-2xl border border-brand-gold/30 shadow-lg transition duration-300 hover:scale-[1.02]">
                 <i className="fa-solid fa-calculator"></i>
                 <span>Cotizar {serviceCardsData[activeIdx].category}</span>
               </button>
@@ -199,13 +199,13 @@ export default function ServicesTabs({ onOpenQuoteModal }: ServicesTabsProps) {
                 <button
                   onClick={handlePrev}
                   title="Anterior Especialidad"
-                  className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 hover:text-brand-gold hover:border-brand-gold/50 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-md">
+                  className="w-9 h-9 rounded-xl bg-blue-50 border border-blue-200 text-brand-petroleum hover:bg-blue-100 hover:border-brand-petroleum/40 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm">
                   <i className="fa-solid fa-chevron-left text-xs"></i>
                 </button>
                 <button
                   onClick={handleNext}
                   title="Siguiente Especialidad"
-                  className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 hover:text-brand-gold hover:border-brand-gold/50 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-md">
+                  className="w-9 h-9 rounded-xl bg-blue-50 border border-blue-200 text-brand-petroleum hover:bg-blue-100 hover:border-brand-petroleum/40 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm">
                   <i className="fa-solid fa-chevron-right text-xs"></i>
                 </button>
               </div>
