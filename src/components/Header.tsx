@@ -51,10 +51,10 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center group py-1">
               <Image
-                src="/images/corporativo/logo.png"
+                src="/icon.png"
                 alt="GRUPO GENOLG MINERÍA & CONSTRUCCIÓN Logo"
-                width={300}
-                height={112}
+                width={1672}
+                height={941}
                 priority
                 className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_10px_rgba(255,255,255,0.1)]"
               />
@@ -153,7 +153,13 @@ export default function Header({ onOpenQuoteModal }: HeaderProps) {
           {/* RIGHT: Certificates */}
           <div className="hidden sm:flex items-center gap-2">
             {/* Bureau Veritas Image Logo */}
-            <Image src="/images/bureau-veritas.png" alt="Bureau Veritas Empresa Homologada" width={100} height={40} className="h-10 w-auto object-contain rounded shadow-sm" />
+            <Image
+              src="/images/bureau-veritas.png"
+              alt="Bureau Veritas Empresa Homologada"
+              width={186}
+              height={92}
+              className="h-12 md:h-14 xl:h-16 w-auto object-contain rounded-sm shadow-sm"
+            />
 
             <button
               onClick={() => onOpenQuoteModal()}

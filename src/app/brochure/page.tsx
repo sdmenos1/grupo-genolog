@@ -433,10 +433,10 @@ export default function BrochureWebPage() {
               {/* Logo */}
               <div className="flex-shrink-0 bg-white p-4 rounded-2xl border-2 border-slate-100 flex items-center justify-center w-full max-w-[280px] md:w-72 shadow-sm print:border-gray-200">
                 <Image
-                  src="/images/logo.png" 
+                  src="/icon.png"
                   alt="Logo GRUPO GENOLG MINERÍA & CONSTRUCCIÓN" 
-                  width={300}
-                  height={120}
+                  width={1672}
+                  height={941}
                   className="w-full h-auto object-contain drop-shadow-md"
                 />
               </div>

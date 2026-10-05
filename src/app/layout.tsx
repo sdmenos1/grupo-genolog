@@ -23,12 +23,9 @@ export const metadata: Metadata = {
   description: 'GRUPO GENOLG MINERÍA & CONSTRUCCIÓN S.C.R.L. (RUC 20608261894). Contratista Minero Homologado Bureau Veritas () y Registro MINEM R.D. 0288-2021.',
   keywords: ['GRUPO GENOLG', 'RUC 20608261894', 'Mantenimiento minero Peru', 'Paradas de planta', 'Cambio de chaquetas molino SAG', 'Montaje metalmecanico Cerro de Pasco'],
   icons: {
-    icon: [
-      { url: '/favicon.ico' },
-      { url: '/icon.png', type: 'image/png' },
-    ],
-    shortcut: '/favicon.ico',
-    apple: '/icon.png',
+    icon: [{ url: '/icon.png?v=20261005', type: 'image/png' }],
+    shortcut: '/icon.png?v=20261005',
+    apple: '/icon.png?v=20261005',
   },
 };
 

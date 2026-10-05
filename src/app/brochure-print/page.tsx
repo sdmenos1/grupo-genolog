@@ -12,9 +12,9 @@ export default function BrochurePrintPage() {
   }
 
   // Imágenes para la portada
-  const portadaImg1 = trabajosData[0]?.galleryImages[0] || '/images/logo.png';
-  const portadaImg2 = trabajosData[1]?.galleryImages[0] || '/images/logo.png';
-  const portadaImg3 = trabajosData[2]?.galleryImages[0] || '/images/logo.png';
+  const portadaImg1 = trabajosData[0]?.galleryImages[0] || '/icon.png';
+  const portadaImg2 = trabajosData[1]?.galleryImages[0] || '/icon.png';
+  const portadaImg3 = trabajosData[2]?.galleryImages[0] || '/icon.png';
 
   const clientes = ['PAN AMERICAN', 'VOLCAN', 'NEXA', 'GLENCORE', 'EL BROCAL', 'MILPO'];
 
@@ -25,7 +25,7 @@ export default function BrochurePrintPage() {
       <section className="a4-page flex flex-col relative bg-white overflow-hidden">
         {/* Top section with Logo - MUCH LARGER */}
         <div className="w-full pt-20 pb-4 flex justify-center z-10 bg-white relative">
-           <img src="/images/logo.png" alt="Logo" className="w-auto h-72 object-contain relative z-20 drop-shadow-xl" />
+           <img src="/icon.png" alt="Logo GRUPO GENOLG MINERÍA & CONSTRUCCIÓN" className="w-auto h-72 object-contain relative z-20 drop-shadow-xl" />
         </div>
         
         {/* Middle Band with Geometrics */}

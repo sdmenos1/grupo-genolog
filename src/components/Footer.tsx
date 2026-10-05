@@ -18,10 +18,10 @@ export default function Footer({ onOpenPolicyModal }: FooterProps) {
             <div className="flex items-center gap-3">
               <div className="bg-white px-4 py-2 rounded-xl border-2 border-brand-gold shadow-md inline-block">
                 <Image
-                  src="/images/corporativo/logo.png"
+                  src="/icon.png"
                   alt="GRUPO GENOLG MINERÍA & CONSTRUCCIÓN"
-                  width={200}
-                  height={56}
+                  width={1672}
+                  height={941}
                   className="h-12 sm:h-14 w-auto object-contain"
                 />
               </div>
